@@ -141,7 +141,7 @@ search.addEventListener('click', e => {
 	search.style.transform = `translateX(-${search.offsetLeft - 15}px)`
 	input.classList.add('inputActive')
 	setTimeout ( () => {
-		input.focus()}, 400)
+		input.focus()}, 600)
 } else {
 	setTimeout ( () => {input.value = '', 0})
 
