@@ -1,29 +1,60 @@
 
 
 const menu = document.querySelectorAll('.menu-item');
-
-
+const secondSpoller = document.querySelector('.second-spoller')
+const information = document.querySelector('.information')
+const arrowMainMenu= document.querySelector('#arrowMainMenu')
+function openMainMenu() {
 for(let i = 0; i < menu.length; i++) {
 	let item = menu[i];
-	item.addEventListener('mouseenter', showSub, false)
-	item.addEventListener('mouseleave', hideSub, false)
+	item.addEventListener('mouseenter', e => {
+		e.target.children[0].classList.toggle('showHide')
+	}, false)
+	item.addEventListener('mouseleave', e => {
+		e.target.children[0].classList.toggle('showHide')
+		secondSpoller.classList.remove('showHide')
+		e.target.children[1].style.removeProperty('transform')
+
+	}, false)
+	information.addEventListener('mouseenter', e => {
+		secondSpoller.classList.toggle('showHide')
+		e.target.children[1].style.transform = `translateX(10px)`
+
+	}, false)
+
+	secondSpoller.addEventListener('mouseleave', e => {
+		secondSpoller.classList.toggle('showHide')
+
+	}, false)
+
+
 }
+}
+
+
+openMainMenu()
+//===============================/===============================/===============================/===============================/===============================
 
 function showSub() {
 
-	this.children[0].classList.add('showHide')
+
 	}
 function hideSub() {
 
-	this.children[0].classList.remove('showHide')
+	// secondSpoller.classList.remove('show-hide')
+
 	}
+
+
+//===============================/===============================/===============================/===============================/===============================
+
+//===============================/===============================/===============================/===============================/===============================
 
 
 
 const burger = document.querySelector('[data-burger]')
 const mobileNav = document.querySelector('[data-nav]')
 const header = document.querySelector('.header')
-const secondSpoller = document.querySelector('.second-spoller')
 const menuHidden = document.querySelector('.menu-hidden')
 
 
@@ -33,7 +64,7 @@ function headerResize () {
 	const widthMenuHidden = menuHidden.offsetWidth
 	const heightMenuHidden = menuHidden.offsetHeight
 	mobileNav.style.top = `${headerHeight - 1}px`
-	secondSpoller.style.top = `${heightMenuHidden - (heightMenuHidden / 20)}px`
+	secondSpoller.style.top = `${heightMenuHidden / 20}px`
 	secondSpoller.style.left = `${widthMenuHidden}px`
 
 }
@@ -88,7 +119,6 @@ accors.forEach(el => {
 })
 const container = document.querySelector('.header__container')
 const search = document.querySelector('.search-btn')
-const distance = document.querySelector('.search-btn')
 const searchSVG = document.querySelector('#search')
 
 

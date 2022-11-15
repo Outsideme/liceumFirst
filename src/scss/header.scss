@@ -103,6 +103,7 @@
 //====================================================================================================
 .header__body {
 	background-color: $mainTif;
+
 	@include adaptiveValue('min-height', 80, 52)
 }
 
@@ -156,9 +157,12 @@
 
 
 .second-spoller {
-	background-color: #128bb8;
 	position: absolute;
+	background-color: #fff;
+	box-shadow: 0 0 9px rgba(5, 71, 69, 0.15);
+	border-radius: 10px;
 	transition-duration: all .3s;
+	overflow: hidden;
 	visibility: hidden;
 	opacity: 0;
 	transform: translateY(-500px);
@@ -169,6 +173,31 @@
 }
 
 
+.about-liceum,
+.incoming-liceum,
+.students-liceum,
+.selfmade-liceum,
+.achievements-liceum,
+.contacts-liceum {
+	position: relative;
+
+	&:after {
+		opacity: 0;
+		content: '';
+		transition: all .3s ease;
+		width: 100%;
+		height: 1px;
+		position: absolute;
+		top: 30px;
+		left: .5px;
+		background-color: white;
+
+	}
+
+	&:hover::after {
+		opacity: 1;
+	}
+}
 
 .menu-item {
 	cursor: pointer;
@@ -180,14 +209,6 @@
 	padding-top: rem(15);
 	font-weight: 700;
 	transition-duration: .8s;
-
-
-	&:hover {
-		border-top: 1px solid $mainTif;
-		transform: translateY(1px);
-
-	}
-
 }
 
 .burger {
@@ -342,7 +363,44 @@
 
 .menu-link {
 
-	overflow: hidden;
+	transition-duration: .1s;
+	padding-top: rem(8);
+	padding-bottom: rem(8);
+	width: 100%;
+	padding-left: rem(16);
+	padding-right: rem(16);
+	// transition: background-size .3s ease;
+
+	&:hover {
+		background-color: $bgTif;
+		box-shadow: inset 2px 2px 3px rgba(7, 124, 120, 0.15);
+
+		&:first-child {
+			border-radius: 10px 10px 0 0;
+		}
+
+		&:last-child {
+			border-radius: 0 0 10px 10px;
+		}
+
+		.link-a {
+
+			border-bottom: 1px solid rgba(0, 0, 0, .4);
+		}
+	}
+
+	a {
+
+		font-weight: 400;
+		font-size: rem(12);
+		color: #25282B;
+
+	}
+}
+
+.link-second {
+
+
 	padding-top: rem(8);
 	padding-bottom: rem(8);
 	width: 100%;
@@ -352,12 +410,22 @@
 
 	&:hover {
 		background-color: $bgTif;
+
+		&:first-child {
+			border-radius: 10px 10px 0 0;
+		}
+
+		&:last-child {
+			border-radius: 0 0 10px 10px;
+
+		}
+
 		box-shadow: inset 2px 2px 3px rgba(7, 124, 120, 0.15);
 
 		a {
 			border-bottom: 1px solid rgba(0, 0, 0, .4);
-
 		}
+
 
 	}
 
@@ -369,6 +437,14 @@
 
 	}
 }
+
+.link-sec:hover {
+
+	// background-color: red;
+
+}
+
+
 
 .showHide {
 	visibility: visible;
@@ -389,7 +465,7 @@
 
 .menu-hidden {
 
-	overflow: hidden;
+	// overflow: hidden;
 	white-space: normal;
 	transition-duration: all .3s;
 	visibility: hidden;
@@ -422,11 +498,16 @@ li[data-arrow] {
 	position: relative;
 }
 
+
 #arrowMainMenu {
 	position: absolute;
-	@include adaptiveValue('right', 20, 9);
-	top: 50%;
-	transform: translateY(-50%);
+	@include adaptiveValue('right', 35, 25);
+	transition-duration: .5s;
+	width: 6px;
+	height: 11px;
+	top: 45%;
+
+
 
 
 	path {
@@ -435,6 +516,12 @@ li[data-arrow] {
 	}
 
 }
+
+
+
+// [data-arrowMain] {
+// 	transform: translateX(150px);
+// }
 
 // a[data-arrow] {
 // 	svg {
