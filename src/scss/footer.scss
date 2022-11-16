@@ -6,40 +6,70 @@
 	&__rows {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr) .5fr;
 		@include adaptiveValue('gap', 30, 15);
 		@include adaptiveValue('margin-top', 36, 36)
 	}
 }
 
+.item-list-li {
+	transition-duration: .1s;
+
+	&:hover {
+		transform: translateX(5px);
+
+		a {
+			color: $mainTif;
+
+		}
+	}
+}
+
+.item-list-a {
+	transition-duration: .1s;
+
+
+}
+
 .about-item {
 	grid-column: 2/3;
 	grid-row: 1/2;
+	width: 90%;
 }
 
 .selfmade-item {
 	grid-column: 2/3;
 	grid-row: 2/3;
+	width: 90%;
 }
 
 .incoming-item {
 	grid-column: 3/4;
 	grid-row: 1/2;
+	width: 90%;
 }
 
 .achievments-item {
 	grid-column: 3/4;
 	grid-row: 2/3;
+	width: 90%;
 }
 
 .students-item {
 	grid-column: 4/5;
 	grid-row: 1/2;
+	width: 90%;
 }
 
 .media-item {
 	grid-column: 4/5;
 	grid-row: 2/3;
+	width: 90%;
+}
+
+.aside__contacts {
+	grid-column: 1/2;
+	grid-row: 1/2;
 }
 
 .footer__adres {
@@ -49,26 +79,58 @@
 
 .footer__buttons {
 	grid-column: 1/2;
-	grid-row: 3/4;
+	grid-row: 2/3;
+	align-self: end;
 }
 
 .bottom-copyrights {
 	grid-column: 1/2;
-	grid-row: 4/5;
+	grid-row: 3/4;
+	align-self: start;
+	margin-top: rem(18);
 }
 
 .bottom-maps {
-	grid-column: 3/5;
-	grid-row: 4/5;
+	grid-column: 2/5;
+	grid-row: 3/4;
+	align-self: start;
+	margin-top: rem(18);
+
 }
 
 #tg-footer,
 #vk-footer,
 #ok-footer {
-	width: 45px;
-	height: 45px;
+	@include adaptiveValue('width', 45, 35);
+	@include adaptiveValue('height', 45, 35);
+	transition-duration: .2s;
+
+	path {
+		fill: #00B2B5;
+		animation-name: animSVG;
+	}
+
+
+	&:hover {
+		transform: scale(103%);
+		transition-duration: .1s;
+
+		path {
+			fill: #fff;
+			transition-duration: .2s;
+		}
+	}
 }
 
+@keyframes animSVG {
+	0% {
+		fill: #fff;
+	}
+
+	100% {
+		fill: red;
+	}
+}
 
 .item-title {
 	@include adaptiveValue('gap', 30, 5);
@@ -100,7 +162,7 @@
 	}
 }
 
-.social-icons-footer svg {
+.social-icons-footer a {
 	&:not(:last-child) {
 		@include adaptiveValue('margin-right', 16, 14)
 	}
@@ -122,4 +184,236 @@
 	}
 }
 
-//====================================================================================================
+.footer__journal,
+.footer__account {
+	height: 39px;
+	@include adaptiveValue('width', 210, 150);
+	background-color: #fff;
+	color: $mainText;
+	border-radius: 10px;
+	font-size: 12px;
+	font-weight: 700;
+	transition: .05s;
+	// box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .5);
+	box-shadow: 0px 0px 3px rgba(255, 255, 255, .5);
+
+
+	&:hover {
+		transform: translateY(-1.5px);
+		transform: scale(102%);
+		// transform: translateY(.5px);
+		box-shadow: 0px 0px 5px rgba(255, 255, 255, .5);
+
+		// box-shadow: inset 0px 0px 4px rgba(0, 0, 0, .5);
+
+	}
+
+	&:active {
+		transform: translateY(.5px);
+		// box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 1);
+		box-shadow: 0px 0px 2px rgba(255, 255, 255, .5);
+
+	}
+
+	&:not(:last-child) {
+		margin-bottom: rem(7);
+
+	}
+}
+
+.bottom-copyrights {
+	font-size: rem(12);
+	font-weight: 400;
+	white-space: nowrap;
+
+	h2:not(:last-child) {
+		margin-bottom: rem(4);
+	}
+}
+
+.bottom-maps {
+	font-size: rem(12);
+	font-weight: 400;
+	text-align: right;
+	color: $mainTif;
+
+	h2:not(:last-child) {
+		margin-bottom: rem(8);
+	}
+
+
+}
+
+@media screen and (max-width: 670px) {
+	.footer {
+		background-color: $mainText;
+		color: #fff;
+
+		&__rows {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr) .5fr;
+			@include adaptiveValue('gap', 30, 15);
+			@include adaptiveValue('margin-top', 36, 36);
+			margin-bottom: rem(16);
+		}
+	}
+
+	.aside__contacts {
+		grid-column: 1/3;
+		grid-row: 1/2;
+	}
+
+	.footer__adres {
+		grid-column: 2/3;
+		grid-row: 1/2;
+	}
+
+	.footer__buttons {
+		grid-column: 3/4;
+		grid-row: 1/2;
+		align-self: start;
+	}
+
+	.bottom-copyrights {
+		grid-column: 1/2;
+		grid-row: 4/5;
+		align-self: end;
+		margin-top: rem(18);
+	}
+
+	.bottom-maps {
+		grid-column: 2/4;
+		grid-row: 4/5;
+		align-self: end;
+		margin-top: rem(18);
+
+	}
+
+	//===========================//===========================//===========================//===========================
+
+	.about-item {
+		grid-column: 1/2;
+		grid-row: 2/3;
+	}
+
+	.selfmade-item {
+		grid-column: 1/2;
+		grid-row: 3/4;
+	}
+
+	.incoming-item {
+		grid-column: 2/3;
+		grid-row: 2/3;
+	}
+
+	.achievments-item {
+		grid-column: 2/3;
+		grid-row: 3/4;
+	}
+
+	.students-item {
+		grid-column: 3/4;
+		grid-row: 2/3;
+	}
+
+	.media-item {
+		grid-column: 3/4;
+		grid-row: 3/4;
+	}
+}
+
+//====================================================================================================//====================================================================================================
+@media screen and (max-width: 576px) {
+	.footer {
+		&__container {}
+
+		background-color: $mainText;
+		color: #fff;
+
+		&__rows {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: .5fr .3fr .5fr repeat(2, 1fr) .5fr;
+			gap: 30px;
+		}
+
+		.aside__contacts {
+			grid-column: 1/5;
+			grid-row: 1/2;
+			justify-self: center;
+			text-align: center;
+		}
+
+		.footer__adres {
+			grid-column: 1/5;
+			grid-row: 2/3;
+			justify-self: center;
+			text-align: center;
+		}
+
+		.footer__buttons {
+			button {
+				display: block;
+				width: rem(290);
+			}
+
+			grid-column: 1/5;
+			grid-row: 3/4;
+			justify-self: center;
+		}
+
+		.bottom-copyrights {
+			grid-column: 1/5;
+			grid-row: 7/8;
+			justify-self: center;
+			text-align: center;
+		}
+
+		.bottom-maps {
+			display: none;
+		}
+
+		//===========================//===========================//===========================//===========================//===========================//===========================//===========================//===========================
+
+		.about-item {
+			grid-column: 1/3;
+			grid-row: 4/5;
+			width: 85%;
+		}
+
+		.selfmade-item {
+			grid-column: 1/3;
+			grid-row: 5/6;
+			width: 85%;
+		}
+
+		.achievments-item {
+			grid-column: 1/3;
+			grid-row: 6/7;
+			width: 85%;
+		}
+
+		.incoming-item {
+			grid-column: 3/5;
+			grid-row: 4/5;
+			width: 85%;
+
+		}
+
+
+		.students-item {
+			grid-column: 3/5;
+			grid-row: 5/6;
+			width: 85%;
+
+		}
+
+		.media-item {
+			grid-column: 3/5;
+			grid-row: 6/7;
+			width: 85%;
+
+		}
+	}
+}

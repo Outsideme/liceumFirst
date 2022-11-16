@@ -1,0 +1,216 @@
+.main {
+	background-color: $mainBg;
+	height: 100%;
+	@include adaptiveValue('padding-top', 104, 64)
+}
+
+.team__title {
+	@include adaptiveValue('margin-bottom', 40, 32);
+	@include adaptiveValue('font-size', 40, 24);
+	font-weight: 700;
+
+
+}
+
+
+
+.main__team {}
+
+.team__leadership {}
+
+.leaders__title {
+	@include adaptiveValue('margin-bottom', 40, 24);
+	@include adaptiveValue('font-size', 32, 22);
+	font-weight: 700;
+}
+
+.leaders {
+	&__rows {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		gap: 30px;
+	}
+}
+
+.leaders-item-1 {
+	grid-column: 1/2;
+	grid-row: 1/2;
+}
+
+.leaders__main-description {
+	grid-column: 2/4;
+	grid-row: 1/2;
+	background-color: #C9ECED;
+	border-radius: 20px;
+	position: relative;
+	background-image: url('../img/liceum.png');
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: contain;
+	// background-position-y: 300%;
+	background-position: bottom; // @include adaptiveValue('font-size', 18, 12);
+
+}
+
+#quotes {
+	@include adaptiveValue('width', 33, 18);
+	@include adaptiveValue('height', 29, 11);
+	@include adaptiveValue('top', 51, 25);
+	@include adaptiveValue('left', 41, 13);
+	position: absolute;
+
+}
+
+.main-description {
+	@include adaptiveValue('margin-top', 47, 21);
+	@include adaptiveValue('margin-left', 93, 46);
+	@include adaptiveValue('margin-right', 55, 22);
+	@include adaptiveValue('font-size', 18, 8);
+	line-height: math.div(16, 12);
+
+}
+
+.leaders-item-2 {
+	grid-column: 1/2;
+	grid-row: 2/3;
+}
+
+.leaders-item-3 {
+	grid-column: 2/3;
+	grid-row: 2/3;
+}
+
+.leaders-item-4 {
+	grid-column: 3/4;
+	grid-row: 2/3;
+}
+
+
+.card-team__photo {
+	margin-bottom: rem(16);
+
+	img {
+		// object-fit: cover;
+		width: 100%;
+	}
+}
+
+.card-team__name {
+	margin-bottom: rem(8);
+	@include adaptiveValue('font-size', 20, 16);
+	font-weight: 700;
+}
+
+.card-team__position {
+	line-height: math.div(22, 16);
+	margin-bottom: rem(16);
+	color: $textGrey;
+	font-weight: 700;
+
+}
+
+.card-team__alma-mater {
+	@include adaptiveValue('font-size', 16, 14);
+	line-height: math.div(22, 16);
+	font-weight: 400;
+
+}
+
+@media screen and (max-width: 768px) {
+	.leaders {
+		&__rows {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+			gap: 30px;
+		}
+	}
+
+	//===========================//===========================//===========================//===========================
+	.leaders-item-1 {
+		grid-column: 1/2;
+		grid-row: 1/2;
+	}
+
+	.leaders__main-description {
+		grid-column: 2/3;
+		grid-row: 1/2;
+		background-position: bottom;
+		font-size: rem(12);
+
+	}
+
+	.leaders-item-2 {
+		grid-column: 1/2;
+		grid-row: 2/3;
+	}
+
+	.leaders-item-3 {
+		grid-column: 2/3;
+		grid-row: 2/3;
+	}
+
+	.leaders-item-4 {
+		grid-column: 1/2;
+		grid-row: 3/4;
+	}
+
+}
+
+
+
+@media screen and (max-width: 500px) {
+	.br {
+		display: none;
+	}
+
+	.main__container {
+		padding-left: rem(42);
+		padding-right: rem(42);
+	}
+
+	.leaders {
+		&__rows {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			grid-template-rows: repeat(5, 1fr);
+			gap: 30px;
+		}
+	}
+
+	//===========================//===========================//===========================//===========================
+	.leaders-item-1 {
+		grid-column: 1/2;
+		grid-row: 1/2;
+	}
+
+	.main-description {
+		@include adaptiveValue('font-size', 20, 12);
+	}
+
+	.leaders__main-description {
+		height: 95%;
+		grid-column: 1/2;
+		grid-row: 2/3;
+		background-size: contain;
+		background-position: bottom;
+		font-size: rem(12);
+
+	}
+
+	.leaders-item-2 {
+		grid-column: 1/2;
+		grid-row: 3/4;
+	}
+
+	.leaders-item-3 {
+		grid-column: 1/2;
+		grid-row: 4/5;
+	}
+
+	.leaders-item-4 {
+		grid-column: 1/2;
+		grid-row: 5/6;
+	}
+}

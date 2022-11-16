@@ -1,0 +1,47 @@
+#arrow-bread {
+	path {
+		stroke: $textGrey;
+	}
+
+	@include adaptiveValue('margin-right', 30, 22);
+
+}
+
+.bread {
+	&__container {
+		height: 100%;
+	}
+
+	background-color: #fff;
+	@include adaptiveValue('height', 32, 24);
+
+	&__rows {
+		display: flex;
+		align-items: center;
+		height: 100%;
+
+
+
+	}
+
+	&__title-root {
+		@include adaptiveValue('margin-right', 30, 22);
+
+		a {
+			font-size: rem(12);
+			color: $textGrey;
+
+
+		}
+
+	}
+
+	&__title-current {
+		a {
+			font-size: rem(12);
+			color: $mainTif;
+		}
+
+	}
+
+}
