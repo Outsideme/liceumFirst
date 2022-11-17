@@ -22,8 +22,9 @@ $fontSize: rem(16); // где 14(px) - размер шрифта по умолч
 
 // Основные цвета
 $mainColor: #25282B; // Цвет шрифта по умолчанию
-$mainTif: #00B2B5;
+$mainTif: #00b2b5;
 $bgTif: #CBF0F0;
+$itemTif: #DDF0F2;
 $mainText: #25282B;
 $textGrey: #A4A4AF;
 $mainBg: #F5F6F9;
@@ -155,9 +156,10 @@ body {
 
 // Подключение стилей отдельных блоков
 @import "header";
-@import "bread";
-@import "main";
+@import "crumbs";
 @import "footer";
 
 // Подключение стилей отдельных страниц
-@import "home";
+@import "team";
+@import "paid";
+@import "organization-info";

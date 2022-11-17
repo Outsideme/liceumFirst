@@ -152,12 +152,29 @@
 
 }
 
+.aside__contacts {
+	transition-duration: .3s;
+}
+
 .aside__contacts h2 {
 	@include adaptiveValue('margin-bottom', 36, 30);
+	position: relative;
 
 	a {
 		@include adaptiveValue('font-size', 18, 16);
+		display: inline-block;
 		font-weight: 700;
+
+	}
+
+
+
+	transition-duration: .1s;
+
+	a:hover {
+		transform: scale(103%);
+		transition-duration: .1s;
+
 
 	}
 }
@@ -194,25 +211,19 @@
 	font-size: 12px;
 	font-weight: 700;
 	transition: .05s;
-	// box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .5);
 	box-shadow: 0px 0px 3px rgba(255, 255, 255, .5);
 
 
 	&:hover {
 		transform: translateY(-1.5px);
 		transform: scale(102%);
-		// transform: translateY(.5px);
 		box-shadow: 0px 0px 5px rgba(255, 255, 255, .5);
-
-		// box-shadow: inset 0px 0px 4px rgba(0, 0, 0, .5);
 
 	}
 
 	&:active {
 		transform: translateY(.5px);
-		// box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 1);
 		box-shadow: 0px 0px 2px rgba(255, 255, 255, .5);
-
 	}
 
 	&:not(:last-child) {
@@ -236,6 +247,27 @@
 	font-weight: 400;
 	text-align: right;
 	color: $mainTif;
+	transition-duration: .3s;
+
+	h2 {
+		transition-duration: .3s;
+	}
+
+	h2:hover {
+		transform: translateX(-5px);
+		transition-duration: .3s;
+
+	}
+
+	a {
+		transition-duration: .3s;
+	}
+
+	a:hover {
+		color: #fff;
+		transition-duration: .3s;
+
+	}
 
 	h2:not(:last-child) {
 		margin-bottom: rem(8);

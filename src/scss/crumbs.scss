@@ -3,11 +3,12 @@
 		stroke: $textGrey;
 	}
 
-	@include adaptiveValue('margin-right', 30, 22);
+	@include adaptiveValue('margin-right', 30, 12);
 
 }
 
-.bread {
+.crumbs {
+
 	&__container {
 		height: 100%;
 	}
@@ -17,6 +18,8 @@
 
 	&__rows {
 		display: flex;
+		white-space: nowrap;
+		flex-wrap: wrap;
 		align-items: center;
 		height: 100%;
 
@@ -25,7 +28,7 @@
 	}
 
 	&__title-root {
-		@include adaptiveValue('margin-right', 30, 22);
+		@include adaptiveValue('margin-right', 30, 12);
 
 		a {
 			font-size: rem(12);
@@ -44,4 +47,14 @@
 
 	}
 
+}
+
+.bread-arrow-wrap {
+	display: none;
+}
+
+@media screen and (max-width: 576px) {
+	.bread-arrow-wrap {
+		display: inline;
+	}
 }
