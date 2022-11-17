@@ -189,7 +189,6 @@ const btnEye = document.querySelector('.grey')
 
 
 
-
 /*
 (i) Код попадает в итоговый файл,
 только когда вызвана функция,

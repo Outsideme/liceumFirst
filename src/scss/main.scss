@@ -1,11 +1,12 @@
 .main {
 	background-color: $mainBg;
 	height: 100%;
-	@include adaptiveValue('padding-top', 104, 64)
+	@include adaptiveValue('padding-top', 104, 64);
+	@include adaptiveValue('padding-bottom', 104, 64);
+
 }
 
 .team__title {
-	@include adaptiveValue('margin-bottom', 40, 32);
 	@include adaptiveValue('font-size', 40, 24);
 	font-weight: 700;
 
@@ -18,19 +19,29 @@
 
 .team__leadership {}
 
-.leaders__title {
+.team-section-title {
 	@include adaptiveValue('margin-bottom', 40, 24);
+
+
+
+	@include adaptiveValue('margin-top', 104, 64);
+
+
 	@include adaptiveValue('font-size', 32, 22);
 	font-weight: 700;
 }
 
-.leaders {
-	&__rows {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: repeat(2, 1fr);
-		gap: 30px;
-	}
+.leaders__title {
+	@include adaptiveValue('margin-top', 40, 32);
+
+}
+
+.team-section-rows {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(1, 1fr);
+	grid-auto-rows: 1fr;
+	gap: 30px;
 }
 
 .leaders-item-1 {
@@ -118,13 +129,14 @@
 }
 
 @media screen and (max-width: 768px) {
-	.leaders {
-		&__rows {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: repeat(3, 1fr);
-			gap: 30px;
-		}
+
+	.team-section-rows {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-auto-rows: 1fr;
+
+		gap: 30px;
 	}
 
 	//===========================//===========================//===========================//===========================
@@ -170,13 +182,14 @@
 		padding-right: rem(42);
 	}
 
-	.leaders {
-		&__rows {
-			display: grid;
-			grid-template-columns: repeat(1, 1fr);
-			grid-template-rows: repeat(5, 1fr);
-			gap: 30px;
-		}
+
+	.team-section-rows {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-auto-rows: 1fr;
+
+		gap: 30px;
 	}
 
 	//===========================//===========================//===========================//===========================
