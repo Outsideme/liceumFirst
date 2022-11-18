@@ -23,6 +23,7 @@ $fontSize: rem(16); // где 14(px) - размер шрифта по умолч
 // Основные цвета
 $mainColor: #25282B; // Цвет шрифта по умолчанию
 $mainTif: #00b2b5;
+$borderTif: #6CD3D3;
 $bgTif: #CBF0F0;
 $itemTif: #DDF0F2;
 $mainText: #25282B;
@@ -163,3 +164,6 @@ body {
 @import "team";
 @import "paid";
 @import "organization-info";
+@import "financial-activities";
+@import "main-info";
+@import "documents"

@@ -1,0 +1,88 @@
+.main-info {
+	background-color: $mainBg;
+	@include adaptiveValue('padding-bottom', 104, 64);
+
+}
+
+.main-info__container {}
+
+.main-info__rows {
+
+
+
+	h1 {
+		@include adaptiveValue('font-size', 40, 26);
+		@include adaptiveValue('padding-top', 104, 64);
+		@include adaptiveValue('margin-bottom', 40, 24);
+		font-weight: 700;
+		line-height: 120%;
+	}
+
+	h2 {
+
+		@include adaptiveValue('font-size', 18, 14);
+		@include adaptiveValue('margin-bottom', 16, 12);
+		line-height: math.div(25, 18);
+
+		a {
+			display: inline-block;
+			border-bottom: 1px solid $mainTif;
+			color: $mainTif;
+		}
+
+		span {
+			font-weight: 700;
+
+		}
+
+	}
+
+	.mode-title {
+		@include adaptiveValue('margin-top', 40, 24)
+	}
+
+	.lesson-mode-grid {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+	}
+
+	.lesson-mode {
+		display: flex;
+		flex-direction: column;
+		grid-column: 1/8;
+		border: 1px solid $borderTif;
+	}
+
+	.lesson-mode {
+		border-radius: 10px;
+		background-color: rgba(255, 255, 255, .5);
+
+		&__items {
+
+			margin: rem(16);
+
+			h4 {
+				border-left: 1px solid $borderTif;
+				padding-left: rem(14);
+			}
+		}
+
+		&__item {
+			display: flex;
+			justify-content: space-between;
+			@include adaptiveValue('font-size', 18, 14);
+
+			&:not(:last-child) {
+				padding-bottom: 16px;
+				border-bottom: 1px solid $borderTif;
+			}
+
+			&:not(:first-child) {
+				padding-top: 16px;
+				// border-bottom: 1px solid $borderTif;
+			}
+
+
+		}
+	}
+}

@@ -1,0 +1,52 @@
+.documents {
+	@include adaptiveValue('padding-bottom', 104, 64)
+}
+
+.documents__rows {
+	h1 {
+
+		@include adaptiveValue('font-size', 40, 26);
+		@include adaptiveValue('margin-top', 104, 64);
+		@include adaptiveValue('margin-bottom', 40, 24);
+		font-weight: 700;
+		line-height: 120%;
+	}
+
+	h2 {
+		@include adaptiveValue('font-size', 18, 14);
+		margin-bottom: rem(20);
+		line-height: 140%;
+		transition-duration: .3s;
+
+		&:hover {
+			transform: translateX(5px);
+		}
+
+		a {
+			transition-duration: .3s;
+
+		}
+
+		&:hover {
+			a {
+
+				color: $mainTif;
+			}
+		}
+
+	}
+}
+
+#doc {
+	position: relative;
+	top: 5px;
+	margin-right: rem(12);
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+	.documents__rows {
+		h2 {
+			margin-bottom: 150px;
+		}
+	}
+}

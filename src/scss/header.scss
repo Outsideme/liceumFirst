@@ -572,8 +572,14 @@ li[data-arrow] {
 
 
 .accor {
+	span {
+		font-weight: 700;
+	}
+
 	&:first-child {
 		margin-top: rem(20);
+
+
 	}
 
 	&:last-child {

@@ -172,9 +172,42 @@ searchTranslate()
 
 // const searchBtn = document.querySelector('.search-btn')
 
-const body = document.body
-const btnEye = document.querySelector('.grey')
 
+const h4Last = document.querySelector('#h4-last')
+const propertOne = document.querySelector('.propert-1')
+const propertTwo = document.querySelector('.propert-2')
+console.log(h4Last.offsetWidth)
+const h4StartWidth = () => {
+	console.log()
+	propertOne.style.minWidth = h4Last.offsetWidth + "px"
+	propertTwo.style.minWidth = h4Last.offsetWidth + "px"
+}
+window.addEventListener('resize', e => {
+	let h4Width = h4Last.offsetWidth
+	propertOne.style.minWidth = `${h4Width}px`
+	propertTwo.style.minWidth = `${h4Width}px`
+
+})
+h4StartWidth()
+
+
+
+const lessonMode = document.querySelector('.lesson-mode')
+window.addEventListener('resize', e => {
+	let widthWindow = document.documentElement.offsetWidth
+
+	if (widthWindow < 1024 && widthWindow > 767) {
+		lessonMode.style.gridColumn = '1/9'
+	}
+	if (widthWindow < 767 && widthWindow > 567) {
+		lessonMode.style.gridColumn = '1/13'
+	}
+	if (widthWindow > 1024) {
+
+			lessonMode.style.gridColumn = '1/8'
+	}
+
+})
 
 
 
