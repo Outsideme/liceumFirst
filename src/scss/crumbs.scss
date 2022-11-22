@@ -8,13 +8,15 @@
 }
 
 .crumbs {
+	padding-top: 5px;
+	padding-bottom: 5px;
 
 	&__container {
 		height: 100%;
 	}
 
 	background-color: #fff;
-	@include adaptiveValue('height', 32, 24);
+	@include adaptiveValue('min-height', 32, 24);
 
 	&__rows {
 		display: flex;

@@ -44,6 +44,10 @@
 		transform: scale(105%);
 	}
 
+	&:active {
+		transform: scale(98%);
+	}
+
 	svg {
 		@include adaptiveValue('width', 100, 57);
 		@include adaptiveValue('height', 100, 57);

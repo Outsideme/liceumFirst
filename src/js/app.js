@@ -1,10 +1,10 @@
 
 
-const menu = document.querySelectorAll('.menu-item');
-const secondSpoller = document.querySelector('.second-spoller')
-const information = document.querySelector('.information')
-const arrowMainMenu= document.querySelector('#arrowMainMenu')
+	const secondSpoller = document.querySelector('.second-spoller')
 function openMainMenu() {
+	const menu = document.querySelectorAll('.menu-item');
+	const information = document.querySelector('.information')
+	if (menu) {
 for(let i = 0; i < menu.length; i++) {
 	let item = menu[i];
 	item.addEventListener('mouseenter', e => {
@@ -13,7 +13,6 @@ for(let i = 0; i < menu.length; i++) {
 	item.addEventListener('mouseleave', e => {
 		e.target.children[0].classList.toggle('showHide')
 		secondSpoller.classList.remove('showHide')
-		e.target.children[1].style.removeProperty('transform')
 
 	}, false)
 	information.addEventListener('mouseenter', e => {
@@ -28,22 +27,12 @@ for(let i = 0; i < menu.length; i++) {
 	}, false)
 
 
-}
+}}
 }
 
 
 openMainMenu()
 //===============================/===============================/===============================/===============================/===============================
-
-function showSub() {
-
-
-	}
-function hideSub() {
-
-	// secondSpoller.classList.remove('show-hide')
-
-	}
 
 
 //===============================/===============================/===============================/===============================/===============================
@@ -176,23 +165,29 @@ searchTranslate()
 const h4Last = document.querySelector('#h4-last')
 const propertOne = document.querySelector('.propert-1')
 const propertTwo = document.querySelector('.propert-2')
-console.log(h4Last.offsetWidth)
-const h4StartWidth = () => {
-	console.log()
-	propertOne.style.minWidth = h4Last.offsetWidth + "px"
-	propertTwo.style.minWidth = h4Last.offsetWidth + "px"
-}
-window.addEventListener('resize', e => {
+const listenerWidthGrid = () => {
+	window.addEventListener('resize', e => {
+	if (h4Last) {
 	let h4Width = h4Last.offsetWidth
 	propertOne.style.minWidth = `${h4Width}px`
 	propertTwo.style.minWidth = `${h4Width}px`
-
+}
 })
+}
+listenerWidthGrid()
+
+
+const h4StartWidth = () => {
+	if (h4Last) {
+	propertOne.style.minWidth = h4Last.offsetWidth + "px"
+	propertTwo.style.minWidth = h4Last.offsetWidth + "px"
+}}
 h4StartWidth()
 
 
-
 const lessonMode = document.querySelector('.lesson-mode')
+const mediaLessonMode = () => {
+	if (lessonMode) {
 window.addEventListener('resize', e => {
 	let widthWindow = document.documentElement.offsetWidth
 
@@ -207,19 +202,73 @@ window.addEventListener('resize', e => {
 			lessonMode.style.gridColumn = '1/8'
 	}
 
-})
+})}}
+mediaLessonMode()
+
+
+const widthProgResize = () => {
+	if (educationH3) {
+		window.addEventListener('resize', e => {
+			return educationH3.offsetWidth + `px`
+		})}}
+
+		const widthEducationTable = () => {
+			const educationH3 = document.querySelector('#educationH3')
+			const periodEducation = document.querySelectorAll('.ourWidth-education')
+			if (educationH3 && periodEducation) {
+				for (let i = 0; i < periodEducation.length; i++) {
+					const element = periodEducation[i];
+					element.style.width = widthProgResize()
+				}}
+
+			}
+			widthEducationTable()
 
 
 
+			const btnAccorEducation = document.querySelectorAll('.btn-education-accor').forEach(e=> {e.addEventListener('click', btnAccorEducationOpen, false)})
+function btnAccorEducationOpen () {
+const accor = this.nextElementSibling
+const content = this.nextElementSibling.children[0]
+if (!accor.classList.contains('education-accor-active')) {
+	accor.classList.add('education-accor-active')
+	content.classList.add('educationContentAccor')
+	this.classList.add('btn-education-radio')
+	this.children[0].children[1].style.transform = `rotate(-180deg)`
+
+} else {
+	accor.classList.remove('education-accor-active')
+	content.classList.remove('educationContentAccor')
+	this.children[0].children[1].style.transform = `rotate(0deg)`
+
+	setTimeout(() => {
+		this.classList.remove('btn-education-radio')
+
+	}, 310);
+}
+}
 
 
+function lastTdWidth () {
+	const lastTdsClock = document.querySelectorAll('.education-clock')
+	const lastTd = document.querySelector('.ourWidth-education-last-width-clock').offsetWidth
 
 
+	lastTdsClock.forEach(e => {
+		e.style.width = `${lastTd }px`
 
+	})
 
+	const lastTdTemplate = document.querySelector('.last-td-template').offsetWidth
+	const lastTdTemplateMove = document.querySelectorAll('.last-td-template-move')
+	lastTdTemplateMove.forEach(e => {
+		e.style.width = lastTdTemplate + `px`
+		console.log(e)
 
+	})
 
-
+}
+lastTdWidth()
 
 
 /*
