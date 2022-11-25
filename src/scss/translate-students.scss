@@ -1,0 +1,47 @@
+.paid {}
+
+.paid__container {}
+
+.paid__rows {
+	h1 {
+
+		@include adaptiveValue('font-size', 40, 26);
+		@include adaptiveValue('margin-top', 104, 64);
+		@include adaptiveValue('margin-bottom', 40, 24);
+		font-weight: 700;
+		line-height: 120%;
+	}
+
+	h2 {
+		@include adaptiveValue('font-size', 18, 14);
+		@include adaptiveValue('margin-bottom', 40, 40);
+		line-height: 140%;
+
+	}
+
+	h3 {
+		@include adaptiveValue('font-size', 18, 14);
+		@include adaptiveValue('padding-left', 32, 24);
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			@include adaptiveValue('left', 16, 12);
+			top: 50%;
+			transform: translateY(-50%);
+			width: 6px;
+			height: 6px;
+			background-color: $mainText;
+			border-radius: 50%;
+		}
+
+		line-height: 140%
+	}
+
+}
+
+.translate-students-text-box {
+
+	@include adaptiveValue('margin-bottom', 400, 160);
+}

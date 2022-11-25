@@ -1,0 +1,177 @@
+.contacts {}
+
+.contacts__container {}
+
+.contacts__rows {
+	@include adaptiveValue('font-size', 18, 14);
+
+	h1 {
+
+		@include adaptiveValue('font-size', 40, 26);
+		@include adaptiveValue('margin-top', 104, 64);
+		@include adaptiveValue('margin-bottom', 40, 24);
+		font-weight: 700;
+		line-height: 140%;
+	}
+
+	h2 {
+		@include adaptiveValue('font-size', 18, 14);
+		@include adaptiveValue('margin-bottom', 400, 200);
+		line-height: 140%;
+
+	}
+}
+
+.contacts-box {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr;
+	grid-gap: 40px;
+}
+
+.contacts-box__left {
+	grid-column: 1/2;
+}
+
+.contacts-box__work-period {
+	@include adaptiveValue('margin-bottom', 16, 12);
+
+	p {
+		line-height: 140%;
+
+		span {
+			font-weight: 700;
+		}
+	}
+}
+
+.contacts-list {
+	li {
+
+		line-height: 140%;
+
+		&:after {
+			content: "";
+			@include adaptiveValue('width', 6, 3);
+			@include adaptiveValue('height', 6, 3);
+			@include adaptiveValue('left', -16, -8);
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background-color: $mainText;
+			border-radius: 50%;
+
+		}
+	}
+}
+
+.map-box {}
+
+
+.contacts-links {
+	color: $mainTif;
+	border-bottom: 1px solid $borderTif;
+}
+
+.contacts-box__contacts {
+	@include adaptiveValue('margin-bottom', 109, 80);
+
+	ul {
+		@include adaptiveValue('margin-left', 36, 28);
+
+		li {
+			@include adaptiveValue('margin-bottom', 16, 8);
+			line-height: 140%;
+
+			position: relative;
+
+			svg {
+				position: absolute;
+
+
+				top: 0;
+			}
+
+
+		}
+	}
+}
+
+.how-to-get {
+	p {
+		line-height: 140%;
+
+		@include adaptiveValue('margin-bottom', 8, 8);
+	}
+
+	h3 {
+		line-height: 140%;
+
+
+		@include adaptiveValue('margin-bottom', 16, 8);
+
+		span {
+			font-weight: 700;
+		}
+	}
+}
+
+.contacts-box__right {
+	grid-column: 2/3;
+
+}
+
+#contacts-phone {
+	@include adaptiveValue('width', 24, 16);
+	@include adaptiveValue('height', 24, 16);
+	@include adaptiveValue('left', -32, -26);
+
+}
+
+#contacts-mail {
+	@include adaptiveValue('width', 24, 16);
+	@include adaptiveValue('left', -32, -26);
+
+}
+
+#contacts-marker {
+	@include adaptiveValue('width', 18, 10);
+	@include adaptiveValue('height', 24, 16);
+	@include adaptiveValue('left', -29, -23);
+
+}
+
+@media screen and (max-width: 1024px) {
+	.map-box {
+
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.contacts-box {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, 1fr);
+		grid-gap: 40px;
+	}
+
+	.contacts-box__right {
+		grid-column: 1/2;
+
+	}
+
+	.map-box {
+		text-align: center;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+
+
+	.map-box {
+		margin: 0 auto;
+		@include adaptiveValue('width', 600, 300)
+	}
+}

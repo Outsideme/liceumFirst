@@ -3,12 +3,18 @@
 		<section class="education__rows">
 			<h1>Образование</h1>
 			<h2>Календарный учебный график на 2022-2023 учебный год</h2>
-			<div class="box-chart"><a class="chart" href="" download="">@@include('svg/document-doc.svg')
-					Учебно-календарный график 2022/23</a></div>
+			<ul class="documents-list doc-education-list">
+				<li>@@include('svg/document-doc.svg')
+					<h2 class="download-link-keeper edu-graph-li"><a href="#" class="download-file" download="">
+							Учебно-календарный график 2022/23</a>
+						</a>
+					</h2>
+				</li>
+			</ul>
 			<h2 data-miniH2>Учебные периоды и сроки промежуточной аттестации 7-9 классов</h2>
 
 			<div class="first-tables">
-				<div class="education-tables__table table-quarter">
+				<div class="education-tables__table table-quarter hide-table">
 					<div class="education-tables__titles">
 						<h3 class="ourWidth-education"><span>Классы</span></h3>
 						<h3 class="ourWidth-education"><span>1 четверть</span></h3>
@@ -44,9 +50,46 @@
 							(1 уч. недель)</h3>
 					</div>
 				</div>
+				<div class="quarter-mobile">
+					<div class="quarter-mobile-box">
+						<div class="quarter-mobile-box__title-classes">
+							<h3>Классы</h3>
+						</div>
+						<div class="quarter-mobile-box__select">
+
+							<button class="button-select btn-select-one"><span>Выберите период</span>
+								@@include('svg/arrow-select.svg')
+							</button>
+							<div class="quarter-mobile-box__container">
+								<div class="quarter-mobile-box__content">
+									<ul>
+										<li><span class="li-select" id="quarter-li-1" href="#">1 Четверть</span></li>
+										<li><span class="li-select" id="quarter-li-2" href="#">2 Четверть</span></li>
+										<li><span class="li-select" id="quarter-li-3" href="#">3 Четверть</span></li>
+										<li><span class="li-select" id="quarter-li-4" href="#">4 Четверть</span></li>
+										<li><span class="li-select" id="quarter-li-5" href="#">ПА</span></li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+						<div class="quarter-mobile-box__classes-jun">
+							<h3>7-8</h3>
+						</div>
+						<div class="quarter-mobile-box__classes-sin">
+							<h3>9</h3>
+						</div>
+						<div class="quarter-mobile-box__classes-output-jun">
+							<h3></h3>
+						</div>
+						<div class="quarter-mobile-box__classes-output-sin">
+							<h3></h3>
+						</div>
+					</div>
+				</div>
 				<!-- ====================================================================== -->
 				<h2 data-miniH2>Учебные периоды и сроки промежуточной аттестации 10-11 классов</h2>
-				<div class="education-tables__table table-period">
+				<div class="education-tables__table table-period hide-table">
 					<div class="education-tables__titles">
 						<h3 class="ourWidth-education"><span>Классы</span></h3>
 						<h3 class="ourWidth-education"><span>1 полугодие</span></h3>
@@ -72,9 +115,47 @@
 							(1 уч. недель)</h3>
 					</div>
 				</div>
+
+				<div class="quarter-mobile">
+					<div class="quarter-mobile-box">
+						<div class="quarter-mobile-box__title-classes">
+							<h3>Классы</h3>
+						</div>
+						<div class="quarter-mobile-box__select">
+
+							<button class="button-select btn-select-two"><span>Выберите период</span>
+								@@include('svg/arrow-select.svg')
+							</button>
+							<div class="quarter-mobile-box__container">
+								<div class="quarter-mobile-box__content">
+									<ul>
+										<li><span class="li-select" id="quarter-li-1-second">1
+												полугодие</span></li>
+										<li><span class="li-select" id="quarter-li-2-second">2
+												полугодие</span></li>
+										<li><span class="li-select" id="quarter-li-3-second">ПА</span></li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+						<div class="quarter-mobile-box__classes-jun">
+							<h3>10</h3>
+						</div>
+						<div class="quarter-mobile-box__classes-sin">
+							<h3>11</h3>
+						</div>
+						<div class="quarter-mobile-box__classes-output-jun output-jun-second">
+							<h3></h3>
+						</div>
+						<div class="quarter-mobile-box__classes-output-sin output-sin-second">
+							<h3></h3>
+						</div>
+					</div>
+				</div>
 				<!-- ====================================================================== -->
 				<h2 data-miniH2>Сроки каникул</h2>
-				<div class="education-tables__table table-holidays">
+				<div class="education-tables__table table-holidays hide-table">
 					<div class="education-tables__titles">
 						<h3 class="ourWidth-education"><span>Классы</span></h3>
 						<h3 class="ourWidth-education"><span>Осенние</span></h3>
@@ -104,10 +185,52 @@
 						<h3 class="ourWidth-education">ГИА</h3>
 					</div>
 				</div>
+				<div class="quarter-mobile">
+					<div class="quarter-mobile-box">
+						<div class="quarter-mobile-box__title-classes">
+							<h3>Классы</h3>
+						</div>
+						<div class="quarter-mobile-box__select">
+
+							<button class="button-select btn-select-three"><span>Выберите период</span>
+								@@include('svg/arrow-select.svg')
+							</button>
+							<div class="quarter-mobile-box__container">
+								<div class="quarter-mobile-box__content">
+									<ul>
+										<li><span class="li-select" id="quarter-li-1-third">Осенние</span></li>
+										<li><span class="li-select" id="quarter-li-2-third">Зимние</span></li>
+										<li><span class="li-select" id="quarter-li-3-third">Весенние</span></li>
+										<li><span class="li-select" id="quarter-li-4-third">Летние</span></li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+						<div class="quarter-mobile-box__classes-jun">
+							<h3>7-8</h3>
+						</div>
+						<div class="quarter-mobile-box__classes-sin">
+							<h3>9</h3>
+						</div>
+						<div class="quarter-mobile-box__classes-output-jun output-jun-third">
+							<h3></h3>
+						</div>
+						<div class="quarter-mobile-box__classes-output-sin output-sin-third">
+							<h3></h3>
+						</div>
+					</div>
+				</div>
+
 			</div>
+
+
+
+
+
 			<div class="release-proggrams-table table-prog">
 				<h2 data-miniH2>Реализуемые образовательные программы</h2>
-				<div class="education-tables__table">
+				<div class="education-tables__table hide-table">
 					<div class="education-tables__titles">
 						<h3 class="ourWidth-education" id="education-programms-h3">
 							<span>Наимено<br class="educztionProgBr">вание</span>
@@ -138,7 +261,6 @@
 					</div>
 				</div>
 			</div>
-			<h5 class="aside-comment">*Обучение проходит на грантовой основе</h5>
 			<ul class="documents-list doc-education-list">
 				<li>@@include('svg/document-doc.svg')
 					<h2 class="download-link-keeper"><a href="#" class="download-file" download="">
@@ -450,68 +572,90 @@
 
 			<div class="release-proggrams-table table-prog">
 				<h2 data-miniH2>Учебный план 2022/23</h2>
-				<ul class="documents-list doc-education-list">
+				<ul class="documents-list doc-education-list edu-last-list">
 					<li>@@include('svg/document-doc.svg')
 						<h2 class="download-link-keeper"><a href="#" class="download-file" download="">
 								Учебный план 2022/23</a>
 							</a>
 						</h2>
 					</li>
-
 				</ul>
-				<div class="education-tables__table">
-					<div class="education-tables__titles">
-						<h3 class="ourWidth-education-last last-td-template-move" id="education-programms-h3">
-							<span>Уровень образования</span>
-						</h3>
-						<h3 class="ourWidth-education-last"><span>Профиль</span></h3>
 
-						<h3 class="ourWidth-education-last ourWidth-education-last-width-clock"><span>Количество
-								часов</span>
-						</h3>
-					</div>
-					<div class="education-tables__row-1">
-						<h3 class="ourWidth-education-last last-td-template-move">Основное общее образование</h3>
-						<h3 class="ourWidth-education-last">
-							<ul>
-								<li class="">Универсальный (7 класс)</li>
-								<li class="">Направление "Физика-информатика" (8-9 классы)</li>
-								<li class="">Направление "Физика-химия" (8-9 классы)</li>
-								<li class="">Направление "Биология-химия" (8-9 классы)</li>
+				<div class="prog-table">
+					<div class="prog-table-box">
+						<div class="prog-level prog-box-title">
+							<h3>Уровень образования</h3>
+						</div>
+						<div class="prog-profile prog-box-title">
+							<h3>Профиль</h3>
+						</div>
+						<div class="prog-hours prog-box-title">
+							<h3>Коли<br class="educztionProgBr">чество часов</h3>
+						</div>
+						<div class="prog-main-education prog-box-education">
+							<h3>Основное общее образование</h3>
+						</div>
+						<div class="prog-middle-education prog-box-education">
+							<h3>Среднее общее образование</h3>
+						</div>
+						<div class="prog-top-list">
+							<ul class="prog-top-list__list">
+								<li class="prof-table-list-1">
+									<h4>Универсальный (7 класс)</h4>
+								</li>
+								<li class="prof-table-list-2">
+									<h4>Направление "Физика-информатика" (8-9 классы)</h4>
+								</li>
+								<li class="prof-table-list-3">
+									<h4>Направление "Физика-химия" (8-9 классы)</h4>
+								</li>
+								<li class="prof-table-list-4">
+									<h4>Направление "Биология-химия" (8-9 классы)</h4>
+								</li>
 							</ul>
-						</h3>
-						<h3 class="ourWidth-education-last">
-							<ul>
-								<li class="education-clock ">5361</li>
-								<li class="education-clock ">
-									5495</li>
-								<li class="education-clock ">
-									5495</li>
-								<li class="education-clock ">
-									5495</li>
+						</div>
+						<div class="prog-bottom-list">
+							<ul class="prog-bottom-list__list">
+								<li class="prof-table-list-5">
+									<h4>Естественно-научный профиль (физика-математика)</h4>
+								</li>
+								<li class="prof-table-list-6">
+									<h4>Естественно-научный профиль (информатика)</h4>
+								</li>
+								<li class="prof-table-list-7">
+									<h4>Естественно-научный профиль (биология-химия)</h4>
+								</li>
 							</ul>
-						</h3>
-
-					</div>
-					<div class="education-tables__row-2">
-						<h3 class="ourWidth-education-last last-td-template">Среднее среднее образование</h3>
-						<h3 class="ourWidth-education-last">
-							<ul>
-								<li>Естественно-научный профиль (физика-математика)</li>
-								<li>Естественно-научный профиль (информатика)</li>
-								<li>Естественно-научный профиль (биология-химия)</li>
+						</div>
+						<div class="prog-top-hours prog-hours-list">
+							<ul class="prog-top-hours__list">
+								<li class="prof-table-hours-1">
+									<h4>5361</h4>
+								</li>
+								<li class="prof-table-hours-2">
+									<h4>5495</h4>
+								</li>
+								<li class="prof-table-hours-3">
+									<h4>5495</h4>
+								</li>
+								<li class="prof-table-hours-4">
+									<h4>5495</h4>
+								</li>
 							</ul>
-						</h3>
-						<h3 class="ourWidth-education-last">
-							<ul>
-								<li class="education-clock">2447</li>
-								<li class="education-clock">
-									2479</li>
-								<li class="education-clock">
-									2447</li>
+						</div>
+						<div class="prog-bottom-hours prog-hours-list">
+							<ul class="prog-bottom-hours__list">
+								<li class="prof-table-hours-5">
+									<h4>2447</h4>
+								</li>
+								<li class="prof-table-hours-6">
+									<h4>2479</h4>
+								</li>
+								<li class="prof-table-hours-7">
+									<h4>2447</h4>
+								</li>
 							</ul>
-						</h3>
-
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,11 @@
-.paid {}
+body {
+	background-color: $mainBg;
+}
+
+.paid {
+	background-color: $mainBg;
+
+}
 
 .paid__container {}
 
@@ -6,15 +13,16 @@
 	h1 {
 
 		@include adaptiveValue('font-size', 40, 26);
-		@include adaptiveValue('margin-top', 104, 64);
+		@include adaptiveValue('padding-top', 104, 64);
 		@include adaptiveValue('margin-bottom', 40, 24);
 		font-weight: 700;
 		line-height: 120%;
 	}
 
+	@include adaptiveValue('margin-bottom', 400, 200);
+
 	h2 {
 		@include adaptiveValue('font-size', 18, 14);
-		@include adaptiveValue('margin-bottom', 400, 200);
 		line-height: 140%;
 
 	}
@@ -27,8 +35,7 @@
 
 @media (orientation: landscape) and (max-height: 500px) {
 	.paid__rows {
-		h2 {
-			margin-bottom: 150px;
-		}
+		margin-bottom: 150px;
+
 	}
 }

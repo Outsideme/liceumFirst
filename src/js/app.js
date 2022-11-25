@@ -17,7 +17,7 @@ for(let i = 0; i < menu.length; i++) {
 	}, false)
 	information.addEventListener('mouseenter', e => {
 		secondSpoller.classList.toggle('showHide')
-		e.target.children[1].style.transform = `translateX(10px)`
+		e.target.children[1].style.transform = "translateX(10px)"
 
 	}, false)
 
@@ -52,9 +52,9 @@ function headerResize () {
 	const headerHeight = header.offsetHeight
 	const widthMenuHidden = menuHidden.offsetWidth
 	const heightMenuHidden = menuHidden.offsetHeight
-	mobileNav.style.top = `${headerHeight - 1}px`
-	secondSpoller.style.top = `${heightMenuHidden / 20}px`
-	secondSpoller.style.left = `${widthMenuHidden}px`
+	mobileNav.style.top = "${headerHeight - 1}px"
+	secondSpoller.style.top = "${heightMenuHidden / 20}px"
+	secondSpoller.style.left = "${widthMenuHidden}px"
 
 }
 function openCloseMenu () {
@@ -114,7 +114,7 @@ const searchSVG = document.querySelector('#search')
 const left = () => {
 window.addEventListener('resize', function (e) {
 	if (search.style.transform) {
-	search.style.transform = `translateX(-${search.offsetLeft - 15}px)`
+	search.style.transform = "translateX(-${search.offsetLeft - 15}px)"
 	}
 	return container.offsetWidth
 })
@@ -127,7 +127,7 @@ const input = document.querySelector('#input-top')
 function searchTranslate () {
 search.addEventListener('click', e => {
 	if (!search.style.transform) {
-	search.style.transform = `translateX(-${search.offsetLeft - 15}px)`
+	search.style.transform = "translateX(-${search.offsetLeft - 15}px)"
 	input.classList.add('inputActive')
 	setTimeout ( () => {
 		input.focus()}, 600)
@@ -149,7 +149,7 @@ window.addEventListener('click', e => {
 	}
 })
 window.addEventListener('keydown', e => {
-	if (e.key === `Escape`) {
+	if (e.key === "Escape") {
 	search.style.removeProperty('transform')
 	input.classList.remove('inputActive')
 	setTimeout ( () => {input.value = '', 600})
@@ -169,8 +169,8 @@ const listenerWidthGrid = () => {
 	window.addEventListener('resize', e => {
 	if (h4Last) {
 	let h4Width = h4Last.offsetWidth
-	propertOne.style.minWidth = `${h4Width}px`
-	propertTwo.style.minWidth = `${h4Width}px`
+	propertOne.style.minWidth = "${h4Width}px"
+	propertTwo.style.minWidth = "${h4Width}px"
 }
 })
 }
@@ -209,7 +209,7 @@ mediaLessonMode()
 const widthProgResize = () => {
 	if (educationH3) {
 		window.addEventListener('resize', e => {
-			return educationH3.offsetWidth + `px`
+			return educationH3.offsetWidth + "px"
 		})}}
 
 		const widthEducationTable = () => {
@@ -234,12 +234,12 @@ if (!accor.classList.contains('education-accor-active')) {
 	accor.classList.add('education-accor-active')
 	content.classList.add('educationContentAccor')
 	this.classList.add('btn-education-radio')
-	this.children[0].children[1].style.transform = `rotate(-180deg)`
+	this.children[0].children[1].style.transform = "rotate(-180deg)"
 
 } else {
 	accor.classList.remove('education-accor-active')
 	content.classList.remove('educationContentAccor')
-	this.children[0].children[1].style.transform = `rotate(0deg)`
+	this.children[0].children[1].style.transform = "rotate(0deg)"
 
 	setTimeout(() => {
 		this.classList.remove('btn-education-radio')
@@ -249,26 +249,368 @@ if (!accor.classList.contains('education-accor-active')) {
 }
 
 
-function lastTdWidth () {
-	const lastTdsClock = document.querySelectorAll('.education-clock')
-	const lastTd = document.querySelector('.ourWidth-education-last-width-clock').offsetWidth
 
 
-	lastTdsClock.forEach(e => {
-		e.style.width = `${lastTd }px`
 
-	})
 
-	const lastTdTemplate = document.querySelector('.last-td-template').offsetWidth
-	const lastTdTemplateMove = document.querySelectorAll('.last-td-template-move')
-	lastTdTemplateMove.forEach(e => {
-		e.style.width = lastTdTemplate + `px`
-		console.log(e)
 
-	})
+window.addEventListener('load', e => {
+	heightHours()
+})
+window.addEventListener('resize', e => {
+	heightHours()
+})
+
+const heightHours = () => {
+
+
+	const tableList1 = document.querySelector('.prof-table-list-1').offsetHeight
+	const tableList2 = document.querySelector('.prof-table-list-2').offsetHeight
+	const tableList3 = document.querySelector('.prof-table-list-3').offsetHeight
+	const tableList4 = document.querySelector('.prof-table-list-4').offsetHeight
+	const tableList5 = document.querySelector('.prof-table-list-5').offsetHeight
+	const tableList6 = document.querySelector('.prof-table-list-6').offsetHeight
+	const tableList7 = document.querySelector('.prof-table-list-7').offsetHeight
+
+	document.querySelector('.prof-table-hours-1').style.height = tableList1 + 'px'
+	document.querySelector('.prof-table-hours-2').style.height = tableList2 + 'px'
+	document.querySelector('.prof-table-hours-3').style.height = tableList3 + 'px'
+	document.querySelector('.prof-table-hours-4').style.height = tableList4 + 'px'
+	document.querySelector('.prof-table-hours-5').style.height = tableList5 + 'px'
+	document.querySelector('.prof-table-hours-6').style.height = tableList6 + 'px'
+	document.querySelector('.prof-table-hours-7').style.height = tableList7 + 'px'
+}
+heightHours()
+
+
+
+
+
+
+const btnSelectOne = document.querySelector('.btn-select-one')
+const btnSelectTwo = document.querySelector('.btn-select-two')
+const btnSelectThree = document.querySelector('.btn-select-three')
+btnSelectOne.addEventListener('click', openSelect, false)
+btnSelectTwo.addEventListener('click', openSelect, false)
+btnSelectThree.addEventListener('click', openSelect, false)
+function openSelect () {
+
+	this.children[0].innerHTML = arrInfoFirstSecond.select
+	if (!this.nextElementSibling.classList.contains('quarter-active')){
+
+this.nextElementSibling.classList.toggle('quarter-active')
+		this.children[1].style.transform = `rotate(-180deg)`
+	this.nextElementSibling.addEventListener('click', e => {
+		this.nextElementSibling.classList.remove('quarter-active')
+		this.children[1].style.transform = `rotate(0deg)`
+	})} else {
+		this.nextElementSibling.classList.remove('quarter-active')
+		this.children[1].style.transform = `rotate(0deg)`
+	}
+}
+
+
+
+const outputJun = document.querySelector('.quarter-mobile-box__classes-output-jun')
+const outputSin = document.querySelector('.quarter-mobile-box__classes-output-sin')
+const outputJunSecond = document.querySelector('.output-jun-second')
+const outputSinSecond = document.querySelector('.output-sin-second')
+const outputJunThird = document.querySelector('.output-jun-third')
+const outputSinThird = document.querySelector('.output-sin-third')
+const arrInfoFirstSecond = {
+	one: "01.09 - 26.10 (8 уч. недель)",
+	oneTitle: "1 четверть",
+
+	two: "07.11 - 24.12 (7 уч. недель)",
+	twoTitle: "2 четверть",
+
+	three: "09.01 - 04.03 (8 уч. недель)",
+	threeTitle: "3 четверть",
+
+	four: "13.03 - 27.05 (11 уч. недель)",
+	fourTitle: "4 четверть",
+
+	pa: "29.05 - 10.06 (2 уч. недель)",
+	paTwo: "15.05 - 20.05 (1 уч. недель)",
+
+	paTitle: "ПА",
+
+	select: "Выберите период",
+//===============//===============//===============//===============//===============//===============//===============//===============//===============
+
+	sinOne: "01.09 - 26.10 (8 уч. недель)",
+	sinTwo: "07.11 - 24.12 (7 уч. недель)",
+	sinThree: "09.01 - 04.03 (8 уч. недель)",
+	sinFour: "13.03 - 13.05 (9 уч. недель)",
+
+
+	oneSecond: "01.09 - 24.12 (15 уч. недель)",
+	oneTitleSecond: "1 полугодие",
+
+	twoSecond: "09.01 - 27.05 (19 уч. недель)",
+	twoTitleSecond: "2 полугодие",
+
+	sinOneSecond: "01.09 - 24.12 (15 уч. недель)",
+	sinTwoSecond: "09.01 - 13.05 (17 уч. недель)",
+
+
+	//===============//===============//===============//===============//===============//===============//===============//===============//===============
+
+	seasonFirst: "27.10 - 06.11 (11 дней)",
+	sinSeasonFirst: "27.10 - 06.11 (11 дней)",
+	seasonFirstTitle: "Осенние",
+
+	seasonSecond: "25.12 - 08.01 (15 дней)",
+	sinSeasonSecond: "25.12 - 08.01 (15 дней)",
+	seasonSecondTitle: "Зимние",
+
+	seasonThird: "05.03 - 12.03 (8 дней)",
+	sinSeasonThird: "05.03 - 12.03 (8 дней)",
+	seasonThirdTitle: "Весенние",
+
+	seasonFourth: "11.06 - 31.08 (82 дня)",
+	sinSeasonFourth: "ГИА",
+	seasonFourthTitle: "Летние",
+
+
 
 }
-lastTdWidth()
+
+
+
+let currentDate = new Date()
+let startFirstQuarter = new Date('2022-09-01')
+let endFirstQuarter = new Date('2022-10-26')
+let startSecondQuarter = new Date('2022-11-07')
+let endSecondQuarter = new Date('2022-12-24')
+let startThirdQuarter = new Date('2022-01-09')
+let endThirdQuarter = new Date('2022-03-04')
+let startFourthQuarter = new Date('2022-03-13')
+let endFourthQuarter = new Date('2022-05-27')
+
+console.log(currentDate > endFirstQuarter)
+
+
+
+
+const showTableInQuarter = () => {
+	if (currentDate >= startFirstQuarter && currentDate <= endFirstQuarter) {
+		outputJun.innerHTML = arrInfoFirstSecond.one
+		outputSin.innerHTML = arrInfoFirstSecond.sinOne
+		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle
+
+//==============================//==============================//==============================//==============================//==============================//==============================
+
+
+		outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond
+		outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond
+		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond
+
+//==============================//==============================//==============================//==============================//==============================//==============================
+
+
+		console.log('Первая четверть')
+	}
+	if (currentDate >= startSecondQuarter && currentDate <= endSecondQuarter) {
+		outputJun.innerHTML = arrInfoFirstSecond.two
+		outputSin.innerHTML = arrInfoFirstSecond.sinTwo
+		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle
+
+//==============================//==============================//==============================//==============================//==============================//==============================
+
+
+		outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond
+		outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond
+		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond
+
+//==============================//==============================//==============================//==============================//==============================//==============================
+outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
+	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst
+	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFirstTitle
+
+		console.log('Вторая')
+	}
+	if (currentDate >= startThirdQuarter && currentDate <= endThirdQuarter) {
+		outputJun.innerHTML = arrInfoFirstSecond.three
+		outputSin.innerHTML = arrInfoFirstSecond.sinThree
+		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle
+		outputJunThird.innerHTML = arrInfoFirstSecond.seasonSecond
+		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonSecond
+		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonSecondTitle
+//==============================//==============================//==============================//==============================//==============================//==============================
+
+		outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond
+		outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond
+		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond
+//==============================//==============================//==============================//==============================//==============================//==============================
+outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird
+	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird
+	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonThirdTitle
+		console.log('Третья')
+	}
+	if (currentDate >= startFourthQuarter && currentDate <= endFourthQuarter) {
+		outputJun.innerHTML = arrInfoFirstSecond.four
+		outputSin.innerHTML = arrInfoFirstSecond.sinFour
+		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle
+
+//===============================//==============================//==============================//==============================//==============================//==============================
+
+		outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond
+		outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond
+		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond
+
+//==============================//==============================//==============================//==============================//==============================//==============================
+		outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
+	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
+	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
+		console.log('Четвёртая')
+	}
+//
+
+
+}
+showTableInQuarter()
+
+const btnLiSelect1 = document.querySelector('#quarter-li-1').addEventListener('click', e => {
+	outputJun.innerHTML = arrInfoFirstSecond.one
+	outputSin.innerHTML = arrInfoFirstSecond.one
+	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle
+
+
+})
+const btnLiSelect2 = document.querySelector('#quarter-li-2').addEventListener('click', e => {
+	outputJun.innerHTML = arrInfoFirstSecond.two
+	outputSin.innerHTML = arrInfoFirstSecond.two
+	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle
+
+
+})
+const btnLiSelect3 = document.querySelector('#quarter-li-3').addEventListener('click', e => {
+	outputJun.innerHTML = arrInfoFirstSecond.three
+	outputSin.innerHTML = arrInfoFirstSecond.three
+	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle
+
+
+
+})
+const btnLiSelect4 = document.querySelector('#quarter-li-4').addEventListener('click', e => {
+	outputJun.innerHTML = arrInfoFirstSecond.four
+	outputSin.innerHTML = arrInfoFirstSecond.four
+	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle
+
+
+
+})
+const btnLiSelect5 = document.querySelector('#quarter-li-5').addEventListener('click', e => {
+	outputJun.innerHTML = arrInfoFirstSecond.pa
+	outputSin.innerHTML = arrInfoFirstSecond.pa
+	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.paTitle
+
+})
+
+
+
+const btnLiSelectSecond1 = document.querySelector('#quarter-li-1-second').addEventListener('click', e => {
+	outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond
+	outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond
+	btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond
+
+
+})
+const btnLiSelectSecond2 = document.querySelector('#quarter-li-2-second').addEventListener('click', e => {
+	outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond
+	outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond
+	btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond
+
+
+
+})
+const btnLiSelectSecond3 = document.querySelector('#quarter-li-3-second').addEventListener('click', e => {
+	outputJunSecond.innerHTML = arrInfoFirstSecond.pa
+	outputSinSecond.innerHTML = arrInfoFirstSecond.paTwo
+	btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.paTitle
+
+
+
+})
+
+
+
+
+
+const btnLiSelectSeason1 = document.querySelector('#quarter-li-1-third').addEventListener('click', e => {
+	outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
+	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst
+	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFirstTitle
+
+
+
+})
+const btnLiSelectSeason2 = document.querySelector('#quarter-li-2-third').addEventListener('click', e => {
+	outputJunThird.innerHTML = arrInfoFirstSecond.seasonSecond
+	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonSecond
+	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonSecondTitle
+
+
+
+})
+const btnLiSelectSeason3 = document.querySelector('#quarter-li-3-third').addEventListener('click', e => {
+	outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird
+	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird
+	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonThirdTitle
+
+
+
+})
+const btnLiSelectSeason4 = document.querySelector('#quarter-li-4-third').addEventListener('click', e => {
+	outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
+	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
+	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
+
+
+
+})
+
+
+
+
+
+
+
+// const arrInfoSin = [
+// 	"01.09 - 26.10
+// 	(8 уч. недель)",
+// 	"07.11 - 24.12
+// 	(7 уч. недель)",
+// 	"09.01 - 04.03
+// 	(8 уч. недель)",
+// 	"13.03 - 13.05
+// 	(9 уч. недель)",
+// 	"15.05 - 20.05
+// 	(1 уч. недель)",
+// ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*

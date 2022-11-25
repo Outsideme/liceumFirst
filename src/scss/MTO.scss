@@ -1,0 +1,207 @@
+.MTO {
+
+	background-color: $mainBg;
+	@include adaptiveValue('padding-bottom', 128, 64)
+}
+
+.MTO__container {}
+
+.MTO__rows {
+
+	h1 {
+
+		@include adaptiveValue('font-size', 40, 26);
+		@include adaptiveValue('padding-top', 104, 64);
+		@include adaptiveValue('padding-bottom', 40, 24);
+		font-weight: 700;
+		line-height: 120%;
+	}
+
+	h2 {
+		@include adaptiveValue('font-size', 18, 14);
+		// @include adaptiveValue('padding-bottom', 400, 200);
+		line-height: 140%;
+
+	}
+}
+
+.MTO-subtitle {
+	@include adaptiveValue('padding-left', 28, 16);
+	@include adaptiveValue('padding-bottom', 24, 16);
+	@include adaptiveValue('font-size', 18, 12);
+	padding-left: 20px;
+	line-height: 140%;
+	width: 85%;
+
+}
+
+
+
+.mto-table {
+	@include adaptiveValue('padding-top', 20, 8);
+	@include adaptiveValue('padding-right', 28, 16);
+	@include adaptiveValue('padding-bottom', 24, 12);
+	@include adaptiveValue('margin-left', 24, 16);
+	@include adaptiveValue('padding-left', 16, 16);
+	border: 1px solid $borderTif;
+	border-radius: 10px;
+
+	&__box {
+		h3 {
+			@include adaptiveValue('font-size', 18, 12);
+
+			margin-top: 8px;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			margin-bottom: 8px;
+			line-height: 140%;
+
+		}
+
+		display: grid;
+		grid-template-columns: 1fr .2fr;
+		grid-template-rows: .4fr;
+		grid-auto-rows: repeat(13, 1fr);
+	}
+}
+
+.mto-table__first-title {
+	grid-column: 1/2;
+	border-bottom: 1px solid $borderTif;
+}
+
+.btn-education-title-box {
+	h4 {
+		padding-right: 10%;
+		@include adaptiveValue('font-size', 24, 12)
+	}
+}
+
+
+.mto-table__second-title {
+	grid-column: 2/3;
+	border-bottom: 1px solid $borderTif;
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		left: -16px;
+		top: 10%;
+		height: 80%;
+		width: 1px;
+		background-color: $borderTif;
+	}
+
+}
+
+.mto-table__box {
+	max-height: 3000;
+}
+
+.mto-table-item {
+	h3 {
+		width: 90%;
+	}
+
+	border-bottom: 1px solid $borderTif;
+
+
+}
+
+.mto-first-accor {
+	max-height: 2000px;
+}
+
+.mto-table__main-safe {
+	border-bottom: 0px solid rgba(0, 0, 0, 0);
+}
+
+.mto-count {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		left: -16px;
+		top: 10%;
+		height: 80%;
+		width: 1px;
+		background-color: $borderTif;
+	}
+
+
+	&:not(:last-child) {
+
+		border-bottom: 1px solid $borderTif;
+	}
+}
+
+
+
+
+.mto-table-library {}
+
+.mto-table-library__box {
+	@include adaptiveValue('padding-top', 0, 0);
+	@include adaptiveValue('padding-left', 28, 16);
+	@include adaptiveValue('padding-bottom', 6, 6);
+	padding-top: rem(0);
+
+	ul {
+		@include adaptiveValue('padding-left', 32, 16);
+
+		li {
+			position: relative;
+
+			&:before {
+				content: '';
+				position: absolute;
+				@include adaptiveValue('width', 6, 3);
+				@include adaptiveValue('height', 6, 3);
+				background-color: $mainText;
+				@include adaptiveValue('left', -16, -8);
+				top: 50%;
+				transform: translateY(-50%);
+				border-radius: 50%;
+
+			}
+
+			line-height: 160%;
+		}
+	}
+
+	.mto-subtitle-library {
+		margin-bottom: 0;
+		padding-left: 0;
+
+	}
+
+	h3 {
+
+
+		@include adaptiveValue('font-size', 18, 12);
+
+		span {
+			font-weight: 700;
+		}
+	}
+}
+
+.mto-food-subtitle {
+	@include adaptiveValue('margin-bottom', 32, 16);
+	line-height: 140%;
+}
+
+.mto-first-list,
+.mto-second-list {
+	@include adaptiveValue('font-size', 18, 12)
+}
+
+.mto-last-list {
+	li {
+		a {
+			border-bottom: 1px solid $mainText;
+		}
+	}
+}
