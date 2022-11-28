@@ -40,53 +40,94 @@
 	.mode-title {
 		@include adaptiveValue('margin-top', 40, 24)
 	}
+}
 
-	.lesson-mode-grid {
-		display: grid;
-		grid-template-columns: repeat(12, 1fr);
+
+.main-info-table {
+	width: 60%;
+	border: 1px solid $borderTif;
+	border-radius: 10px;
+}
+
+
+.main-table-box {
+	line-height: 140%;
+	display: grid;
+	grid-template-columns: 1fr .5fr;
+	grid-template-rows: repeat(2, 1fr);
+	@include adaptiveValue('padding-left', 16, 12);
+	@include adaptiveValue('padding-right', 16, 12);
+
+}
+
+.main-table-item {
+	@include adaptiveValue('padding-top', 16, 12);
+	@include adaptiveValue('padding-bottom', 16, 12);
+
+
+
+
+
+}
+
+.main-table-item-border-bottom {
+	border-bottom: 1px solid $borderTif;
+}
+
+
+
+.main-table-box__table-prop-1 {
+	@include adaptiveValue('padding-left', 24, 12);
+
+}
+
+
+.main-table-box__table-prop-2 {
+	@include adaptiveValue('padding-left', 24, 12);
+
+}
+
+
+.main-table-box__table-prop-3 {
+	@include adaptiveValue('padding-left', 24, 12);
+
+}
+
+.main-table-box__table-title-1,
+.main-table-box__table-title-2,
+.main-table-box__table-title-3 {
+	@include adaptiveValue('padding-right', 16, 12);
+
+}
+
+.main-table-box__table-prop-1,
+.main-table-box__table-prop-2,
+.main-table-box__table-prop-3 {
+	position: relative;
+
+	&:before {
+		content: '';
+		background-color: $borderTif;
+		position: absolute;
+		height: 80%;
+		width: 1px;
+		left: 0;
+		top: 10%;
+
 	}
 
-	.lesson-mode {
-		display: flex;
-		flex-direction: column;
-		grid-column: 1/8;
-		border: 1px solid $borderTif;
-	}
+}
 
-	.lesson-mode {
-		border-radius: 10px;
-		background-color: rgba(255, 255, 255, .5);
+@media screen and (max-width: 991px) {
+	.main-info-table {
+		width: 80%;
 
-		&__items {
-
-			margin: rem(16);
-
-			h4 {
-				border-left: 1px solid $borderTif;
-				padding-left: rem(14);
-			}
-		}
-
-		&__item {
-			display: flex;
-			justify-content: space-between;
-			@include adaptiveValue('font-size', 18, 14);
-
-			&:not(:last-child) {
-				padding-bottom: 16px;
-				border-bottom: 1px solid $borderTif;
-			}
-
-			&:not(:first-child) {
-				padding-top: 16px;
-				// border-bottom: 1px solid $borderTif;
-			}
-
-
-		}
 	}
 }
 
-.h4[data-hBlock] {
-	display: inline-block;
+@media screen and (max-width: 768px) {
+	.main-info-table {
+		width: 100%;
+
+	}
 }

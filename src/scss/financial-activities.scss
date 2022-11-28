@@ -13,7 +13,6 @@ body {
 	h1 {
 
 		@include adaptiveValue('font-size', 40, 26);
-		@include adaptiveValue('padding-top', 104, 64);
 		@include adaptiveValue('margin-bottom', 40, 24);
 		font-weight: 700;
 		line-height: 120%;

@@ -4,7 +4,7 @@
 	@include adaptiveValue('padding-bottom', 128, 64)
 }
 
-.available__container {}
+
 
 .available__rows {
 
@@ -39,6 +39,7 @@
 	@include adaptiveValue('margin-left', 28, 14);
 	@include adaptiveValue('margin-bottom', 24, 16);
 
+
 	li {
 		@include adaptiveValue('font-size', 18, 14);
 
@@ -59,4 +60,14 @@
 
 		}
 	}
+}
+
+.available-accor-height {
+	max-height: 600px;
+}
+
+.available-accor {
+
+
+	transition-duration: .5s;
 }

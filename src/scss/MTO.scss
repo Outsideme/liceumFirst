@@ -4,7 +4,6 @@
 	@include adaptiveValue('padding-bottom', 128, 64)
 }
 
-.MTO__container {}
 
 .MTO__rows {
 
@@ -19,7 +18,6 @@
 
 	h2 {
 		@include adaptiveValue('font-size', 18, 14);
-		// @include adaptiveValue('padding-bottom', 400, 200);
 		line-height: 140%;
 
 	}
@@ -95,8 +93,14 @@
 
 }
 
+.mto-mini-accor {
+	max-height: 0px;
+	max-height: 600px;
+	transition-duration: 1s;
+}
+
 .mto-table__box {
-	max-height: 3000;
+	max-height: 1100px;
 }
 
 .mto-table-item {
@@ -109,9 +113,6 @@
 
 }
 
-.mto-first-accor {
-	max-height: 2000px;
-}
 
 .mto-table__main-safe {
 	border-bottom: 0px solid rgba(0, 0, 0, 0);
@@ -140,7 +141,6 @@
 
 
 
-.mto-table-library {}
 
 .mto-table-library__box {
 	@include adaptiveValue('padding-top', 0, 0);
@@ -205,3 +205,12 @@
 		}
 	}
 }
+
+.box-content-accor-mto {}
+
+.mto-accor {
+	transition: all .5s ease;
+
+}
+
+.mto-table {}

@@ -199,10 +199,9 @@
 	font-weight: 700;
 	width: 100%;
 	border-radius: 20px;
-	transition: all 0.2s ease;
+	transition-duration: .5s;
 
 
-	h4 {}
 
 	svg {
 		position: absolute;
@@ -223,7 +222,7 @@
 
 .btn-education-radio {
 	border-radius: 20px 20px 0px 0px;
-	transition: all 0s ease;
+	// transition: all 0s ease;
 
 }
 
@@ -256,7 +255,8 @@
 }
 
 .education-accor-active {
-	max-height: 2000px;
+	max-height: 1700px;
+	transition-duration: .7s;
 
 }
 
@@ -274,6 +274,7 @@
 	display: flex;
 	text-align: left;
 	width: 95%;
+
 }
 
 #arrow-education {
@@ -294,7 +295,6 @@
 
 	li {
 
-		// @include adaptiveValue('padding-left', 32, 24);
 
 		h2 {
 			font-weight: 400;
@@ -322,12 +322,16 @@
 }
 
 .education-accor {
+
+	transition: all .3s;
+
+
 	&:not(:last-child) {
 		margin-bottom: rem(24);
 	}
 
 	&:not(:first-child) {
-		margin-bottom: rem(30);
+		margin-bottom: rem(15);
 	}
 }
 

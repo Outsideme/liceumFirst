@@ -1,89 +1,65 @@
 
-
-	const secondSpoller = document.querySelector('.second-spoller')
-function openMainMenu() {
-	const menu = document.querySelectorAll('.menu-item');
-	const information = document.querySelector('.information')
-	if (menu) {
-for(let i = 0; i < menu.length; i++) {
-	let item = menu[i];
-	item.addEventListener('mouseenter', e => {
-		e.target.children[0].classList.toggle('showHide')
-	}, false)
-	item.addEventListener('mouseleave', e => {
-		e.target.children[0].classList.toggle('showHide')
-		secondSpoller.classList.remove('showHide')
-
-	}, false)
-	information.addEventListener('mouseenter', e => {
-		secondSpoller.classList.toggle('showHide')
-		e.target.children[1].style.transform = "translateX(10px)"
-
-	}, false)
-
-	secondSpoller.addEventListener('mouseleave', e => {
-		secondSpoller.classList.toggle('showHide')
-
-	}, false)
-
-
-}}
-}
-
-
-openMainMenu()
-//===============================/===============================/===============================/===============================/===============================
-
-
-//===============================/===============================/===============================/===============================/===============================
-
-//===============================/===============================/===============================/===============================/===============================
-
-
-
 const burger = document.querySelector('[data-burger]')
 const mobileNav = document.querySelector('[data-nav]')
 const header = document.querySelector('.header')
-const menuHidden = document.querySelector('.menu-hidden')
 
 
 
-function headerResize () {
-	const headerHeight = header.offsetHeight
-	const widthMenuHidden = menuHidden.offsetWidth
-	const heightMenuHidden = menuHidden.offsetHeight
-	mobileNav.style.top = "${headerHeight - 1}px"
-	secondSpoller.style.top = "${heightMenuHidden / 20}px"
-	secondSpoller.style.left = "${widthMenuHidden}px"
 
-}
-function openCloseMenu () {
-	burger.classList.toggle('burger-active')
-	mobileNav.classList.toggle('open-mobile')
-}
-function closeMenu () {
-	burger.classList.remove('burger-active')
-	mobileNav.classList.remove('open-mobile')
-}
-window.addEventListener('resize', e => {
-	if (document.documentElement.clientWidth > 992) {
-		closeMenu();
+const menuObj = {
+	openCloseMainMenu: function () {
+		this.children[0].classList.toggle('showHide')
+
+	},
+	burgerClose: function () {
+		burger.classList.remove('burger-active')
+		mobileNav.classList.remove('open-mobile')
+	},
+	burgerOpen: function () {
+		burger.classList.toggle('burger-active')
+	    mobileNav.classList.toggle('open-mobile')
+	},
+	headerResize: function () {
+		const headerHeight = header.offsetHeight
+		mobileNav.style.top = `${headerHeight - 1}px`
+	},
+	resizeHideMobile: function () {
+		if (document.documentElement.clientWidth > 768) {
+			menuObj.burgerClose()
+		}
+		menuObj.headerResize();
+	},
+	openMainMenu: function () {
+		const menu = document.querySelectorAll('.menu-item');
+		if (menu) {
+	for(let i = 0; i < menu.length; i++) {
+		let item = menu[i];
+		item.addEventListener('mouseenter', menuObj.openCloseMainMenu ,false)
+		item.addEventListener('mouseleave', menuObj.openCloseMainMenu , false)
+	}}
 	}
-	headerResize();
-})
-window.addEventListener('load', e => {
-	headerResize();
-})
 
-burger.addEventListener('click', e => {
-	openCloseMenu()
-})
+}
 
+menuObj.openMainMenu()
+
+//===============================/===============================/===============================/===============================/===============================
+
+
+//===============================/===============================/===============================/===============================/===============================
+
+
+
+
+window.addEventListener('resize', menuObj.resizeHideMobile, false)
+window.addEventListener('load', menuObj.resizeHideMobile, false)
+burger.addEventListener('click', menuObj.burgerOpen, false)
+
+
+
+function mobileAccor () {
 const accors = document.querySelectorAll('.accor')
 const content = document.querySelectorAll('.accor-content')
-const btn = document.querySelectorAll('.accor-control')
-
-
 accors.forEach(el => {
 	el.addEventListener('click', e => {
 		const accorIcons = document.querySelectorAll('.accor-icon')
@@ -106,104 +82,82 @@ accors.forEach(el => {
 
 	})
 })
+}
+mobileAccor()
+
+
+//===============================/===============================/===============================/===============================/===============================//===============================/===============================/===============================/===============================/===============================
+//===============================/===============================/===============================/===============================/===============================//===============================/===============================/===============================/===============================/===============================
+
+
 const container = document.querySelector('.header__container')
 const search = document.querySelector('.search-btn')
-const searchSVG = document.querySelector('#search')
+
+
+const topLineObj = {
+	searchTranslate: function () {
+		if (search.style.transform) {
+			search.style.transform = `translateX(-${search.offsetLeft - 15}px)`
+			}
+			return container.offsetWidth
+	},
+	showTopInput: function () {
+		search.style.transform = `translateX(-${search.offsetLeft - 15}px)`
+			input.classList.add('inputActive')
+			setTimeout ( () => {
+				input.focus()}, 500)
+	},
+	hideTopInput: function () {
+		setTimeout ( () => {input.value = '', 0})
+			search.style.removeProperty('transform')
+			input.classList.remove('inputActive')
+	},
+	closeSearch: function () {
+		search.style.removeProperty('transform')
+	input.classList.remove('inputActive')
+	setTimeout ( () => {input.value = '', 300})
+	}
+	}
+
+
+
 
 
 const left = () => {
-window.addEventListener('resize', function (e) {
-	if (search.style.transform) {
-	search.style.transform = "translateX(-${search.offsetLeft - 15}px)"
-	}
-	return container.offsetWidth
-})
+window.addEventListener('resize', topLineObj.searchTranslate, false)
 }
 left()
 
-
 const input = document.querySelector('#input-top')
-
 function searchTranslate () {
-search.addEventListener('click', e => {
-	if (!search.style.transform) {
-	search.style.transform = "translateX(-${search.offsetLeft - 15}px)"
-	input.classList.add('inputActive')
-	setTimeout ( () => {
-		input.focus()}, 600)
-} else {
-	setTimeout ( () => {input.value = '', 0})
-
-	search.style.removeProperty('transform')
-	input.classList.remove('inputActive')
+	search.addEventListener('click', e => {
+		if (!search.style.transform) {
+			topLineObj.showTopInput()
+		} else {
+			topLineObj.hideTopInput()
 
 
 	}
 })
 }
+
 window.addEventListener('click', e => {
-	if (e.target !== searchSVG && e.target !== input) {
-	search.style.removeProperty('transform')
-	input.classList.remove('inputActive')
-	setTimeout ( () => {input.value = '', 600})
-	}
-})
+	if (!e.target.closest('.search-btn') && e.target !== input) {
+		topLineObj.closeSearch()
+}})
+
+
 window.addEventListener('keydown', e => {
 	if (e.key === "Escape") {
-	search.style.removeProperty('transform')
-	input.classList.remove('inputActive')
-	setTimeout ( () => {input.value = '', 600})
+		topLineObj.closeSearch()
+
 	}
 
 })
 
 searchTranslate()
 
-// const searchBtn = document.querySelector('.search-btn')
 
-
-const h4Last = document.querySelector('#h4-last')
-const propertOne = document.querySelector('.propert-1')
-const propertTwo = document.querySelector('.propert-2')
-const listenerWidthGrid = () => {
-	window.addEventListener('resize', e => {
-	if (h4Last) {
-	let h4Width = h4Last.offsetWidth
-	propertOne.style.minWidth = "${h4Width}px"
-	propertTwo.style.minWidth = "${h4Width}px"
-}
-})
-}
-listenerWidthGrid()
-
-
-const h4StartWidth = () => {
-	if (h4Last) {
-	propertOne.style.minWidth = h4Last.offsetWidth + "px"
-	propertTwo.style.minWidth = h4Last.offsetWidth + "px"
-}}
-h4StartWidth()
-
-
-const lessonMode = document.querySelector('.lesson-mode')
-const mediaLessonMode = () => {
-	if (lessonMode) {
-window.addEventListener('resize', e => {
-	let widthWindow = document.documentElement.offsetWidth
-
-	if (widthWindow < 1024 && widthWindow > 767) {
-		lessonMode.style.gridColumn = '1/9'
-	}
-	if (widthWindow < 767 && widthWindow > 567) {
-		lessonMode.style.gridColumn = '1/13'
-	}
-	if (widthWindow > 1024) {
-
-			lessonMode.style.gridColumn = '1/8'
-	}
-
-})}}
-mediaLessonMode()
 
 
 const widthProgResize = () => {
@@ -230,6 +184,7 @@ const widthProgResize = () => {
 function btnAccorEducationOpen () {
 const accor = this.nextElementSibling
 const content = this.nextElementSibling.children[0]
+if (content) {
 if (!accor.classList.contains('education-accor-active')) {
 	accor.classList.add('education-accor-active')
 	content.classList.add('educationContentAccor')
@@ -239,15 +194,19 @@ if (!accor.classList.contains('education-accor-active')) {
 } else {
 	accor.classList.remove('education-accor-active')
 	content.classList.remove('educationContentAccor')
-	this.children[0].children[1].style.transform = "rotate(0deg)"
 
+	setTimeout(() => {
+		this.children[0].children[1].style.transform = "rotate(0deg)"
+
+
+	}, 210);
 	setTimeout(() => {
 		this.classList.remove('btn-education-radio')
 
 	}, 310);
 }
 }
-
+}
 
 
 
@@ -262,8 +221,6 @@ window.addEventListener('resize', e => {
 })
 
 const heightHours = () => {
-
-
 	const tableList1 = document.querySelector('.prof-table-list-1').offsetHeight
 	const tableList2 = document.querySelector('.prof-table-list-2').offsetHeight
 	const tableList3 = document.querySelector('.prof-table-list-3').offsetHeight
@@ -388,7 +345,6 @@ let endThirdQuarter = new Date('2022-03-04')
 let startFourthQuarter = new Date('2022-03-13')
 let endFourthQuarter = new Date('2022-05-27')
 
-console.log(currentDate > endFirstQuarter)
 
 
 
@@ -563,7 +519,7 @@ const btnLiSelectSeason3 = document.querySelector('#quarter-li-3-third').addEven
 
 })
 const btnLiSelectSeason4 = document.querySelector('#quarter-li-4-third').addEventListener('click', e => {
-	outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
+	outputJunThird.innerHTML = arrInfoFirstSecond.seasonFourth
 	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
 	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
 

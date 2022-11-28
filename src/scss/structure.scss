@@ -197,8 +197,18 @@ br[data-structureCrumbs] {
 	}
 }
 
+.structure-height-title {
+	@include adaptiveValue('min-height', 45, 85)
+}
+
+@media screen and (max-width: 945px) {}
+
+@media screen and (max-width: 627px) {}
+
 @media screen and (max-width: 450px) {
 	br[data-structureCrumbs] {
 		display: block;
 	}
+
+
 }

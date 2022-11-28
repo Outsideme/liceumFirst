@@ -18,6 +18,7 @@
 		"bem": "fls-bemtree-from-html"
 	},
 	"devDependencies": {
+		"browser-sync": "^2.27.10",
 		"copy-webpack-plugin": "latest",
 		"css-loader": "latest",
 		"del": "^6.1.1",

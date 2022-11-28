@@ -3,6 +3,8 @@
 .education-standarts__container {}
 
 .education-standarts__rows {
+	padding-right: 15px;
+
 	ul {
 
 		@include adaptiveValue('margin-bottom', 420, 180);
