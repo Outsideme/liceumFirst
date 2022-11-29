@@ -195,7 +195,7 @@
 	@include adaptiveValue('height', 90, 70);
 	@include adaptiveValue('font-size', 24, 14);
 	position: relative;
-	background-color: white;
+	background-color: #fff;
 	font-weight: 700;
 	width: 100%;
 	border-radius: 20px;
@@ -215,16 +215,12 @@
 
 }
 
+
 #arrow-education {
 	transition: all 0.4s ease;
 
 }
 
-.btn-education-radio {
-	border-radius: 20px 20px 0px 0px;
-	// transition: all 0s ease;
-
-}
 
 .education-list-accor {
 	@include adaptiveValue('margin-left', 31, 24);
@@ -321,6 +317,7 @@
 	}
 }
 
+
 .education-accor {
 
 	transition: all .3s;
@@ -335,13 +332,20 @@
 	}
 }
 
+
+
 .license-education-link {
 	font-weight: 400;
 	@include adaptiveValue('font-size', 18, 14);
+	margin-left: 0px;
 	color: $mainTif;
 	border-bottom: 1px solid $mainTif;
 }
 
+.license-education-link-box {
+	margin-left: 0;
+	padding-left: 0;
+}
 
 
 //================================//================================//================================//================================//================================//================================//================================
@@ -694,23 +698,7 @@
 	transform: rotate(90deg);
 }
 
-.button-select {
-	@include adaptiveValue('width', 260, 170);
-	@include adaptiveValue('font-size', 14, 12);
-	padding-left: 16px;
 
-	border-radius: 10px 10px 10px 10px;
-	border: 1px solid #C9C8D3;
-	background-color: #fff;
-
-	text-align-last: left;
-	font-weight: 700;
-
-	height: rem(36);
-	position: relative;
-	z-index: 5;
-
-}
 
 
 
@@ -718,38 +706,53 @@
 	position: relative;
 }
 
+.button-select {
+	@include adaptiveValue('width', 260, 170);
+	@include adaptiveValue('font-size', 14, 12);
+	padding-left: 16px;
+	border-radius: 10px 10px 10px 10px;
+	border: 1px solid #C9C8D3;
+	background-color: #fff;
+	text-align-last: left;
+	font-weight: 700;
+	height: rem(36);
+	position: relative;
+	z-index: 5;
+
+}
+
 .quarter-mobile-box__container {
 	padding-left: 0;
 	padding-right: 0;
 	overflow: hidden;
-	@include adaptiveValue('width', 258, 168);
-	@include adaptiveValue('top', 28, 30);
+	@include adaptiveValue('width', 257, 168);
+	@include adaptiveValue('top', 10, 30);
 	@include adaptiveValue('left', 0, 0);
 
 	position: absolute;
+	border: 1px solid #C9C8D3;
+	border-top: 1px solid #C9C8D3;
+	border-radius: 0 0 10px 10px;
+	background-color: #fff;
+	max-height: 0px;
+	transition-duration: .5s;
+	z-index: 4;
+
+
+
+
 	-webkit-box-shadow: 0px 27px 35px -24px rgba(34, 60, 80, 0.2);
 	-moz-box-shadow: 0px 27px 35px -24px rgba(34, 60, 80, 0.2);
 	box-shadow: 0px 27px 35px -24px rgba(34, 60, 80, 0.2);
-	border: 1px solid #C9C8D3;
-	border-top: 0px solid rgba(0, 0, 0, 0);
-	border-radius: 0 0 10px 10px;
-
-	background-color: #fff;
-
-	max-height: 0px;
-	transition-duration: .2s;
-	z-index: 4;
 
 }
 
 .quarter-mobile-box__content {
-	// transform: translateY(-100%);
-	// transition-duration: .4s;
 
 
 
 	ul {
-		@include adaptiveValue('padding-top', 8, 6);
+		@include adaptiveValue('padding-top', 16, 6);
 
 		@include adaptiveValue('font-size', 14, 12);
 
@@ -787,10 +790,22 @@
 }
 
 
+#doc-edu {
+	position: absolute;
+	@include adaptiveValue('left', -26, -20);
+	// left: -23px;
+	top: -20%;
+}
 
-// .prog-top-hours__list {}
-// .prog-top-list__list {}
+.edu-graph-li {
+	@include adaptiveValue('margin-left', 12, 8);
 
-// .prog-box-title {}
-// .prog-hours-list {}
-// .prog-box-education {}
+}
+
+
+.btn-education-radio {
+	border-radius: 10px 10px 0px 0px;
+	background-color: #fff;
+	// transition: all 0s ease;
+
+}

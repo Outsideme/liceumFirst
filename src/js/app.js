@@ -180,7 +180,7 @@ const widthProgResize = () => {
 
 
 
-			const btnAccorEducation = document.querySelectorAll('.btn-education-accor').forEach(e=> {e.addEventListener('click', btnAccorEducationOpen, false)})
+			document.querySelectorAll('.btn-education-accor').forEach(e=> {e.addEventListener('click', btnAccorEducationOpen, false)})
 function btnAccorEducationOpen () {
 const accor = this.nextElementSibling
 const content = this.nextElementSibling.children[0]
@@ -251,7 +251,7 @@ btnSelectOne.addEventListener('click', openSelect, false)
 btnSelectTwo.addEventListener('click', openSelect, false)
 btnSelectThree.addEventListener('click', openSelect, false)
 function openSelect () {
-
+	this.classList.toggle('btn-education-radio')
 	this.children[0].innerHTML = arrInfoFirstSecond.select
 	if (!this.nextElementSibling.classList.contains('quarter-active')){
 
@@ -329,28 +329,25 @@ const arrInfoFirstSecond = {
 	sinSeasonFourth: "ГИА",
 	seasonFourthTitle: "Летние",
 
+}
+
+
+const dateObj = {
+	currentDate: new Date(),
+	startFirstQuarter: new Date('2022-09-01'),
+	endFirstQuarter: new Date('2022-10-26'),
+	startSecondQuarter: new Date('2022-11-07'),
+	endSecondQuarter: new Date('2022-12-24'),
+	startThirdQuarter: new Date('2022-01-09'),
+	endThirdQuarter: new Date('2022-03-04'),
+	startFourthQuarter: new Date('2022-03-13'),
+	endFourthQuarter: new Date('2022-05-27'),
 
 
 }
 
-
-
-let currentDate = new Date()
-let startFirstQuarter = new Date('2022-09-01')
-let endFirstQuarter = new Date('2022-10-26')
-let startSecondQuarter = new Date('2022-11-07')
-let endSecondQuarter = new Date('2022-12-24')
-let startThirdQuarter = new Date('2022-01-09')
-let endThirdQuarter = new Date('2022-03-04')
-let startFourthQuarter = new Date('2022-03-13')
-let endFourthQuarter = new Date('2022-05-27')
-
-
-
-
-
 const showTableInQuarter = () => {
-	if (currentDate >= startFirstQuarter && currentDate <= endFirstQuarter) {
+	if (dateObj.currentDate >= dateObj.startFirstQuarter && dateObj.currentDate <= dateObj.endFirstQuarter) {
 		outputJun.innerHTML = arrInfoFirstSecond.one
 		outputSin.innerHTML = arrInfoFirstSecond.sinOne
 		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle
@@ -365,9 +362,8 @@ const showTableInQuarter = () => {
 //==============================//==============================//==============================//==============================//==============================//==============================
 
 
-		console.log('Первая четверть')
 	}
-	if (currentDate >= startSecondQuarter && currentDate <= endSecondQuarter) {
+	if (dateObj.currentDate >= dateObj.startSecondQuarter && dateObj.currentDate <= dateObj.endSecondQuarter) {
 		outputJun.innerHTML = arrInfoFirstSecond.two
 		outputSin.innerHTML = arrInfoFirstSecond.sinTwo
 		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle
@@ -380,13 +376,11 @@ const showTableInQuarter = () => {
 		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond
 
 //==============================//==============================//==============================//==============================//==============================//==============================
-outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
-	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst
-	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFirstTitle
-
-		console.log('Вторая')
+		outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
+		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst
+		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFirstTitle
 	}
-	if (currentDate >= startThirdQuarter && currentDate <= endThirdQuarter) {
+	if (dateObj.currentDate >= dateObj.startThirdQuarter && dateObj.currentDate <= dateObj.endThirdQuarter) {
 		outputJun.innerHTML = arrInfoFirstSecond.three
 		outputSin.innerHTML = arrInfoFirstSecond.sinThree
 		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle
@@ -399,12 +393,11 @@ outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
 		outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond
 		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond
 //==============================//==============================//==============================//==============================//==============================//==============================
-outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird
-	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird
-	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonThirdTitle
-		console.log('Третья')
+		outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird
+		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird
+		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonThirdTitle
 	}
-	if (currentDate >= startFourthQuarter && currentDate <= endFourthQuarter) {
+	if (dateObj.currentDate >= dateObj.startFourthQuarter && dateObj.currentDate <= dateObj.endFourthQuarter) {
 		outputJun.innerHTML = arrInfoFirstSecond.four
 		outputSin.innerHTML = arrInfoFirstSecond.sinFour
 		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle
@@ -417,134 +410,77 @@ outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird
 
 //==============================//==============================//==============================//==============================//==============================//==============================
 		outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
-	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
-	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
-		console.log('Четвёртая')
+		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
+		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
 	}
-//
-
 
 }
+
 showTableInQuarter()
 
-const btnLiSelect1 = document.querySelector('#quarter-li-1').addEventListener('click', e => {
-	outputJun.innerHTML = arrInfoFirstSecond.one
-	outputSin.innerHTML = arrInfoFirstSecond.one
-	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle
-
-
-})
-const btnLiSelect2 = document.querySelector('#quarter-li-2').addEventListener('click', e => {
-	outputJun.innerHTML = arrInfoFirstSecond.two
-	outputSin.innerHTML = arrInfoFirstSecond.two
-	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle
-
-
-})
-const btnLiSelect3 = document.querySelector('#quarter-li-3').addEventListener('click', e => {
-	outputJun.innerHTML = arrInfoFirstSecond.three
-	outputSin.innerHTML = arrInfoFirstSecond.three
-	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle
-
-
-
-})
-const btnLiSelect4 = document.querySelector('#quarter-li-4').addEventListener('click', e => {
-	outputJun.innerHTML = arrInfoFirstSecond.four
-	outputSin.innerHTML = arrInfoFirstSecond.four
-	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle
-
-
-
-})
-const btnLiSelect5 = document.querySelector('#quarter-li-5').addEventListener('click', e => {
-	outputJun.innerHTML = arrInfoFirstSecond.pa
-	outputSin.innerHTML = arrInfoFirstSecond.pa
-	btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.paTitle
-
-})
-
-
-
-const btnLiSelectSecond1 = document.querySelector('#quarter-li-1-second').addEventListener('click', e => {
-	outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond
-	outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond
-	btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond
-
-
-})
-const btnLiSelectSecond2 = document.querySelector('#quarter-li-2-second').addEventListener('click', e => {
-	outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond
-	outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond
-	btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond
-
-
-
-})
-const btnLiSelectSecond3 = document.querySelector('#quarter-li-3-second').addEventListener('click', e => {
-	outputJunSecond.innerHTML = arrInfoFirstSecond.pa
-	outputSinSecond.innerHTML = arrInfoFirstSecond.paTwo
-	btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.paTitle
-
-
-
-})
 
 
 
 
+document.querySelectorAll('.li-select').forEach(e =>  e.addEventListener('click', function (event) {
 
-const btnLiSelectSeason1 = document.querySelector('#quarter-li-1-third').addEventListener('click', e => {
-	outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
-	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst
-	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFirstTitle
-
-
-
-})
-const btnLiSelectSeason2 = document.querySelector('#quarter-li-2-third').addEventListener('click', e => {
-	outputJunThird.innerHTML = arrInfoFirstSecond.seasonSecond
-	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonSecond
-	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonSecondTitle
-
-
-
-})
-const btnLiSelectSeason3 = document.querySelector('#quarter-li-3-third').addEventListener('click', e => {
-	outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird
-	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird
-	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonThirdTitle
-
-
-
-})
-const btnLiSelectSeason4 = document.querySelector('#quarter-li-4-third').addEventListener('click', e => {
-	outputJunThird.innerHTML = arrInfoFirstSecond.seasonFourth
-	outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
-	btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
+	if (event.target.contains(document.getElementById('quarter-li-1'))) {
+		outputJun.innerHTML = arrInfoFirstSecond.one
+		outputSin.innerHTML = arrInfoFirstSecond.sinOne
+		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle
+	} else if (event.target.contains(document.getElementById('quarter-li-2'))) {
+		outputJun.innerHTML = arrInfoFirstSecond.two
+		outputSin.innerHTML = arrInfoFirstSecond.sinTwo
+		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle
+	} else if (event.target.contains(document.getElementById('quarter-li-3'))) {
+		outputJun.innerHTML = arrInfoFirstSecond.three
+		outputSin.innerHTML = arrInfoFirstSecond.sinThree
+		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle
+	} else if (event.target.contains(document.getElementById('quarter-li-4'))) {
+		outputJun.innerHTML = arrInfoFirstSecond.four
+		outputSin.innerHTML = arrInfoFirstSecond.sinFour
+		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle
+	} else if (event.target.contains(document.getElementById('quarter-li-5'))) {
+		outputJun.innerHTML = arrInfoFirstSecond.pa
+		outputSin.innerHTML = arrInfoFirstSecond.paTwo
+		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.paTitle
+	}
 
 
 
-})
+	if (event.target.contains(document.getElementById('quarter-li-1-second'))) {
+		outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond
+		outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond
+		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond
+	} else if (event.target.contains(document.getElementById('quarter-li-2-second'))) {
+	 	outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond
+		outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond
+		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond
+	} else if (event.target.contains(document.getElementById('quarter-li-3-second'))) {
+		outputJunSecond.innerHTML = arrInfoFirstSecond.pa
+		outputSinSecond.innerHTML = arrInfoFirstSecond.paTwo
+		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.paTitle
+	}
 
 
-
-
-
-
-
-// const arrInfoSin = [
-// 	"01.09 - 26.10
-// 	(8 уч. недель)",
-// 	"07.11 - 24.12
-// 	(7 уч. недель)",
-// 	"09.01 - 04.03
-// 	(8 уч. недель)",
-// 	"13.03 - 13.05
-// 	(9 уч. недель)",
-// 	"15.05 - 20.05
-// 	(1 уч. недель)",
-// ]
+	if (event.target.contains(document.getElementById('quarter-li-1-third'))) {
+		outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
+		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst
+		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFirstTitle
+	} else if (event.target.contains(document.getElementById('quarter-li-2-third'))) {
+		outputJunThird.innerHTML = arrInfoFirstSecond.seasonSecond
+		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonSecond
+		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonSecondTitle
+	} else if (event.target.contains(document.getElementById('quarter-li-3-third'))) {
+		outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird
+		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird
+		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonThirdTitle
+	} else if (event.target.contains(document.getElementById('quarter-li-4-third'))) {
+		outputJunThird.innerHTML = arrInfoFirstSecond.seasonFourth
+		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
+		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
+	}
+}))
 
 
 

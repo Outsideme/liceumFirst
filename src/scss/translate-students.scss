@@ -41,7 +41,18 @@
 
 }
 
+.educztionTransBr {
+	display: none;
+}
+
 .translate-students-text-box {
 
 	@include adaptiveValue('margin-bottom', 400, 160);
+}
+
+@media screen and (max-width: 390px) {
+	.educztionTransBr {
+		display: block;
+	}
+
 }

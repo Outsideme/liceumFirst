@@ -104,6 +104,10 @@
 	&:hover {
 		transform: scale(104%);
 	}
+
+	&:active {
+		transform: scale(98%);
+	}
 }
 
 .card-team__photo {
