@@ -221,6 +221,8 @@ window.addEventListener('resize', e => {
 })
 
 const heightHours = () => {
+	const progTable = document.querySelector('.prog-table')
+	if (progTable) {
 	const tableList1 = document.querySelector('.prof-table-list-1').offsetHeight
 	const tableList2 = document.querySelector('.prof-table-list-2').offsetHeight
 	const tableList3 = document.querySelector('.prof-table-list-3').offsetHeight
@@ -236,10 +238,8 @@ const heightHours = () => {
 	document.querySelector('.prof-table-hours-5').style.height = tableList5 + 'px'
 	document.querySelector('.prof-table-hours-6').style.height = tableList6 + 'px'
 	document.querySelector('.prof-table-hours-7').style.height = tableList7 + 'px'
-}
+}}
 heightHours()
-
-
 
 
 
@@ -247,6 +247,7 @@ heightHours()
 const btnSelectOne = document.querySelector('.btn-select-one')
 const btnSelectTwo = document.querySelector('.btn-select-two')
 const btnSelectThree = document.querySelector('.btn-select-three')
+if (btnSelectOne) {
 btnSelectOne.addEventListener('click', openSelect, false)
 btnSelectTwo.addEventListener('click', openSelect, false)
 btnSelectThree.addEventListener('click', openSelect, false)
@@ -265,7 +266,7 @@ this.nextElementSibling.classList.toggle('quarter-active')
 		this.children[1].style.transform = `rotate(0deg)`
 	}
 }
-
+}
 
 
 const outputJun = document.querySelector('.quarter-mobile-box__classes-output-jun')
@@ -274,6 +275,7 @@ const outputJunSecond = document.querySelector('.output-jun-second')
 const outputSinSecond = document.querySelector('.output-sin-second')
 const outputJunThird = document.querySelector('.output-jun-third')
 const outputSinThird = document.querySelector('.output-sin-third')
+const tableIf = document.querySelector('.education-tables__table')
 const arrInfoFirstSecond = {
 	one: "01.09 - 26.10 (8 уч. недель)",
 	oneTitle: "1 четверть",
@@ -347,6 +349,7 @@ const dateObj = {
 }
 
 const showTableInQuarter = () => {
+if (tableIf) {
 	if (dateObj.currentDate >= dateObj.startFirstQuarter && dateObj.currentDate <= dateObj.endFirstQuarter) {
 		outputJun.innerHTML = arrInfoFirstSecond.one
 		outputSin.innerHTML = arrInfoFirstSecond.sinOne
@@ -413,7 +416,7 @@ const showTableInQuarter = () => {
 		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
 		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
 	}
-
+}
 }
 
 showTableInQuarter()
