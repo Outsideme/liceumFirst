@@ -1,12 +1,6 @@
-.teachers {}
-
-.teachers__container {}
-
-.teachers__rows {}
-
 .teachers-main__section {
 	@include adaptiveValue('margin-top', 80, 64);
-	@include adaptiveValue('margin-bottom', 80, 56);
+	@include adaptiveValue('margin-bottom', 50, 32);
 	display: grid;
 	grid-template-columns: 1fr .7fr 1fr;
 	grid-auto-rows: .2fr 1fr;
@@ -28,27 +22,27 @@
 }
 
 .teachers-main__position {
-	color: $mainTif;
 	@include adaptiveValue('font-size', 20, 16);
+	@include adaptiveValue('margin-bottom', 40, 40);
+	color: $mainTif;
 	line-height: 120%;
 	font-weight: 700;
-	@include adaptiveValue('margin-bottom', 40, 40);
 
 
 }
 
 .teachers-main__phrase {
+	@include adaptiveValue('font-size', 16, 14);
+	@include adaptiveValue('padding-left', 104, 40);
+	@include adaptiveValue('padding-top', 25, 9);
+	@include adaptiveValue('padding-bottom', 24, 24);
+	@include adaptiveValue('padding-right', 24, 24);
 	grid-column: 1/3;
 	grid-row: 2/3;
 	background-color: $phraseTif;
 	line-height: 140%;
 	border-radius: 20px;
 	position: relative;
-	@include adaptiveValue('font-size', 16, 14);
-	@include adaptiveValue('padding-left', 104, 40);
-	@include adaptiveValue('padding-top', 45, 24);
-	@include adaptiveValue('padding-bottom', 24, 24);
-	@include adaptiveValue('padding-right', 24, 24);
 }
 
 .phrase-many-words {
@@ -62,8 +56,6 @@
 	img {
 		width: 350px;
 		height: 430px;
-		// @include adaptiveValue('width', 350, 290);
-		// @include adaptiveValue('height', 405, 320);
 	}
 
 	grid-column: 3/4;
@@ -89,9 +81,9 @@
 	}
 
 	.teachers-main__phrase {
+		@include adaptiveValue('margin-top', 24, 24);
 		grid-column: 1/4;
 		grid-row: 2/3;
-		@include adaptiveValue('margin-top', 24, 24);
 	}
 
 
@@ -155,8 +147,6 @@
 
 .teachers__education-title {
 	@include adaptiveValue('font-size', 24, 20);
-	// margin-bottom: rem(0);
-	// @include adaptiveValue("margin-top", 104, 64);
 	margin-bottom: 24px;
 	font-weight: 700;
 	line-height: 120%;
@@ -182,26 +172,10 @@
 
 }
 
-.teachers__education-level {
-	grid-column: 1/2;
-}
-
-
-.teachers__education-mater {
-	grid-column: 1/2;
-}
-
-
-.teachers__education-faculty {
-	grid-column: 1/2;
-}
-
-
-.teachers__education-specialization {
-	grid-column: 1/2;
-}
-
-
+.teachers__education-level,
+.teachers__education-mater,
+.teachers__education-faculty,
+.teachers__education-specialization,
 .teachers__education-qualification {
 	grid-column: 1/2;
 }
@@ -209,8 +183,8 @@
 
 
 .teachers__cards-box {
-	margin: 0 auto;
 	@include adaptiveValue("margin-bottom", 104, 64);
+	margin: 0 auto;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -223,7 +197,6 @@
 
 .teachers__card {
 	@include adaptiveValue('width', 160, 130);
-
 	margin-right: rem(15);
 	margin-left: rem(15);
 
@@ -260,12 +233,10 @@
 }
 
 .self-teach-all {
-	margin-left: rem(24);
 	@include adaptiveValue("font-size", 18, 12);
+	margin-left: rem(24);
 	width: 90%;
 }
-
-.teachers__education-mater-prop {}
 
 .self-teach {
 	display: flex;
@@ -322,18 +293,18 @@
 
 .teachers-point-prop {
 	ul {
-		margin-left: rem(28);
 		@include adaptiveValue("margin-left", 28, 14);
+		margin-left: rem(28);
 
 		li {
 			position: relative;
 
 			&::before {
 				content: '';
-				position: absolute;
 				@include adaptiveValue("width", 6, 4);
 				@include adaptiveValue("height", 6, 4);
 				@include adaptiveValue("left", -14, -10);
+				position: absolute;
 				background-color: $mainText;
 
 				top: 8px;

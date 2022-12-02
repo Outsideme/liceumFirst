@@ -331,6 +331,8 @@ const arrInfoFirstSecond = {
 	sinSeasonFourth: "ГИА",
 	seasonFourthTitle: "Летние",
 
+
+
 }
 
 
@@ -346,7 +348,22 @@ const dateObj = {
 	endFourthQuarter: new Date('2022-05-27'),
 
 
+
+	teachersExpYears2023: new Date(2023, 9, 1, 0, 0),
+	teachersExpYears2024: new Date(2024, 9, 1, 0, 0),
+	teachersExpYears2025: new Date(2025, 9, 1, 0, 0),
+	teachersExpYears2026: new Date(2026, 9, 1, 0, 0),
+	teachersExpYears2027: new Date(2027, 9, 1, 0, 0),
+	teachersExpYears2028: new Date(2028, 9, 1, 0, 0),
+	teachersExpYears2029: new Date(2029, 9, 1, 0, 0),
+	teachersExpYears2030: new Date(2030, 9, 1, 0, 0),
+	teachersExpYears2031: new Date(2031, 9, 1, 0, 0),
+	teachersExpYears2032: new Date(2032, 9, 1, 0, 0),
+
+
 }
+
+
 
 const showTableInQuarter = () => {
 if (tableIf) {
@@ -489,10 +506,116 @@ document.querySelectorAll('.li-select').forEach(e =>  e.addEventListener('click'
 
 
 
+const endYears = {
+	let: 'лет',
+	goda: 'года',
+	god: 'год',
+}
+
+//==============================//==============================//==============================//==============================//==============================//==============================
+
+function changeExp() {
+	let workExp = document.querySelectorAll('.expTeach')
+
+
+//==============================//==============================
+	let yearExpCounter = workExp[0].textContent.split(" ")[0]
+	yearExpCounter = String(Number(yearExpCounter) + 1)
+	let yearExpArray = new Array(yearExpCounter)[0].split('')
+	let lastComparsion = yearExpCounter [yearExpArray.length - 1]
+//==============================//==============================
+
+
+		if ( yearExpCounter >= 5 && yearExpCounter <= 20 || lastComparsion >= 5 && lastComparsion <= 9 || lastComparsion == 0) {
+
+			return workExp[0].textContent = `${yearExpCounter} ${endYears.let}`
+		}
+		if ( lastComparsion == 2 ||lastComparsion == 3 || lastComparsion == 4 ) {
+			workExp[0].textContent = `${yearExpCounter} ${endYears.goda}`
+		}
+		if ( lastComparsion == 1) {
+			workExp[0].textContent = `${yearExpCounter} ${endYears.god}`
+		}
+
+	}
+
+
+//==============================//==============================//==============================//==============================//==============================//==============================
 
 
 
+function changeExpSec() {
+	let workExpSec = document.querySelectorAll('.expTeachSec')
 
+//==============================//==============================
+
+
+	let yearExpCounterSec = workExpSec[0].textContent.split(" ")[0]
+	yearExpCounterSec = String(Number(yearExpCounterSec) + 1)
+	let yearExpArraySec = new Array(yearExpCounterSec)[0].split('')
+	let lastComparsionSec = yearExpCounterSec [yearExpArraySec.length - 1]
+//==============================//==============================
+
+
+		if ( yearExpCounterSec >= 5 && yearExpCounterSec <= 20 || lastComparsionSec >= 5 && lastComparsionSec <= 9 || lastComparsionSec == 0) {
+
+			return workExpSec[0].textContent = `${yearExpCounterSec} ${endYears.let}`
+		}
+		if ( lastComparsionSec == 2 || lastComparsionSec == 3 || lastComparsionSec == 4 ) {
+			workExpSec[0].textContent = `${yearExpCounterSec} ${endYears.goda}`
+		}
+		if ( lastComparsionSec == 1) {
+			workExpSec[0].textContent = `${yearExpCounterSec} ${endYears.god}`
+		}
+
+
+
+	}
+
+	if (dateObj.currentDate > dateObj.teachersExpYears2023) {
+		changeExp()
+		changeExpSec()
+	}
+	if (dateObj.currentDate > dateObj.teachersExpYears2024) {
+		changeExp()
+		changeExpSec()
+	}
+
+	if (dateObj.currentDate > dateObj.teachersExpYears2025) {
+		changeExp()
+		changeExpSec()
+	}
+	if (dateObj.currentDate > dateObj.teachersExpYears2026) {
+		changeExp()
+		changeExpSec()
+	}
+
+	if (dateObj.currentDate > dateObj.teachersExpYears2027) {
+		changeExp()
+		changeExpSec()
+	}
+	if (dateObj.currentDate > dateObj.teachersExpYears2028) {
+		changeExp()
+		changeExpSec()
+	}
+
+	if (dateObj.currentDate > dateObj.teachersExpYears2029) {
+		changeExp()
+		changeExpSec()
+	}
+	if (dateObj.currentDate > dateObj.teachersExpYears2030) {
+		changeExp()
+		changeExpSec()
+	}
+
+	if (dateObj.currentDate > dateObj.teachersExpYears2031) {
+		changeExp()
+		changeExpSec()
+	}
+	if (dateObj.currentDate > dateObj.teachersExpYears2032) {
+		changeExp()
+		changeExpSec()
+	}
 
 
 

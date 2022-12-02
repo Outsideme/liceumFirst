@@ -725,8 +725,8 @@
 	padding-left: 0;
 	padding-right: 0;
 	overflow: hidden;
-	@include adaptiveValue('width', 257, 168);
-	@include adaptiveValue('top', 10, 30);
+	@include adaptiveValue('width', 256, 168);
+	@include adaptiveValue('top', 10, 25);
 	@include adaptiveValue('left', 0, 0);
 
 	position: absolute;
@@ -757,6 +757,7 @@
 		@include adaptiveValue('font-size', 14, 12);
 
 		li {
+			
 			cursor: pointer;
 			@include adaptiveValue('padding-left', 16, 12);
 

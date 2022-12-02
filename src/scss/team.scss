@@ -64,10 +64,19 @@
 
 }
 
-#quotes {
+#quotes-team {
 	@include adaptiveValue('width', 33, 18);
 	@include adaptiveValue('height', 29, 11);
 	@include adaptiveValue('top', 51, 25);
+	@include adaptiveValue('left', 41, 13);
+	position: absolute;
+
+}
+
+#quotes {
+	@include adaptiveValue('width', 33, 18);
+	@include adaptiveValue('height', 29, 11);
+	@include adaptiveValue('top', 30, 25);
 	@include adaptiveValue('left', 41, 13);
 	position: absolute;
 
@@ -107,6 +116,18 @@
 
 	&:active {
 		transform: scale(98%);
+	}
+}
+
+.card-disable {
+	transition-duration: 0s;
+
+	&:hover {
+		transform: scale(100%);
+	}
+
+	&:active {
+		transform: scale(100%);
 	}
 }
 
