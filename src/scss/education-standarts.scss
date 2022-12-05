@@ -10,6 +10,11 @@
 		@include adaptiveValue('margin-bottom', 420, 180);
 	}
 
+	#doc {
+		// @include adaptiveValue("top", -5px, 0px);
+		top: 1px;
+	}
+
 	h1 {
 
 		@include adaptiveValue('font-size', 40, 26);

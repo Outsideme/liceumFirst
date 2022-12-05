@@ -1,6 +1,12 @@
-.contacts {}
+.contacts-br {
+	display: none;
+}
 
-.contacts__container {}
+@media screen and (max-width: 840px) {
+	.contacts-br {
+		display: block;
+	}
+}
 
 .contacts__rows {
 	@include adaptiveValue('font-size', 18, 14);
@@ -55,9 +61,9 @@
 			@include adaptiveValue('width', 6, 3);
 			@include adaptiveValue('height', 6, 3);
 			@include adaptiveValue('left', -16, -8);
+			@include adaptiveValue('top', 10, 9);
 			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
+
 			background-color: $mainText;
 			border-radius: 50%;
 
@@ -98,6 +104,8 @@
 }
 
 .how-to-get {
+	@include adaptiveValue("margin-bottom", 40, 40);
+
 	p {
 		line-height: 140%;
 

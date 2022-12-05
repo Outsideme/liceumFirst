@@ -1,9 +1,15 @@
 //====================================================================================================
+
 .header {}
 
+
+
 .header__top-line {
-	height: rem(32);
+	max-height: rem(32);
 	background-color: #fff;
+	overflow-y: hidden;
+	transition-duration: .4s;
+
 }
 
 #form-top {
@@ -43,7 +49,7 @@
 .search-btn {
 	right: 112px;
 	position: absolute;
-	transition: all .64s cubic-bezier(.44, 1.26, .16, 1.04);
+	transition: all .45s cubic-bezier(.44, 1.26, .16, 1.04);
 }
 
 
@@ -52,6 +58,7 @@
 
 #input-top.inputActive {
 	visibility: visible;
+
 	opacity: 1;
 	// transition-delay: .5s;
 	transition-delay: .4s;
@@ -64,7 +71,6 @@
 #input-top {
 	visibility: hidden;
 	opacity: 0;
-	transition: .3s;
 	padding-left: 10px;
 	transform: translateX(-50px);
 	margin-top: rem(4);
@@ -156,21 +162,21 @@
 
 
 
-.second-spoller {
-	position: absolute;
-	background-color: #fff;
-	box-shadow: 0 0 9px rgba(5, 71, 69, 0.15);
-	border-radius: 10px;
-	transition-duration: all .3s;
-	overflow: hidden;
-	visibility: hidden;
-	opacity: 0;
-	transform: translateY(-500px);
-	transform: scaleY(70%);
+// .second-spoller {
+// 	position: absolute;
+// 	background-color: #fff;
+// 	box-shadow: 0 0 9px rgba(5, 71, 69, 0.15);
+// 	border-radius: 10px;
+// 	transition-duration: all .3s;
+// 	overflow: hidden;
+// 	visibility: hidden;
+// 	opacity: 0;
+// 	transform: translateY(-500px);
+// 	transform: scaleY(70%);
 
 
 
-}
+// }
 
 
 .about-liceum,
@@ -184,7 +190,7 @@
 	&:after {
 		opacity: 0;
 		content: '';
-		transition: all .3s ease;
+		// transition: all .3s ease;
 		width: 100%;
 		height: 1px;
 		position: absolute;
@@ -208,7 +214,7 @@
 	white-space: nowrap;
 	padding-top: rem(15);
 	font-weight: 700;
-	transition-duration: .8s;
+	// transition-duration: .8s;
 }
 
 .burger {
@@ -709,5 +715,172 @@ li[data-arrow] {
 	}
 }
 
-//===================================//===================================//===================================//===================================//
+//===================================//===================================//===================================//===================================
+
+.impaired-bar {
+	background-color: $mainBg;
+	font-weight: 700;
+
+	h3 {
+		text-align: center;
+		margin-bottom: rem(8);
+	}
+
+	&__impaired-row {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&__fonts-box {}
+
+	&__fonts-change {}
+
+	&__letter-distance-box {}
+
+	&__letter-distance {}
+
+	&__images-box {}
+
+	&__impared-images {}
+
+	&__web-color-box {}
+
+	&__web-color {}
+
+	&__ussually-mode {
+		font-weight: 700;
+		min-width: rem(45);
+		min-height: rem(45);
+		margin: 11px 6px;
+		@include adaptiveValue("font-size", 18, 14);
+	}
+}
+
+
+
+.impaired-box {
+	margin: 11px 6px;
+
+}
+
+.inspired-item {
+	min-width: rem(45);
+	min-height: rem(45);
+	@include adaptiveValue("font-size", 18, 14);
+	padding: 5px;
+	font-weight: 700;
+
+}
+
+.impaired-bar-keeper {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.fonts-change {
+
+	&__little {
+		font-size: rem(9);
+	}
+
+	&__middle {
+		font-size: 16px;
+	}
+
+	&__large {
+		font-size: 28px;
+	}
+}
+
+#gray-header {
+	path {
+		stroke: #25282B;
+		fill: #25282B;
+	}
+}
+
+.letter-distance {
+	&:not(:last-child) {
+		margin-right: rem(8);
+	}
+
+	&__little {
+		letter-spacing: 0px;
+	}
+
+	&__middle {
+		letter-spacing: 6px;
+
+	}
+
+	&__large {
+		letter-spacing: 12px;
+
+	}
+}
+
+.impared-images {
+	&:not(:last-child) {
+		margin-right: rem(8);
+	}
+
+	&__show {}
+
+	&__gray {}
+
+	&__hide {}
+}
+
+.web-color {
+	border-radius: 10px;
+
+	&:not(:last-child) {
+		margin-right: rem(8);
+	}
+
+	&__white {
+		background-color: #fff;
+	}
+
+	&__black {
+		background-color: #000;
+		color: #fff;
+	}
+
+	&__blue {
+		background-color: #9DD1FF;
+	}
+
+	&__vanilla {
+		background-color: #F7F3D6;
+		color: #4D4B43;
+	}
+
+	&__green {
+		background-color: #3B2716;
+		color: #A9E44D;
+	}
+}
+
+
 //==================================//==================================//==================================//==================================
+.top-line-active {
+	transition-duration: .8s;
+	max-height: 700px;
+}
+
+.buttom-top-eye {}
+
+#eyeacross {
+	display: none;
+
+}
+
+.eye-active {
+	display: none;
+}
+
+.eye-dis {
+	display: block;
+}

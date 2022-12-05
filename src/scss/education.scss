@@ -187,6 +187,13 @@
 	.educationProgBr {
 		display: block;
 	}
+
+	// #doc-edu {
+	// 	position: absolute;
+	// 	@include adaptiveValue('left', -26, -20);
+	// 	top: 20%;
+	// }
+
 }
 
 
@@ -594,6 +601,13 @@
 	.quarter-mobile {
 		display: block;
 	}
+
+	// #doc-edu {
+	// 	position: absolute;
+	// 	@include adaptiveValue('left', -26, -20);
+	// 	top: 0%;
+	// }
+
 }
 
 .quarter-mobile-box {
@@ -757,7 +771,7 @@
 		@include adaptiveValue('font-size', 14, 12);
 
 		li {
-			
+
 			cursor: pointer;
 			@include adaptiveValue('padding-left', 16, 12);
 
@@ -794,8 +808,7 @@
 #doc-edu {
 	position: absolute;
 	@include adaptiveValue('left', -26, -20);
-	// left: -23px;
-	top: -20%;
+	@include adaptiveValue('top', -5px, 0px);
 }
 
 .edu-graph-li {

@@ -25,8 +25,15 @@
 
 .MTO-subtitle {
 	@include adaptiveValue('padding-left', 28, 16);
-	@include adaptiveValue('padding-bottom', 24, 16);
+	// @include adaptiveValue('padding-bottom', 24, 16);
 	@include adaptiveValue('font-size', 18, 12);
+	@include adaptiveValue('margin-bottom', 20, 14);
+
+
+
+
+
+
 	padding-left: 20px;
 	line-height: 140%;
 	width: 85%;
@@ -148,6 +155,11 @@
 	@include adaptiveValue('padding-bottom', 6, 6);
 	padding-top: rem(0);
 
+	h3 {
+		@include adaptiveValue('margin-bottom', 8, 6);
+		line-height: 140%;
+	}
+
 	ul {
 		@include adaptiveValue('padding-left', 32, 16);
 
@@ -161,8 +173,7 @@
 				@include adaptiveValue('height', 6, 3);
 				background-color: $mainText;
 				@include adaptiveValue('left', -16, -8);
-				top: 50%;
-				transform: translateY(-50%);
+				@include adaptiveValue('top', 12, 7);
 				border-radius: 50%;
 
 			}
@@ -174,7 +185,7 @@
 	.mto-subtitle-library {
 		margin-bottom: 0;
 		padding-left: 0;
-
+		@include adaptiveValue('margin-bottom', 8, 6);
 	}
 
 	h3 {
@@ -195,7 +206,8 @@
 
 .mto-first-list,
 .mto-second-list {
-	@include adaptiveValue('font-size', 18, 12)
+	@include adaptiveValue('font-size', 18, 12);
+	margin-bottom: rem(16);
 }
 
 .mto-last-list {

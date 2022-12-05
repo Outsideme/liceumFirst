@@ -1,4 +1,5 @@
 
+
 const burger = document.querySelector('[data-burger]')
 const mobileNav = document.querySelector('[data-nav]')
 const header = document.querySelector('.header')
@@ -624,8 +625,13 @@ function changeExpSec() {
 
 
 
+const eye = document.querySelector('.buttom-top-eye')
+const topLine = document.querySelector('.header__top-line')
 
-
+eye.addEventListener('click', e => {
+	topLine.classList.toggle('top-line-active')
+console.log()
+})
 
 
 
