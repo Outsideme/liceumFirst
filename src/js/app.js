@@ -623,19 +623,165 @@ function changeExpSec() {
 
 
 
-
-
-const eye = document.querySelector('.buttom-top-eye')
+const eyeBtn = document.querySelector('.buttom-top-eye')
 const topLine = document.querySelector('.header__top-line')
+const eyeSvg = document.querySelector('#eye')
+const eyeAcrossSvg = document.querySelector('#eyeacross')
+const body = document.body
+const changeImpaired = document.querySelector('.change-impaired')
+const changeHeader = document.querySelector('.header__body')
 
-eye.addEventListener('click', e => {
+
+
+eyeBtn.addEventListener('click', e => {
 	topLine.classList.toggle('top-line-active')
-console.log()
+	eyeBtn.classList.toggle('eyeActive')
+
+
 })
 
 
 
+// localStorage.setItem('blueBg', '#9DD1FF')
+// localStorage.setItem('blueBgText', '#25282B')
 
+// localStorage.setItem('vanillaBg', '#F7F3D6')
+// localStorage.setItem('vanillaBgText', '#4D4B43')
+
+
+// localStorage.setItem('whiteBg', '#ffffff')
+// localStorage.setItem('whiteBgText', '#000000')
+
+// localStorage.setItem('blackBg', '#ffffff')
+// localStorage.setItem('blackBgtext', '#000000')
+// localStorage.clear()
+
+
+// localStorage.clear()
+document.querySelector('.impaired-bar__ussually-mode').addEventListener('click', e => {
+	window.localStorage.clear()
+	body.style.backgroundColor = ''
+	body.style.color = ''
+	headerBody.style.backgroundColor = ''
+	headerBody.style.color = ''
+	console.log(localStorage)
+
+})
+
+
+
+document.querySelector('.web-color__green').addEventListener('click', e => {
+	window.localStorage.clear()
+	window.localStorage.setItem('brownBg', '#3B2716')
+	window.localStorage.setItem('brownBgText', '#A9E44D')
+
+	body.style.backgroundColor = localStorage.getItem('brownBg')
+	body.style.color = localStorage.getItem('brownBgText')
+	changeHeader.style.backgroundColor = localStorage.getItem('brownBg')
+	changeHeader.style.color = localStorage.getItem('brownBgText')
+
+
+})
+document.querySelector('.web-color__blue').addEventListener('click', e => {
+	window.localStorage.clear()
+	window.localStorage.setItem('blueBg', '#9DD1FF')
+	window.localStorage.setItem('blueBgText', '#25282B')
+
+	body.style.backgroundColor = localStorage.getItem('blueBg')
+	body.style.color = localStorage.getItem('blueBgText')
+	changeHeader.style.backgroundColor = localStorage.getItem('blueBg')
+	changeHeader.style.color = localStorage.getItem('blueBgText')
+
+})
+document.querySelector('.web-color__vanilla').addEventListener('click', e => {
+	window.localStorage.clear()
+	window.localStorage.setItem('vanillaBg', '#F7F3D6')
+	window.localStorage.setItem('vanillaBgText', '#4D4B43')
+
+	body.style.backgroundColor = localStorage.getItem('vanillaBg')
+	body.style.color = localStorage.getItem('vanillaBgText')
+	headerBody.style.backgroundColor = localStorage.getItem('vanillaBg')
+	headerBody.style.color = localStorage.getItem('vanillaBgText')
+
+
+})
+document.querySelector('.web-color__white').addEventListener('click', e => {
+	window.localStorage.clear()
+	window.localStorage.setItem('whiteBg', '#ffffff')
+	window.localStorage.setItem('whiteBgText', '#000000')
+
+	body.style.backgroundColor = localStorage.getItem('whiteBg')
+	body.style.color = localStorage.getItem('whiteBgText')
+	headerBody.style.backgroundColor = localStorage.getItem('whiteBg')
+	headerBody.style.color = localStorage.getItem('whiteBgText')
+
+})
+document.querySelector('.web-color__black').addEventListener('click', e => {
+	window.localStorage.clear()
+	window.localStorage.setItem('blackBg', '#000000')
+	window.localStorage.setItem('blackBgText', '#ffffff')
+
+	body.style.backgroundColor = localStorage.getItem('blackBg')
+	body.style.color = localStorage.getItem('blackBgText')
+	headerBody.style.backgroundColor = localStorage.getItem('blackBg')
+	headerBody.style.color = localStorage.getItem('blackBgText')
+
+})
+// document.querySelector('.web-color__blue').addEventListener('click', e => {
+// 	window.localStorage.clear()
+// 	window.localStorage.setItem('blueBg', '#9DD1FF')
+// 	window.localStorage.setItem('blueBgText', '#25282B')
+// 	body.style.backgroundColor = localStorage.getItem('blueBg')
+
+// })
+
+console.log(localStorage)
+
+
+
+console.log(localStorage)
+if (localStorage.getItem('brownBg')) {
+	body.style.backgroundColor = localStorage.getItem('brownBg')
+	body.style.color = localStorage.getItem('brownBgText')
+	changeHeader.style.backgroundColor = localStorage.getItem('brownBg')
+	changeHeader.style.color = localStorage.getItem('brownBgText')
+
+}
+if (localStorage.getItem('blueBg')) {
+	body.style.backgroundColor = localStorage.getItem('blueBg')
+	body.style.color = localStorage.getItem('blueBgText')
+	changeHeader.style.backgroundColor = localStorage.getItem('blueBg')
+	changeHeader.style.color = localStorage.getItem('blueBgText')
+}
+if (localStorage.getItem('vanillaBg')) {
+	body.style.backgroundColor = localStorage.getItem('vanillaBg')
+	body.style.color = localStorage.getItem('vanillaBgText')
+	headerBody.style.backgroundColor = localStorage.getItem('vanillaBg')
+	headerBody.style.color = localStorage.getItem('vanillaBgText')
+}
+if (localStorage.getItem('whiteBg')) {
+	body.style.backgroundColor = localStorage.getItem('whiteBg')
+	body.style.color = localStorage.getItem('whiteBgText')
+	headerBody.style.backgroundColor = localStorage.getItem('whiteBg')
+	headerBody.style.color = localStorage.getItem('whiteBgText')
+}
+if (localStorage.getItem('blackBg')) {
+	body.style.backgroundColor = localStorage.getItem('blackBg')
+	body.style.color = localStorage.getItem('blackBgText')
+	headerBody.style.backgroundColor = localStorage.getItem('blackBg')
+	headerBody.style.color = localStorage.getItem('blackBgText')
+}
+// console.log()
+if (localStorage.length == 0) {
+	window.localStorage.clear()
+
+}
+
+
+
+console.log(document.styleSheets[0].cssRules)
+// console.log(localStorage)
+// location.reload()
 
 /*
 (i) Код попадает в итоговый файл,
