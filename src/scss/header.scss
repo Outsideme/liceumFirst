@@ -374,6 +374,12 @@
 	padding-left: rem(16);
 	padding-right: rem(16);
 
+
+}
+
+
+
+.hover-add {
 	&:hover {
 		background-color: $bgTif;
 		box-shadow: inset 1.5px 1.5px 4px rgba(0, 124, 120, 0.1);
@@ -392,14 +398,50 @@
 			border-bottom: 1px solid rgba(0, 0, 0, .4);
 		}
 	}
+}
 
-	a {
+.hover-add-color-brown {
+	&:hover {
+		background-color: #49321e;
 
-		font-weight: 400;
-		font-size: rem(12);
-		color: #25282B;
+		&:first-child {
+			border-radius: 10px 10px 0 0;
+		}
 
+		&:last-child {
+			border-radius: 0 0 10px 10px;
+		}
+
+		.link-a {
+
+			border-bottom: 1px solid #A9E44D;
+		}
 	}
+}
+
+.hover-add-color-blue {
+	&:hover {
+		background-color: #bee1ff;
+
+		&:first-child {
+			border-radius: 10px 10px 0 0;
+		}
+
+		&:last-child {
+			border-radius: 0 0 10px 10px;
+		}
+
+		.link-a {
+
+			border-bottom: 1px solid #25282B;
+		}
+	}
+}
+
+.link-a {
+	font-weight: 400;
+	font-size: rem(12);
+	color: #25282B;
 }
 
 .link-second {

@@ -1,5 +1,5 @@
 .main {
-	background-color: $mainBg;
+	// background-color: $mainBg;
 	height: 100%;
 	@include adaptiveValue('padding-top', 104, 64);
 	@include adaptiveValue('padding-bottom', 104, 64);
@@ -108,6 +108,8 @@
 
 
 .card-team {
+
+	border-radius: 10px;
 	transition-duration: .3s;
 
 	&:hover {

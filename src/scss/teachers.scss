@@ -305,7 +305,7 @@
 				@include adaptiveValue("height", 6, 4);
 				@include adaptiveValue("left", -14, -10);
 				position: absolute;
-				background-color: $mainText;
+				// background-color: $mainText;
 
 				top: 8px;
 				border-radius: 50%;

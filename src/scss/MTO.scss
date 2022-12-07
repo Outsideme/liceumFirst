@@ -1,6 +1,5 @@
 .MTO {
 
-	background-color: $mainBg;
 	@include adaptiveValue('padding-bottom', 128, 64)
 }
 

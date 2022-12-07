@@ -270,8 +270,8 @@ this.nextElementSibling.classList.toggle('quarter-active')
 }
 
 
-const outputJun = document.querySelector('.quarter-mobile-box__classes-output-jun')
-const outputSin = document.querySelector('.quarter-mobile-box__classes-output-sin')
+const outputJun = document.querySelectorAll('.quarter-mobile-box__classes-output-jun')
+const outputSin = document.querySelectorAll('.quarter-mobile-box__classes-output-sin')
 const outputJunSecond = document.querySelector('.output-jun-second')
 const outputSinSecond = document.querySelector('.output-sin-second')
 const outputJunThird = document.querySelector('.output-jun-third')
@@ -625,11 +625,6 @@ function changeExpSec() {
 
 const eyeBtn = document.querySelector('.buttom-top-eye')
 const topLine = document.querySelector('.header__top-line')
-const eyeSvg = document.querySelector('#eye')
-const eyeAcrossSvg = document.querySelector('#eyeacross')
-const body = document.body
-const changeImpaired = document.querySelector('.change-impaired')
-const changeHeader = document.querySelector('.header__body')
 
 
 
@@ -658,50 +653,400 @@ eyeBtn.addEventListener('click', e => {
 
 
 // localStorage.clear()
+const orgItems = document.querySelectorAll('.organization__items')
 document.querySelector('.impaired-bar__ussually-mode').addEventListener('click', e => {
 	window.localStorage.clear()
 	body.style.backgroundColor = ''
 	body.style.color = ''
-	headerBody.style.backgroundColor = ''
-	headerBody.style.color = ''
-	console.log(localStorage)
+	orgItems.forEach(e => {
+		e.style.backgroundColor = ''
+		e.style.border = '0px solid #fff'
+	})
+	changeHeader.style.backgroundColor = ''
+	changeHeader.style.color = ''
 
 })
 
+const menuItem = document.querySelectorAll('.menu-item')
+const organizationSubs = document.querySelectorAll('.organization-subs')
+const educationTable = document.querySelectorAll('.education-tables__table')
+const educationTitles = document.querySelectorAll('.education-tables__titles')
+const educationTablesBorderLeft = document.querySelectorAll('.education-tables-border-left')
+console.log(educationTablesBorderLeft)
+const btnEducationAccor = document.querySelectorAll('.btn-education-accor')
+const cardTeam = document.querySelectorAll('.card-team')
+const cardTeamPosition = document.querySelectorAll('.card-team__position')
+const footerLinkChange = document.querySelectorAll('.footer-link-change')
+const boxEducationContent = document.querySelectorAll('.box-content-accor')
+const quarterMobile = document.querySelectorAll('.quarter-mobile')
+const buttonSelect = document.querySelectorAll('.button-select')
+const quarterMobileContentLi = document.querySelectorAll('.quarter-mobile-content')
+const quarterMobileContainer = document.querySelectorAll('.quarter-mobile-box__container')
+const menuHidden = document.querySelectorAll('.menu-hidden')
+const menuLinkA = document.querySelectorAll('.link-a')
+const menuLink = document.querySelectorAll('.menu-link')
+const changeHeader = document.querySelector('.header__body')
+const body = document.querySelector('main')
+const footer = document.querySelector('.footer')
+const crumbs = document.querySelector('.crumbs')
+const crumbsTitle = document.querySelectorAll('.crumbs-link')
+const mainTableBox = document.querySelector('.main-table-box')
+const progTable = document.querySelector('.prog-table')
+const mainDescription = document.querySelector('.leaders__main-description')
+const hunterSection = document.querySelector('.hunter-section')
+const hunterSectionLink = document.querySelector('.hunter-section__link')
 
+menuLink.forEach(elem => {
+	elem.classList.add('hover-add')
+})
+console.log(crumbsTitle)
+console.log(menuItem)
 
 document.querySelector('.web-color__green').addEventListener('click', e => {
 	window.localStorage.clear()
 	window.localStorage.setItem('brownBg', '#3B2716')
 	window.localStorage.setItem('brownBgText', '#A9E44D')
-
 	body.style.backgroundColor = localStorage.getItem('brownBg')
 	body.style.color = localStorage.getItem('brownBgText')
 	changeHeader.style.backgroundColor = localStorage.getItem('brownBg')
 	changeHeader.style.color = localStorage.getItem('brownBgText')
+	changeHeader.style.borderTop = '1px solid #A9E44D'
+	changeHeader.style.borderBottom = '1px solid #A9E44D'
+	footer.style.backgroundColor = localStorage.getItem('brownBg')
+	footer.style.color = localStorage.getItem('brownBgText')
+	footer.style.borderTop = '1px solid #A9E44D'
+	crumbs.style.backgroundColor = localStorage.getItem('brownBg')
+	crumbs.style.borderTop = '1px solid #A9E44D'
+	crumbs.style.borderBottom = '1px solid #A9E44D'
+	crumbsTitle.forEach(elem => {
+		elem.style.color = localStorage.getItem('brownBgText')
+
+	})
+	if (hunterSection !== null && hunterSectionLink !== null) {
+		hunterSection.style.backgroundColor = localStorage.getItem('brownBg')
+		hunterSection.style.border = '1px solid #A9E44D'
+		hunterSectionLink.style.backgroundColor = localStorage.getItem('brownBg')
+		hunterSectionLink.style.border = '1px solid #A9E44D'
+		hunterSectionLink.style.color = localStorage.getItem('brownBgText')
+
+	}
+	if (mainDescription !== null) {
+		mainDescription.style.backgroundColor = localStorage.getItem('brownBg')
+		mainDescription.style.border = '1px solid #A9E44D'
+
+	}
 
 
+	if (mainTableBox !== null) {
+		mainTableBox.style.backgroundColor = localStorage.getItem('brownBg')
+		mainTableBox.style.color = localStorage.getItem('brownBgText')
+	}
+
+	if (progTable !== null) {
+		progTable.style.backgroundColor = localStorage.getItem('brownBg')
+		progTable.style.color = localStorage.getItem('brownBgText')
+		educationTable.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.color = localStorage.getItem('brownBgText')
+		})}
+		cardTeamPosition.forEach(elem => {
+			elem.style.color = localStorage.getItem('brownBgText')
+
+		})
+		boxEducationContent.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.border = '1px solid #A9E44D'
+		})
+		quarterMobileContainer.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.borderBottom = '1px solid #6CD3D3'
+			elem.style.borderLeft = '1px solid #6CD3D3'
+			elem.style.borderRight = '1px solid #6CD3D3'
+
+		})
+		cardTeam.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.padding = '8px'
+			elem.style.borderLeft = '1px solid #A9E44D'
+			elem.style.borderRight = '1px solid #A9E44D'
+
+		})
+		quarterMobileContentLi.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.borderBottom = '1px solid #6CD3D3'
+
+		})
+		buttonSelect.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.border = '1px solid #6CD3D3'
+		})
+		quarterMobile.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+		})
+		btnEducationAccor.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.border = '1px solid #A9E44D'
+		})
+		menuHidden.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.color = localStorage.getItem('brownBgText')
+			elem.style.border = '1px solid #A9E44D'
+		})
+		menuLink.forEach(elem => {
+			elem.classList.remove('hover-add')
+			elem.classList.add('hover-add-color-brown')
+		})
+		menuLinkA.forEach(elem => {
+			elem.style.color = localStorage.getItem('brownBgText')
+		})
+		organizationSubs.forEach(e => {
+			e.style.color = localStorage.getItem('brownBgText')
+		})
+		footerLinkChange.forEach(e => {
+			e.style.color = localStorage.getItem('brownBgText')
+		})
+		orgItems.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.border = '1px solid #A9E44D'
+		})
+		menuItem.forEach(elem => {
+			elem.style.color = localStorage.getItem('brownBgText')
+		})
 })
+
+
+
+
+
+const educationTablesRow1 = document.querySelectorAll('.education-tables__row-1')
+const progBoxTitle = document.querySelectorAll('.prog-box-title')
+progBoxTitle.forEach(e => {
+	e.classList.add('prog-profile-pseudo-before')
+})
+
+
+const progMiddleEducation = document.querySelector('.prog-middle-education')
+const progTopList = document.querySelector('.prog-top-list')
+const progTopListBorderBottom = document.querySelectorAll('.prog-top-list-border-bottom')
+const progBottomList = document.querySelectorAll('.prog-bottom-list')
+const progBottomHours = document.querySelector('.prog-bottom-hours')
+const quarterMobileTitleClasses = document.querySelectorAll('.quarter-mobile-box__title-classes')
+const quarterMobileJun = document.querySelectorAll('.quarter-mobile-box__classes-jun')
+const quarterMobileOutputJun = document.querySelectorAll('.quarter-mobile-box__classes-output-jun')
+const quarterMobileSelect = document.querySelectorAll('.quarter-mobile-box__select')
+
+
+quarterMobileSelect.forEach(e => {
+	e.classList.add('quarter-mobile-box__select-pseudo-before')
+})
+outputJun.forEach(e => {
+	e.classList.add('quarter-mobile-box__select-pseudo-before')
+})
+outputSin.forEach(e => {
+	e.classList.add('quarter-mobile-box__select-pseudo-before')
+})
+const progTopHours = document.querySelectorAll('.prog-top-hours-before')
+progTopHours.forEach(e => {
+	e.classList.add('prog-top-hours-pseudo-before')
+})
+
 document.querySelector('.web-color__blue').addEventListener('click', e => {
 	window.localStorage.clear()
 	window.localStorage.setItem('blueBg', '#9DD1FF')
 	window.localStorage.setItem('blueBgText', '#25282B')
-
 	body.style.backgroundColor = localStorage.getItem('blueBg')
 	body.style.color = localStorage.getItem('blueBgText')
 	changeHeader.style.backgroundColor = localStorage.getItem('blueBg')
 	changeHeader.style.color = localStorage.getItem('blueBgText')
+	changeHeader.style.borderTop = '1px solid #25282B'
+	changeHeader.style.borderBottom = '1px solid #25282B'
+	footer.style.backgroundColor = localStorage.getItem('blueBg')
+	footer.style.color = localStorage.getItem('blueBgText')
+	footer.style.borderTop = '1px solid #25282B'
+	crumbs.style.backgroundColor = localStorage.getItem('blueBg')
+	crumbs.style.borderTop = '1px solid #25282B'
+	crumbs.style.borderBottom = '1px solid #25282B'
+	crumbsTitle.forEach(elem => {
+		elem.style.color = localStorage.getItem('blueBgText')
+
+	})
+	if (hunterSection !== null && hunterSectionLink !== null) {
+		hunterSection.style.backgroundColor = localStorage.getItem('blueBg')
+		hunterSection.style.border = '1px solid #25282B'
+		hunterSectionLink.style.backgroundColor = localStorage.getItem('blueBg')
+		hunterSectionLink.style.border = '1px solid #25282B'
+		hunterSectionLink.style.color = localStorage.getItem('blueBgText')
+
+	}
+	if (mainDescription !== null) {
+		mainDescription.style.backgroundColor = localStorage.getItem('blueBg')
+		mainDescription.style.border = '1px solid #25282B'
+
+	}
+
+
+	if (mainTableBox !== null) {
+		mainTableBox.style.backgroundColor = localStorage.getItem('blueBg')
+		mainTableBox.style.color = localStorage.getItem('blueBgText')
+	}
+
+	if (progTable !== null) {
+		progTable.style.backgroundColor = localStorage.getItem('blueBg')
+		progTable.style.color = localStorage.getItem('blueBgText')
+		progTable.style.border = '1px solid #25282B'
+		progMiddleEducation.style.borderTop = '1px solid #25282B'
+		progTopList.style.borderLeft = '1px solid #25282B'
+		document.querySelector('.prog-profile').classList.remove('pog-profile-pseudo-before')
+		educationTable.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.color = localStorage.getItem('blueBgText')
+			elem.style.border = '1px solid #25282B'
+		})}
+		progBottomList.forEach(elem => {
+			elem.style.borderLeft = '1px solid #25282B'
+			elem.style.borderTop = '1px solid #25282B'
+
+		})
+		progBottomHours.style.borderTop = '1px solid #25282B'
+		quarterMobile.forEach(e => {
+
+			e.style.border = '1px solid #25282B'
+		})
+		quarterMobileTitleClasses.forEach(e => {
+
+			e.style.borderBottom = '1px solid #25282B'
+		})
+		quarterMobileJun.forEach(e => {
+
+			e.style.borderBottom = '1px solid #25282B'
+		})
+		quarterMobileSelect.forEach(e => {
+			e.classList.remove('quarter-mobile-box__select-pseudo-before')
+			e.classList.add('quarter-mobile-box__select-pseudo-before-blue')
+		})
+		outputJun.forEach(e => {
+			e.classList.remove('quarter-mobile-box__select-pseudo-before')
+			e.classList.add('quarter-mobile-box__select-pseudo-before-blue')
+		})
+		outputSin.forEach(e => {
+			e.classList.remove('quarter-mobile-box__select-pseudo-before')
+			e.classList.add('quarter-mobile-box__select-pseudo-before-blue')
+		})
+		quarterMobileOutputJun.forEach(e => {
+
+			e.style.borderBottom = '1px solid #25282B'
+		})
+		quarterMobileSelect.forEach(e => {
+
+			e.style.borderBottom = '1px solid #25282B'
+		})
+
+		// quarterMobileSin
+		progTopListBorderBottom.forEach(elem => {
+			elem.style.borderBottom = '1px solid #25282B'
+
+		})
+		cardTeamPosition.forEach(elem => {
+			elem.style.color = localStorage.getItem('blueBgText')
+
+		})
+		progTopHours.forEach(e => {
+
+			e.classList.remove('prog-top-hours-pseudo-before')
+			e.classList.add('prog-top-hours-pseudo-before-blue')
+		})
+		educationTablesBorderLeft.forEach(elem => {
+			elem.style.borderLeft = '1px solid #25282B'
+
+		})
+		progBoxTitle.forEach(e => {
+			e.classList.remove('prog-profile-pseudo-before')
+			e.classList.add('prog-profile-pseudo-before-blue')
+		})
+
+
+		educationTablesRow1.forEach(elem => {
+			elem.style.borderBottom = '1px solid #25282B'
+
+		})
+		educationTitles.forEach(elem => {
+			elem.style.borderBottom = '1px solid #25282B'
+
+		})
+		progBoxTitle.forEach(elem => {
+			elem.style.borderBottom = '1px solid #25282B'
+
+		})
+		boxEducationContent.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.border = '1px solid #25282B'
+		})
+		quarterMobileContainer.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.borderBottom = '1px solid #25282B'
+			elem.style.borderLeft = '1px solid #25282B'
+			elem.style.borderRight = '1px solid #25282B'
+
+		})
+		cardTeam.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.padding = '8px'
+			elem.style.borderLeft = '1px solid #25282B'
+			elem.style.borderRight = '1px solid #25282B'
+
+		})
+		quarterMobileContentLi.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.borderBottom = '1px solid #25282B'
+
+		})
+		buttonSelect.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.border = '1px solid #25282B'
+		})
+		quarterMobile.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+		})
+		btnEducationAccor.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.border = '1px solid #25282B'
+		})
+		menuHidden.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.color = localStorage.getItem('blueBgText')
+			elem.style.border = '1px solid #25282B'
+		})
+		menuLink.forEach(elem => {
+			elem.classList.remove('hover-add')
+			elem.classList.add('hover-add-color-blue')
+		})
+		menuLinkA.forEach(elem => {
+			elem.style.color = localStorage.getItem('blueBgText')
+		})
+		organizationSubs.forEach(e => {
+			e.style.color = localStorage.getItem('blueBgText')
+		})
+		footerLinkChange.forEach(e => {
+			e.style.color = localStorage.getItem('blueBgText')
+		})
+		orgItems.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.border = '1px solid #25282B'
+		})
+		menuItem.forEach(elem => {
+			elem.style.color = localStorage.getItem('blueBgText')
+		})
+
 
 })
 document.querySelector('.web-color__vanilla').addEventListener('click', e => {
 	window.localStorage.clear()
 	window.localStorage.setItem('vanillaBg', '#F7F3D6')
 	window.localStorage.setItem('vanillaBgText', '#4D4B43')
-
 	body.style.backgroundColor = localStorage.getItem('vanillaBg')
 	body.style.color = localStorage.getItem('vanillaBgText')
-	headerBody.style.backgroundColor = localStorage.getItem('vanillaBg')
-	headerBody.style.color = localStorage.getItem('vanillaBgText')
+	changeHeader.style.backgroundColor = localStorage.getItem('vanillaBg')
+	changeHeader.style.color = localStorage.getItem('vanillaBgText')
 
 
 })
@@ -712,19 +1057,18 @@ document.querySelector('.web-color__white').addEventListener('click', e => {
 
 	body.style.backgroundColor = localStorage.getItem('whiteBg')
 	body.style.color = localStorage.getItem('whiteBgText')
-	headerBody.style.backgroundColor = localStorage.getItem('whiteBg')
-	headerBody.style.color = localStorage.getItem('whiteBgText')
+	changeHeader.style.backgroundColor = localStorage.getItem('whiteBg')
+	changeHeader.style.color = localStorage.getItem('whiteBgText')
 
 })
 document.querySelector('.web-color__black').addEventListener('click', e => {
 	window.localStorage.clear()
 	window.localStorage.setItem('blackBg', '#000000')
 	window.localStorage.setItem('blackBgText', '#ffffff')
-
 	body.style.backgroundColor = localStorage.getItem('blackBg')
 	body.style.color = localStorage.getItem('blackBgText')
-	headerBody.style.backgroundColor = localStorage.getItem('blackBg')
-	headerBody.style.color = localStorage.getItem('blackBgText')
+	changeHeader.style.backgroundColor = localStorage.getItem('blackBg')
+	changeHeader.style.color = localStorage.getItem('blackBgText')
 
 })
 // document.querySelector('.web-color__blue').addEventListener('click', e => {
@@ -735,16 +1079,128 @@ document.querySelector('.web-color__black').addEventListener('click', e => {
 
 // })
 
-console.log(localStorage)
 
 
 
-console.log(localStorage)
 if (localStorage.getItem('brownBg')) {
 	body.style.backgroundColor = localStorage.getItem('brownBg')
 	body.style.color = localStorage.getItem('brownBgText')
 	changeHeader.style.backgroundColor = localStorage.getItem('brownBg')
 	changeHeader.style.color = localStorage.getItem('brownBgText')
+	orgItems.forEach(e => {
+		e.style.backgroundColor = localStorage.getItem('brownBg')
+		e.style.border = '1px solid #A9E44D'
+	})
+
+	window.localStorage.clear()
+	window.localStorage.setItem('brownBg', '#3B2716')
+	window.localStorage.setItem('brownBgText', '#A9E44D')
+	body.style.backgroundColor = localStorage.getItem('brownBg')
+	body.style.color = localStorage.getItem('brownBgText')
+	footer.style.backgroundColor = localStorage.getItem('brownBg')
+	footer.style.color = localStorage.getItem('brownBgText')
+	footer.style.borderTop = '1px solid #A9E44D'
+	crumbs.style.backgroundColor = localStorage.getItem('brownBg')
+	crumbs.style.borderTop = '1px solid #A9E44D'
+	crumbs.style.borderBottom = '1px solid #A9E44D'
+	crumbsTitle.forEach(elem => {
+		elem.style.color = localStorage.getItem('brownBgText')
+
+	})
+	if (hunterSection !== null && hunterSectionLink !== null) {
+		hunterSection.style.backgroundColor = localStorage.getItem('brownBg')
+		hunterSection.style.border = '1px solid #A9E44D'
+		hunterSectionLink.style.backgroundColor = localStorage.getItem('brownBg')
+		hunterSectionLink.style.border = '1px solid #A9E44D'
+		hunterSectionLink.style.color = localStorage.getItem('brownBgText')
+
+	}
+	if (mainDescription !== null) {
+		mainDescription.style.backgroundColor = localStorage.getItem('brownBg')
+		mainDescription.style.border = '1px solid #A9E44D'
+
+	}
+
+
+	if (mainTableBox !== null) {
+		mainTableBox.style.backgroundColor = localStorage.getItem('brownBg')
+		mainTableBox.style.color = localStorage.getItem('brownBgText')
+	}
+
+	if (progTable !== null) {
+		changeHeader.style.backgroundColor = localStorage.getItem('brownBg')
+		changeHeader.style.color = localStorage.getItem('brownBgText')
+		changeHeader.style.borderTop = '1px solid #A9E44D'
+		changeHeader.style.borderBottom = '1px solid #A9E44D'
+		progTable.style.backgroundColor = localStorage.getItem('brownBg')
+		progTable.style.color = localStorage.getItem('brownBgText')
+		educationTable.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.color = localStorage.getItem('brownBgText')
+		})}
+		cardTeamPosition.forEach(elem => {
+			elem.style.color = localStorage.getItem('brownBgText')
+
+		})
+		boxEducationContent.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.border = '1px solid #A9E44D'
+		})
+		quarterMobileContainer.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.borderBottom = '1px solid #6CD3D3'
+			elem.style.borderLeft = '1px solid #6CD3D3'
+			elem.style.borderRight = '1px solid #6CD3D3'
+
+		})
+		cardTeam.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.padding = '8px'
+			elem.style.borderLeft = '1px solid #A9E44D'
+			elem.style.borderRight = '1px solid #A9E44D'
+
+		})
+		quarterMobileContentLi.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.borderBottom = '1px solid #6CD3D3'
+
+		})
+		buttonSelect.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.border = '1px solid #6CD3D3'
+		})
+		quarterMobile.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+		})
+		btnEducationAccor.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.border = '1px solid #A9E44D'
+		})
+		menuHidden.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.color = localStorage.getItem('brownBgText')
+			elem.style.border = '1px solid #A9E44D'
+		})
+		menuLink.forEach(elem => {
+			elem.classList.remove('hover-add')
+			elem.classList.add('hover-add-color-brown')
+		})
+		menuLinkA.forEach(elem => {
+			elem.style.color = localStorage.getItem('brownBgText')
+		})
+		organizationSubs.forEach(e => {
+			e.style.color = localStorage.getItem('brownBgText')
+		})
+		footerLinkChange.forEach(e => {
+			e.style.color = localStorage.getItem('brownBgText')
+		})
+		orgItems.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('brownBg')
+			elem.style.border = '1px solid #A9E44D'
+		})
+		menuItem.forEach(elem => {
+			elem.style.color = localStorage.getItem('brownBgText')
+		})
 
 }
 if (localStorage.getItem('blueBg')) {
@@ -752,6 +1208,113 @@ if (localStorage.getItem('blueBg')) {
 	body.style.color = localStorage.getItem('blueBgText')
 	changeHeader.style.backgroundColor = localStorage.getItem('blueBg')
 	changeHeader.style.color = localStorage.getItem('blueBgText')
+	body.style.backgroundColor = localStorage.getItem('blueBg')
+	body.style.color = localStorage.getItem('blueBgText')
+	changeHeader.style.backgroundColor = localStorage.getItem('blueBg')
+	changeHeader.style.color = localStorage.getItem('blueBgText')
+	changeHeader.style.borderTop = '1px solid #25282B'
+	changeHeader.style.borderBottom = '1px solid #25282B'
+	footer.style.backgroundColor = localStorage.getItem('blueBg')
+	footer.style.color = localStorage.getItem('blueBgText')
+	footer.style.borderTop = '1px solid #25282B'
+	crumbs.style.backgroundColor = localStorage.getItem('blueBg')
+	crumbs.style.borderTop = '1px solid #25282B'
+	crumbs.style.borderBottom = '1px solid #25282B'
+	crumbsTitle.forEach(elem => {
+		elem.style.color = localStorage.getItem('blueBgText')
+
+	})
+	if (hunterSection !== null && hunterSectionLink !== null) {
+		hunterSection.style.backgroundColor = localStorage.getItem('blueBg')
+		hunterSection.style.border = '1px solid #25282B'
+		hunterSectionLink.style.backgroundColor = localStorage.getItem('blueBg')
+		hunterSectionLink.style.border = '1px solid #25282B'
+		hunterSectionLink.style.color = localStorage.getItem('blueBgText')
+
+	}
+	if (mainDescription !== null) {
+		mainDescription.style.backgroundColor = localStorage.getItem('blueBg')
+		mainDescription.style.border = '1px solid #25282B'
+
+	}
+
+
+	if (mainTableBox !== null) {
+		mainTableBox.style.backgroundColor = localStorage.getItem('blueBg')
+		mainTableBox.style.color = localStorage.getItem('blueBgText')
+	}
+
+	if (progTable !== null) {
+		progTable.style.backgroundColor = localStorage.getItem('blueBg')
+		progTable.style.color = localStorage.getItem('blueBgText')
+		educationTable.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.color = localStorage.getItem('blueBgText')
+		})}
+		cardTeamPosition.forEach(elem => {
+			elem.style.color = localStorage.getItem('blueBgText')
+
+		})
+		boxEducationContent.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.border = '1px solid #25282B'
+		})
+		quarterMobileContainer.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.borderBottom = '1px solid #6CD3D3'
+			elem.style.borderLeft = '1px solid #6CD3D3'
+			elem.style.borderRight = '1px solid #6CD3D3'
+
+		})
+		cardTeam.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.padding = '8px'
+			elem.style.borderLeft = '1px solid #25282B'
+			elem.style.borderRight = '1px solid #25282B'
+
+		})
+		quarterMobileContentLi.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.borderBottom = '1px solid #6CD3D3'
+
+		})
+		buttonSelect.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.border = '1px solid #6CD3D3'
+		})
+		quarterMobile.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+		})
+		btnEducationAccor.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.border = '1px solid #25282B'
+		})
+		menuHidden.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.color = localStorage.getItem('blueBgText')
+			elem.style.border = '1px solid #25282B'
+		})
+		menuLink.forEach(elem => {
+			elem.classList.remove('hover-add')
+			elem.classList.add('hover-add-color')
+		})
+		menuLinkA.forEach(elem => {
+			elem.style.color = localStorage.getItem('blueBgText')
+		})
+		organizationSubs.forEach(e => {
+			e.style.color = localStorage.getItem('blueBgText')
+		})
+		footerLinkChange.forEach(e => {
+			e.style.color = localStorage.getItem('blueBgText')
+		})
+		orgItems.forEach(elem => {
+			elem.style.backgroundColor = localStorage.getItem('blueBg')
+			elem.style.border = '1px solid #25282B'
+		})
+		menuItem.forEach(elem => {
+			elem.style.color = localStorage.getItem('blueBgText')
+		})
+
 }
 if (localStorage.getItem('vanillaBg')) {
 	body.style.backgroundColor = localStorage.getItem('vanillaBg')
@@ -771,7 +1334,6 @@ if (localStorage.getItem('blackBg')) {
 	headerBody.style.backgroundColor = localStorage.getItem('blackBg')
 	headerBody.style.color = localStorage.getItem('blackBgText')
 }
-// console.log()
 if (localStorage.length == 0) {
 	window.localStorage.clear()
 
@@ -779,8 +1341,6 @@ if (localStorage.length == 0) {
 
 
 
-console.log(document.styleSheets[0].cssRules)
-// console.log(localStorage)
 // location.reload()
 
 /*
