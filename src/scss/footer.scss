@@ -108,7 +108,6 @@
 	transition-duration: .2s;
 
 	path {
-		fill: #00B2B5;
 		animation-name: animSVG;
 	}
 
@@ -124,6 +123,13 @@
 	}
 }
 
+.svg-footer-color {
+	path {
+
+		fill: #00B2B5;
+	}
+
+}
 
 
 .item-title {

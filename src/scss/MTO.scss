@@ -127,6 +127,13 @@
 .mto-count {
 	position: relative;
 
+
+
+
+
+}
+
+.mto-count-pdeudo-before {
 	&:before {
 		content: '';
 		position: absolute;
@@ -136,15 +143,68 @@
 		width: 1px;
 		background-color: $borderTif;
 	}
+}
 
-
-	&:not(:last-child) {
-
-		border-bottom: 1px solid $borderTif;
+.mto-count-pdeudo-before-blue {
+	&:before {
+		content: '';
+		position: absolute;
+		left: -16px;
+		top: 10%;
+		height: 80%;
+		width: 1px;
+		background-color: #25282B;
 	}
 }
 
+.mto-count-pdeudo-before-brown {
+	&:before {
+		content: '';
+		position: absolute;
+		left: -16px;
+		top: 10%;
+		height: 80%;
+		width: 1px;
+		background-color: #A9E44D;
+	}
+}
+.mto-count-pdeudo-before-vanilla {
+	&:before {
+		content: '';
+		position: absolute;
+		left: -16px;
+		top: 10%;
+		height: 80%;
+		width: 1px;
+		background-color: #4D4B43;
+	}
+}
+.mto-count-pdeudo-before-black {
+	&:before {
+		content: '';
+		position: absolute;
+		left: -16px;
+		top: 10%;
+		height: 80%;
+		width: 1px;
+		background-color: #ffffff;
+	}
+}
+.mto-count-pdeudo-before-white {
+	&:before {
+		content: '';
+		position: absolute;
+		left: -16px;
+		top: 10%;
+		height: 80%;
+		width: 1px;
+		background-color: #000000;
+	}
+}
 
+.mto-count-border {
+	border-bottom: 1px solid $borderTif;
+}
 
 
 

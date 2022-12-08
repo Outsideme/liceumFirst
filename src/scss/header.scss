@@ -131,6 +131,41 @@
 
 }
 
+.logo-color-brown {
+	path {
+		fill: #A9E44D;
+		// stroke: #25282B;
+	}
+}
+
+.logo-color-blue {
+	path {
+		fill: #25282B;
+		// stroke: #25282B;
+	}
+}
+
+.logo-color-vanilla {
+	path {
+		fill: #4D4B43;
+		// stroke: #25282B;
+	}
+}
+
+.logo-color-black {
+	path {
+		fill: #ffffff;
+		// stroke: #25282B;
+	}
+}
+
+.logo-color-white {
+	path {
+		fill: #000000;
+		// stroke: #25282B;
+	}
+}
+
 .body__rows {
 	display: flex;
 }
@@ -438,6 +473,63 @@
 	}
 }
 
+.hover-add-color-vanilla {
+	&:hover {
+		background-color: #faf6d2;
+
+		&:first-child {
+			border-radius: 10px 10px 0 0;
+		}
+
+		&:last-child {
+			border-radius: 0 0 10px 10px;
+		}
+
+		.link-a {
+
+			border-bottom: 1px solid #25282B;
+		}
+	}
+}
+
+.hover-add-color-black {
+	&:hover {
+		background-color: rgba(255, 255, 255, .3);
+
+		&:first-child {
+			border-radius: 10px 10px 0 0;
+		}
+
+		&:last-child {
+			border-radius: 0 0 10px 10px;
+		}
+
+		.link-a {
+
+			border-bottom: 1px solid #25282B;
+		}
+	}
+}
+
+.hover-add-color-white {
+	&:hover {
+		background-color: rgba(0, 0, 0, .3);
+
+		&:first-child {
+			border-radius: 10px 10px 0 0;
+		}
+
+		&:last-child {
+			border-radius: 0 0 10px 10px;
+		}
+
+		.link-a {
+
+			border-bottom: 1px solid #25282B;
+		}
+	}
+}
+
 .link-a {
 	font-weight: 400;
 	font-size: rem(12);
@@ -484,11 +576,7 @@
 	}
 }
 
-.link-sec:hover {
 
-	// background-color: red;
-
-}
 
 
 
@@ -774,21 +862,6 @@ li[data-arrow] {
 		flex-wrap: wrap;
 	}
 
-	&__fonts-box {}
-
-	&__fonts-change {}
-
-	&__letter-distance-box {}
-
-	&__letter-distance {}
-
-	&__images-box {}
-
-	&__impared-images {}
-
-	&__web-color-box {}
-
-	&__web-color {}
 
 	&__ussually-mode {
 		font-weight: 700;
@@ -899,7 +972,7 @@ li[data-arrow] {
 		color: #4D4B43;
 	}
 
-	&__green {
+	&__brown {
 		background-color: #3B2716;
 		color: #A9E44D;
 	}
@@ -970,15 +1043,6 @@ li[data-arrow] {
 
 }
 
-body {}
-
-html[data-test="3"] {
-	body {
-		img {
-			display: none;
-		}
-	}
-}
 
 //background:  no-repeat 0 100%
 //background-image: linear-gradient(to right, #000 20%, #000 80%)

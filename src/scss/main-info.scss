@@ -100,11 +100,14 @@
 
 }
 
-.main-table-box__table-prop-1,
-.main-table-box__table-prop-2,
-.main-table-box__table-prop-3 {
+.main-table-item-pseudo-left {
 	position: relative;
 
+
+
+}
+
+.main-table-item-pseudo-left-add {
 	&:before {
 		content: '';
 		background-color: $borderTif;
@@ -115,7 +118,68 @@
 		top: 10%;
 
 	}
+}
 
+.main-table-item-pseudo-left-add-blue {
+	&:before {
+		content: '';
+		background-color: #25282B;
+		position: absolute;
+		height: 80%;
+		width: 1px;
+		left: 0;
+		top: 10%;
+
+	}
+}
+
+.main-table-item-pseudo-left-add-brown {
+	&:before {
+		content: '';
+		background-color: #A9E44D;
+		position: absolute;
+		height: 80%;
+		width: 1px;
+		left: 0;
+		top: 10%;
+
+	}
+}
+.main-table-item-pseudo-left-add-vanilla {
+	&:before {
+		content: '';
+		background-color: #4D4B43;
+		position: absolute;
+		height: 80%;
+		width: 1px;
+		left: 0;
+		top: 10%;
+
+	}
+}
+.main-table-item-pseudo-left-add-black {
+	&:before {
+		content: '';
+		background-color: #ffffff;
+		position: absolute;
+		height: 80%;
+		width: 1px;
+		left: 0;
+		top: 10%;
+
+	}
+}
+.main-table-item-pseudo-left-add-white {
+	&:before {
+		content: '';
+		background-color: #000000;
+		position: absolute;
+		height: 80%;
+		width: 1px;
+		left: 0;
+		top: 10%;
+
+	}
 }
 
 @media screen and (max-width: 991px) {

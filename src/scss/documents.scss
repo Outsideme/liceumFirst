@@ -64,6 +64,36 @@
 
 }
 
+.doc-color-brown {
+	path {
+		fill: #A9E44D;
+	}
+}
+
+.doc-color-vanilla {
+	path {
+		fill: #4D4B43;
+	}
+}
+
+.doc-color-blue {
+	path {
+		fill: #25282B;
+	}
+}
+
+.doc-color-white {
+	path {
+		fill: #000;
+	}
+}
+
+.doc-color-black {
+	path {
+		fill: #fff;
+	}
+}
+
 @media (orientation: landscape) and (max-height: 500px) {
 	.documents__rows {
 		h2 {
