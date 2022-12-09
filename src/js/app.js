@@ -1,1365 +1,1305 @@
-
-
-const burger = document.querySelector('[data-burger]')
-const mobileNav = document.querySelector('[data-nav]')
-const header = document.querySelector('.header')
-
-
-
+const burger = document.querySelector("[data-burger]");
+const mobileNav = document.querySelector("[data-nav]");
+const header = document.querySelector(".header");
 
 const menuObj = {
-	openCloseMainMenu: function () {
-		this.children[0].classList.toggle('showHide')
+  openCloseMainMenu: function () {
+    this.children[0].classList.toggle("showHide");
+  },
+  burgerClose: function () {
+    burger.classList.remove("burger-active");
+    mobileNav.classList.remove("open-mobile");
+  },
+  burgerOpen: function () {
+    burger.classList.toggle("burger-active");
+    mobileNav.classList.toggle("open-mobile");
+  },
+  headerResize: function () {
+    const headerHeight = header.offsetHeight;
+    mobileNav.style.top = `${headerHeight - 1}px`;
+  },
+  resizeHideMobile: function () {
+    if (document.documentElement.clientWidth > 768) {
+      menuObj.burgerClose();
+    }
+    menuObj.headerResize();
+  },
+  openMainMenu: function () {
+    const menu = document.querySelectorAll(".menu-item");
+    if (menu) {
+      for (let i = 0; i < menu.length; i++) {
+        let item = menu[i];
+        item.addEventListener("mouseenter", menuObj.openCloseMainMenu, false);
+        item.addEventListener("mouseleave", menuObj.openCloseMainMenu, false);
+      }
+    }
+  },
+};
 
-	},
-	burgerClose: function () {
-		burger.classList.remove('burger-active')
-		mobileNav.classList.remove('open-mobile')
-	},
-	burgerOpen: function () {
-		burger.classList.toggle('burger-active')
-	    mobileNav.classList.toggle('open-mobile')
-	},
-	headerResize: function () {
-		const headerHeight = header.offsetHeight
-		mobileNav.style.top = `${headerHeight - 1}px`
-	},
-	resizeHideMobile: function () {
-		if (document.documentElement.clientWidth > 768) {
-			menuObj.burgerClose()
-		}
-		menuObj.headerResize();
-	},
-	openMainMenu: function () {
-		const menu = document.querySelectorAll('.menu-item');
-		if (menu) {
-	for(let i = 0; i < menu.length; i++) {
-		let item = menu[i];
-		item.addEventListener('mouseenter', menuObj.openCloseMainMenu ,false)
-		item.addEventListener('mouseleave', menuObj.openCloseMainMenu , false)
-	}}
-	}
-
-}
-
-menuObj.openMainMenu()
-
-//===============================/===============================/===============================/===============================/===============================
-
+menuObj.openMainMenu();
 
 //===============================/===============================/===============================/===============================/===============================
 
+//===============================/===============================/===============================/===============================/===============================
 
+window.addEventListener("resize", menuObj.resizeHideMobile, false);
+window.addEventListener("load", menuObj.resizeHideMobile, false);
+burger.addEventListener("click", menuObj.burgerOpen, false);
 
-
-window.addEventListener('resize', menuObj.resizeHideMobile, false)
-window.addEventListener('load', menuObj.resizeHideMobile, false)
-burger.addEventListener('click', menuObj.burgerOpen, false)
-
-
-
-function mobileAccor () {
-const accors = document.querySelectorAll('.accor')
-const content = document.querySelectorAll('.accor-content')
-accors.forEach(el => {
-	el.addEventListener('click', e => {
-		const accorIcons = document.querySelectorAll('.accor-icon')
-		const self = e.currentTarget.children[1].classList
-		const rotateArrow = e.currentTarget.children[0].children[1].children[0].classList
-		accorIcons.forEach(icon => {
-			icon.children[0].classList.remove('open-accor')
-		})
-		if (!e.currentTarget.children[1].classList.contains('open-accor')) {
-			content.forEach(it => {
-
-				return it.classList.remove('open-accor')
-			})
-			self.add('open-accor')
-			rotateArrow.add('open-accor')
-		 } else if (e.currentTarget.children[1].classList.contains('open-accor')) {
-			rotateArrow.remove('open-accor')
-			self.remove('open-accor')
-		 }
-
-	})
-})
+function mobileAccor() {
+  const accors = document.querySelectorAll(".accor");
+  const content = document.querySelectorAll(".accor-content");
+  accors.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      const accorIcons = document.querySelectorAll(".accor-icon");
+      const self = e.currentTarget.children[1].classList;
+      const rotateArrow =
+        e.currentTarget.children[0].children[1].children[0].classList;
+      accorIcons.forEach((icon) => {
+        icon.children[0].classList.remove("open-accor");
+      });
+      if (!e.currentTarget.children[1].classList.contains("open-accor")) {
+        content.forEach((it) => {
+          return it.classList.remove("open-accor");
+        });
+        self.add("open-accor");
+        rotateArrow.add("open-accor");
+      } else if (e.currentTarget.children[1].classList.contains("open-accor")) {
+        rotateArrow.remove("open-accor");
+        self.remove("open-accor");
+      }
+    });
+  });
 }
-mobileAccor()
-
+mobileAccor();
 
 //===============================/===============================/===============================/===============================/===============================//===============================/===============================/===============================/===============================/===============================
 //===============================/===============================/===============================/===============================/===============================//===============================/===============================/===============================/===============================/===============================
 
-
-const container = document.querySelector('.header__container')
-const search = document.querySelector('.search-btn')
-
+const container = document.querySelector(".header__container");
+const search = document.querySelector(".search-btn");
 
 const topLineObj = {
-	searchTranslate: function () {
-		if (search.style.transform) {
-			search.style.transform = `translateX(-${search.offsetLeft - 15}px)`
-			}
-			return container.offsetWidth
-	},
-	showTopInput: function () {
-		search.style.transform = `translateX(-${search.offsetLeft - 15}px)`
-			input.classList.add('inputActive')
-			setTimeout ( () => {
-				input.focus()}, 500)
-	},
-	hideTopInput: function () {
-		setTimeout ( () => {input.value = '', 0})
-			search.style.removeProperty('transform')
-			input.classList.remove('inputActive')
-	},
-	closeSearch: function () {
-		search.style.removeProperty('transform')
-	input.classList.remove('inputActive')
-	setTimeout ( () => {input.value = '', 300})
-	}
-	}
-
-
-
-
+  searchTranslate: function () {
+    if (search.style.transform) {
+      search.style.transform = `translateX(-${search.offsetLeft - 15}px)`;
+    }
+    return container.offsetWidth;
+  },
+  showTopInput: function () {
+    search.style.transform = `translateX(-${search.offsetLeft - 15}px)`;
+    input.classList.add("inputActive");
+    setTimeout(() => {
+      input.focus();
+    }, 500);
+  },
+  hideTopInput: function () {
+    setTimeout(() => {
+      (input.value = ""), 0;
+    });
+    search.style.removeProperty("transform");
+    input.classList.remove("inputActive");
+  },
+  closeSearch: function () {
+    search.style.removeProperty("transform");
+    input.classList.remove("inputActive");
+    setTimeout(() => {
+      (input.value = ""), 300;
+    });
+  },
+};
 
 const left = () => {
-window.addEventListener('resize', topLineObj.searchTranslate, false)
-}
-left()
+  window.addEventListener("resize", topLineObj.searchTranslate, false);
+};
+left();
 
-const input = document.querySelector('#input-top')
-function searchTranslate () {
-	search.addEventListener('click', e => {
-		if (!search.style.transform) {
-			topLineObj.showTopInput()
-		} else {
-			topLineObj.hideTopInput()
-
-
-	}
-})
+const input = document.querySelector("#input-top");
+function searchTranslate() {
+  search.addEventListener("click", (e) => {
+    if (!search.style.transform) {
+      topLineObj.showTopInput();
+    } else {
+      topLineObj.hideTopInput();
+    }
+  });
 }
 
-window.addEventListener('click', e => {
-	if (!e.target.closest('.search-btn') && e.target !== input) {
-		topLineObj.closeSearch()
-}})
+window.addEventListener("click", (e) => {
+  if (!e.target.closest(".search-btn") && e.target !== input) {
+    topLineObj.closeSearch();
+  }
+});
 
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    topLineObj.closeSearch();
+  }
+});
 
-window.addEventListener('keydown', e => {
-	if (e.key === "Escape") {
-		topLineObj.closeSearch()
-
-	}
-
-})
-
-searchTranslate()
-
-
-
+searchTranslate();
 
 const widthProgResize = () => {
-	if (educationH3) {
-		window.addEventListener('resize', e => {
-			return educationH3.offsetWidth + "px"
-		})}}
+  if (educationH3) {
+    window.addEventListener("resize", (e) => {
+      return educationH3.offsetWidth + "px";
+    });
+  }
+};
 
-		const widthEducationTable = () => {
-			const educationH3 = document.querySelector('#educationH3')
-			const periodEducation = document.querySelectorAll('.ourWidth-education')
-			if (educationH3 && periodEducation) {
-				for (let i = 0; i < periodEducation.length; i++) {
-					const element = periodEducation[i];
-					element.style.width = widthProgResize()
-				}}
+const widthEducationTable = () => {
+  const educationH3 = document.querySelector("#educationH3");
+  const periodEducation = document.querySelectorAll(".ourWidth-education");
+  if (educationH3 && periodEducation) {
+    for (let i = 0; i < periodEducation.length; i++) {
+      const element = periodEducation[i];
+      element.style.width = widthProgResize();
+    }
+  }
+};
+widthEducationTable();
 
-			}
-			widthEducationTable()
+document.querySelectorAll(".btn-education-accor").forEach((e) => {
+  e.addEventListener("click", btnAccorEducationOpen, false);
+});
+function btnAccorEducationOpen() {
+  const accor = this.nextElementSibling;
+  const content = this.nextElementSibling.children[0];
+  if (content) {
+    if (!accor.classList.contains("education-accor-active")) {
+      accor.classList.add("education-accor-active");
+      content.classList.add("educationContentAccor");
+      this.classList.add("btn-education-radio");
+      this.children[0].children[1].style.transform = "rotate(-180deg)";
+    } else {
+      accor.classList.remove("education-accor-active");
+      content.classList.remove("educationContentAccor");
 
-
-
-			document.querySelectorAll('.btn-education-accor').forEach(e=> {e.addEventListener('click', btnAccorEducationOpen, false)})
-function btnAccorEducationOpen () {
-const accor = this.nextElementSibling
-const content = this.nextElementSibling.children[0]
-if (content) {
-if (!accor.classList.contains('education-accor-active')) {
-	accor.classList.add('education-accor-active')
-	content.classList.add('educationContentAccor')
-	this.classList.add('btn-education-radio')
-	this.children[0].children[1].style.transform = "rotate(-180deg)"
-
-} else {
-	accor.classList.remove('education-accor-active')
-	content.classList.remove('educationContentAccor')
-
-	setTimeout(() => {
-		this.children[0].children[1].style.transform = "rotate(0deg)"
-
-
-	}, 210);
-	setTimeout(() => {
-		this.classList.remove('btn-education-radio')
-
-	}, 310);
-}
-}
+      setTimeout(() => {
+        this.children[0].children[1].style.transform = "rotate(0deg)";
+      }, 210);
+      setTimeout(() => {
+        this.classList.remove("btn-education-radio");
+      }, 310);
+    }
+  }
 }
 
-
-
-
-
-
-window.addEventListener('load', e => {
-	heightHours()
-})
-window.addEventListener('resize', e => {
-	heightHours()
-})
+window.addEventListener("load", (e) => {
+  heightHours();
+});
+window.addEventListener("resize", (e) => {
+  heightHours();
+});
 
 const heightHours = () => {
-	const progTable = document.querySelector('.prog-table')
-	if (progTable) {
-	const tableList1 = document.querySelector('.prof-table-list-1').offsetHeight
-	const tableList2 = document.querySelector('.prof-table-list-2').offsetHeight
-	const tableList3 = document.querySelector('.prof-table-list-3').offsetHeight
-	const tableList4 = document.querySelector('.prof-table-list-4').offsetHeight
-	const tableList5 = document.querySelector('.prof-table-list-5').offsetHeight
-	const tableList6 = document.querySelector('.prof-table-list-6').offsetHeight
-	const tableList7 = document.querySelector('.prof-table-list-7').offsetHeight
+  const progTable = document.querySelector(".prog-table");
+  if (progTable) {
+    const tableList1 =
+      document.querySelector(".prof-table-list-1").offsetHeight;
+    const tableList2 =
+      document.querySelector(".prof-table-list-2").offsetHeight;
+    const tableList3 =
+      document.querySelector(".prof-table-list-3").offsetHeight;
+    const tableList4 =
+      document.querySelector(".prof-table-list-4").offsetHeight;
+    const tableList5 =
+      document.querySelector(".prof-table-list-5").offsetHeight;
+    const tableList6 =
+      document.querySelector(".prof-table-list-6").offsetHeight;
+    const tableList7 =
+      document.querySelector(".prof-table-list-7").offsetHeight;
 
-	document.querySelector('.prof-table-hours-1').style.height = tableList1 + 'px'
-	document.querySelector('.prof-table-hours-2').style.height = tableList2 + 'px'
-	document.querySelector('.prof-table-hours-3').style.height = tableList3 + 'px'
-	document.querySelector('.prof-table-hours-4').style.height = tableList4 + 'px'
-	document.querySelector('.prof-table-hours-5').style.height = tableList5 + 'px'
-	document.querySelector('.prof-table-hours-6').style.height = tableList6 + 'px'
-	document.querySelector('.prof-table-hours-7').style.height = tableList7 + 'px'
-}}
-heightHours()
+    document.querySelector(".prof-table-hours-1").style.height =
+      tableList1 + "px";
+    document.querySelector(".prof-table-hours-2").style.height =
+      tableList2 + "px";
+    document.querySelector(".prof-table-hours-3").style.height =
+      tableList3 + "px";
+    document.querySelector(".prof-table-hours-4").style.height =
+      tableList4 + "px";
+    document.querySelector(".prof-table-hours-5").style.height =
+      tableList5 + "px";
+    document.querySelector(".prof-table-hours-6").style.height =
+      tableList6 + "px";
+    document.querySelector(".prof-table-hours-7").style.height =
+      tableList7 + "px";
+  }
+};
+heightHours();
 
-
-
-
-const btnSelectOne = document.querySelector('.btn-select-one')
-const btnSelectTwo = document.querySelector('.btn-select-two')
-const btnSelectThree = document.querySelector('.btn-select-three')
+const btnSelectOne = document.querySelector(".btn-select-one");
+const btnSelectTwo = document.querySelector(".btn-select-two");
+const btnSelectThree = document.querySelector(".btn-select-three");
 if (btnSelectOne) {
-btnSelectOne.addEventListener('click', openSelect, false)
-btnSelectTwo.addEventListener('click', openSelect, false)
-btnSelectThree.addEventListener('click', openSelect, false)
-function openSelect () {
-	this.classList.toggle('btn-education-radio')
-	this.children[0].innerHTML = arrInfoFirstSecond.select
-	if (!this.nextElementSibling.classList.contains('quarter-active')){
-
-this.nextElementSibling.classList.toggle('quarter-active')
-		this.children[1].style.transform = `rotate(-180deg)`
-	this.nextElementSibling.addEventListener('click', e => {
-		this.nextElementSibling.classList.remove('quarter-active')
-		this.children[1].style.transform = `rotate(0deg)`
-	})} else {
-		this.nextElementSibling.classList.remove('quarter-active')
-		this.children[1].style.transform = `rotate(0deg)`
-	}
+  btnSelectOne.addEventListener("click", openSelect, false);
+  btnSelectTwo.addEventListener("click", openSelect, false);
+  btnSelectThree.addEventListener("click", openSelect, false);
+  function openSelect() {
+    this.classList.toggle("btn-education-radio");
+    this.children[0].innerHTML = arrInfoFirstSecond.select;
+    if (!this.nextElementSibling.classList.contains("quarter-active")) {
+      this.nextElementSibling.classList.toggle("quarter-active");
+      this.children[1].style.transform = `rotate(-180deg)`;
+      this.nextElementSibling.addEventListener("click", (e) => {
+        this.nextElementSibling.classList.remove("quarter-active");
+        this.children[1].style.transform = `rotate(0deg)`;
+      });
+    } else {
+      this.nextElementSibling.classList.remove("quarter-active");
+      this.children[1].style.transform = `rotate(0deg)`;
+    }
+  }
 }
-}
 
-
-const outputJun = document.querySelectorAll('.quarter-mobile-box__classes-output-jun')
-const outputSin = document.querySelectorAll('.quarter-mobile-box__classes-output-sin')
-const outputJunSecond = document.querySelector('.output-jun-second')
-const outputSinSecond = document.querySelector('.output-sin-second')
-const outputJunThird = document.querySelector('.output-jun-third')
-const outputSinThird = document.querySelector('.output-sin-third')
-const tableIf = document.querySelector('.education-tables__table')
+const outputJun = document.querySelectorAll(
+  ".quarter-mobile-box__classes-output-jun"
+);
+const outputSin = document.querySelectorAll(
+  ".quarter-mobile-box__classes-output-sin"
+);
+const outputJunSecond = document.querySelector(".output-jun-second");
+const outputSinSecond = document.querySelector(".output-sin-second");
+const outputJunThird = document.querySelector(".output-jun-third");
+const outputSinThird = document.querySelector(".output-sin-third");
+const tableIf = document.querySelector(".education-tables__table");
 const arrInfoFirstSecond = {
-	one: "01.09 - 26.10 (8 уч. недель)",
-	oneTitle: "1 четверть",
+  one: "01.09 - 26.10 (8 уч. недель)",
+  oneTitle: "1 четверть",
 
-	two: "07.11 - 24.12 (7 уч. недель)",
-	twoTitle: "2 четверть",
+  two: "07.11 - 24.12 (7 уч. недель)",
+  twoTitle: "2 четверть",
 
-	three: "09.01 - 04.03 (8 уч. недель)",
-	threeTitle: "3 четверть",
+  three: "09.01 - 04.03 (8 уч. недель)",
+  threeTitle: "3 четверть",
 
-	four: "13.03 - 27.05 (11 уч. недель)",
-	fourTitle: "4 четверть",
+  four: "13.03 - 27.05 (11 уч. недель)",
+  fourTitle: "4 четверть",
 
-	pa: "29.05 - 10.06 (2 уч. недель)",
-	paTwo: "15.05 - 20.05 (1 уч. недель)",
+  pa: "29.05 - 10.06 (2 уч. недель)",
+  paTwo: "15.05 - 20.05 (1 уч. недель)",
 
-	paTitle: "ПА",
+  paTitle: "ПА",
 
-	select: "Выберите период",
-//===============//===============//===============//===============//===============//===============//===============//===============//===============
+  select: "Выберите период",
+  //===============//===============//===============//===============//===============//===============//===============//===============//===============
 
-	sinOne: "01.09 - 26.10 (8 уч. недель)",
-	sinTwo: "07.11 - 24.12 (7 уч. недель)",
-	sinThree: "09.01 - 04.03 (8 уч. недель)",
-	sinFour: "13.03 - 13.05 (9 уч. недель)",
+  sinOne: "01.09 - 26.10 (8 уч. недель)",
+  sinTwo: "07.11 - 24.12 (7 уч. недель)",
+  sinThree: "09.01 - 04.03 (8 уч. недель)",
+  sinFour: "13.03 - 13.05 (9 уч. недель)",
 
+  oneSecond: "01.09 - 24.12 (15 уч. недель)",
+  oneTitleSecond: "1 полугодие",
 
-	oneSecond: "01.09 - 24.12 (15 уч. недель)",
-	oneTitleSecond: "1 полугодие",
+  twoSecond: "09.01 - 27.05 (19 уч. недель)",
+  twoTitleSecond: "2 полугодие",
 
-	twoSecond: "09.01 - 27.05 (19 уч. недель)",
-	twoTitleSecond: "2 полугодие",
+  sinOneSecond: "01.09 - 24.12 (15 уч. недель)",
+  sinTwoSecond: "09.01 - 13.05 (17 уч. недель)",
 
-	sinOneSecond: "01.09 - 24.12 (15 уч. недель)",
-	sinTwoSecond: "09.01 - 13.05 (17 уч. недель)",
+  //===============//===============//===============//===============//===============//===============//===============//===============//===============
 
+  seasonFirst: "27.10 - 06.11 (11 дней)",
+  sinSeasonFirst: "27.10 - 06.11 (11 дней)",
+  seasonFirstTitle: "Осенние",
 
-	//===============//===============//===============//===============//===============//===============//===============//===============//===============
+  seasonSecond: "25.12 - 08.01 (15 дней)",
+  sinSeasonSecond: "25.12 - 08.01 (15 дней)",
+  seasonSecondTitle: "Зимние",
 
-	seasonFirst: "27.10 - 06.11 (11 дней)",
-	sinSeasonFirst: "27.10 - 06.11 (11 дней)",
-	seasonFirstTitle: "Осенние",
+  seasonThird: "05.03 - 12.03 (8 дней)",
+  sinSeasonThird: "05.03 - 12.03 (8 дней)",
+  seasonThirdTitle: "Весенние",
 
-	seasonSecond: "25.12 - 08.01 (15 дней)",
-	sinSeasonSecond: "25.12 - 08.01 (15 дней)",
-	seasonSecondTitle: "Зимние",
-
-	seasonThird: "05.03 - 12.03 (8 дней)",
-	sinSeasonThird: "05.03 - 12.03 (8 дней)",
-	seasonThirdTitle: "Весенние",
-
-	seasonFourth: "11.06 - 31.08 (82 дня)",
-	sinSeasonFourth: "ГИА",
-	seasonFourthTitle: "Летние",
-
-
-
-}
-
+  seasonFourth: "11.06 - 31.08 (82 дня)",
+  sinSeasonFourth: "ГИА",
+  seasonFourthTitle: "Летние",
+};
 
 const dateObj = {
-	currentDate: new Date(),
-	startFirstQuarter: new Date('2022-09-01'),
-	endFirstQuarter: new Date('2022-10-26'),
-	startSecondQuarter: new Date('2022-11-07'),
-	endSecondQuarter: new Date('2022-12-24'),
-	startThirdQuarter: new Date('2022-01-09'),
-	endThirdQuarter: new Date('2022-03-04'),
-	startFourthQuarter: new Date('2022-03-13'),
-	endFourthQuarter: new Date('2022-05-27'),
+  currentDate: new Date(),
+  startFirstQuarter: new Date("2022-09-01"),
+  endFirstQuarter: new Date("2022-10-26"),
+  startSecondQuarter: new Date("2022-11-07"),
+  endSecondQuarter: new Date("2022-12-24"),
+  startThirdQuarter: new Date("2022-01-09"),
+  endThirdQuarter: new Date("2022-03-04"),
+  startFourthQuarter: new Date("2022-03-13"),
+  endFourthQuarter: new Date("2022-05-27"),
 
-
-
-	teachersExpYears2023: new Date(2023, 9, 1, 0, 0),
-	teachersExpYears2024: new Date(2024, 9, 1, 0, 0),
-	teachersExpYears2025: new Date(2025, 9, 1, 0, 0),
-	teachersExpYears2026: new Date(2026, 9, 1, 0, 0),
-	teachersExpYears2027: new Date(2027, 9, 1, 0, 0),
-	teachersExpYears2028: new Date(2028, 9, 1, 0, 0),
-	teachersExpYears2029: new Date(2029, 9, 1, 0, 0),
-	teachersExpYears2030: new Date(2030, 9, 1, 0, 0),
-	teachersExpYears2031: new Date(2031, 9, 1, 0, 0),
-	teachersExpYears2032: new Date(2032, 9, 1, 0, 0),
-
-
-}
-
-
+  teachersExpYears2023: new Date(2023, 9, 1, 0, 0),
+  teachersExpYears2024: new Date(2024, 9, 1, 0, 0),
+  teachersExpYears2025: new Date(2025, 9, 1, 0, 0),
+  teachersExpYears2026: new Date(2026, 9, 1, 0, 0),
+  teachersExpYears2027: new Date(2027, 9, 1, 0, 0),
+  teachersExpYears2028: new Date(2028, 9, 1, 0, 0),
+  teachersExpYears2029: new Date(2029, 9, 1, 0, 0),
+  teachersExpYears2030: new Date(2030, 9, 1, 0, 0),
+  teachersExpYears2031: new Date(2031, 9, 1, 0, 0),
+  teachersExpYears2032: new Date(2032, 9, 1, 0, 0),
+};
 
 const showTableInQuarter = () => {
-if (tableIf) {
-	if (dateObj.currentDate >= dateObj.startFirstQuarter && dateObj.currentDate <= dateObj.endFirstQuarter) {
-		outputJun.innerHTML = arrInfoFirstSecond.one
-		outputSin.innerHTML = arrInfoFirstSecond.sinOne
-		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle
+  if (tableIf) {
+    if (
+      dateObj.currentDate >= dateObj.startFirstQuarter &&
+      dateObj.currentDate <= dateObj.endFirstQuarter
+    ) {
+      outputJun.innerHTML = arrInfoFirstSecond.one;
+      outputSin.innerHTML = arrInfoFirstSecond.sinOne;
+      btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle;
 
-//==============================//==============================//==============================//==============================//==============================//==============================
+      //==============================//==============================//==============================//==============================//==============================//==============================
 
+      outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond;
+      outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond;
+      btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond;
 
-		outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond
-		outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond
-		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond
+      //==============================//==============================//==============================//==============================//==============================//==============================
+    }
+    if (
+      dateObj.currentDate >= dateObj.startSecondQuarter &&
+      dateObj.currentDate <= dateObj.endSecondQuarter
+    ) {
+      outputJun.innerHTML = arrInfoFirstSecond.two;
+      outputSin.innerHTML = arrInfoFirstSecond.sinTwo;
+      btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle;
 
-//==============================//==============================//==============================//==============================//==============================//==============================
+      //==============================//==============================//==============================//==============================//==============================//==============================
 
+      outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond;
+      outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond;
+      btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond;
 
-	}
-	if (dateObj.currentDate >= dateObj.startSecondQuarter && dateObj.currentDate <= dateObj.endSecondQuarter) {
-		outputJun.innerHTML = arrInfoFirstSecond.two
-		outputSin.innerHTML = arrInfoFirstSecond.sinTwo
-		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle
+      //==============================//==============================//==============================//==============================//==============================//==============================
+      outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst;
+      outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst;
+      btnSelectThree.children[0].innerHTML =
+        arrInfoFirstSecond.seasonFirstTitle;
+    }
+    if (
+      dateObj.currentDate >= dateObj.startThirdQuarter &&
+      dateObj.currentDate <= dateObj.endThirdQuarter
+    ) {
+      outputJun.innerHTML = arrInfoFirstSecond.three;
+      outputSin.innerHTML = arrInfoFirstSecond.sinThree;
+      btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle;
+      outputJunThird.innerHTML = arrInfoFirstSecond.seasonSecond;
+      outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonSecond;
+      btnSelectThree.children[0].innerHTML =
+        arrInfoFirstSecond.seasonSecondTitle;
+      //==============================//==============================//==============================//==============================//==============================//==============================
 
-//==============================//==============================//==============================//==============================//==============================//==============================
+      outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond;
+      outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond;
+      btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond;
+      //==============================//==============================//==============================//==============================//==============================//==============================
+      outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird;
+      outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird;
+      btnSelectThree.children[0].innerHTML =
+        arrInfoFirstSecond.seasonThirdTitle;
+    }
+    if (
+      dateObj.currentDate >= dateObj.startFourthQuarter &&
+      dateObj.currentDate <= dateObj.endFourthQuarter
+    ) {
+      outputJun.innerHTML = arrInfoFirstSecond.four;
+      outputSin.innerHTML = arrInfoFirstSecond.sinFour;
+      btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle;
 
+      //===============================//==============================//==============================//==============================//==============================//==============================
 
-		outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond
-		outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond
-		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond
+      outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond;
+      outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond;
+      btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond;
 
-//==============================//==============================//==============================//==============================//==============================//==============================
-		outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
-		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst
-		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFirstTitle
-	}
-	if (dateObj.currentDate >= dateObj.startThirdQuarter && dateObj.currentDate <= dateObj.endThirdQuarter) {
-		outputJun.innerHTML = arrInfoFirstSecond.three
-		outputSin.innerHTML = arrInfoFirstSecond.sinThree
-		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle
-		outputJunThird.innerHTML = arrInfoFirstSecond.seasonSecond
-		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonSecond
-		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonSecondTitle
-//==============================//==============================//==============================//==============================//==============================//==============================
+      //==============================//==============================//==============================//==============================//==============================//==============================
+      outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst;
+      outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth;
+      btnSelectThree.children[0].innerHTML =
+        arrInfoFirstSecond.seasonFourthTitle;
+    }
+  }
+};
 
-		outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond
-		outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond
-		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond
-//==============================//==============================//==============================//==============================//==============================//==============================
-		outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird
-		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird
-		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonThirdTitle
-	}
-	if (dateObj.currentDate >= dateObj.startFourthQuarter && dateObj.currentDate <= dateObj.endFourthQuarter) {
-		outputJun.innerHTML = arrInfoFirstSecond.four
-		outputSin.innerHTML = arrInfoFirstSecond.sinFour
-		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle
+showTableInQuarter();
 
-//===============================//==============================//==============================//==============================//==============================//==============================
+document.querySelectorAll(".li-select").forEach((e) =>
+  e.addEventListener("click", function (event) {
+    if (event.target.contains(document.getElementById("quarter-li-1"))) {
+      outputJun.innerHTML = arrInfoFirstSecond.one;
+      outputSin.innerHTML = arrInfoFirstSecond.sinOne;
+      btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle;
+    } else if (event.target.contains(document.getElementById("quarter-li-2"))) {
+      outputJun.innerHTML = arrInfoFirstSecond.two;
+      outputSin.innerHTML = arrInfoFirstSecond.sinTwo;
+      btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle;
+    } else if (event.target.contains(document.getElementById("quarter-li-3"))) {
+      outputJun.innerHTML = arrInfoFirstSecond.three;
+      outputSin.innerHTML = arrInfoFirstSecond.sinThree;
+      btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle;
+    } else if (event.target.contains(document.getElementById("quarter-li-4"))) {
+      outputJun.innerHTML = arrInfoFirstSecond.four;
+      outputSin.innerHTML = arrInfoFirstSecond.sinFour;
+      btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle;
+    } else if (event.target.contains(document.getElementById("quarter-li-5"))) {
+      outputJun.innerHTML = arrInfoFirstSecond.pa;
+      outputSin.innerHTML = arrInfoFirstSecond.paTwo;
+      btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.paTitle;
+    }
 
-		outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond
-		outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond
-		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond
+    if (event.target.contains(document.getElementById("quarter-li-1-second"))) {
+      outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond;
+      outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond;
+      btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond;
+    } else if (
+      event.target.contains(document.getElementById("quarter-li-2-second"))
+    ) {
+      outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond;
+      outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond;
+      btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond;
+    } else if (
+      event.target.contains(document.getElementById("quarter-li-3-second"))
+    ) {
+      outputJunSecond.innerHTML = arrInfoFirstSecond.pa;
+      outputSinSecond.innerHTML = arrInfoFirstSecond.paTwo;
+      btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.paTitle;
+    }
 
-//==============================//==============================//==============================//==============================//==============================//==============================
-		outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
-		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
-		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
-	}
-}
-}
-
-showTableInQuarter()
-
-
-
-
-
-document.querySelectorAll('.li-select').forEach(e =>  e.addEventListener('click', function (event) {
-
-	if (event.target.contains(document.getElementById('quarter-li-1'))) {
-		outputJun.innerHTML = arrInfoFirstSecond.one
-		outputSin.innerHTML = arrInfoFirstSecond.sinOne
-		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle
-	} else if (event.target.contains(document.getElementById('quarter-li-2'))) {
-		outputJun.innerHTML = arrInfoFirstSecond.two
-		outputSin.innerHTML = arrInfoFirstSecond.sinTwo
-		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle
-	} else if (event.target.contains(document.getElementById('quarter-li-3'))) {
-		outputJun.innerHTML = arrInfoFirstSecond.three
-		outputSin.innerHTML = arrInfoFirstSecond.sinThree
-		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle
-	} else if (event.target.contains(document.getElementById('quarter-li-4'))) {
-		outputJun.innerHTML = arrInfoFirstSecond.four
-		outputSin.innerHTML = arrInfoFirstSecond.sinFour
-		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle
-	} else if (event.target.contains(document.getElementById('quarter-li-5'))) {
-		outputJun.innerHTML = arrInfoFirstSecond.pa
-		outputSin.innerHTML = arrInfoFirstSecond.paTwo
-		btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.paTitle
-	}
-
-
-
-	if (event.target.contains(document.getElementById('quarter-li-1-second'))) {
-		outputJunSecond.innerHTML = arrInfoFirstSecond.oneSecond
-		outputSinSecond.innerHTML = arrInfoFirstSecond.sinOneSecond
-		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond
-	} else if (event.target.contains(document.getElementById('quarter-li-2-second'))) {
-	 	outputJunSecond.innerHTML = arrInfoFirstSecond.twoSecond
-		outputSinSecond.innerHTML = arrInfoFirstSecond.sinTwoSecond
-		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.twoTitleSecond
-	} else if (event.target.contains(document.getElementById('quarter-li-3-second'))) {
-		outputJunSecond.innerHTML = arrInfoFirstSecond.pa
-		outputSinSecond.innerHTML = arrInfoFirstSecond.paTwo
-		btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.paTitle
-	}
-
-
-	if (event.target.contains(document.getElementById('quarter-li-1-third'))) {
-		outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst
-		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst
-		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFirstTitle
-	} else if (event.target.contains(document.getElementById('quarter-li-2-third'))) {
-		outputJunThird.innerHTML = arrInfoFirstSecond.seasonSecond
-		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonSecond
-		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonSecondTitle
-	} else if (event.target.contains(document.getElementById('quarter-li-3-third'))) {
-		outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird
-		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird
-		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonThirdTitle
-	} else if (event.target.contains(document.getElementById('quarter-li-4-third'))) {
-		outputJunThird.innerHTML = arrInfoFirstSecond.seasonFourth
-		outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth
-		btnSelectThree.children[0].innerHTML = arrInfoFirstSecond.seasonFourthTitle
-	}
-}))
-
-
-
-
+    if (event.target.contains(document.getElementById("quarter-li-1-third"))) {
+      outputJunThird.innerHTML = arrInfoFirstSecond.seasonFirst;
+      outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst;
+      btnSelectThree.children[0].innerHTML =
+        arrInfoFirstSecond.seasonFirstTitle;
+    } else if (
+      event.target.contains(document.getElementById("quarter-li-2-third"))
+    ) {
+      outputJunThird.innerHTML = arrInfoFirstSecond.seasonSecond;
+      outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonSecond;
+      btnSelectThree.children[0].innerHTML =
+        arrInfoFirstSecond.seasonSecondTitle;
+    } else if (
+      event.target.contains(document.getElementById("quarter-li-3-third"))
+    ) {
+      outputJunThird.innerHTML = arrInfoFirstSecond.seasonThird;
+      outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird;
+      btnSelectThree.children[0].innerHTML =
+        arrInfoFirstSecond.seasonThirdTitle;
+    } else if (
+      event.target.contains(document.getElementById("quarter-li-4-third"))
+    ) {
+      outputJunThird.innerHTML = arrInfoFirstSecond.seasonFourth;
+      outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFourth;
+      btnSelectThree.children[0].innerHTML =
+        arrInfoFirstSecond.seasonFourthTitle;
+    }
+  })
+);
 
 const endYears = {
-	let: 'лет',
-	goda: 'года',
-	god: 'год',
-}
+  let: "лет",
+  goda: "года",
+  god: "год",
+};
 
 //==============================//==============================//==============================//==============================//==============================//==============================
 
 function changeExp() {
-	let workExp = document.querySelectorAll('.expTeach')
+  let workExp = document.querySelectorAll(".expTeach");
 
+  //==============================//==============================
+  let yearExpCounter = workExp[0].textContent.split(" ")[0];
+  yearExpCounter = String(Number(yearExpCounter) + 1);
+  let yearExpArray = new Array(yearExpCounter)[0].split("");
+  let lastComparsion = yearExpCounter[yearExpArray.length - 1];
+  //==============================//==============================
 
-//==============================//==============================
-	let yearExpCounter = workExp[0].textContent.split(" ")[0]
-	yearExpCounter = String(Number(yearExpCounter) + 1)
-	let yearExpArray = new Array(yearExpCounter)[0].split('')
-	let lastComparsion = yearExpCounter [yearExpArray.length - 1]
-//==============================//==============================
-
-
-		if ( yearExpCounter >= 5 && yearExpCounter <= 20 || lastComparsion >= 5 && lastComparsion <= 9 || lastComparsion == 0) {
-
-			return workExp[0].textContent = `${yearExpCounter} ${endYears.let}`
-		}
-		if ( lastComparsion == 2 ||lastComparsion == 3 || lastComparsion == 4 ) {
-			workExp[0].textContent = `${yearExpCounter} ${endYears.goda}`
-		}
-		if ( lastComparsion == 1) {
-			workExp[0].textContent = `${yearExpCounter} ${endYears.god}`
-		}
-
-	}
-
+  if (
+    (yearExpCounter >= 5 && yearExpCounter <= 20) ||
+    (lastComparsion >= 5 && lastComparsion <= 9) ||
+    lastComparsion == 0
+  ) {
+    return (workExp[0].textContent = `${yearExpCounter} ${endYears.let}`);
+  }
+  if (lastComparsion == 2 || lastComparsion == 3 || lastComparsion == 4) {
+    workExp[0].textContent = `${yearExpCounter} ${endYears.goda}`;
+  }
+  if (lastComparsion == 1) {
+    workExp[0].textContent = `${yearExpCounter} ${endYears.god}`;
+  }
+}
 
 //==============================//==============================//==============================//==============================//==============================//==============================
 
-
-
 function changeExpSec() {
-	let workExpSec = document.querySelectorAll('.expTeachSec')
-
-//==============================//==============================
-
-
-	let yearExpCounterSec = workExpSec[0].textContent.split(" ")[0]
-	yearExpCounterSec = String(Number(yearExpCounterSec) + 1)
-	let yearExpArraySec = new Array(yearExpCounterSec)[0].split('')
-	let lastComparsionSec = yearExpCounterSec [yearExpArraySec.length - 1]
-//==============================//==============================
-
-
-		if ( yearExpCounterSec >= 5 && yearExpCounterSec <= 20 || lastComparsionSec >= 5 && lastComparsionSec <= 9 || lastComparsionSec == 0) {
-
-			return workExpSec[0].textContent = `${yearExpCounterSec} ${endYears.let}`
-		}
-		if ( lastComparsionSec == 2 || lastComparsionSec == 3 || lastComparsionSec == 4 ) {
-			workExpSec[0].textContent = `${yearExpCounterSec} ${endYears.goda}`
-		}
-		if ( lastComparsionSec == 1) {
-			workExpSec[0].textContent = `${yearExpCounterSec} ${endYears.god}`
-		}
-
-
-
-	}
-
-	if (dateObj.currentDate > dateObj.teachersExpYears2023) {
-		changeExp()
-		changeExpSec()
-	}
-	if (dateObj.currentDate > dateObj.teachersExpYears2024) {
-		changeExp()
-		changeExpSec()
-	}
-
-	if (dateObj.currentDate > dateObj.teachersExpYears2025) {
-		changeExp()
-		changeExpSec()
-	}
-	if (dateObj.currentDate > dateObj.teachersExpYears2026) {
-		changeExp()
-		changeExpSec()
-	}
-
-	if (dateObj.currentDate > dateObj.teachersExpYears2027) {
-		changeExp()
-		changeExpSec()
-	}
-	if (dateObj.currentDate > dateObj.teachersExpYears2028) {
-		changeExp()
-		changeExpSec()
-	}
-
-	if (dateObj.currentDate > dateObj.teachersExpYears2029) {
-		changeExp()
-		changeExpSec()
-	}
-	if (dateObj.currentDate > dateObj.teachersExpYears2030) {
-		changeExp()
-		changeExpSec()
-	}
-
-	if (dateObj.currentDate > dateObj.teachersExpYears2031) {
-		changeExp()
-		changeExpSec()
-	}
-	if (dateObj.currentDate > dateObj.teachersExpYears2032) {
-		changeExp()
-		changeExpSec()
-	}
-
-
-
-
-
-
-const eyeBtn = document.querySelector('.buttom-top-eye')
-const topLine = document.querySelector('.header__top-line')
-
-
-
-eyeBtn.addEventListener('click', e => {
-	topLine.classList.toggle('top-line-active')
-	eyeBtn.classList.toggle('eyeActive')
-
-
-})
-
-
-
-
-const menuItem = document.querySelectorAll('.menu-item')
-const organizationSubs = document.querySelectorAll('.organization-subs')
-const educationTable = document.querySelectorAll('.education-tables__table')
-const educationTitles = document.querySelectorAll('.education-tables__titles')
-const educationTablesBorderLeft = document.querySelectorAll('.education-tables-border-left')
-const btnEducationAccor = document.querySelectorAll('.btn-education-accor')
-const cardTeam = document.querySelectorAll('.card-team')
-const cardTeamPosition = document.querySelectorAll('.card-team__position')
-const footerLinkChange = document.querySelectorAll('.footer-link-change')
-const boxEducationContent = document.querySelectorAll('.box-content-accor')
-const quarterMobile = document.querySelectorAll('.quarter-mobile')
-const buttonSelect = document.querySelectorAll('.button-select')
-const quarterMobileContentLi = document.querySelectorAll('.quarter-mobile-content')
-const quarterMobileContainer = document.querySelectorAll('.quarter-mobile-box__container')
-const menuHidden = document.querySelectorAll('.menu-hidden')
-const menuLinkA = document.querySelectorAll('.link-a')
-const menuLink = document.querySelectorAll('.menu-link')
-const changeHeader = document.querySelector('.header__body')
-const body = document.querySelector('main')
-const footer = document.querySelector('.footer')
-const crumbs = document.querySelector('.crumbs')
-const crumbsTitle = document.querySelectorAll('.crumbs-link')
-const mainTableBox = document.querySelector('.main-table-box')
-const progTable = document.querySelector('.prog-table')
-const mainDescription = document.querySelector('.leaders__main-description')
-const hunterSection = document.querySelector('.hunter-section')
-const hunterSectionLink = document.querySelector('.hunter-section__link')
-const organizationSvgs = document.querySelectorAll('.organization-svg')
-const organizationSvgsColor = document.querySelectorAll('.svg-footer-color')
-const footerButtons = document.querySelectorAll('.footer-buttons')
-const docSvg = document.querySelectorAll('#doc')
-const docSvgEdu = document.querySelectorAll('#doc-edu')
-const progMiddleEducation = document.querySelector('.prog-middle-education')
-const progTopList = document.querySelector('.prog-top-list')
-const progTopListBorderBottom = document.querySelectorAll('.prog-top-list-border-bottom')
-const progBottomList = document.querySelectorAll('.prog-bottom-list')
-const progBottomHours = document.querySelector('.prog-bottom-hours')
-const quarterMobileTitleClasses = document.querySelectorAll('.quarter-mobile-box__title-classes')
-const quarterMobileJun = document.querySelectorAll('.quarter-mobile-box__classes-jun')
-const quarterMobileOutputJun = document.querySelectorAll('.quarter-mobile-box__classes-output-jun')
-const quarterMobileSelect = document.querySelectorAll('.quarter-mobile-box__select')
-const mainInfoTable = document.querySelectorAll('.main-info-table')
-const mainInfoTableBorder = document.querySelectorAll('.main-table-item-border-bottom')
-const links = document.querySelectorAll('a')
-const mtoTable = document.querySelectorAll('.mto-table')
-const mtoTableItem = document.querySelectorAll('.mto-table-item')
-const mtoCountBorder = document.querySelectorAll('.mto-count-border')
-const mtoCount = document.querySelectorAll('.mto-count')
-const teachersMainPhrase = document.querySelectorAll('.teachers-main__phrase')
-const teachersPoint = document.querySelectorAll('.teachers-point')
-const teachersPosition = document.querySelectorAll('.teachers-main__position')
-const teachersRaising = document.querySelectorAll('.teachers__raising')
-const orgItems = document.querySelectorAll('.organization__items')
-
-
-menuLink.forEach(elem => {
-	elem.classList.add('hover-add')
-})
-
-
-
-
-
-const educationTablesRow1 = document.querySelectorAll('.education-tables__row-1')
-const mainInfoPseudoLeft = document.querySelectorAll('.main-table-item-pseudo-left')
-
-mainInfoPseudoLeft.forEach(e => {
-	e.classList.add('main-table-item-pseudo-left-add')
-})
-const progBoxTitle = document.querySelectorAll('.prog-box-title')
-progBoxTitle.forEach(e => {
-	e.classList.add('prog-profile-pseudo-before')
-})
-
-
-
-const logo = document.querySelector('#logo')
-mtoCount.forEach(elem => {
-	elem.classList.add('mto-count-pdeudo-before')
-})
-quarterMobileSelect.forEach(e => {
-	e.classList.add('quarter-mobile-box__select-pseudo-before')
-})
-outputJun.forEach(e => {
-	e.classList.add('quarter-mobile-box__select-pseudo-before')
-})
-outputSin.forEach(e => {
-	e.classList.add('quarter-mobile-box__select-pseudo-before')
-})
-const progTopHours = document.querySelectorAll('.prog-top-hours-before')
-progTopHours.forEach(e => {
-	e.classList.add('prog-top-hours-pseudo-before')
-})
-
-
-function themeToggle () {
-
-	body.style.backgroundColor = localStorage.getItem('1')
-	body.style.color = localStorage.getItem('2')
-	changeHeader.style.backgroundColor = localStorage.getItem('1')
-	changeHeader.style.color = localStorage.getItem('2')
-	changeHeader.style.borderTop = `1px solid ${localStorage.getItem('2')}`
-	changeHeader.style.borderBottom = `1px solid ${localStorage.getItem('1')}`
-	footer.style.backgroundColor = localStorage.getItem('1')
-	footer.style.color = localStorage.getItem('2')
-	footer.style.borderTop = `1px solid ${localStorage.getItem('2')}`
-	crumbs.style.backgroundColor = localStorage.getItem('1')
-	crumbs.style.borderTop = `1px solid ${localStorage.getItem('2')}`
-	crumbs.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-
-
-	crumbsTitle.forEach(elem => {
-		elem.style.color = localStorage.getItem('2')
-
-	})
-	if (hunterSection !== null && hunterSectionLink !== null) {
-		hunterSection.style.backgroundColor = localStorage.getItem('1')
-		hunterSection.style.border = `1px solid ${localStorage.getItem('2')}`
-		hunterSectionLink.style.backgroundColor = localStorage.getItem('1')
-		hunterSectionLink.style.border = `1px solid ${localStorage.getItem('2')}`
-		hunterSectionLink.style.color = localStorage.getItem('2')
-
-	}
-	if (mainDescription !== null) {
-		mainDescription.style.backgroundColor = localStorage.getItem('1')
-		mainDescription.style.border = `1px solid ${localStorage.getItem('2')}`
-
-	}
-
-
-	if (mainTableBox !== null) {
-		mainTableBox.style.backgroundColor = localStorage.getItem('1')
-		mainTableBox.style.color = localStorage.getItem('2')
-	}
-	teachersMainPhrase.forEach(elem => {
-		elem.style.backgroundColor = localStorage.getItem('1')
-		elem.style.border = `1px solid ${localStorage.getItem('2')}`
-	})
-	teachersPoint.forEach(elem => {
-		elem.style.color = localStorage.getItem('2')
-	})
-	teachersPosition.forEach(elem => {
-		elem.style.color = localStorage.getItem('2')
-	})
-	teachersRaising.forEach(elem => {
-		elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-	})
-
-
-
-
-
-
-	footerButtons.forEach(elem => {
-		elem.style.backgroundColor = localStorage.getItem('1')
-		elem.style.border = `1px solid ${localStorage.getItem('2')}`
-	})
-	mtoTable.forEach(elem => {
-
-		elem.style.border = `1px solid ${localStorage.getItem('2')}`
-	})
-	mtoTableItem.forEach(elem => {
-
-		elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-	})
-	mtoCountBorder.forEach(elem => {
-		elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-
-
-	})
-
-
-	if (mainInfoTable !== null) {
-		mainInfoTable.forEach(elem => {
-			elem.style.border = `1px solid ${localStorage.getItem('2')}`
-		})
-		mainInfoTableBorder.forEach(elem => {
-			elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-		})
-
-		links.forEach(elem => {
-			elem.style.color = localStorage.getItem('2')
-
-		})
-	}
-
-	if (progTable !== null) {
-		progTable.style.backgroundColor = localStorage.getItem('1')
-		progTable.style.color = localStorage.getItem('2')
-		progTable.style.border = `1px solid ${localStorage.getItem('2')}`
-		progMiddleEducation.style.borderTop = `1px solid ${localStorage.getItem('2')}`
-		progTopList.style.borderLeft = `1px solid ${localStorage.getItem('2')}`
-		document.querySelector('.prog-profile').classList.remove('pog-profile-pseudo-before')
-		educationTable.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-			elem.style.color = localStorage.getItem('2')
-			elem.style.border = `1px solid ${localStorage.getItem('2')}`
-		})}
-		progBottomList.forEach(elem => {
-			elem.style.borderLeft = `1px solid ${localStorage.getItem('2')}`
-			elem.style.borderTop = `1px solid ${localStorage.getItem('2')}`
-
-		})
-		if (progBottomHours !== null) {
-		progBottomHours.style.borderTop = `1px solid ${localStorage.getItem('2')}`
-		quarterMobile.forEach(e => {
-
-			e.style.border = `1px solid ${localStorage.getItem('2')}`
-		})}
-		quarterMobileTitleClasses.forEach(e => {
-
-			e.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-		})
-		quarterMobileJun.forEach(e => {
-
-			e.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-		})
-
-		quarterMobileOutputJun.forEach(e => {
-
-			e.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-		})
-		quarterMobileSelect.forEach(e => {
-
-			e.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-		})
-
-
-				// quarterMobileSin
-		progTopListBorderBottom.forEach(elem => {
-			elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-
-		})
-		cardTeamPosition.forEach(elem => {
-			elem.style.color = localStorage.getItem('2')
-
-		})
-
-		educationTablesBorderLeft.forEach(elem => {
-			elem.style.borderLeft = `1px solid ${localStorage.getItem('2')}`
-
-		})
-
-
-
-		educationTablesRow1.forEach(elem => {
-			elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-
-		})
-		educationTitles.forEach(elem => {
-			elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-
-		})
-		progBoxTitle.forEach(elem => {
-			elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-
-		})
-		boxEducationContent.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-			elem.style.border = `1px solid ${localStorage.getItem('2')}`
-		})
-		quarterMobileContainer.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-			elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-			elem.style.borderLeft = `1px solid ${localStorage.getItem('2')}`
-			elem.style.borderRight = `1px solid ${localStorage.getItem('2')}`
-
-		})
-		cardTeam.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-			elem.style.padding = '8px'
-			elem.style.borderLeft = `1px solid ${localStorage.getItem('2')}`
-			elem.style.borderRight = `1px solid ${localStorage.getItem('2')}`
-
-		})
-		quarterMobileContentLi.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-			elem.style.borderBottom = `1px solid ${localStorage.getItem('2')}`
-
-		})
-		buttonSelect.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-			elem.style.border = `1px solid ${localStorage.getItem('2')}`
-		})
-		quarterMobile.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-		})
-		btnEducationAccor.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-			elem.style.border = `1px solid ${localStorage.getItem('2')}`
-		})
-		menuHidden.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-			elem.style.color = localStorage.getItem('2')
-			elem.style.border = `1px solid ${localStorage.getItem('2')}`
-		})
-
-		menuLinkA.forEach(elem => {
-			elem.style.color = localStorage.getItem('2')
-		})
-		organizationSubs.forEach(e => {
-			e.style.color = localStorage.getItem('2')
-		})
-		footerLinkChange.forEach(e => {
-			e.style.color = localStorage.getItem('2')
-		})
-		orgItems.forEach(elem => {
-			elem.style.backgroundColor = localStorage.getItem('1')
-			elem.style.border = `1px solid ${localStorage.getItem('2')}`
-		})
-		menuItem.forEach(elem => {
-			elem.style.color = localStorage.getItem('2')
-		})
-		if (localStorage.getItem('1') === '#3B2716') {
-					menuLink.forEach(elem => {
-						elem.classList.remove('hover-add', 'hover-add-color-blue', 'hover-add-color-vanilla', 'hover-add-color-black', 'hover-add-color-white')
-						elem.classList.add('hover-add-color-brown')
-			})
-					docSvgEdu.forEach(elem => {
-						elem.classList.remove('doc-color-white', 'doc-color-black', 'doc-color-vanilla', 'doc-color-blue')
-						elem.classList.add('doc-color-brown')
-
-				})
-					docSvg.forEach(elem => {
-						elem.classList.remove('doc-color-white', 'doc-color-black', 'doc-color-vanilla', 'doc-color-blue')
-						elem.classList.add('doc-color-brown')
-
-				})
-					organizationSvgs.forEach(elem => {
-						elem.classList.add('organization-svg-brown')
-				})
-					organizationSvgsColor.forEach(elem => {
-						elem.classList.remove('organization-svg-blue')
-						elem.classList.add('organization-svg-brown')
-				})
-					logo.classList.remove('logo-color-black', 'logo-color-white', 'logo-color-blue', 'logo-color-vanilla')
-					logo.classList.add('logo-color-brown')
-					mtoCount.forEach(elem => {
-						elem.classList.remove('mto-count-pdeudo-before', 'mto-count-pdeudo-before-vanilla', 'mto-count-pdeudo-before-black', 'mto-count-pdeudo-before-white', 'mto-count-pdeudo-before-blue')
-						elem.classList.add('mto-count-pdeudo-before-brown')
-
-				})
-					mainInfoPseudoLeft.forEach(elem => {
-						elem.classList.remove('main-table-item-pseudo-left-add', 'main-table-item-pseudo-left-add-black', 'main-table-item-pseudo-left-add-white', 'main-table-item-pseudo-left-add-vanilla', 'main-table-item-pseudo-left-add-blue')
-						elem.classList.add('main-table-item-pseudo-left-add-brown')
-					})
-					quarterMobileSelect.forEach(e => {
-						e.classList.remove('quarter-mobile-box__select-pseudo-before')
-						e.classList.add('quarter-mobile-box__select-pseudo-before-brown')
-					})
-					outputJun.forEach(e => {
-						e.classList.remove('quarter-mobile-box__select-pseudo-before')
-						e.classList.add('quarter-mobile-box__select-pseudo-before-brown')
-					})
-					outputSin.forEach(e => {
-						e.classList.remove('quarter-mobile-box__select-pseudo-before')
-						e.classList.add('quarter-mobile-box__select-pseudo-before-brown')
-					})
-				organizationSvgs.forEach(elem => {
-						elem.classList.remove('organization-svg-blue', 'organization-svg-white', 'organization-svg-black', 'organization-svg-vanilla')
-						elem.classList.add('organization-svg-brown')
-					})
-				organizationSvgsColor.forEach(elem => {
-						elem.classList.remove('organization-svg-blue', 'organization-svg-white', 'organization-svg-black', 'organization-svg-vanilla')
-						elem.classList.add('organization-svg-brown')
-					})
-				progTopHours.forEach(e => {
-
-						e.classList.remove('prog-top-hours-pseudo-before')
-						e.classList.add('prog-top-hours-pseudo-before-brown')
-					})
-				progBoxTitle.forEach(e => {
-						e.classList.remove('prog-profile-pseudo-before')
-						e.classList.add('prog-profile-pseudo-before-brown')
-					})
-
-		}
-				if (localStorage.getItem('1') === '#9DD1FF') {
-							menuLink.forEach(elem => {
-								elem.classList.remove('hover-add', 'hover-add-color-brown', 'hover-add-color-vanilla', 'hover-add-color-black', 'hover-add-color-white')
-								elem.classList.add('hover-add-color-blue')
-					})
-							docSvgEdu.forEach(elem => {
-								elem.classList.remove('doc-color-white', 'doc-color-black', 'doc-color-vanilla', 'doc-color-brown')
-								elem.classList.add('doc-color-blue')
-
-						})
-							docSvg.forEach(elem => {
-								elem.classList.remove('doc-color-white', 'doc-color-black', 'doc-color-vanilla', 'doc-color-brown')
-								elem.classList.add('doc-color-blue')
-
-						})
-							organizationSvgs.forEach(elem => {
-								elem.classList.add('organization-svg-blue')
-						})
-							organizationSvgsColor.forEach(elem => {
-								elem.classList.remove('organization-svg-brown')
-								elem.classList.add('organization-svg-blue')
-						})
-							logo.classList.remove('logo-color-black', 'logo-color-white', 'logo-color-brown', 'logo-color-vanilla')
-							logo.classList.add('logo-color-blue')
-							mtoCount.forEach(elem => {
-								elem.classList.remove('mto-count-pdeudo-before', 'mto-count-pdeudo-before-vanilla', 'mto-count-pdeudo-before-black', 'mto-count-pdeudo-before-white', 'mto-count-pdeudo-before-brown')
-								elem.classList.add('mto-count-pdeudo-before-blue')
-
-						})
-							mainInfoPseudoLeft.forEach(elem => {
-								elem.classList.remove('main-table-item-pseudo-left-add', 'main-table-item-pseudo-left-add-black', 'main-table-item-pseudo-left-add-white', 'main-table-item-pseudo-left-add-vanilla', 'main-table-item-pseudo-left-add-brown')
-								elem.classList.add('main-table-item-pseudo-left-add-blue')
-							})
-							quarterMobileSelect.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-blue')
-							})
-							outputJun.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-blue')
-							})
-							outputSin.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-blue')
-							})
-						organizationSvgs.forEach(elem => {
-								elem.classList.remove('organization-svg-brown', 'organization-svg-white', 'organization-svg-black', 'organization-svg-vanilla')
-								elem.classList.add('organization-svg-blue')
-							})
-						organizationSvgsColor.forEach(elem => {
-								elem.classList.remove('organization-svg-brown', 'organization-svg-white', 'organization-svg-black', 'organization-svg-vanilla')
-								elem.classList.add('organization-svg-blue')
-							})
-						progTopHours.forEach(e => {
-
-								e.classList.remove('prog-top-hours-pseudo-before')
-								e.classList.add('prog-top-hours-pseudo-before-blue')
-							})
-						progBoxTitle.forEach(e => {
-								e.classList.remove('prog-profile-pseudo-before')
-								e.classList.add('prog-profile-pseudo-before-blue')
-							})
-
-				}
-				if (localStorage.getItem('1') === '#F7F3D6') {
-							menuLink.forEach(elem => {
-								elem.classList.remove('hover-add', 'hover-add-color-brown', 'hover-add-color-blue', 'hover-add-color-black', 'hover-add-color-white')
-								elem.classList.add('hover-add-color-vanilla')
-					})
-							docSvgEdu.forEach(elem => {
-								elem.classList.remove('doc-color-white', 'doc-color-black', 'doc-color-blue', 'doc-color-brown')
-								elem.classList.add('doc-color-vanilla')
-
-						})
-							docSvg.forEach(elem => {
-								elem.classList.remove('doc-color-white', 'doc-color-black', 'doc-color-blue', 'doc-color-brown')
-								elem.classList.add('doc-color-vanilla')
-
-						})
-							organizationSvgs.forEach(elem => {
-								elem.classList.add('organization-svg-vanilla')
-						})
-							organizationSvgsColor.forEach(elem => {
-								elem.classList.remove('organization-svg-brown')
-								elem.classList.add('organization-svg-vanilla')
-						})
-							logo.classList.remove('logo-color-black', 'logo-color-white', 'logo-color-brown', 'logo-color-blue')
-							logo.classList.add('logo-color-vanilla')
-							mtoCount.forEach(elem => {
-								elem.classList.remove('mto-count-pdeudo-before', 'mto-count-pdeudo-before-blue', 'mto-count-pdeudo-before-black', 'mto-count-pdeudo-before-white', 'mto-count-pdeudo-before-brown')
-								elem.classList.add('mto-count-pdeudo-before-vanilla')
-
-						})
-							mainInfoPseudoLeft.forEach(elem => {
-								elem.classList.remove('main-table-item-pseudo-left-add', 'main-table-item-pseudo-left-add-black', 'main-table-item-pseudo-left-add-white', 'main-table-item-pseudo-left-add-blue', 'main-table-item-pseudo-left-add-brown')
-								elem.classList.add('main-table-item-pseudo-left-add-vanilla')
-							})
-							quarterMobileSelect.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-vanilla')
-							})
-							outputJun.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-vanilla')
-							})
-							outputSin.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-vanilla')
-							})
-						organizationSvgs.forEach(elem => {
-								elem.classList.remove('organization-svg-brown', 'organization-svg-white', 'organization-svg-black', 'organization-svg-blue')
-								elem.classList.add('organization-svg-vanilla')
-							})
-						organizationSvgsColor.forEach(elem => {
-								elem.classList.remove('organization-svg-brown', 'organization-svg-white', 'organization-svg-black', 'organization-svg-blue')
-								elem.classList.add('organization-svg-vanilla')
-							})
-						progTopHours.forEach(e => {
-
-								e.classList.remove('prog-top-hours-pseudo-before')
-								e.classList.add('prog-top-hours-pseudo-before-vanilla')
-							})
-						progBoxTitle.forEach(e => {
-								e.classList.remove('prog-profile-pseudo-before')
-								e.classList.add('prog-profile-pseudo-before-vanilla')
-							})
-
-				}
-				if (localStorage.getItem('1') === '#000000') {
-							menuLink.forEach(elem => {
-								elem.classList.remove('hover-add', 'hover-add-color-brown', 'hover-add-color-blue', 'hover-add-color-vanilla', 'hover-add-color-white')
-								elem.classList.add('hover-add-color-black')
-					})
-							docSvgEdu.forEach(elem => {
-								elem.classList.remove('doc-color-white', 'doc-color-vanilla', 'doc-color-blue', 'doc-color-brown')
-								elem.classList.add('doc-color-black')
-
-						})
-							docSvg.forEach(elem => {
-								elem.classList.remove('doc-color-white', 'doc-color-vanilla', 'doc-color-blue', 'doc-color-brown')
-								elem.classList.add('doc-color-black')
-
-						})
-							organizationSvgs.forEach(elem => {
-								elem.classList.add('organization-svg-black')
-						})
-							organizationSvgsColor.forEach(elem => {
-								elem.classList.remove('organization-svg-brown')
-								elem.classList.add('organization-svg-black')
-						})
-							logo.classList.remove('logo-color-vanilla', 'logo-color-white', 'logo-color-brown', 'logo-color-blue')
-							logo.classList.add('logo-color-black')
-							mtoCount.forEach(elem => {
-								elem.classList.remove('mto-count-pdeudo-before', 'mto-count-pdeudo-before-blue', 'mto-count-pdeudo-before-vanilla', 'mto-count-pdeudo-before-white', 'mto-count-pdeudo-before-brown')
-								elem.classList.add('mto-count-pdeudo-before-black')
-
-						})
-							mainInfoPseudoLeft.forEach(elem => {
-								elem.classList.remove('main-table-item-pseudo-left-add', 'main-table-item-pseudo-left-add-vanilla', 'main-table-item-pseudo-left-add-white', 'main-table-item-pseudo-left-add-blue', 'main-table-item-pseudo-left-add-brown')
-								elem.classList.add('main-table-item-pseudo-left-add-black')
-							})
-							quarterMobileSelect.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-black')
-							})
-							outputJun.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-black')
-							})
-							outputSin.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-black')
-							})
-							organizationSvgs.forEach(elem => {
-									elem.classList.remove('organization-svg-brown', 'organization-svg-white', 'organization-svg-vanilla', 'organization-svg-blue')
-									elem.classList.add('organization-svg-black')
-								})
-							organizationSvgsColor.forEach(elem => {
-									elem.classList.remove('organization-svg-brown', 'organization-svg-white', 'organization-svg-vanilla', 'organization-svg-blue')
-									elem.classList.add('organization-svg-black')
-								})
-							progTopHours.forEach(e => {
-
-									e.classList.remove('prog-top-hours-pseudo-before')
-									e.classList.add('prog-top-hours-pseudo-before-black')
-								})
-							progBoxTitle.forEach(e => {
-									e.classList.remove('prog-profile-pseudo-before')
-									e.classList.add('prog-profile-pseudo-before-black')
-								})
-
-				}
-				if (localStorage.getItem('1') === '#ffffff') {
-							menuLink.forEach(elem => {
-								elem.classList.remove('hover-add', 'hover-add-color-brown', 'hover-add-color-blue', 'hover-add-color-vanilla', 'hover-add-color-black')
-								elem.classList.add('hover-add-color-white')
-					})
-							docSvgEdu.forEach(elem => {
-								elem.classList.remove('doc-color-black', 'doc-color-vanilla', 'doc-color-blue', 'doc-color-brown')
-								elem.classList.add('doc-color-white')
-
-						})
-							docSvg.forEach(elem => {
-								elem.classList.remove('doc-color-black', 'doc-color-vanilla', 'doc-color-blue', 'doc-color-brown')
-								elem.classList.add('doc-color-white')
-
-						})
-							organizationSvgs.forEach(elem => {
-								elem.classList.add('organization-svg-white')
-						})
-							organizationSvgsColor.forEach(elem => {
-								elem.classList.remove('organization-svg-brown')
-								elem.classList.add('organization-svg-white')
-						})
-							logo.classList.remove('logo-color-vanilla', 'logo-color-black', 'logo-color-brown', 'logo-color-blue')
-							logo.classList.add('logo-color-white')
-							mtoCount.forEach(elem => {
-								elem.classList.remove('mto-count-pdeudo-before', 'mto-count-pdeudo-before-blue', 'mto-count-pdeudo-before-vanilla', 'mto-count-pdeudo-before-black', 'mto-count-pdeudo-before-brown')
-								elem.classList.add('mto-count-pdeudo-before-white')
-
-						})
-							mainInfoPseudoLeft.forEach(elem => {
-								elem.classList.remove('main-table-item-pseudo-left-add', 'main-table-item-pseudo-left-add-vanilla', 'main-table-item-pseudo-left-add-black', 'main-table-item-pseudo-left-add-blue', 'main-table-item-pseudo-left-add-brown')
-								elem.classList.add('main-table-item-pseudo-left-add-white')
-							})
-							quarterMobileSelect.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-white')
-							})
-							outputJun.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-white')
-							})
-							outputSin.forEach(e => {
-								e.classList.remove('quarter-mobile-box__select-pseudo-before')
-								e.classList.add('quarter-mobile-box__select-pseudo-before-white')
-							})
-							organizationSvgs.forEach(elem => {
-									elem.classList.remove('organization-svg-brown', 'organization-svg-black', 'organization-svg-vanilla', 'organization-svg-blue')
-									elem.classList.add('organization-svg-white')
-								})
-							organizationSvgsColor.forEach(elem => {
-									elem.classList.remove('organization-svg-brown', 'organization-svg-black', 'organization-svg-vanilla', 'organization-svg-blue')
-									elem.classList.add('organization-svg-white')
-								})
-							progTopHours.forEach(e => {
-
-									e.classList.remove('prog-top-hours-pseudo-before')
-									e.classList.add('prog-top-hours-pseudo-before-white')
-								})
-							progBoxTitle.forEach(e => {
-									e.classList.remove('prog-profile-pseudo-before')
-									e.classList.add('prog-profile-pseudo-before-white')
-								})
-
-				}
-		}
-
-	function brownColor() {
-		window.localStorage.clear()
-		window.localStorage.setItem('1', '#3B2716')
-		window.localStorage.setItem('2', '#A9E44D')
-	}
-	function blueColor() {
-		window.localStorage.clear()
-		window.localStorage.setItem('1', '#9DD1FF')
-		window.localStorage.setItem('2', '#25282B')
-	}
-	function vanillaColor() {
-		window.localStorage.clear()
-		window.localStorage.setItem('1', '#F7F3D6')
-		window.localStorage.setItem('2', '#4D4B43')
-	}
-	function whiteColor() {
-		window.localStorage.clear()
-		window.localStorage.setItem('1', '#ffffff')
-		window.localStorage.setItem('2', '#000000')
-	}
-	function blackColor() {
-		window.localStorage.clear()
-		window.localStorage.setItem('1', '#000000')
-		window.localStorage.setItem('2', '#ffffff')
-	}
-
-
-	document.querySelector('.web-color__brown').addEventListener('click', e => {
-		brownColor()
-		themeToggle()
-	})
-	document.querySelector('.web-color__blue').addEventListener('click', e => {
-		blueColor()
-		themeToggle()
-	})
-
-	document.querySelector('.web-color__vanilla').addEventListener('click', e => {
-		vanillaColor()
-		themeToggle()
-	})
-	document.querySelector('.web-color__white').addEventListener('click', e => {
-		whiteColor()
-		themeToggle()
-	})
-	document.querySelector('.web-color__black').addEventListener('click', e => {
-		blackColor()
-		themeToggle()
-	})
-
-
-	if (localStorage.getItem('1') === '#3B2716') {
-		brownColor()
-		themeToggle()
-	} else if (localStorage.getItem('1') === '#9DD1FF') {
-		blueColor()
-		themeToggle()
-	}  else if (localStorage.getItem('1') === '#F7F3D6') {
-		vanillaColor()
-		themeToggle()
-	}  else if (localStorage.getItem('1') === '#ffffff') {
-		whiteColor()
-		themeToggle()
-	} else if (localStorage.getItem('1') === '#000000') {
-		blackColor()
-		themeToggle()
-	} else {
-		window.localStorage.clear()
-	}
-
-
-	document.querySelector('.impaired-bar__ussually-mode').addEventListener('click', e => {
-		window.localStorage.clear()
-	})
-	// window.themeToggle() = null
-	// body.style.backgroundColor = ''
-	// body.style.color = ''
-	// orgItems.forEach(e => {
-		// 	e.style.backgroundColor = ''
-		// 	e.style.border = '0px solid #fff'
-		// })
-		// changeHeader.style.backgroundColor = ''
-		// changeHeader.style.color = ''
-
-
-		// window.themeToggle() = null
-
-
+  let workExpSec = document.querySelectorAll(".expTeachSec");
+
+  //==============================//==============================
+
+  let yearExpCounterSec = workExpSec[0].textContent.split(" ")[0];
+  yearExpCounterSec = String(Number(yearExpCounterSec) + 1);
+  let yearExpArraySec = new Array(yearExpCounterSec)[0].split("");
+  let lastComparsionSec = yearExpCounterSec[yearExpArraySec.length - 1];
+  //==============================//==============================
+
+  if (
+    (yearExpCounterSec >= 5 && yearExpCounterSec <= 20) ||
+    (lastComparsionSec >= 5 && lastComparsionSec <= 9) ||
+    lastComparsionSec == 0
+  ) {
+    return (workExpSec[0].textContent = `${yearExpCounterSec} ${endYears.let}`);
+  }
+  if (
+    lastComparsionSec == 2 ||
+    lastComparsionSec == 3 ||
+    lastComparsionSec == 4
+  ) {
+    workExpSec[0].textContent = `${yearExpCounterSec} ${endYears.goda}`;
+  }
+  if (lastComparsionSec == 1) {
+    workExpSec[0].textContent = `${yearExpCounterSec} ${endYears.god}`;
+  }
+}
+
+if (dateObj.currentDate > dateObj.teachersExpYears2023) {
+  changeExp();
+  changeExpSec();
+}
+if (dateObj.currentDate > dateObj.teachersExpYears2024) {
+  changeExp();
+  changeExpSec();
+}
+
+if (dateObj.currentDate > dateObj.teachersExpYears2025) {
+  changeExp();
+  changeExpSec();
+}
+if (dateObj.currentDate > dateObj.teachersExpYears2026) {
+  changeExp();
+  changeExpSec();
+}
+
+if (dateObj.currentDate > dateObj.teachersExpYears2027) {
+  changeExp();
+  changeExpSec();
+}
+if (dateObj.currentDate > dateObj.teachersExpYears2028) {
+  changeExp();
+  changeExpSec();
+}
+
+if (dateObj.currentDate > dateObj.teachersExpYears2029) {
+  changeExp();
+  changeExpSec();
+}
+if (dateObj.currentDate > dateObj.teachersExpYears2030) {
+  changeExp();
+  changeExpSec();
+}
+
+if (dateObj.currentDate > dateObj.teachersExpYears2031) {
+  changeExp();
+  changeExpSec();
+}
+if (dateObj.currentDate > dateObj.teachersExpYears2032) {
+  changeExp();
+  changeExpSec();
+}
+
+const eyeBtn = document.querySelector(".buttom-top-eye");
+const topLine = document.querySelector(".header__top-line");
+
+eyeBtn.addEventListener("click", (e) => {
+  topLine.classList.toggle("top-line-active");
+  eyeBtn.classList.toggle("eyeActive");
+});
+
+const menuItem = document.querySelectorAll(".menu-item");
+const organizationSubs = document.querySelectorAll(".organization-subs");
+const educationTable = document.querySelectorAll(".education-tables__table");
+const educationTitles = document.querySelectorAll(".education-tables__titles");
+const educationTablesBorderLeft = document.querySelectorAll(
+  ".education-tables-border-left"
+);
+const btnEducationAccor = document.querySelectorAll(".btn-education-accor");
+const cardTeam = document.querySelectorAll(".card-team");
+const cardTeamPosition = document.querySelectorAll(".card-team__position");
+const footerLinkChange = document.querySelectorAll(".footer-link-change");
+const boxEducationContent = document.querySelectorAll(".box-content-accor");
+const quarterMobile = document.querySelectorAll(".quarter-mobile");
+const buttonSelect = document.querySelectorAll(".button-select");
+const quarterMobileContentLi = document.querySelectorAll(
+  ".quarter-mobile-content"
+);
+const quarterMobileContainer = document.querySelectorAll(
+  ".quarter-mobile-box__container"
+);
+const menuHidden = document.querySelectorAll(".menu-hidden");
+const menuLinkA = document.querySelectorAll(".link-a");
+const menuLink = document.querySelectorAll(".menu-link");
+const changeHeader = document.querySelector(".header__body");
+const body = document.querySelector("main");
+const footer = document.querySelector(".footer");
+const crumbs = document.querySelector(".crumbs");
+const crumbsTitle = document.querySelectorAll(".crumbs-link");
+const mainTableBox = document.querySelector(".main-table-box");
+const progTable = document.querySelector(".prog-table");
+const mainDescription = document.querySelector(".leaders__main-description");
+const hunterSection = document.querySelector(".hunter-section");
+const hunterSectionLink = document.querySelector(".hunter-section__link");
+const organizationSvgs = document.querySelectorAll(".organization-svg");
+const organizationSvgsColor = document.querySelectorAll(".svg-footer-color");
+const footerButtons = document.querySelectorAll(".footer-buttons");
+const docSvg = document.querySelectorAll("#doc");
+const docSvgEdu = document.querySelectorAll("#doc-edu");
+const progMiddleEducation = document.querySelector(".prog-middle-education");
+const progTopList = document.querySelector(".prog-top-list");
+const progTopListBorderBottom = document.querySelectorAll(
+  ".prog-top-list-border-bottom"
+);
+const progBottomList = document.querySelectorAll(".prog-bottom-list");
+const progBottomHours = document.querySelector(".prog-bottom-hours");
+const quarterMobileTitleClasses = document.querySelectorAll(
+  ".quarter-mobile-box__title-classes"
+);
+const quarterMobileJun = document.querySelectorAll(
+  ".quarter-mobile-box__classes-jun"
+);
+const quarterMobileOutputJun = document.querySelectorAll(
+  ".quarter-mobile-box__classes-output-jun"
+);
+const quarterMobileSelect = document.querySelectorAll(
+  ".quarter-mobile-box__select"
+);
+const mainInfoTable = document.querySelectorAll(".main-info-table");
+const mainInfoTableBorder = document.querySelectorAll(
+  ".main-table-item-border-bottom"
+);
+const links = document.querySelectorAll("a");
+const mtoTable = document.querySelectorAll(".mto-table");
+const mtoTableItem = document.querySelectorAll(".mto-table-item");
+const mtoCountBorder = document.querySelectorAll(".mto-count-border");
+const mtoCount = document.querySelectorAll(".mto-count");
+const teachersMainPhrase = document.querySelectorAll(".teachers-main__phrase");
+const teachersPoint = document.querySelectorAll(".teachers-point");
+const teachersPosition = document.querySelectorAll(".teachers-main__position");
+const teachersRaising = document.querySelectorAll(".teachers__raising");
+const orgItems = document.querySelectorAll(".organization__items");
+const mainInfoLinks = document.querySelectorAll(".main-info-link");
+const orgSubsBorderLeft = document.querySelectorAll(".orgSubsBorderLeft");
+const orgSubsBorderTop = document.querySelectorAll(".orgSubsBorderTop");
+const arrowEducation = document.querySelectorAll("#arrow-education");
+
+const linksMiddleScreenAdded = document.querySelectorAll(
+  ".links-middle-screen__added"
+);
+const structureBorderRight = document.querySelectorAll(
+  ".structure-border-right"
+);
+menuLink.forEach((elem) => {
+  elem.classList.add("hover-add");
+});
+const educationTablesRow1 = document.querySelectorAll(
+  ".education-tables__row-1"
+);
+const mainInfoPseudoLeft = document.querySelectorAll(
+  ".main-table-item-pseudo-left"
+);
+let themesNames = [];
+const hoverAdd = ["hover-add", "hover-add-color-"];
+const docColor = ["doc-color-"];
+const logoArr = ["logo-color-"];
+const mtoCountPseudo = ["mto-count-pdeudo-before", "mto-count-pdeudo-before-"];
+const mainTablePseudo = [
+  "main-table-item-pseudo-left-add",
+  "main-table-item-pseudo-left-add-",
+];
+const quarterPseudo = [
+  "quarter-mobile-box__select-pseudo-before",
+  "quarter-mobile-box__select-pseudo-before-",
+];
+const arrowEdu = ["arrow-education-"];
+const organizationSvg = ["organization-svg", "organization-svg-"];
+const progTopHoursPseudo = [
+  "prog-top-hours-pseudo-before",
+  "prog-top-hours-pseudo-before-",
+];
+const progProfilePseudo = [
+  "prog-profile-pseudo-before",
+  "prog-profile-pseudo-before-",
+];
+
+mainInfoPseudoLeft.forEach((e) => {
+  e.classList.add("main-table-item-pseudo-left-add");
+});
+const progBoxTitle = document.querySelectorAll(".prog-box-title");
+progBoxTitle.forEach((e) => {
+  e.classList.add("prog-profile-pseudo-before");
+});
+
+const logo = document.querySelector("#logo");
+mtoCount.forEach((elem) => {
+  elem.classList.add("mto-count-pdeudo-before");
+});
+quarterMobileSelect.forEach((e) => {
+  e.classList.add("quarter-mobile-box__select-pseudo-before");
+});
+outputJun.forEach((e) => {
+  e.classList.add("quarter-mobile-box__select-pseudo-before");
+});
+outputSin.forEach((e) => {
+  e.classList.add("quarter-mobile-box__select-pseudo-before");
+});
+const progTopHours = document.querySelectorAll(".prog-top-hours-before");
+progTopHours.forEach((e) => {
+  e.classList.add("prog-top-hours-pseudo-before");
+});
+
+//====================================================>
+
+const elementsReAdd = {
+  mainInfoTablePseudo: (elem) => {
+    elem.classList.remove(
+      `${mainTablePseudo[0]}`,
+      `${mainTablePseudo[1] + themesNames[1]}`,
+      `${mainTablePseudo[1] + themesNames[2]}`,
+      `${mainTablePseudo[1] + themesNames[3]}`,
+      `${mainTablePseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${mainTablePseudo[1] + themesNames[0]}`);
+  },
+  arrowEducation: (elem) => {
+    elem.classList.remove(
+      `${arrowEdu[0] + themesNames[1]}`,
+      `${arrowEdu[0] + themesNames[2]}`,
+      `${arrowEdu[0] + themesNames[3]}`,
+      `${arrowEdu[0] + themesNames[4]}`
+    );
+    elem.classList.add(`${arrowEdu[0] + themesNames[0]}`);
+  },
+
+  quarterSelect: (elem) => {
+    elem.classList.remove(
+      `${quarterPseudo[0]}`,
+      `${quarterPseudo[1] + themesNames[1]}`,
+      `${quarterPseudo[1] + themesNames[2]}`,
+      `${quarterPseudo[1] + themesNames[3]}`,
+      `${quarterPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${quarterPseudo[1] + themesNames[0]}`);
+  },
+
+  orgItemsReAdd: (elem) => {
+    elem.style.backgroundColor = localStorage.getItem("1");
+    elem.style.border = `1px solid ${localStorage.getItem("2")}`;
+  },
+
+  outputJinReAdd: (elem) => {
+    elem.classList.remove(
+      `${quarterPseudo[0]}`,
+      `${quarterPseudo[1] + themesNames[1]}`,
+      `${quarterPseudo[1] + themesNames[2]}`,
+      `${quarterPseudo[1] + themesNames[3]}`,
+      `${quarterPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${quarterPseudo[1] + themesNames[0]}`);
+  },
+
+  outputSinReAdd: (elem) => {
+    elem.classList.remove(
+      `${quarterPseudo[0]}`,
+      `${quarterPseudo[1] + themesNames[1]}`,
+      `${quarterPseudo[1] + themesNames[2]}`,
+      `${quarterPseudo[1] + themesNames[3]}`,
+      `${quarterPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${quarterPseudo[1] + themesNames[0]}`);
+  },
+
+  organizationSvgReAdd: (elem) => {
+    elem.classList.remove(
+      `${organizationSvg[1] + themesNames[1]}`,
+      `${organizationSvg[1] + themesNames[2]}`,
+      `${organizationSvg[1] + themesNames[3]}`,
+      `${organizationSvg[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${organizationSvg[1] + themesNames[0]}`);
+  },
+
+  organizationSvgColorReAdd: (elem) => {
+    elem.classList.remove(
+      `${organizationSvg[1] + themesNames[1]}`,
+      `${organizationSvg[1] + themesNames[2]}`,
+      `${organizationSvg[1] + themesNames[3]}`,
+      `${organizationSvg[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${organizationSvg[1] + themesNames[0]}`);
+  },
+
+  progTopHoursReAdd: (elem) => {
+    elem.classList.remove(
+      `${progTopHoursPseudo[0]}`,
+      `${progTopHoursPseudo[1] + themesNames[1]}`,
+      `${progTopHoursPseudo[1] + themesNames[2]}`,
+      `${progTopHoursPseudo[1] + themesNames[3]}`,
+      `${progTopHoursPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${progTopHoursPseudo[1] + themesNames[0]}`);
+  },
+
+  progBoxTitleReAdd: (elem) => {
+    elem.classList.remove(
+      `${progProfilePseudo[0]}`,
+      `${progProfilePseudo[1] + themesNames[1]}`,
+      `${progProfilePseudo[1] + themesNames[2]}`,
+      `${progProfilePseudo[1] + themesNames[3]}`,
+      `${progProfilePseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${progProfilePseudo[1] + themesNames[0]}`);
+  },
+
+  mtoCountReAdd: (elem) => {
+    elem.classList.remove(
+      `${mtoCountPseudo[0]}`,
+      `${mtoCountPseudo[1] + themesNames[1]}`,
+      `${mtoCountPseudo[1] + themesNames[2]}`,
+      `${mtoCountPseudo[1] + themesNames[3]}`,
+      `${mtoCountPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${mtoCountPseudo[1] + themesNames[0]}`);
+  },
+
+  logoColorReAdd: () => {
+    logo.classList.remove(
+      `${logoArr[0] + themesNames[1]}`,
+      `${logoArr[0] + themesNames[2]}`,
+      `${logoArr[0] + themesNames[3]}`,
+      `${logoArr[0] + themesNames[4]}`
+    );
+    logo.classList.add(`${logoArr[0] + themesNames[0]}`);
+  },
+
+  docSvgReAdd: (elem) => {
+    elem.classList.remove(
+      `${docColor[0] + themesNames[1]}`,
+      `${docColor[0] + themesNames[2]}`,
+      `${docColor[0] + themesNames[3]}`,
+      `${docColor[0] + themesNames[4]}`
+    );
+    elem.classList.add(`${docColor[0] + themesNames[0]}`);
+  },
+
+  docSvgEduReAdd: (elem) => {
+    elem.classList.remove(
+      `${docColor[0] + themesNames[1]}`,
+      `${docColor[0] + themesNames[2]}`,
+      `${docColor[0] + themesNames[3]}`,
+      `${docColor[0] + themesNames[4]}`
+    );
+    elem.classList.add(`${docColor[0] + themesNames[0]}`);
+  },
+
+  menuLinkReAdd: (elem) => {
+    elem.classList.remove(
+      `${hoverAdd[0]}`,
+      `${hoverAdd[1] + themesNames[1]}`,
+      `${hoverAdd[1] + themesNames[2]}`,
+      `${hoverAdd[1] + themesNames[3]}`,
+      `${hoverAdd[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${hoverAdd[1] + themesNames[0]}`);
+  },
+
+  menuItemReAdd: (elem) => {
+    elem.style.color = localStorage.getItem("2");
+  },
+};
+
+//====================================================>
+const elementsStyle = {
+  color: (elem) => {
+    elem.style.color = localStorage.getItem("2");
+  },
+
+  border: (elem) => {
+    elem.style.border = `1px solid ${localStorage.getItem("2")}`;
+  },
+
+  borderTop: (elem) => {
+    elem.style.borderTop = `1px solid ${localStorage.getItem("2")}`;
+  },
+
+  borderRight: (elem) => {
+    elem.style.borderRight = `1px solid ${localStorage.getItem("2")}`;
+  },
+
+  borderBottom: (elem) => {
+    elem.style.borderBottom = `1px solid ${localStorage.getItem("2")}`;
+  },
+
+  borderLeft: (elem) => {
+    elem.style.borderLeft = `1px solid ${localStorage.getItem("2")}`;
+  },
+
+  background: (elem) => {
+    elem.style.backgroundColor = localStorage.getItem("1");
+  },
+};
+
+//====================================================>
+
+const elementBody = {
+  body: () => {
+    body.style.backgroundColor = localStorage.getItem("1");
+    body.style.color = localStorage.getItem("2");
+  },
+
+  header: () => {
+    changeHeader.style.backgroundColor = localStorage.getItem("1");
+    changeHeader.style.color = localStorage.getItem("2");
+    changeHeader.style.borderTop = `1px solid ${localStorage.getItem("2")}`;
+    changeHeader.style.borderBottom = `1px solid ${localStorage.getItem("1")}`;
+  },
+
+  crumbs: () => {
+    crumbs.style.backgroundColor = localStorage.getItem("1");
+    crumbs.style.borderTop = `1px solid ${localStorage.getItem("2")}`;
+    crumbs.style.borderBottom = `1px solid ${localStorage.getItem("2")}`;
+  },
+
+  footer: () => {
+    footer.style.backgroundColor = localStorage.getItem("1");
+    footer.style.color = localStorage.getItem("2");
+    footer.style.borderTop = `1px solid ${localStorage.getItem("2")}`;
+  },
+};
+
+//====================================================>
+
+const bodySections = {
+  hunter: () => {
+    hunterSection.style.backgroundColor = localStorage.getItem("1");
+    hunterSection.style.border = `1px solid ${localStorage.getItem("2")}`;
+    hunterSectionLink.style.backgroundColor = localStorage.getItem("1");
+    hunterSectionLink.style.border = `1px solid ${localStorage.getItem("2")}`;
+    hunterSectionLink.style.color = localStorage.getItem("2");
+  },
+
+  mainDesc: () => {
+    mainDescription.style.backgroundColor = localStorage.getItem("1");
+    mainDescription.style.border = `1px solid ${localStorage.getItem("2")}`;
+  },
+
+  mainTableBox: () => {
+    mainTableBox.style.backgroundColor = localStorage.getItem("1");
+    mainTableBox.style.color = localStorage.getItem("2");
+  },
+
+  progEdu: () => {
+    progTable.style.backgroundColor = localStorage.getItem("1");
+    progTable.style.color = localStorage.getItem("2");
+    progTable.style.border = `1px solid ${localStorage.getItem("2")}`;
+    progMiddleEducation.style.borderTop = `1px solid ${localStorage.getItem(
+      "2"
+    )}`;
+    progTopList.style.borderLeft = `1px solid ${localStorage.getItem("2")}`;
+  },
+};
+
+//====================================================>
+//====================================================>
+//====================================================>
+
+function themeToggle() {
+  elementBody.body();
+  elementBody.header();
+  elementBody.footer();
+  elementBody.crumbs();
+  crumbsTitle.forEach((elem) => {
+    elementsStyle.color(elem);
+  });
+  if (hunterSection !== null && hunterSectionLink !== null) {
+    bodySections.hunter();
+  }
+  if (mainDescription !== null) {
+    bodySections.mainDesc();
+  }
+
+  if (mainTableBox !== null) {
+    bodySections.mainTableBox();
+  }
+  teachersMainPhrase.forEach((elem) => {
+    elementsStyle.background(elem);
+    elementsStyle.border(elem);
+  });
+  teachersPoint.forEach((elem) => {
+    elementsStyle.color(elem);
+  });
+  teachersPosition.forEach((elem) => {
+    elementsStyle.color(elem);
+  });
+  teachersRaising.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+
+  footerButtons.forEach((elem) => {
+    elementsStyle.background(elem);
+    elementsStyle.border(elem);
+  });
+  mtoTable.forEach((elem) => {
+    elementsStyle.border(elem);
+  });
+  mtoTableItem.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+  mtoCountBorder.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+  orgSubsBorderLeft.forEach((elem) => elementsStyle.borderLeft(elem));
+  orgSubsBorderTop.forEach((elem) => elementsStyle.borderTop(elem));
+  linksMiddleScreenAdded.forEach((elem) => elementsStyle.borderTop(elem));
+  if (mainInfoTable !== null) {
+    mainInfoLinks.forEach((elem) => elementsStyle.borderBottom(elem));
+    mainInfoTable.forEach((elem) => {
+      elementsStyle.border(elem);
+    });
+    mainInfoTableBorder.forEach((elem) => {
+      elementsStyle.borderBottom(elem);
+    });
+
+    links.forEach((elem) => {
+      elementsStyle.color(elem);
+    });
+  }
+
+  if (progTable !== null) {
+    bodySections.progEdu();
+    document
+      .querySelector(".prog-profile")
+      .classList.remove("pog-profile-pseudo-before");
+    educationTable.forEach((elem) => {
+      elementsStyle.background(elem);
+      elementsStyle.color(elem);
+      elementsStyle.border(elem);
+    });
+  }
+  arrowEducation.forEach((elem) => elementsReAdd.arrowEducation(elem));
+  progBottomList.forEach((elem) => {
+    elementsStyle.borderLeft(elem);
+    elementsStyle.borderTop(elem);
+  });
+  if (progBottomHours !== null) {
+    progBottomHours.style.borderTop = `1px solid ${localStorage.getItem("2")}`;
+    quarterMobile.forEach((elem) => {
+      elementsStyle.border(elem);
+    });
+  }
+  quarterMobileTitleClasses.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+  quarterMobileJun.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+
+  quarterMobileOutputJun.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+  quarterMobileSelect.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+
+  progTopListBorderBottom.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+  cardTeamPosition.forEach((elem) => {
+    elementsStyle.color(elem);
+  });
+
+  educationTablesBorderLeft.forEach((elem) => {
+    elementsStyle.borderLeft(elem);
+  });
+
+  educationTablesRow1.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+  educationTitles.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+  structureBorderRight.forEach((elem) => elementsStyle.borderRight(elem));
+  progBoxTitle.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+  boxEducationContent.forEach((elem) => {
+    elementsStyle.background(elem);
+    elementsStyle.border(elem);
+  });
+  quarterMobileContainer.forEach((elem) => {
+    elementsStyle.background(elem);
+    elementsStyle.borderBottom(elem);
+    elementsStyle.borderLeft(elem);
+    elementsStyle.borderRight(elem);
+  });
+  cardTeam.forEach((elem) => {
+    elem.style.padding = "8px";
+    elementsStyle.background(elem);
+    elementsStyle.borderLeft(elem);
+    elementsStyle.borderRight(elem);
+  });
+  quarterMobileContentLi.forEach((elem) => {
+    elementsStyle.background(elem);
+    elementsStyle.borderBottom(elem);
+  });
+  buttonSelect.forEach((elem) => {
+    elementsStyle.background(elem);
+    elementsStyle.border(elem);
+  });
+  quarterMobile.forEach((elem) => {
+    elementsStyle.background(elem);
+  });
+  btnEducationAccor.forEach((elem) => {
+    elementsStyle.background(elem);
+    elementsStyle.border(elem);
+  });
+
+  menuHidden.forEach((elem) => {
+    elementsStyle.background(elem);
+    elementsStyle.color(elem);
+    elementsStyle.border(elem);
+  });
+
+  menuLinkA.forEach((elem) => {
+    elementsStyle.color(elem);
+  });
+  organizationSubs.forEach((elem) => {
+    elementsStyle.color(elem);
+  });
+  footerLinkChange.forEach((elem) => {
+    elementsStyle.color(elem);
+  });
+  //===================================================================>
+  //==========================================================================>
+  //================================================================================>
+
+  elementsReAdd.logoColorReAdd();
+
+  orgItems.forEach((elem) => elementsReAdd.orgItemsReAdd(elem), false);
+  menuItem.forEach((elem) => elementsReAdd.menuItemReAdd(elem), false);
+  menuLink.forEach((elem) => elementsReAdd.menuLinkReAdd(elem), false);
+  docSvgEdu.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem), false);
+  docSvg.forEach((elem) => elementsReAdd.docSvgReAdd(elem), false);
+  mtoCount.forEach((elem) => elementsReAdd.mtoCountReAdd(elem), false);
+  mainInfoPseudoLeft.forEach(
+    (elem) => elementsReAdd.mainInfoTablePseudo(elem),
+    false
+  );
+  quarterMobileSelect.forEach(
+    (elem) => elementsReAdd.quarterSelect(elem),
+    false
+  );
+  outputJun.forEach((elem) => elementsReAdd.outputJinReAdd(elem), false);
+  outputSin.forEach((elem) => elementsReAdd.outputSinReAdd(elem), false);
+  organizationSvgs.forEach((elem) => elementsReAdd.organizationSvgReAdd(elem));
+  organizationSvgsColor.forEach((elem) =>
+    elementsReAdd.organizationSvgColorReAdd(elem)
+  );
+  progTopHours.forEach((elem) => elementsReAdd.progTopHoursReAdd(elem), false);
+  progBoxTitle.forEach((elem) => elementsReAdd.progBoxTitleReAdd(elem), false);
+}
+
+function whiteColor() {
+  window.localStorage.clear();
+  window.localStorage.setItem("1", "#ffffff");
+  window.localStorage.setItem("2", "#000000");
+  themesNames = [];
+  themesNames.push("white", "black", "vanilla", "blue", "brown");
+}
+function blackColor() {
+  window.localStorage.clear();
+  window.localStorage.setItem("1", "#000000");
+  window.localStorage.setItem("2", "#ffffff");
+  themesNames = [];
+  themesNames.push("black", "white", "vanilla", "blue", "brown");
+}
+function vanillaColor() {
+  window.localStorage.clear();
+  window.localStorage.setItem("1", "#F7F3D6");
+  window.localStorage.setItem("2", "#4D4B43");
+  themesNames = [];
+  themesNames.push("vanilla", "black", "white", "blue", "brown");
+}
+function blueColor() {
+  window.localStorage.clear();
+  window.localStorage.setItem("1", "#9DD1FF");
+  window.localStorage.setItem("2", "#25282B");
+  themesNames = [];
+  themesNames.push("blue", "black", "vanilla", "white", "brown");
+}
+function brownColor() {
+  window.localStorage.clear();
+  window.localStorage.setItem("1", "#3B2716");
+  window.localStorage.setItem("2", "#A9E44D");
+  themesNames = [];
+  themesNames.push("brown", "black", "vanilla", "blue", "white");
+}
+
+document.querySelector(".web-color__brown").addEventListener("click", (e) => {
+  brownColor();
+  themeToggle();
+});
+document.querySelector(".web-color__blue").addEventListener("click", (e) => {
+  blueColor();
+  themeToggle();
+});
+
+document.querySelector(".web-color__vanilla").addEventListener("click", (e) => {
+  vanillaColor();
+  themeToggle();
+});
+document.querySelector(".web-color__white").addEventListener("click", (e) => {
+  whiteColor();
+  themeToggle();
+});
+document.querySelector(".web-color__black").addEventListener("click", (e) => {
+  blackColor();
+  themeToggle();
+});
+
+if (localStorage.getItem("1") === "#3B2716") {
+  brownColor();
+  themeToggle();
+} else if (localStorage.getItem("1") === "#9DD1FF") {
+  blueColor();
+  themeToggle();
+} else if (localStorage.getItem("1") === "#F7F3D6") {
+  vanillaColor();
+  themeToggle();
+} else if (localStorage.getItem("1") === "#ffffff") {
+  whiteColor();
+  themeToggle();
+} else if (localStorage.getItem("1") === "#000000") {
+  blackColor();
+  themeToggle();
+} else {
+  window.localStorage.clear();
+}
+
+document
+  .querySelector(".impaired-bar__ussually-mode")
+  .addEventListener("click", (e) => {
+    window.localStorage.clear();
+  });
+// window.themeToggle() = null
+// body.style.backgroundColor = ''
+// body.style.color = ''
+// orgItems.forEach(e => {
+// 	e.style.backgroundColor = ''
+// 	e.style.border = '0px solid #fff'
+// })
+// changeHeader.style.backgroundColor = ''
+// changeHeader.style.color = ''
+
+// window.themeToggle() = null
 
 /*
 (i) Код попадает в итоговый файл,
@@ -1375,7 +1315,7 @@ function themeToggle () {
 */
 
 // Включить/выключить FLS (Full Logging System) (в работе)
-window['FLS'] = true;
+window["FLS"] = true;
 
 // Подключение основного файла стилей
 import "../scss/style.scss";
