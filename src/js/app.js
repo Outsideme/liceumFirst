@@ -1,7 +1,12 @@
 const burger = document.querySelector("[data-burger]");
+const burgerLine = document.querySelector(".burger__line");
 const mobileNav = document.querySelector("[data-nav]");
 const header = document.querySelector(".header");
+const mobilePageMenu = document.querySelectorAll(".mobile-page-menu");
+const accorTitle = document.querySelectorAll(".accor-title");
+// burger.classList.add("burger-test-vanilla");
 
+// const burgerTest = document.querySelector(".burger-test");
 const menuObj = {
   openCloseMainMenu: function () {
     this.children[0].classList.toggle("showHide");
@@ -13,6 +18,8 @@ const menuObj = {
   burgerOpen: function () {
     burger.classList.toggle("burger-active");
     mobileNav.classList.toggle("open-mobile");
+    topLine.classList.remove("top-line-active");
+    eyeBtn.classList.remove("eyeActive");
   },
   headerResize: function () {
     const headerHeight = header.offsetHeight;
@@ -35,11 +42,11 @@ const menuObj = {
     }
   },
 };
-
+// menuObj.headerResize();
 menuObj.openMainMenu();
 
 //===============================/===============================/===============================/===============================/===============================
-
+console.log(header.offsetHeight);
 //===============================/===============================/===============================/===============================/===============================
 
 window.addEventListener("resize", menuObj.resizeHideMobile, false);
@@ -611,6 +618,13 @@ const eyeBtn = document.querySelector(".buttom-top-eye");
 const topLine = document.querySelector(".header__top-line");
 
 eyeBtn.addEventListener("click", (e) => {
+  // header.addEventListener("resize", (e) => {
+  //   console.log(header.offsetHeight);
+  // });
+  // console.log(header.offsetHeight);
+  // setTimeout(() => {
+  // }, 10);
+  menuObj.burgerClose();
   topLine.classList.toggle("top-line-active");
   eyeBtn.classList.toggle("eyeActive");
 });
@@ -709,6 +723,7 @@ const mainInfoPseudoLeft = document.querySelectorAll(
 let themesNames = [];
 const hoverAdd = ["hover-add", "hover-add-color-"];
 const docColor = ["doc-color-"];
+const pageColor = ["page-color-"];
 const logoArr = ["logo-color-"];
 const mtoCountPseudo = ["mto-count-pdeudo-before", "mto-count-pdeudo-before-"];
 const mainTablePseudo = [
@@ -729,6 +744,7 @@ const progProfilePseudo = [
   "prog-profile-pseudo-before",
   "prog-profile-pseudo-before-",
 ];
+const burgerColor = ["burger-test-"];
 
 mainInfoPseudoLeft.forEach((e) => {
   e.classList.add("main-table-item-pseudo-left-add");
@@ -755,7 +771,7 @@ const progTopHours = document.querySelectorAll(".prog-top-hours-before");
 progTopHours.forEach((e) => {
   e.classList.add("prog-top-hours-pseudo-before");
 });
-
+burger.classList.add("burger-test");
 //====================================================>
 
 const elementsReAdd = {
@@ -889,6 +905,15 @@ const elementsReAdd = {
     );
     elem.classList.add(`${docColor[0] + themesNames[0]}`);
   },
+  pageColorReAdd: (elem) => {
+    elem.classList.remove(
+      `${pageColor[0] + themesNames[1]}`,
+      `${pageColor[0] + themesNames[2]}`,
+      `${pageColor[0] + themesNames[3]}`,
+      `${pageColor[0] + themesNames[4]}`
+    );
+    elem.classList.add(`${pageColor[0] + themesNames[0]}`);
+  },
 
   docSvgEduReAdd: (elem) => {
     elem.classList.remove(
@@ -910,7 +935,17 @@ const elementsReAdd = {
     );
     elem.classList.add(`${hoverAdd[1] + themesNames[0]}`);
   },
-
+  burger: () => {
+    // burgerLine.style.backgroundColor = "red";
+    burger.classList.remove(
+      `${burgerColor[0] + themesNames[1]}`,
+      `${burgerColor[0] + themesNames[2]}`,
+      `${burgerColor[0] + themesNames[3]}`,
+      `${burgerColor[0] + themesNames[4]}`
+    );
+    burger.classList.add(`${burgerColor[0] + themesNames[0]}`);
+    burgerLine.style.backgroundColor = localStorage.getItem("2");
+  },
   menuItemReAdd: (elem) => {
     elem.style.color = localStorage.getItem("2");
   },
@@ -1010,7 +1045,12 @@ const bodySections = {
 //====================================================>
 //====================================================>
 //====================================================>
-
+const tgOkVk = document.querySelectorAll(".tgOkVk");
+const pageColorChange = document.querySelectorAll(".page-color-change");
+const pageSocial = document.querySelectorAll(".page-social");
+pageSocial.forEach((elem) => {
+  elem.classList.add("page-social-normal");
+});
 function themeToggle() {
   elementBody.body();
   elementBody.header();
@@ -1033,6 +1073,7 @@ function themeToggle() {
     elementsStyle.background(elem);
     elementsStyle.border(elem);
   });
+
   teachersPoint.forEach((elem) => {
     elementsStyle.color(elem);
   });
@@ -1050,12 +1091,18 @@ function themeToggle() {
   mtoTable.forEach((elem) => {
     elementsStyle.border(elem);
   });
+  pageColorChange.forEach((elem) => {
+    elementsStyle.color(elem);
+  });
+  // mobilePageMenu.style.backgroundColor = "red";
+  mobilePageMenu.forEach((elem) => elementsStyle.background(elem));
   mtoTableItem.forEach((elem) => {
     elementsStyle.borderBottom(elem);
   });
   mtoCountBorder.forEach((elem) => {
     elementsStyle.borderBottom(elem);
   });
+  elementsReAdd.burger();
   orgSubsBorderLeft.forEach((elem) => elementsStyle.borderLeft(elem));
   orgSubsBorderTop.forEach((elem) => elementsStyle.borderTop(elem));
   linksMiddleScreenAdded.forEach((elem) => elementsStyle.borderTop(elem));
@@ -1095,6 +1142,7 @@ function themeToggle() {
       elementsStyle.border(elem);
     });
   }
+  accorTitle.forEach((elem) => elementsStyle.color(elem));
   quarterMobileTitleClasses.forEach((elem) => {
     elementsStyle.borderBottom(elem);
   });
@@ -1188,6 +1236,9 @@ function themeToggle() {
   menuLink.forEach((elem) => elementsReAdd.menuLinkReAdd(elem), false);
   docSvgEdu.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem), false);
   docSvg.forEach((elem) => elementsReAdd.docSvgReAdd(elem), false);
+  tgOkVk.forEach((elem) => elementsReAdd.pageColorReAdd(elem), false);
+  pageSocial.forEach((elem) => elementsReAdd.docSvgReAdd(elem), false);
+
   mtoCount.forEach((elem) => elementsReAdd.mtoCountReAdd(elem), false);
   mainInfoPseudoLeft.forEach(
     (elem) => elementsReAdd.mainInfoTablePseudo(elem),
@@ -1200,9 +1251,7 @@ function themeToggle() {
   outputJun.forEach((elem) => elementsReAdd.outputJinReAdd(elem), false);
   outputSin.forEach((elem) => elementsReAdd.outputSinReAdd(elem), false);
   organizationSvgs.forEach((elem) => elementsReAdd.organizationSvgReAdd(elem));
-  organizationSvgsColor.forEach((elem) =>
-    elementsReAdd.organizationSvgColorReAdd(elem)
-  );
+  organizationSvgsColor.forEach((elem) => elementsReAdd.docSvgReAdd(elem));
   progTopHours.forEach((elem) => elementsReAdd.progTopHoursReAdd(elem), false);
   progBoxTitle.forEach((elem) => elementsReAdd.progBoxTitleReAdd(elem), false);
 }
@@ -1289,17 +1338,81 @@ document
   .addEventListener("click", (e) => {
     window.localStorage.clear();
   });
-// window.themeToggle() = null
-// body.style.backgroundColor = ''
-// body.style.color = ''
-// orgItems.forEach(e => {
-// 	e.style.backgroundColor = ''
-// 	e.style.border = '0px solid #fff'
-// })
-// changeHeader.style.backgroundColor = ''
-// changeHeader.style.color = ''
+const leadersMainDescription = document.querySelector(
+  ".leaders__main-description"
+);
+const imparedImagesHide = document.querySelector(".impared-images__hide");
+const imparedImagesGray = document.querySelector(".impared-images__gray");
+const imparedImagesShow = document.querySelector(".impared-images__show");
+const teachersCards = document.querySelectorAll(".teachers__card");
+// impared-images__gray
+function hideImgs() {
+  body.classList.add("hide-imgs");
+  cardTeam.forEach((elem) => {
+    elem.style.padding = "8px";
+    elem.style.borderLeft = "1px solid #25282B";
+    elem.style.borderRight = "1px solid #25282B";
+    sessionStorage.setItem(1, "noimg");
+  });
+  if (leadersMainDescription !== null) {
+    leadersMainDescription.style.paddingBottom = "36px";
+    leadersMainDescription.classList.remove("gray-background");
+  }
+}
 
-// window.themeToggle() = null
+function grayImgs() {
+  body.classList.add("gray-imgs");
+  sessionStorage.setItem(2, "grayimg");
+  if (!body.classList.contains("hide-imgs")) {
+    if (leadersMainDescription) {
+      leadersMainDescription.classList.add("gray-background");
+    }
+  }
+}
+
+imparedImagesHide.addEventListener("click", (e) => {
+  hideImgs();
+});
+imparedImagesGray.addEventListener("click", (e) => {
+  grayImgs();
+});
+
+imparedImagesShow.addEventListener("click", (e) => {
+  body.classList.remove("hide-imgs");
+  body.classList.remove("gray-imgs");
+  cardTeam.forEach((elem) => {
+    elem.style.padding = "0px";
+    elem.style.borderLeft = "0px solid #25282B";
+    elem.style.borderRight = "0px solid #25282B";
+    sessionStorage.setItem(1, " ");
+  });
+});
+
+if (sessionStorage.getItem(1) === "noimg") {
+  hideImgs();
+} else if (sessionStorage.getItem(2) === "grayimg") {
+  grayImgs();
+}
+
+// fonts - change__little;
+const fontsLittle = document.querySelector(".fonts-change__little");
+const fontsMiddle = document.querySelector(".fonts-change__middle");
+const fontsLarge = document.querySelector(".fonts-change__large");
+
+fontsLittle.addEventListener("click", (e) => {
+  body.classList.add("little-font");
+  menuItem.forEach((e) => {
+    e.classList.add("little-font");
+  });
+});
+fontsMiddle.addEventListener("click", (e) => {
+  body.classList.remove("little-font");
+});
+fontsLarge.addEventListener("click", (e) => {
+  body.classList.remove("little-font");
+  body.classList.add("large-font");
+});
+console.log(document.styleSheets);
 
 /*
 (i) Код попадает в итоговый файл,

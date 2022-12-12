@@ -19,7 +19,48 @@ $fontFamily: CenturyGothic;
 $fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
 
 
+body {
+}
+.hide-imgs {
+	img{
+		display: none;
+	}
+	.leaders__main-description {
 
+		background-image: none;
+		// background-color: red;
+
+	}
+
+}
+.gray-imgs {
+	img {
+		filter: grayscale(100%);
+	}
+	.leaders__main-description {
+		position: relative;
+	}
+}
+.gray-background {
+	&::before {
+		content: '';
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		background-image: url('../img/liceum.png');
+		background-repeat: no-repeat;
+		background-position: bottom;
+		background-size: contain;
+		// background-position-y: 300%;
+		background-position: bottom; // @include adaptiveValue('font-size', 18, 12);
+
+		filter: grayscale(100%);
+		width: 100%;
+		height: 100%;
+	}
+}
 
 // Основные цвета
 $mainColor: #25282B; // Цвет шрифта по умолчанию
@@ -179,3 +220,13 @@ body {
 @import "contacts";
 @import "international";
 @import "teachers";
+.little-font {
+ h1, h2, h3, h4, h5, h6, ul, li, a, span, div{
+	font-size: 9px !important;
+}
+}
+.large-font {
+ h1, h2, h3, h4, h5, h6, ul, li, a, span, div{
+	font-size: 24px !important;
+}
+}
