@@ -104,7 +104,7 @@ $responsiveType: 1;
 @import "base/null";
 
 body {
-
+	background-color: $mainBg;
 	// Скролл заблокирован
 	.lock & {
 		overflow: hidden;
@@ -222,11 +222,152 @@ body {
 @import "teachers";
 .little-font {
  h1, h2, h3, h4, h5, h6, ul, li, a, span, div{
-	font-size: 9px !important;
+	font-size: 11px !important;
 }
 }
 .large-font {
  h1, h2, h3, h4, h5, h6, ul, li, a, span, div{
-	font-size: 24px !important;
+	@include adaptiveValue("font-size", 24, 10);
+	// letter-spacing: 2.7px;
+	.organization-svg {
+		display: none;
+	}
+	.organization__rows {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.organization {
+
+		&__main-title-box {
+			@include adaptiveValue('margin-bottom', 16, 8);
+			grid-column: 1/3;
+		}
+	}
+	@media screen and (max-width: 680px) {
+		.org-item {
+			&__links-middle-screen {
+				display: none;
+			}
+		}
+
+		.links-three {
+			display: block;
+		}
+
+		.organization__rows {
+			grid-template-columns: 1fr;
+		}
+
+		.organization {
+
+
+			&__main-title-box {
+
+				grid-column: 1/2;
+			}
+		}
+	}
 }
 }
+.big-distance {
+	h1, h2, h3, h4, h5, h6, ul, li, a, span, div {
+		letter-spacing: 2.7px !important;
+		.organization-svg {
+			display: none;
+		}
+		.organization__rows {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.organization {
+
+			&__main-title-box {
+				@include adaptiveValue('margin-bottom', 16, 8);
+				grid-column: 1/3;
+			}
+		}
+		@media screen and (max-width: 680px) {
+			.org-item {
+				&__links-middle-screen {
+					display: none;
+				}
+			}
+
+			.links-three {
+				display: block;
+			}
+
+			.organization__rows {
+				grid-template-columns: 1fr;
+			}
+
+			.organization {
+
+
+				&__main-title-box {
+
+					grid-column: 1/2;
+				}
+			}
+		}
+	}
+}
+.biggest-distance {
+	h1, h2, h3, h4, h5, h6, ul, li, a, span, div {
+		letter-spacing: 5.4px;
+		@include adaptiveValue("letter-spacing", 5.4, 1.5);
+		.organization-svg {
+			display: none;
+		}
+		.organization__rows {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.organization {
+
+			&__main-title-box {
+				@include adaptiveValue('margin-bottom', 16, 8);
+				grid-column: 1/3;
+			}
+		}
+		@media screen and (max-width: 680px) {
+			.org-item {
+				&__links-middle-screen {
+					display: none;
+				}
+			}
+
+			.links-three {
+				display: block;
+			}
+
+			.organization__rows {
+				grid-template-columns: 1fr;
+			}
+
+			.organization {
+
+
+				&__main-title-box {
+
+					grid-column: 1/2;
+				}
+			}
+		}
+	}
+}
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #C9C8D3;
+  }
+
+  /* для Chrome/Edge/Safari */
+  *::-webkit-scrollbar {
+	height: 1px;
+	width: 6px;
+  }
+  *::-webkit-scrollbar-track {
+	background: #dfdee771;
+  }
+  *::-webkit-scrollbar-thumb {
+	background-color: $borderTif;
+	border-radius: 30px;
+	border: 3px solid $borderTif;
+  }

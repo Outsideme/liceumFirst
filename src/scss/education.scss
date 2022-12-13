@@ -190,7 +190,7 @@
 
 }
 
-@media screen and (max-width: 755px) {
+@media screen and (max-width: 1042px) {
 	.educationProgBr {
 		display: block;
 	}
@@ -445,6 +445,7 @@
 }
 
 .prog-profile-pseudo-before {
+	&:not(:first-child) {
 	&:before {
 		content: '';
 		position: absolute;
@@ -454,9 +455,10 @@
 		height: 80%;
 		background-color: $borderTif;
 	}
-}
+}}
 
 .prog-profile-pseudo-before-blue {
+	&:not(:first-child) {
 	&:before {
 		content: '';
 		position: absolute;
@@ -466,9 +468,10 @@
 		height: 80%;
 		background-color: #25282B;
 	}
-}
+}}
 
 .prog-profile-pseudo-before-brown {
+	&:not(:first-child) {
 	&:before {
 		content: '';
 		position: absolute;
@@ -478,9 +481,10 @@
 		height: 80%;
 		background-color: #A9E44D;
 	}
-}
+}}
 
 .prog-profile-pseudo-before-vanilla {
+	&:not(:first-child) {
 	&:before {
 		content: '';
 		position: absolute;
@@ -490,9 +494,10 @@
 		height: 80%;
 		background-color: #4D4B43;
 	}
-}
+}}
 
 .prog-profile-pseudo-before-black {
+	&:not(:first-child) {
 	&:before {
 		content: '';
 		position: absolute;
@@ -502,9 +507,10 @@
 		height: 80%;
 		background-color: #ffffff;
 	}
-}
+}}
 
 .prog-profile-pseudo-before-white {
+	&:not(:first-child) {
 	&:before {
 		content: '';
 		position: absolute;
@@ -514,7 +520,7 @@
 		height: 80%;
 		background-color: #000000;
 	}
-}
+	}}
 
 .prog-main-education {
 	grid-row: 2/3;

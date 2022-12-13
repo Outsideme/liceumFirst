@@ -269,7 +269,8 @@ const outputJunSecond = document.querySelector(".output-jun-second");
 const outputSinSecond = document.querySelector(".output-sin-second");
 const outputJunThird = document.querySelector(".output-jun-third");
 const outputSinThird = document.querySelector(".output-sin-third");
-const tableIf = document.querySelector(".education-tables__table");
+const tableQuarter = document.querySelectorAll(".table-quarter");
+const tableIf = document.querySelectorAll(".education-tables__table");
 const arrInfoFirstSecond = {
   one: "01.09 - 26.10 (8 уч. недель)",
   oneTitle: "1 четверть",
@@ -288,7 +289,7 @@ const arrInfoFirstSecond = {
 
   paTitle: "ПА",
 
-  select: "Выберите период",
+  select: "Период",
   //===============//===============//===============//===============//===============//===============//===============//===============//===============
 
   sinOne: "01.09 - 26.10 (8 уч. недель)",
@@ -348,7 +349,8 @@ const dateObj = {
 };
 
 const showTableInQuarter = () => {
-  if (tableIf) {
+  if (tableIf.length > 0) {
+    console.log(tableIf);
     if (
       dateObj.currentDate >= dateObj.startFirstQuarter &&
       dateObj.currentDate <= dateObj.endFirstQuarter
@@ -618,12 +620,6 @@ const eyeBtn = document.querySelector(".buttom-top-eye");
 const topLine = document.querySelector(".header__top-line");
 
 eyeBtn.addEventListener("click", (e) => {
-  // header.addEventListener("resize", (e) => {
-  //   console.log(header.offsetHeight);
-  // });
-  // console.log(header.offsetHeight);
-  // setTimeout(() => {
-  // }, 10);
   menuObj.burgerClose();
   topLine.classList.toggle("top-line-active");
   eyeBtn.classList.toggle("eyeActive");
@@ -785,6 +781,16 @@ const elementsReAdd = {
     );
     elem.classList.add(`${mainTablePseudo[1] + themesNames[0]}`);
   },
+  resetMainInfoTablePseudo: (elem) => {
+    elem.classList.remove(
+      `${mainTablePseudo[1] + themesNames[1]}`,
+      `${mainTablePseudo[1] + themesNames[2]}`,
+      `${mainTablePseudo[1] + themesNames[3]}`,
+      `${mainTablePseudo[1] + themesNames[4]}`,
+      `${mainTablePseudo[1] + themesNames[0]}`
+    );
+    elem.classList.add(`${mainTablePseudo[0]}`);
+  },
   arrowEducation: (elem) => {
     elem.classList.remove(
       `${arrowEdu[0] + themesNames[1]}`,
@@ -793,6 +799,15 @@ const elementsReAdd = {
       `${arrowEdu[0] + themesNames[4]}`
     );
     elem.classList.add(`${arrowEdu[0] + themesNames[0]}`);
+  },
+  resetArrowEducation: (elem) => {
+    elem.classList.remove(
+      `${arrowEdu[0] + themesNames[1]}`,
+      `${arrowEdu[0] + themesNames[2]}`,
+      `${arrowEdu[0] + themesNames[3]}`,
+      `${arrowEdu[0] + themesNames[4]}`,
+      `${arrowEdu[0] + themesNames[0]}`
+    );
   },
 
   quarterSelect: (elem) => {
@@ -805,10 +820,24 @@ const elementsReAdd = {
     );
     elem.classList.add(`${quarterPseudo[1] + themesNames[0]}`);
   },
+  resetQuarterSelect: (elem) => {
+    elem.classList.remove(
+      `${quarterPseudo[1] + themesNames[0]}`,
+      `${quarterPseudo[1] + themesNames[1]}`,
+      `${quarterPseudo[1] + themesNames[2]}`,
+      `${quarterPseudo[1] + themesNames[3]}`,
+      `${quarterPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${quarterPseudo[0]}`);
+  },
 
   orgItemsReAdd: (elem) => {
     elem.style.backgroundColor = localStorage.getItem("1");
     elem.style.border = `1px solid ${localStorage.getItem("2")}`;
+  },
+  resetOrgItemsReAdd: (elem) => {
+    elem.style.backgroundColor = "#DDF0F2";
+    elem.style.border = `0px solid #ffffff`;
   },
 
   outputJinReAdd: (elem) => {
@@ -821,6 +850,16 @@ const elementsReAdd = {
     );
     elem.classList.add(`${quarterPseudo[1] + themesNames[0]}`);
   },
+  resetOutputJinReAdd: (elem) => {
+    elem.classList.remove(
+      `${quarterPseudo[1] + themesNames[0]}`,
+      `${quarterPseudo[1] + themesNames[1]}`,
+      `${quarterPseudo[1] + themesNames[2]}`,
+      `${quarterPseudo[1] + themesNames[3]}`,
+      `${quarterPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${quarterPseudo[0]}`);
+  },
 
   outputSinReAdd: (elem) => {
     elem.classList.remove(
@@ -832,6 +871,16 @@ const elementsReAdd = {
     );
     elem.classList.add(`${quarterPseudo[1] + themesNames[0]}`);
   },
+  resetOutputSinReAdd: (elem) => {
+    elem.classList.remove(
+      `${quarterPseudo[1] + themesNames[0]}`,
+      `${quarterPseudo[1] + themesNames[1]}`,
+      `${quarterPseudo[1] + themesNames[2]}`,
+      `${quarterPseudo[1] + themesNames[3]}`,
+      `${quarterPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${quarterPseudo[0]}`);
+  },
 
   organizationSvgReAdd: (elem) => {
     elem.classList.remove(
@@ -842,6 +891,15 @@ const elementsReAdd = {
     );
     elem.classList.add(`${organizationSvg[1] + themesNames[0]}`);
   },
+  resetOrganizationSvgReAdd: (elem) => {
+    elem.classList.remove(
+      `${organizationSvg[1] + themesNames[1]}`,
+      `${organizationSvg[1] + themesNames[2]}`,
+      `${organizationSvg[1] + themesNames[3]}`,
+      `${organizationSvg[1] + themesNames[4]}`,
+      `${organizationSvg[1] + themesNames[0]}`
+    );
+  },
 
   organizationSvgColorReAdd: (elem) => {
     elem.classList.remove(
@@ -851,6 +909,15 @@ const elementsReAdd = {
       `${organizationSvg[1] + themesNames[4]}`
     );
     elem.classList.add(`${organizationSvg[1] + themesNames[0]}`);
+  },
+  resetOrganizationSvgColorReAdd: (elem) => {
+    elem.classList.remove(
+      `${organizationSvg[1] + themesNames[1]}`,
+      `${organizationSvg[1] + themesNames[2]}`,
+      `${organizationSvg[1] + themesNames[3]}`,
+      `${organizationSvg[1] + themesNames[4]}`,
+      `${organizationSvg[1] + themesNames[0]}`
+    );
   },
 
   progTopHoursReAdd: (elem) => {
@@ -863,6 +930,16 @@ const elementsReAdd = {
     );
     elem.classList.add(`${progTopHoursPseudo[1] + themesNames[0]}`);
   },
+  resetProgTopHoursReAdd: (elem) => {
+    elem.classList.remove(
+      `${progTopHoursPseudo[1] + themesNames[0]}`,
+      `${progTopHoursPseudo[1] + themesNames[1]}`,
+      `${progTopHoursPseudo[1] + themesNames[2]}`,
+      `${progTopHoursPseudo[1] + themesNames[3]}`,
+      `${progTopHoursPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${progTopHoursPseudo[0]}`);
+  },
 
   progBoxTitleReAdd: (elem) => {
     elem.classList.remove(
@@ -873,6 +950,16 @@ const elementsReAdd = {
       `${progProfilePseudo[1] + themesNames[4]}`
     );
     elem.classList.add(`${progProfilePseudo[1] + themesNames[0]}`);
+  },
+  resetProgBoxTitleReAdd: (elem) => {
+    elem.classList.remove(
+      `${progProfilePseudo[1] + themesNames[0]}`,
+      `${progProfilePseudo[1] + themesNames[1]}`,
+      `${progProfilePseudo[1] + themesNames[2]}`,
+      `${progProfilePseudo[1] + themesNames[3]}`,
+      `${progProfilePseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${progProfilePseudo[0]}`);
   },
 
   mtoCountReAdd: (elem) => {
@@ -885,6 +972,16 @@ const elementsReAdd = {
     );
     elem.classList.add(`${mtoCountPseudo[1] + themesNames[0]}`);
   },
+  resetMtoCountReAdd: (elem) => {
+    elem.classList.remove(
+      `${mtoCountPseudo[1] + themesNames[0]}`,
+      `${mtoCountPseudo[1] + themesNames[1]}`,
+      `${mtoCountPseudo[1] + themesNames[2]}`,
+      `${mtoCountPseudo[1] + themesNames[3]}`,
+      `${mtoCountPseudo[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${mtoCountPseudo[0]}`);
+  },
 
   logoColorReAdd: () => {
     logo.classList.remove(
@@ -894,6 +991,15 @@ const elementsReAdd = {
       `${logoArr[0] + themesNames[4]}`
     );
     logo.classList.add(`${logoArr[0] + themesNames[0]}`);
+  },
+  resetLogoColorReAdd: () => {
+    logo.classList.remove(
+      `${logoArr[0] + themesNames[1]}`,
+      `${logoArr[0] + themesNames[2]}`,
+      `${logoArr[0] + themesNames[3]}`,
+      `${logoArr[0] + themesNames[4]}`,
+      `${logoArr[0] + themesNames[0]}`
+    );
   },
 
   docSvgReAdd: (elem) => {
@@ -905,6 +1011,15 @@ const elementsReAdd = {
     );
     elem.classList.add(`${docColor[0] + themesNames[0]}`);
   },
+  resetDocSvgReAdd: (elem) => {
+    elem.classList.remove(
+      `${docColor[0] + themesNames[1]}`,
+      `${docColor[0] + themesNames[2]}`,
+      `${docColor[0] + themesNames[3]}`,
+      `${docColor[0] + themesNames[4]}`,
+      `${docColor[0] + themesNames[0]}`
+    );
+  },
   pageColorReAdd: (elem) => {
     elem.classList.remove(
       `${pageColor[0] + themesNames[1]}`,
@@ -913,6 +1028,16 @@ const elementsReAdd = {
       `${pageColor[0] + themesNames[4]}`
     );
     elem.classList.add(`${pageColor[0] + themesNames[0]}`);
+  },
+
+  resetPageColorReAdd: (elem) => {
+    elem.classList.remove(
+      `${pageColor[0] + themesNames[1]}`,
+      `${pageColor[0] + themesNames[2]}`,
+      `${pageColor[0] + themesNames[3]}`,
+      `${pageColor[0] + themesNames[4]}`,
+      `${pageColor[0] + themesNames[0]}`
+    );
   },
 
   docSvgEduReAdd: (elem) => {
@@ -925,6 +1050,16 @@ const elementsReAdd = {
     elem.classList.add(`${docColor[0] + themesNames[0]}`);
   },
 
+  resetDocSvgEduReAdd: (elem) => {
+    elem.classList.remove(
+      `${docColor[0] + themesNames[1]}`,
+      `${docColor[0] + themesNames[2]}`,
+      `${docColor[0] + themesNames[3]}`,
+      `${docColor[0] + themesNames[4]}`,
+      `${docColor[0] + themesNames[0]}`
+    );
+  },
+
   menuLinkReAdd: (elem) => {
     elem.classList.remove(
       `${hoverAdd[0]}`,
@@ -935,8 +1070,17 @@ const elementsReAdd = {
     );
     elem.classList.add(`${hoverAdd[1] + themesNames[0]}`);
   },
+  resetMenuLinkReAdd: (elem) => {
+    elem.classList.remove(
+      `${hoverAdd[1] + themesNames[1]}`,
+      `${hoverAdd[1] + themesNames[2]}`,
+      `${hoverAdd[1] + themesNames[3]}`,
+      `${hoverAdd[1] + themesNames[4]}`,
+      `${hoverAdd[1] + themesNames[0]}`
+    );
+    elem.classList.add(`${hoverAdd[0]}`);
+  },
   burger: () => {
-    // burgerLine.style.backgroundColor = "red";
     burger.classList.remove(
       `${burgerColor[0] + themesNames[1]}`,
       `${burgerColor[0] + themesNames[2]}`,
@@ -946,39 +1090,81 @@ const elementsReAdd = {
     burger.classList.add(`${burgerColor[0] + themesNames[0]}`);
     burgerLine.style.backgroundColor = localStorage.getItem("2");
   },
+  resetBurger: () => {
+    burger.classList.remove(
+      `${burgerColor[0] + themesNames[1]}`,
+      `${burgerColor[0] + themesNames[2]}`,
+      `${burgerColor[0] + themesNames[3]}`,
+      `${burgerColor[0] + themesNames[4]}`,
+      `${burgerColor[0] + themesNames[0]}`
+    );
+    burgerLine.style.backgroundColor = "#ffffff";
+  },
+
   menuItemReAdd: (elem) => {
     elem.style.color = localStorage.getItem("2");
   },
+  resetMenuItemReAdd: (elem) => {
+    elem.style.color = `${normalColors.white}`;
+  },
 };
-
+const normalColors = {
+  white: "#ffffff",
+  color: "#25282B",
+  bg: "#F5F6F9",
+  tif: "#00b2b5",
+  descTif: "#C9ECED",
+  borderTif: "#6CD3D3",
+};
 //====================================================>
 const elementsStyle = {
   color: (elem) => {
     elem.style.color = localStorage.getItem("2");
   },
+  resetColor: (elem) => {
+    elem.style.color = `${normalColors.color}`;
+  },
 
   border: (elem) => {
     elem.style.border = `1px solid ${localStorage.getItem("2")}`;
+  },
+  resetBorder: (elem) => {
+    elem.style.border = `${normalColors.borderTif}`;
   },
 
   borderTop: (elem) => {
     elem.style.borderTop = `1px solid ${localStorage.getItem("2")}`;
   },
+  resetBorderTop: (elem) => {
+    elem.style.borderTop = `1px solid ${normalColors.borderTif}`;
+  },
 
   borderRight: (elem) => {
     elem.style.borderRight = `1px solid ${localStorage.getItem("2")}`;
+  },
+  resetBorderRight: (elem) => {
+    elem.style.borderRight = `1px solid ${normalColors.borderTif}`;
   },
 
   borderBottom: (elem) => {
     elem.style.borderBottom = `1px solid ${localStorage.getItem("2")}`;
   },
+  resetBorderBottom: (elem) => {
+    elem.style.borderBottom = `1px solid ${normalColors.borderTif}`;
+  },
 
   borderLeft: (elem) => {
     elem.style.borderLeft = `1px solid ${localStorage.getItem("2")}`;
   },
+  resetBorderLeft: (elem) => {
+    elem.style.borderLeft = `1px solid ${normalColors.borderTif}`;
+  },
 
   background: (elem) => {
     elem.style.backgroundColor = localStorage.getItem("1");
+  },
+  resetBackground: (elem) => {
+    elem.style.backgroundColor = `${normalColors.bg}`;
   },
 };
 
@@ -989,6 +1175,10 @@ const elementBody = {
     body.style.backgroundColor = localStorage.getItem("1");
     body.style.color = localStorage.getItem("2");
   },
+  resetBody: () => {
+    body.style.backgroundColor = normalColors.bg;
+    body.style.color = normalColors.color;
+  },
 
   header: () => {
     changeHeader.style.backgroundColor = localStorage.getItem("1");
@@ -996,17 +1186,34 @@ const elementBody = {
     changeHeader.style.borderTop = `1px solid ${localStorage.getItem("2")}`;
     changeHeader.style.borderBottom = `1px solid ${localStorage.getItem("1")}`;
   },
+  resetHeader: () => {
+    changeHeader.style.backgroundColor = normalColors.tif;
+    changeHeader.style.color = normalColors.color;
+    changeHeader.style.borderTop = `0px solid #ffffff`;
+    changeHeader.style.borderBottom = `0px solid #ffffff`;
+  },
 
   crumbs: () => {
     crumbs.style.backgroundColor = localStorage.getItem("1");
     crumbs.style.borderTop = `1px solid ${localStorage.getItem("2")}`;
     crumbs.style.borderBottom = `1px solid ${localStorage.getItem("2")}`;
   },
+  resetCrumbs: () => {
+    crumbs.style.backgroundColor = normalColors.white;
+    crumbs.style.color = "#A4A4AF";
+    crumbs.style.borderTop = `0px solid #ffffff`;
+    crumbs.style.borderBottom = `0px solid #ffffff`;
+  },
 
   footer: () => {
     footer.style.backgroundColor = localStorage.getItem("1");
     footer.style.color = localStorage.getItem("2");
     footer.style.borderTop = `1px solid ${localStorage.getItem("2")}`;
+  },
+  resetFooter: () => {
+    footer.style.backgroundColor = "#25282B";
+    footer.style.color = "#ffffff";
+    footer.style.borderTop = `0px solid #ffffff`;
   },
 };
 
@@ -1020,15 +1227,30 @@ const bodySections = {
     hunterSectionLink.style.border = `1px solid ${localStorage.getItem("2")}`;
     hunterSectionLink.style.color = localStorage.getItem("2");
   },
+  resetHunter: () => {
+    hunterSection.style.backgroundColor = "#DDF0F2";
+    hunterSection.style.border = `0px solid #ffffff`;
+    hunterSectionLink.style.backgroundColor = normalColors.tif;
+    hunterSectionLink.style.border = `0px solid #ffffff`;
+    hunterSectionLink.style.color = `${normalColors.white}`;
+  },
 
   mainDesc: () => {
     mainDescription.style.backgroundColor = localStorage.getItem("1");
     mainDescription.style.border = `1px solid ${localStorage.getItem("2")}`;
   },
+  resetMainDesc: () => {
+    mainDescription.style.backgroundColor = normalColors.descTif;
+    mainDescription.style.border = `0px solid #ffffff`;
+  },
 
   mainTableBox: () => {
     mainTableBox.style.backgroundColor = localStorage.getItem("1");
     mainTableBox.style.color = localStorage.getItem("2");
+  },
+  resetMainTableBox: () => {
+    mainTableBox.style.backgroundColor = normalColors.white;
+    mainTableBox.style.color = normalColors.color;
   },
 
   progEdu: () => {
@@ -1039,6 +1261,13 @@ const bodySections = {
       "2"
     )}`;
     progTopList.style.borderLeft = `1px solid ${localStorage.getItem("2")}`;
+  },
+  resetProgEdu: () => {
+    progTable.style.backgroundColor = normalColors.white;
+    progTable.style.color = normalColors.color;
+    progTable.style.border = `1px solid ${normalColors.borderTif}`;
+    progMiddleEducation.style.borderTop = `1px solid ${normalColors.borderTif}`;
+    progTopList.style.borderLeft = `1px solid ${normalColors.borderTif}`;
   },
 };
 
@@ -1255,6 +1484,289 @@ function themeToggle() {
   progTopHours.forEach((elem) => elementsReAdd.progTopHoursReAdd(elem), false);
   progBoxTitle.forEach((elem) => elementsReAdd.progBoxTitleReAdd(elem), false);
 }
+//==============================/==================================/================================/===================================/===================================/
+const btnEduc = document.querySelectorAll(".btn-education-accor");
+function normalToggle() {
+  //=========================
+  elementBody.resetBody();
+  //=========================
+  elementBody.resetHeader();
+  //=========================
+  elementBody.resetFooter();
+  //=========================
+  elementBody.resetCrumbs();
+  //=========================
+  crumbsTitle.forEach((elem) => {
+    elementsStyle.resetColor(elem);
+  });
+  //=========================//=========================
+  if (hunterSection !== null && hunterSectionLink !== null) {
+    bodySections.resetHunter();
+  }
+  //=========================//=========================
+  if (mainDescription !== null) {
+    bodySections.resetMainDesc();
+  }
+  //=========================//=========================
+  if (mainTableBox !== null) {
+    bodySections.resetMainTableBox();
+  }
+  //=========================
+  teachersMainPhrase.forEach((elem) => {
+    elem.style.backgroundColor = `${normalColors.descTif}`;
+    elementsStyle.resetBorder(elem);
+  });
+  //=========================
+  teachersPoint.forEach((elem) => {
+    elem.style.color = `#9696A0`;
+  });
+  //=========================
+  teachersPosition.forEach((elem) => {
+    elem.style.color = `${normalColors.tif}`;
+  });
+  //=========================
+  teachersRaising.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  //=========================
+  footerButtons.forEach((elem) => {
+    elementsStyle.resetBackground(elem);
+    elementsStyle.resetBorder(elem);
+  });
+  //=========================
+  mtoTable.forEach((elem) => {
+    elem.style.border = ``;
+  });
+  //=========================
+  pageColorChange.forEach((elem) => {
+    elem.style.color = `#ffffff`;
+  });
+  //=========================
+  // mobilePageMenu.style.backgroundColor = "red";
+  mobilePageMenu.forEach((elem) => {
+    elem.style.backgroundColor = `${normalColors.tif}`;
+  });
+  //=========================
+  mtoTableItem.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  //=========================
+  mtoCountBorder.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  //=========================
+  elementsReAdd.resetBurger();
+  //=========================
+  orgSubsBorderLeft.forEach((elem) => elementsStyle.resetBorderLeft(elem));
+  //=========================
+  orgSubsBorderTop.forEach((elem) => elementsStyle.resetBorderTop(elem));
+  //=========================
+  linksMiddleScreenAdded.forEach((elem) => elementsStyle.resetBorderTop(elem));
+  //=========================//=========================
+  if (mainInfoTable !== null) {
+    mainInfoLinks.forEach((elem) => {
+      elem.style.borderBottom = ``;
+    });
+    mainInfoTable.forEach((elem) => {
+      elem.style.border = ``;
+    });
+    //=========================
+    mainInfoTableBorder.forEach((elem) => {
+      elem.style.borderBottom = ``;
+    });
+    //=========================
+    links.forEach((elem) => {
+      elem.style.color = ``;
+    });
+  }
+  //=========================//=========================
+  if (progTable !== null) {
+    bodySections.resetProgEdu();
+    document
+      .querySelector(".prog-profile")
+      .classList.remove("pog-profile-pseudo-before");
+    educationTable.forEach((elem) => {
+      elementsStyle.resetBackground(elem);
+      elementsStyle.resetColor(elem);
+      elementsStyle.resetBorder(elem);
+    });
+  }
+  //=========================
+  arrowEducation.forEach((elem) => elementsReAdd.resetArrowEducation(elem));
+  //=========================
+  progBottomList.forEach((elem) => {
+    elementsStyle.resetBorderLeft(elem);
+    elementsStyle.resetBorderTop(elem);
+  });
+  //=========================//=========================
+  if (progBottomHours !== null) {
+    progBottomHours.style.borderTop = `1px solid ${normalColors.borderTif}`;
+    quarterMobile.forEach((elem) => {
+      elementsStyle.resetBorder(elem);
+    });
+  }
+  //=========================
+  accorTitle.forEach((elem) => {
+    elem.style.color = ``;
+  });
+  quarterMobile.forEach((elem) => {
+    elem.style.border = "";
+    elem.style.backgroundColor = "#ffffff";
+  });
+  quarterMobileTitleClasses.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  // //=========================
+  quarterMobileJun.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  // //=========================
+  quarterMobileOutputJun.forEach((elem) => {
+    elem.style.borderBottom = `1px solid ${normalColors.borderTif}`;
+  });
+  // //=========================
+  quarterMobileSelect.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  //=========================
+  progTopListBorderBottom.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  //=========================
+  cardTeamPosition.forEach((elem) => {
+    elementsStyle.resetColor(elem);
+  });
+  //=========================
+  educationTablesBorderLeft.forEach((elem) => {
+    elem.style.borderLeft = `1px solid ${normalColors.borderTif}`;
+  });
+  tableIf.forEach((elem) => {
+    elem.style.border = ``;
+    elem.style.backgroundColor = ``;
+  });
+  btnEduc.forEach((elem) => {
+    elem.backgroundColor = "white";
+  });
+
+  //=========================
+  educationTablesRow1.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  //=========================
+  educationTitles.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  //=========================
+  structureBorderRight.forEach((elem) => elementsStyle.resetBorderRight(elem));
+  progBoxTitle.forEach((elem) => {
+    elementsStyle.resetBorderBottom(elem);
+  });
+  //=========================
+  boxEducationContent.forEach((elem) => {
+    elem.style.backgroundColor = "";
+    elementsStyle.resetBorder(elem);
+  });
+  //=========================
+  quarterMobileContainer.forEach((elem) => {
+    elem.style.backgroundColor = ``;
+    elem.style.borderBottom = ``;
+    elem.style.borderLeft = ``;
+    elem.style.borderRight = ``;
+  });
+  //=========================
+  cardTeam.forEach((elem) => {
+    elem.style.padding = "0px";
+    elem.style.backgroundColor = normalColors.bg;
+    elem.style.borderLeft = `0px solid ${normalColors.borderTif}`;
+    elem.style.borderRight = `0px solid ${normalColors.borderTif}`;
+  });
+  //=========================
+  quarterMobileContentLi.forEach((elem) => {
+    elem.style.backgroundColor = ``;
+    elem.style.borderBottom = ``;
+  });
+  buttonSelect.forEach((elem) => {
+    elem.style.backgroundColor = ``;
+    elem.style.border = ``;
+  });
+  //=========================
+  quarterMobile.forEach((elem) => {
+    elem.style.backgroundColor = ``;
+  });
+  //=========================
+  btnEducationAccor.forEach((elem) => {
+    elem.style.backgroundColor = ``;
+    elem.style.border = ``;
+  });
+  //=========================
+  menuHidden.forEach((elem) => {
+    elementsStyle.resetBackground(elem);
+    elementsStyle.resetColor(elem);
+    elementsStyle.resetBorder(elem);
+  });
+  //=========================
+  menuLinkA.forEach((elem) => {
+    elementsStyle.resetColor(elem);
+  });
+  //=========================
+  organizationSubs.forEach((elem) => {
+    elem.style.color = "";
+  });
+  //=========================
+  footerLinkChange.forEach((elem) => {
+    elem.style.color = normalColors.tif;
+  });
+  //===================================================================>
+  //==========================================================================>
+  //================================================================================>
+
+  elementsReAdd.resetLogoColorReAdd();
+  //=========================
+  orgItems.forEach((elem) => elementsReAdd.resetOrgItemsReAdd(elem), false);
+  //=========================
+  menuItem.forEach((elem) => elementsReAdd.resetMenuItemReAdd(elem), false);
+  //=========================
+  menuLink.forEach((elem) => elementsReAdd.resetMenuLinkReAdd(elem), false);
+  //=========================
+  docSvgEdu.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem), false);
+  //=========================
+  docSvg.forEach((elem) => elementsReAdd.resetDocSvgReAdd(elem), false);
+  //=========================
+  tgOkVk.forEach((elem) => elementsReAdd.resetPageColorReAdd(elem), false);
+  //=========================
+  pageSocial.forEach((elem) => elementsReAdd.resetDocSvgReAdd(elem), false);
+  //=========================
+  mtoCount.forEach((elem) => elementsReAdd.resetMtoCountReAdd(elem), false);
+  //=========================
+  mainInfoPseudoLeft.forEach(
+    (elem) => elementsReAdd.resetMainInfoTablePseudo(elem),
+    false
+  );
+  //=========================
+  quarterMobileSelect.forEach(
+    (elem) => elementsReAdd.resetQuarterSelect(elem),
+    false
+  );
+  //=========================
+  outputJun.forEach((elem) => elementsReAdd.resetOutputJinReAdd(elem), false);
+  //=========================
+  outputSin.forEach((elem) => elementsReAdd.resetOutputSinReAdd(elem), false);
+  organizationSvgs.forEach((elem) =>
+    elementsReAdd.resetOrganizationSvgReAdd(elem)
+  );
+  //=========================
+  organizationSvgsColor.forEach((elem) => elementsReAdd.resetDocSvgReAdd(elem));
+  //=========================
+  progTopHours.forEach(
+    (elem) => elementsReAdd.resetProgTopHoursReAdd(elem),
+    false
+  );
+  //=========================
+  progBoxTitle.forEach(
+    (elem) => elementsReAdd.resetProgBoxTitleReAdd(elem),
+    false
+  );
+}
 
 function whiteColor() {
   window.localStorage.clear();
@@ -1333,11 +1845,6 @@ if (localStorage.getItem("1") === "#3B2716") {
   window.localStorage.clear();
 }
 
-document
-  .querySelector(".impaired-bar__ussually-mode")
-  .addEventListener("click", (e) => {
-    window.localStorage.clear();
-  });
 const leadersMainDescription = document.querySelector(
   ".leaders__main-description"
 );
@@ -1345,75 +1852,144 @@ const imparedImagesHide = document.querySelector(".impared-images__hide");
 const imparedImagesGray = document.querySelector(".impared-images__gray");
 const imparedImagesShow = document.querySelector(".impared-images__show");
 const teachersCards = document.querySelectorAll(".teachers__card");
-// impared-images__gray
-function hideImgs() {
-  body.classList.add("hide-imgs");
-  cardTeam.forEach((elem) => {
-    elem.style.padding = "8px";
-    elem.style.borderLeft = "1px solid #25282B";
-    elem.style.borderRight = "1px solid #25282B";
-    sessionStorage.setItem(1, "noimg");
-  });
-  if (leadersMainDescription !== null) {
-    leadersMainDescription.style.paddingBottom = "36px";
-    leadersMainDescription.classList.remove("gray-background");
-  }
-}
-
-function grayImgs() {
-  body.classList.add("gray-imgs");
-  sessionStorage.setItem(2, "grayimg");
-  if (!body.classList.contains("hide-imgs")) {
-    if (leadersMainDescription) {
-      leadersMainDescription.classList.add("gray-background");
+const imgChanger = {
+  hideImgs: () => {
+    body.classList.add("hide-imgs");
+    cardTeam.forEach((elem) => {
+      elem.style.padding = "8px";
+      elem.style.borderLeft = "1px solid #25282B";
+      elem.style.borderRight = "1px solid #25282B";
+      sessionStorage.setItem(1, "noimg");
+    });
+    if (leadersMainDescription !== null) {
+      leadersMainDescription.style.paddingBottom = "36px";
+      leadersMainDescription.classList.remove("gray-background");
     }
-  }
-}
+  },
+  grayImgs: () => {
+    body.classList.add("gray-imgs");
+    sessionStorage.setItem(2, "grayimg");
+    if (!body.classList.contains("hide-imgs")) {
+      if (leadersMainDescription) {
+        leadersMainDescription.classList.add("gray-background");
+      }
+    }
+  },
+  showImg: () => {
+    sessionStorage.setItem(2, " ");
+    body.classList.remove("hide-imgs");
+    body.classList.remove("gray-imgs");
+    cardTeam.forEach((elem) => {
+      elem.style.padding = "0px";
+      elem.style.borderLeft = "0px solid #25282B";
+      elem.style.borderRight = "0px solid #25282B";
+      sessionStorage.setItem(1, " ");
+    });
+  },
+};
+// impared-images__gray
 
 imparedImagesHide.addEventListener("click", (e) => {
-  hideImgs();
+  imgChanger.hideImgs();
 });
 imparedImagesGray.addEventListener("click", (e) => {
-  grayImgs();
+  imgChanger.grayImgs();
 });
 
 imparedImagesShow.addEventListener("click", (e) => {
-  body.classList.remove("hide-imgs");
-  body.classList.remove("gray-imgs");
-  cardTeam.forEach((elem) => {
-    elem.style.padding = "0px";
-    elem.style.borderLeft = "0px solid #25282B";
-    elem.style.borderRight = "0px solid #25282B";
-    sessionStorage.setItem(1, " ");
-  });
+  imgChanger.showImg();
 });
-
-if (sessionStorage.getItem(1) === "noimg") {
-  hideImgs();
-} else if (sessionStorage.getItem(2) === "grayimg") {
-  grayImgs();
-}
 
 // fonts - change__little;
 const fontsLittle = document.querySelector(".fonts-change__little");
 const fontsMiddle = document.querySelector(".fonts-change__middle");
 const fontsLarge = document.querySelector(".fonts-change__large");
+const letterDistancMiddle = document.querySelector(".letter-distance__middle");
+const letterFistanceLarge = document.querySelector(".letter-distance__large");
+const letterDistanceLittle = document.querySelector(".letter-distance__little");
 
-fontsLittle.addEventListener("click", (e) => {
-  body.classList.add("little-font");
-  menuItem.forEach((e) => {
-    e.classList.add("little-font");
+const fontsCharger = {
+  permLittleFonts: () => {
+    sessionStorage.setItem(3, "littlefonts");
+    body.classList.add("little-font");
+    menuItem.forEach((e) => {
+      e.classList.add("little-font");
+      heightHours();
+    });
+  },
+  permMiddleFonts: () => {
+    sessionStorage.setItem(3, " ");
+    body.classList.remove("little-font");
+    body.classList.remove("large-font");
+    heightHours();
+  },
+  permLargeFonts: () => {
+    sessionStorage.setItem(3, "largefonts");
+    body.classList.remove("little-font");
+    body.classList.add("large-font");
+    console.log(sessionStorage.getItem(3));
+    heightHours();
+  },
+  normalDistance: () => {
+    sessionStorage.setItem(4, "");
+    body.classList.remove("big-distance");
+    body.classList.remove("biggest-distance");
+    heightHours();
+  },
+  bigDistance: () => {
+    sessionStorage.setItem(4, "bigDistance");
+    body.classList.add("big-distance");
+    heightHours();
+  },
+  biggestDistance: () => {
+    sessionStorage.setItem(4, "biggestDistance");
+    body.classList.remove("big-distance");
+    body.classList.add("biggest-distance");
+    heightHours();
+  },
+};
+
+fontsLittle.addEventListener("click", (e) => fontsCharger.permLittleFonts());
+fontsMiddle.addEventListener("click", (e) => fontsCharger.permMiddleFonts());
+
+fontsLarge.addEventListener("click", (e) => fontsCharger.permLargeFonts());
+
+letterDistanceLittle.addEventListener("click", (e) =>
+  fontsCharger.normalDistance()
+);
+letterFistanceLarge.addEventListener("click", (e) =>
+  fontsCharger.biggestDistance()
+);
+letterDistancMiddle.addEventListener("click", (e) =>
+  fontsCharger.bigDistance()
+);
+
+document
+  .querySelector(".impaired-bar__ussually-mode")
+  .addEventListener("click", (e) => {
+    window.localStorage.clear();
+    window.sessionStorage.clear();
+    normalToggle();
+    fontsCharger.normalDistance();
+    fontsCharger.permMiddleFonts();
+    imgChanger.showImg();
   });
-});
-fontsMiddle.addEventListener("click", (e) => {
-  body.classList.remove("little-font");
-});
-fontsLarge.addEventListener("click", (e) => {
-  body.classList.remove("little-font");
-  body.classList.add("large-font");
-});
-console.log(document.styleSheets);
 
+if (sessionStorage.getItem(1) === "noimg") {
+  imgChanger.hideImgs();
+} else if (sessionStorage.getItem(2) === "grayimg") {
+  imgChanger.grayImgs();
+}
+if (sessionStorage.getItem(3) === "littlefonts") {
+  fontsCharger.permLittleFonts();
+} else if (sessionStorage.getItem(3) === "largefonts") {
+  fontsCharger.permLargeFonts();
+}
+if (sessionStorage.getItem(4) === "bigDistance") {
+  fontsCharger.bigDistance();
+} else if (sessionStorage.getItem(4) === "biggestDistance") {
+  fontsCharger.biggestDistance();
+}
 /*
 (i) Код попадает в итоговый файл,
 только когда вызвана функция,

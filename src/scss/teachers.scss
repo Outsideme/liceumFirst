@@ -185,9 +185,11 @@
 .teachers__cards-box {
 	@include adaptiveValue("margin-bottom", 104, 64);
 	margin: 0 auto;
+
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
+	column-gap: 32px;
 
 	&:not(:last-child) {
 		justify-content: center;
@@ -198,8 +200,9 @@
 .teachers__card {
 	@include adaptiveValue('width', 160, 130);
 	margin-right: rem(15);
+	// white-space: wrap;
 	margin-left: rem(15);
-
+	word-wrap: break-word;
 	&:not(:last-child) {
 		margin-bottom: rem(30);
 
