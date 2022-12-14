@@ -1,6 +1,6 @@
 .teachers-main__section {
 	@include adaptiveValue('margin-top', 80, 64);
-	@include adaptiveValue('margin-bottom', 50, 32);
+	@include adaptiveValue('margin-bottom', 80, 64);
 	display: grid;
 	grid-template-columns: 1fr .7fr 1fr;
 	grid-auto-rows: .2fr 1fr;
@@ -55,7 +55,7 @@
 
 	img {
 		width: 350px;
-		height: 430px;
+		height: 405px;
 	}
 
 	grid-column: 3/4;
@@ -127,8 +127,8 @@
 }
 
 .teacher-item {
-	@include adaptiveValue('padding-bottom', 50, 28);
-	@include adaptiveValue('padding-top', 30, 10);
+	@include adaptiveValue('padding-bottom', 26, 8);
+	@include adaptiveValue('padding-top', 12, 8);
 	display: grid;
 	grid-auto-columns: .6fr 1fr;
 	grid-auto-rows: repeat(5, 1fr);
@@ -137,13 +137,21 @@
 
 }
 
+.teachers__education {
+	@include adaptiveValue("margin-bottom", 80, 64);
+}
+.teachers__other {
+	@include adaptiveValue("margin-bottom", 80, 64);
+}
 .teachers__education-title-last {
 	@include adaptiveValue('font-size', 24, 20);
 	font-weight: 700;
 	margin-bottom: rem(24);
 	line-height: 120%;
 }
-
+.no-margin {
+	margin-bottom: 0;
+}
 
 .teachers__education-title {
 	@include adaptiveValue('font-size', 24, 20);
@@ -196,7 +204,17 @@
 
 	}
 }
+.margin-bottom-item {
+	@include adaptiveValue("margin-bottom", 80, 64);
+}
+.leaders-mini-cards {
+	display: flex;
+	justify-content: start;
+	&:not(:last-child) {
+		justify-content: start;
 
+	}
+}
 .teachers__card {
 	@include adaptiveValue('width', 160, 130);
 	margin-right: rem(15);
@@ -284,11 +302,20 @@
 		position: absolute;
 	}
 }
+.self-teach-span-5 {
+	position: relative;
+
+	&:before {
+		content: '5.';
+		position: absolute;
+	}
+}
 
 .self-teach-span-1,
 .self-teach-span-2,
 .self-teach-span-3,
-.self-teach-span-4 {
+.self-teach-span-4,
+.self-teach-span-5 {
 	&:before {
 		left: rem(-20);
 	}
@@ -296,10 +323,10 @@
 
 .teachers-point-prop {
 	ul {
-		@include adaptiveValue("margin-left", 28, 14);
-		margin-left: rem(28);
 
 		li {
+			@include adaptiveValue("margin-left", 28, 14);
+
 			position: relative;
 
 			&::before {
@@ -308,11 +335,24 @@
 				@include adaptiveValue("height", 6, 4);
 				@include adaptiveValue("left", -14, -10);
 				position: absolute;
-				// background-color: $mainText;
+				background-color: $mainText;
 
 				top: 8px;
 				border-radius: 50%;
 			}
 		}
 	}
+}
+.achievs-two-columns {
+	display: flex;
+	flex-direction: column;
+}
+.padding-bot {
+	padding-right: rem(16);
+	margin-right: 0;
+	padding-bottom: rem(32);
+}
+.padding-top {
+	margin-right: 0;
+	padding-top: rem(24);
 }

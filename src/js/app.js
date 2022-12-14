@@ -46,7 +46,6 @@ const menuObj = {
 menuObj.openMainMenu();
 
 //===============================/===============================/===============================/===============================/===============================
-console.log(header.offsetHeight);
 //===============================/===============================/===============================/===============================/===============================
 
 window.addEventListener("resize", menuObj.resizeHideMobile, false);
@@ -248,8 +247,10 @@ if (btnSelectOne) {
     if (!this.nextElementSibling.classList.contains("quarter-active")) {
       this.nextElementSibling.classList.toggle("quarter-active");
       this.children[1].style.transform = `rotate(-180deg)`;
+
       this.nextElementSibling.addEventListener("click", (e) => {
         this.nextElementSibling.classList.remove("quarter-active");
+        this.classList.remove("btn-education-radio");
         this.children[1].style.transform = `rotate(0deg)`;
       });
     } else {
@@ -259,12 +260,8 @@ if (btnSelectOne) {
   }
 }
 
-const outputJun = document.querySelectorAll(
-  ".quarter-mobile-box__classes-output-jun"
-);
-const outputSin = document.querySelectorAll(
-  ".quarter-mobile-box__classes-output-sin"
-);
+const outputJun = document.querySelector(".output-jun-first");
+const outputSin = document.querySelector(".output-sin-first");
 const outputJunSecond = document.querySelector(".output-jun-second");
 const outputSinSecond = document.querySelector(".output-sin-second");
 const outputJunThird = document.querySelector(".output-jun-third");
@@ -350,7 +347,6 @@ const dateObj = {
 
 const showTableInQuarter = () => {
   if (tableIf.length > 0) {
-    console.log(tableIf);
     if (
       dateObj.currentDate >= dateObj.startFirstQuarter &&
       dateObj.currentDate <= dateObj.endFirstQuarter
@@ -440,6 +436,8 @@ document.querySelectorAll(".li-select").forEach((e) =>
       outputJun.innerHTML = arrInfoFirstSecond.one;
       outputSin.innerHTML = arrInfoFirstSecond.sinOne;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle;
+      console.log(outputJun);
+      console.log("work");
     } else if (event.target.contains(document.getElementById("quarter-li-2"))) {
       outputJun.innerHTML = arrInfoFirstSecond.two;
       outputSin.innerHTML = arrInfoFirstSecond.sinTwo;
@@ -676,9 +674,9 @@ const quarterMobileTitleClasses = document.querySelectorAll(
 const quarterMobileJun = document.querySelectorAll(
   ".quarter-mobile-box__classes-jun"
 );
-const quarterMobileOutputJun = document.querySelectorAll(
-  ".quarter-mobile-box__classes-output-jun"
-);
+// const quarterMobileOutputJun = document.querySelectorAll(
+//   ".quarter-mobile-box__classes-output-jun"
+// );
 const quarterMobileSelect = document.querySelectorAll(
   ".quarter-mobile-box__select"
 );
@@ -700,7 +698,12 @@ const mainInfoLinks = document.querySelectorAll(".main-info-link");
 const orgSubsBorderLeft = document.querySelectorAll(".orgSubsBorderLeft");
 const orgSubsBorderTop = document.querySelectorAll(".orgSubsBorderTop");
 const arrowEducation = document.querySelectorAll("#arrow-education");
-
+const quarterAllOutputJun = document.querySelectorAll(
+  ".quarter-mobile-box__classes-output-jun"
+);
+const quarterAllOutputSin = document.querySelectorAll(
+  ".quarter-mobile-box__classes-output-sin"
+);
 const linksMiddleScreenAdded = document.querySelectorAll(
   ".links-middle-screen__added"
 );
@@ -751,16 +754,18 @@ progBoxTitle.forEach((e) => {
 });
 
 const logo = document.querySelector("#logo");
+
+console.log(logo);
 mtoCount.forEach((elem) => {
   elem.classList.add("mto-count-pdeudo-before");
 });
 quarterMobileSelect.forEach((e) => {
   e.classList.add("quarter-mobile-box__select-pseudo-before");
 });
-outputJun.forEach((e) => {
+quarterAllOutputJun.forEach((e) => {
   e.classList.add("quarter-mobile-box__select-pseudo-before");
 });
-outputSin.forEach((e) => {
+quarterAllOutputSin.forEach((e) => {
   e.classList.add("quarter-mobile-box__select-pseudo-before");
 });
 const progTopHours = document.querySelectorAll(".prog-top-hours-before");
@@ -840,7 +845,7 @@ const elementsReAdd = {
     elem.style.border = `0px solid #ffffff`;
   },
 
-  outputJinReAdd: (elem) => {
+  outputJunReAdd: (elem) => {
     elem.classList.remove(
       `${quarterPseudo[0]}`,
       `${quarterPseudo[1] + themesNames[1]}`,
@@ -850,7 +855,7 @@ const elementsReAdd = {
     );
     elem.classList.add(`${quarterPseudo[1] + themesNames[0]}`);
   },
-  resetOutputJinReAdd: (elem) => {
+  resetOutputJunReAdd: (elem) => {
     elem.classList.remove(
       `${quarterPseudo[1] + themesNames[0]}`,
       `${quarterPseudo[1] + themesNames[1]}`,
@@ -1379,7 +1384,7 @@ function themeToggle() {
     elementsStyle.borderBottom(elem);
   });
 
-  quarterMobileOutputJun.forEach((elem) => {
+  quarterAllOutputJun.forEach((elem) => {
     elementsStyle.borderBottom(elem);
   });
   quarterMobileSelect.forEach((elem) => {
@@ -1477,8 +1482,14 @@ function themeToggle() {
     (elem) => elementsReAdd.quarterSelect(elem),
     false
   );
-  outputJun.forEach((elem) => elementsReAdd.outputJinReAdd(elem), false);
-  outputSin.forEach((elem) => elementsReAdd.outputSinReAdd(elem), false);
+  quarterAllOutputJun.forEach(
+    (elem) => elementsReAdd.outputJunReAdd(elem),
+    false
+  );
+  quarterAllOutputSin.forEach(
+    (elem) => elementsReAdd.outputSinReAdd(elem),
+    false
+  );
   organizationSvgs.forEach((elem) => elementsReAdd.organizationSvgReAdd(elem));
   organizationSvgsColor.forEach((elem) => elementsReAdd.docSvgReAdd(elem));
   progTopHours.forEach((elem) => elementsReAdd.progTopHoursReAdd(elem), false);
@@ -1621,7 +1632,7 @@ function normalToggle() {
     elementsStyle.resetBorderBottom(elem);
   });
   // //=========================
-  quarterMobileOutputJun.forEach((elem) => {
+  quarterAllOutputJun.forEach((elem) => {
     elem.style.borderBottom = `1px solid ${normalColors.borderTif}`;
   });
   // //=========================
@@ -1748,9 +1759,15 @@ function normalToggle() {
     false
   );
   //=========================
-  outputJun.forEach((elem) => elementsReAdd.resetOutputJinReAdd(elem), false);
+  quarterAllOutputJun.forEach(
+    (elem) => elementsReAdd.resetOutputJunReAdd(elem),
+    false
+  );
   //=========================
-  outputSin.forEach((elem) => elementsReAdd.resetOutputSinReAdd(elem), false);
+  quarterAllOutputSin.forEach(
+    (elem) => elementsReAdd.resetOutputSinReAdd(elem),
+    false
+  );
   organizationSvgs.forEach((elem) =>
     elementsReAdd.resetOrganizationSvgReAdd(elem)
   );
@@ -1770,6 +1787,15 @@ function normalToggle() {
 
 function whiteColor() {
   window.localStorage.clear();
+  webColorItems.forEach((elem) =>
+    elem.classList.remove(
+      "impaired-item-active-vanilla",
+      "impaired-item-active-black",
+      "impaired-item-active-brown",
+      "impaired-item-active-blue"
+    )
+  );
+  webColorWhite.classList.add("impaired-item-active-white");
   window.localStorage.setItem("1", "#ffffff");
   window.localStorage.setItem("2", "#000000");
   themesNames = [];
@@ -1777,6 +1803,15 @@ function whiteColor() {
 }
 function blackColor() {
   window.localStorage.clear();
+  webColorItems.forEach((elem) =>
+    elem.classList.remove(
+      "impaired-item-active-vanilla",
+      "impaired-item-active-white",
+      "impaired-item-active-brown",
+      "impaired-item-active-blue"
+    )
+  );
+  webColorBlack.classList.add("impaired-item-active-black");
   window.localStorage.setItem("1", "#000000");
   window.localStorage.setItem("2", "#ffffff");
   themesNames = [];
@@ -1784,6 +1819,15 @@ function blackColor() {
 }
 function vanillaColor() {
   window.localStorage.clear();
+  webColorItems.forEach((elem) =>
+    elem.classList.remove(
+      "impaired-item-active-white",
+      "impaired-item-active-black",
+      "impaired-item-active-brown",
+      "impaired-item-active-blue"
+    )
+  );
+  webColorVanilla.classList.add("impaired-item-active-vanilla");
   window.localStorage.setItem("1", "#F7F3D6");
   window.localStorage.setItem("2", "#4D4B43");
   themesNames = [];
@@ -1791,6 +1835,15 @@ function vanillaColor() {
 }
 function blueColor() {
   window.localStorage.clear();
+  webColorItems.forEach((elem) =>
+    elem.classList.remove(
+      "impaired-item-active-white",
+      "impaired-item-active-black",
+      "impaired-item-active-brown",
+      "impaired-item-active-vanilla"
+    )
+  );
+  webColorBlue.classList.add("impaired-item-active-blue");
   window.localStorage.setItem("1", "#9DD1FF");
   window.localStorage.setItem("2", "#25282B");
   themesNames = [];
@@ -1798,11 +1851,27 @@ function blueColor() {
 }
 function brownColor() {
   window.localStorage.clear();
+  webColorItems.forEach((elem) =>
+    elem.classList.remove(
+      "impaired-item-active-white",
+      "impaired-item-active-black",
+      "impaired-item-active-blue",
+      "impaired-item-active-vanilla"
+    )
+  );
+  webColorBrown.classList.add("impaired-item-active-brown");
   window.localStorage.setItem("1", "#3B2716");
   window.localStorage.setItem("2", "#A9E44D");
   themesNames = [];
   themesNames.push("brown", "black", "vanilla", "blue", "white");
 }
+const webColorItems = document.querySelectorAll(".webColorItem");
+const webColorWhite = document.querySelector(".colorWhite");
+const webColorBlack = document.querySelector(".colorBlack");
+const webColorBlue = document.querySelector(".colorBlue");
+const webColorVanilla = document.querySelector(".colorVanilla");
+const webColorBrown = document.querySelector(".colorBrown");
+const webColorActive = document.querySelector(".web-color-active");
 
 document.querySelector(".web-color__brown").addEventListener("click", (e) => {
   brownColor();
@@ -1855,6 +1924,9 @@ const teachersCards = document.querySelectorAll(".teachers__card");
 const imgChanger = {
   hideImgs: () => {
     body.classList.add("hide-imgs");
+    imparedImagesGray.classList.remove("impaired-item-active");
+    imparedImagesHide.classList.add("impaired-item-active");
+    imparedImagesShow.classList.remove("impaired-item-active");
     cardTeam.forEach((elem) => {
       elem.style.padding = "8px";
       elem.style.borderLeft = "1px solid #25282B";
@@ -1869,6 +1941,9 @@ const imgChanger = {
   grayImgs: () => {
     body.classList.add("gray-imgs");
     sessionStorage.setItem(2, "grayimg");
+    imparedImagesGray.classList.add("impaired-item-active");
+    imparedImagesHide.classList.remove("impaired-item-active");
+    imparedImagesShow.classList.remove("impaired-item-active");
     if (!body.classList.contains("hide-imgs")) {
       if (leadersMainDescription) {
         leadersMainDescription.classList.add("gray-background");
@@ -1877,6 +1952,9 @@ const imgChanger = {
   },
   showImg: () => {
     sessionStorage.setItem(2, " ");
+    imparedImagesGray.classList.remove("impaired-item-active");
+    imparedImagesHide.classList.remove("impaired-item-active");
+    imparedImagesShow.classList.add("impaired-item-active");
     body.classList.remove("hide-imgs");
     body.classList.remove("gray-imgs");
     cardTeam.forEach((elem) => {
@@ -1887,7 +1965,6 @@ const imgChanger = {
     });
   },
 };
-// impared-images__gray
 
 imparedImagesHide.addEventListener("click", (e) => {
   imgChanger.hideImgs();
@@ -1900,7 +1977,6 @@ imparedImagesShow.addEventListener("click", (e) => {
   imgChanger.showImg();
 });
 
-// fonts - change__little;
 const fontsLittle = document.querySelector(".fonts-change__little");
 const fontsMiddle = document.querySelector(".fonts-change__middle");
 const fontsLarge = document.querySelector(".fonts-change__large");
@@ -1912,6 +1988,9 @@ const fontsCharger = {
   permLittleFonts: () => {
     sessionStorage.setItem(3, "littlefonts");
     body.classList.add("little-font");
+    fontsMiddle.classList.remove("impaired-item-active");
+    fontsLarge.classList.remove("impaired-item-active");
+    fontsLittle.classList.add("impaired-item-active");
     menuItem.forEach((e) => {
       e.classList.add("little-font");
       heightHours();
@@ -1921,30 +2000,44 @@ const fontsCharger = {
     sessionStorage.setItem(3, " ");
     body.classList.remove("little-font");
     body.classList.remove("large-font");
+    fontsLarge.classList.remove("impaired-item-active");
+    fontsLittle.classList.remove("impaired-item-active");
+    fontsMiddle.classList.add("impaired-item-active");
     heightHours();
   },
   permLargeFonts: () => {
     sessionStorage.setItem(3, "largefonts");
     body.classList.remove("little-font");
     body.classList.add("large-font");
-    console.log(sessionStorage.getItem(3));
+    fontsLittle.classList.remove("impaired-item-active");
+    fontsMiddle.classList.remove("impaired-item-active");
+    fontsLarge.classList.add("impaired-item-active");
     heightHours();
   },
   normalDistance: () => {
     sessionStorage.setItem(4, "");
     body.classList.remove("big-distance");
     body.classList.remove("biggest-distance");
+    letterDistancMiddle.classList.remove("impaired-item-active");
+    letterFistanceLarge.classList.remove("impaired-item-active");
+    letterDistanceLittle.classList.add("impaired-item-active");
     heightHours();
   },
   bigDistance: () => {
     sessionStorage.setItem(4, "bigDistance");
     body.classList.add("big-distance");
+    letterDistancMiddle.classList.add("impaired-item-active");
+    letterFistanceLarge.classList.remove("impaired-item-active");
+    letterDistanceLittle.classList.remove("impaired-item-active");
     heightHours();
   },
   biggestDistance: () => {
     sessionStorage.setItem(4, "biggestDistance");
     body.classList.remove("big-distance");
     body.classList.add("biggest-distance");
+    letterDistancMiddle.classList.remove("impaired-item-active");
+    letterFistanceLarge.classList.add("impaired-item-active");
+    letterDistanceLittle.classList.remove("impaired-item-active");
     heightHours();
   },
 };
@@ -1969,6 +2062,15 @@ document
   .addEventListener("click", (e) => {
     window.localStorage.clear();
     window.sessionStorage.clear();
+    webColorItems.forEach((elem) =>
+      elem.classList.remove(
+        "impaired-item-active-white",
+        "impaired-item-active-black",
+        "impaired-item-active-blue",
+        "impaired-item-active-vanilla",
+        "impaired-item-active-brown"
+      )
+    );
     normalToggle();
     fontsCharger.normalDistance();
     fontsCharger.permMiddleFonts();
@@ -1990,6 +2092,7 @@ if (sessionStorage.getItem(4) === "bigDistance") {
 } else if (sessionStorage.getItem(4) === "biggestDistance") {
   fontsCharger.biggestDistance();
 }
+
 /*
 (i) Код попадает в итоговый файл,
 только когда вызвана функция,
