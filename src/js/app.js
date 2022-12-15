@@ -755,7 +755,6 @@ progBoxTitle.forEach((e) => {
 
 const logo = document.querySelector("#logo");
 
-console.log(logo);
 mtoCount.forEach((elem) => {
   elem.classList.add("mto-count-pdeudo-before");
 });
@@ -1952,6 +1951,8 @@ const imgChanger = {
   },
   showImg: () => {
     sessionStorage.setItem(2, " ");
+    leadersMainDescription.classList.remove("gray-background");
+
     imparedImagesGray.classList.remove("impaired-item-active");
     imparedImagesHide.classList.remove("impaired-item-active");
     imparedImagesShow.classList.add("impaired-item-active");
@@ -2092,6 +2093,170 @@ if (sessionStorage.getItem(4) === "bigDistance") {
 } else if (sessionStorage.getItem(4) === "biggestDistance") {
   fontsCharger.biggestDistance();
 }
+//=============================================//=============================================//============================================>>
+import { Swiper, Navigation, Pagination } from "swiper";
+// import Swiper and modules styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+Swiper.use([Navigation]);
+Swiper.use([Pagination]);
+// init Swiper:
+new Swiper(".swiper-container-1", {
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next-1",
+    prevEl: ".swiper-button-prev-1",
+  },
+  pagination: {
+    el: ".swiper-pagination-1",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-2", {
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next-2",
+    prevEl: ".swiper-button-prev-2",
+  },
+  pagination: {
+    el: ".swiper-pagination-2",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-3", {
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next-3",
+    prevEl: ".swiper-button-prev-3",
+  },
+  pagination: {
+    el: ".swiper-pagination-3",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-4", {
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next-4",
+    prevEl: ".swiper-button-prev-4",
+  },
+  pagination: {
+    el: ".swiper-pagination-4",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-5", {
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next-5",
+    prevEl: ".swiper-button-prev-5",
+  },
+  pagination: {
+    el: ".swiper-pagination-5",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-6", {
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next-6",
+    prevEl: ".swiper-button-prev-6",
+  },
+  pagination: {
+    el: ".swiper-pagination-6",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-7", {
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next-7",
+    prevEl: ".swiper-button-prev-7",
+  },
+  pagination: {
+    el: ".swiper-pagination-7",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-8", {
+  loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next-8",
+    prevEl: ".swiper-button-prev-8",
+  },
+  pagination: {
+    el: ".swiper-pagination-8",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+
+// console.log(swiper);
+// swiper();
+// const swiper = new Swiper()
 
 /*
 (i) Код попадает в итоговый файл,

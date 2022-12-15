@@ -1,0 +1,208 @@
+.infrastructure {}
+
+.infrastructure__container {
+}
+
+.infrastructure__rows {
+	line-height: 140%;
+	@include adaptiveValue("margin-bottom", 104, 64);
+	h1 {
+
+		@include adaptiveValue('font-size', 40, 26);
+		@include adaptiveValue('margin-top', 104, 64);
+		@include adaptiveValue('margin-bottom', 40, 24);
+		font-weight: 700;
+		line-height: 120%;
+	}
+h5 {
+	margin-bottom: rem(24);
+}
+
+}
+.scroll-content-box {
+	@include adaptiveValue("padding-top", 43, 32);
+	@include adaptiveValue("padding-right", 56, 25);
+	@include adaptiveValue("padding-bottom", 86, 64);
+	@include adaptiveValue("padding-left", 56, 25);
+	grid-column: 2/4;
+	background-color: #ffffff;
+	border-radius: 10px;
+	height: rem(650);
+	overflow-y: scroll;
+}
+.infrastructure {
+
+	&__box {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: 1fr;
+		column-gap: rem(30);
+	}
+
+	&__tab-bar {
+		grid-column: 1/2;
+		background-color: #fff;
+		border-radius: 10px;
+
+	}
+
+	&__list {
+	}
+
+	&__li {
+		@include adaptiveValue("padding-bottom", 24, 16);
+		@include adaptiveValue("padding-top", 24, 16);
+		@include adaptiveValue("margin-left", 105, 65);
+		position: relative;
+	}
+
+	&__li-link {
+		@include adaptiveValue("font-size", 18, 14);
+		font-weight: 700;
+		color: $pointText;
+	}
+
+	&__scroll-content {
+		&:not(:first-child) {
+			margin-top: rem(124);
+		}
+
+	}
+}
+.li-active {
+	&:before {
+		content: '';
+		position: absolute;
+		background-color: $mainTif;
+		height: 100%;
+		width: 3px;
+		border-radius: 20%;
+		top: 0;
+		@include adaptiveValue("left", -105, 0);
+	}
+	a{
+		color: $mainTif;
+	}
+	svg {
+		path {
+			fill: $mainTif;
+		}
+		rect {
+			stroke: $mainTif;
+		}
+	}
+	.infra-svg-sport {
+		path {
+			fill: transparent;
+			stroke: $mainTif;
+		}
+	}
+}
+.infra-svg {
+position: absolute;
+left: -64px;
+top: 50%;
+transform: translateY(-50%)
+}
+.scroll-content {
+
+
+	&__box {
+
+	}
+
+	&__title {
+		@include adaptiveValue("padding-bottom", 16, 16);
+		color: $mainTif;
+		@include adaptiveValue("font-size", 18, 14);
+		font-weight: 700;
+
+	}
+
+	&__text {
+		@include adaptiveValue("margin-bottom", 28, 28);
+		@include adaptiveValue("font-size", 18, 14);
+
+
+	}
+
+	&__slider {
+	}
+}
+.teachers-point-prop {
+}
+.teachers {
+
+	&__education-mater-prop {
+	}
+}
+.swiper-wrapper {
+
+
+}
+.swiper-slide {
+	img {
+		width: 600px;
+		height: 350px;
+	}
+}
+.swiper-container {
+	max-width: rem(600);
+	max-height: rem(350);
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+
+}
+.swiper-button-prev,
+.swiper-button-next {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #00b2b52d;
+	&::after {
+		display: none;
+	}
+}
+.swiper-pagination {
+	position: absolute;
+	top: 106%;
+}
+.svg-relative {
+	position: relative;
+}
+.swiper-arrows {
+	position: absolute;
+	left: -20px;
+	top: -20px;
+}
+.swiper-button-prev-1,
+.swiper-button-prev-2,
+.swiper-button-prev-3,
+.swiper-button-prev-4,
+.swiper-button-prev-5,
+.swiper-button-prev-6,
+.swiper-button-prev-7,
+.swiper-button-prev-8 {
+	cursor: pointer;
+	position: absolute;
+	top: 109%;
+	left: 38%;
+	transform: translateX(-50%) rotate(180deg);
+
+}
+.swiper-button-next-1,
+.swiper-button-next-2,
+.swiper-button-next-3,
+.swiper-button-next-4,
+.swiper-button-next-5,
+.swiper-button-next-6,
+.swiper-button-next-7,
+.swiper-button-next-8 {
+	cursor: pointer;
+
+position: absolute;
+	top: 109%;
+	right: 37.5%;
+	transform: translateX(50%);
+}

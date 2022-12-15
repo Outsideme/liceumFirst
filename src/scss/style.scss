@@ -53,12 +53,13 @@ body {
 		background-repeat: no-repeat;
 		background-position: bottom;
 		background-size: contain;
-		// background-position-y: 300%;
+
 		background-position: bottom; // @include adaptiveValue('font-size', 18, 12);
 
 		filter: grayscale(100%);
 		width: 100%;
 		height: 100%;
+		border-radius: 20px;
 	}
 }
 
@@ -220,6 +221,7 @@ body {
 @import "contacts";
 @import "international";
 @import "teachers";
+@import "infrastructure";
 .little-font {
  h1, h2, h3, h4, h5, h6, ul, li, a, span, div{
 	font-size: 11px !important;
