@@ -15,16 +15,20 @@
 
 	h2 {
 		@include adaptiveValue('font-size', 18, 14);
-		@include adaptiveValue('margin-bottom', 400, 200);
+		// @include adaptiveValue('margin-bottom', 400, 200);
 		line-height: 140%;
 
 	}
 }
 
-@media (orientation: landscape) and (max-height: 500px) {
-	.paid__rows {
-		h2 {
-			margin-bottom: 150px;
-		}
-	}
+// @media (orientation: landscape) and (max-height: 500px) {
+// 	.paid__rows {
+// 		h2 {
+// 			margin-bottom: 150px;
+// 		}
+// 	}
+// }
+.margin-bottom {
+	// margin-bottom: 0px ;
+	@include adaptiveValue("margin-bottom", 40, 24);
 }

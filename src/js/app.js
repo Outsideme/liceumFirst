@@ -436,8 +436,6 @@ document.querySelectorAll(".li-select").forEach((e) =>
       outputJun.innerHTML = arrInfoFirstSecond.one;
       outputSin.innerHTML = arrInfoFirstSecond.sinOne;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle;
-      console.log(outputJun);
-      console.log("work");
     } else if (event.target.contains(document.getElementById("quarter-li-2"))) {
       outputJun.innerHTML = arrInfoFirstSecond.two;
       outputSin.innerHTML = arrInfoFirstSecond.sinTwo;
@@ -1987,15 +1985,17 @@ const letterDistanceLittle = document.querySelector(".letter-distance__little");
 
 const fontsCharger = {
   permLittleFonts: () => {
-    sessionStorage.setItem(3, "littlefonts");
-    body.classList.add("little-font");
-    fontsMiddle.classList.remove("impaired-item-active");
-    fontsLarge.classList.remove("impaired-item-active");
-    fontsLittle.classList.add("impaired-item-active");
-    menuItem.forEach((e) => {
-      e.classList.add("little-font");
-      heightHours();
-    });
+    if (fontsLarge.length > 0) {
+      sessionStorage.setItem(3, "littlefonts");
+      body.classList.add("little-font");
+      fontsMiddle.classList.remove("impaired-item-active");
+      fontsLarge.classList.remove("impaired-item-active");
+      fontsLittle.classList.add("impaired-item-active");
+      menuItem.forEach((e) => {
+        e.classList.add("little-font");
+        heightHours();
+      });
+    }
   },
   permMiddleFonts: () => {
     sessionStorage.setItem(3, " ");
@@ -2103,7 +2103,10 @@ Swiper.use([Navigation]);
 Swiper.use([Pagination]);
 // init Swiper:
 new Swiper(".swiper-container-1", {
-  loop: true,
+  lazy: true,
+  // loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
   navigation: {
     nextEl: ".swiper-button-next-1",
     prevEl: ".swiper-button-prev-1",
@@ -2121,7 +2124,10 @@ new Swiper(".swiper-container-1", {
   },
 });
 new Swiper(".swiper-container-2", {
+  lazy: true,
   loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
   navigation: {
     nextEl: ".swiper-button-next-2",
     prevEl: ".swiper-button-prev-2",
@@ -2140,7 +2146,10 @@ new Swiper(".swiper-container-2", {
   },
 });
 new Swiper(".swiper-container-3", {
+  lazy: true,
   loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
   navigation: {
     nextEl: ".swiper-button-next-3",
     prevEl: ".swiper-button-prev-3",
@@ -2159,7 +2168,10 @@ new Swiper(".swiper-container-3", {
   },
 });
 new Swiper(".swiper-container-4", {
+  lazy: true,
   loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
   navigation: {
     nextEl: ".swiper-button-next-4",
     prevEl: ".swiper-button-prev-4",
@@ -2178,7 +2190,10 @@ new Swiper(".swiper-container-4", {
   },
 });
 new Swiper(".swiper-container-5", {
+  lazy: true,
   loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
   navigation: {
     nextEl: ".swiper-button-next-5",
     prevEl: ".swiper-button-prev-5",
@@ -2197,7 +2212,10 @@ new Swiper(".swiper-container-5", {
   },
 });
 new Swiper(".swiper-container-6", {
+  lazy: true,
   loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
   navigation: {
     nextEl: ".swiper-button-next-6",
     prevEl: ".swiper-button-prev-6",
@@ -2216,7 +2234,10 @@ new Swiper(".swiper-container-6", {
   },
 });
 new Swiper(".swiper-container-7", {
+  lazy: true,
   loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
   navigation: {
     nextEl: ".swiper-button-next-7",
     prevEl: ".swiper-button-prev-7",
@@ -2235,7 +2256,10 @@ new Swiper(".swiper-container-7", {
   },
 });
 new Swiper(".swiper-container-8", {
+  lazy: true,
   loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
   navigation: {
     nextEl: ".swiper-button-next-8",
     prevEl: ".swiper-button-prev-8",
@@ -2254,9 +2278,289 @@ new Swiper(".swiper-container-8", {
   },
 });
 
-// console.log(swiper);
-// swiper();
-// const swiper = new Swiper()
+//=============//===========================================================//==========================>> Мобильные свайперы
+
+new Swiper(".swiper-container-mob-1", {
+  lazy: true,
+  loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
+  navigation: {
+    nextEl: ".swiper-button-next-1",
+    prevEl: ".swiper-button-prev-1",
+  },
+  pagination: {
+    el: ".swiper-pagination-mob-1",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-mob-2", {
+  lazy: true,
+  loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
+  navigation: {
+    nextEl: ".swiper-button-next-2",
+    prevEl: ".swiper-button-prev-2",
+  },
+  pagination: {
+    el: ".swiper-pagination-mob-2",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-mob-3", {
+  lazy: true,
+  loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
+  navigation: {
+    nextEl: ".swiper-button-next-3",
+    prevEl: ".swiper-button-prev-3",
+  },
+  pagination: {
+    el: ".swiper-pagination-mob-3",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-mob-4", {
+  lazy: true,
+  loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
+  navigation: {
+    nextEl: ".swiper-button-next-4",
+    prevEl: ".swiper-button-prev-4",
+  },
+  pagination: {
+    el: ".swiper-pagination-mob-4",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-mob-5", {
+  lazy: true,
+  loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
+  navigation: {
+    nextEl: ".swiper-button-next-5",
+    prevEl: ".swiper-button-prev-5",
+  },
+  pagination: {
+    el: ".swiper-pagination-mob-5",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-mob-6", {
+  lazy: true,
+  loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
+  navigation: {
+    nextEl: ".swiper-button-next-6",
+    prevEl: ".swiper-button-prev-6",
+  },
+  pagination: {
+    el: ".swiper-pagination-mob-6",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".swiper-container-mob-7", {
+  lazy: true,
+  loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
+  navigation: {
+    nextEl: ".swiper-button-next-7",
+    prevEl: ".swiper-button-prev-7",
+  },
+  pagination: {
+    el: ".swiper-pagination-mob-7",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+
+document
+  .querySelector(".infrastructure__li-1")
+  .addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 0, behavior: "smooth" });
+  });
+document
+  .querySelector(".infrastructure__li-2")
+  .addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 684, behavior: "smooth" });
+  });
+document
+  .querySelector(".infrastructure__li-3")
+  .addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 1477, behavior: "smooth" });
+  });
+document
+  .querySelector(".infrastructure__li-4")
+  .addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 2175, behavior: "smooth" });
+  });
+document
+  .querySelector(".infrastructure__li-5")
+  .addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 2940, behavior: "smooth" });
+  });
+document
+  .querySelector(".infrastructure__li-6")
+  .addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 3797, behavior: "smooth" });
+  });
+document
+  .querySelector(".infrastructure__li-7")
+  .addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 4563, behavior: "smooth" });
+  });
+document
+  .querySelector(".infrastructure__li-8")
+  .addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 5688, behavior: "smooth" });
+  });
+document.querySelector(".infrastructure__li-1").classList.add("li-active");
+document
+  .querySelector(".scroll-content-box")
+  .addEventListener("scroll", function () {
+    if (this.scrollTop <= 683 || this.scrollTop === 0) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-1")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 683 && this.scrollTop <= 1463) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-2")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 1463 && this.scrollTop <= 2145) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-3")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 2145 && this.scrollTop <= 2925) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-4")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 2925 && this.scrollTop <= 3780) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-5")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 3780 && this.scrollTop <= 4537) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-6")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 4537 && this.scrollTop <= 5671) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-7")
+        .classList.add("li-active");
+    }
+
+    if (this.scrollTop >= 5671) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-8")
+        .classList.add("li-active");
+    }
+  });
 
 /*
 (i) Код попадает в итоговый файл,

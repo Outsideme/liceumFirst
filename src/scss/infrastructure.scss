@@ -9,7 +9,7 @@
 	h1 {
 
 		@include adaptiveValue('font-size', 40, 26);
-		@include adaptiveValue('margin-top', 104, 64);
+		@include adaptiveValue('margin-top', 48, 48);
 		@include adaptiveValue('margin-bottom', 40, 24);
 		font-weight: 700;
 		line-height: 120%;
@@ -24,6 +24,7 @@ h5 {
 	@include adaptiveValue("padding-right", 56, 25);
 	@include adaptiveValue("padding-bottom", 86, 64);
 	@include adaptiveValue("padding-left", 56, 25);
+	overflow-x: hidden;
 	grid-column: 2/4;
 	background-color: #ffffff;
 	border-radius: 10px;
@@ -78,7 +79,7 @@ h5 {
 		width: 3px;
 		border-radius: 20%;
 		top: 0;
-		@include adaptiveValue("left", -105, 0);
+		@include adaptiveValue("left", -105, -65);
 	}
 	a{
 		color: $mainTif;
@@ -142,13 +143,14 @@ transform: translateY(-50%)
 }
 .swiper-slide {
 	img {
-		width: 600px;
-		height: 350px;
+		@include adaptiveValue("width", 585, 100);
+		@include adaptiveValue("height", 350, 150);
+		border-radius: 10px;
 	}
 }
 .swiper-container {
-	max-width: rem(600);
-	max-height: rem(350);
+	@include adaptiveValue("max-width", 585, 285);
+	@include adaptiveValue("max-height", 350, 195);
 	text-align: center;
 	position: relative;
 	overflow: hidden;
@@ -166,6 +168,7 @@ transform: translateY(-50%)
 }
 .swiper-pagination {
 	position: absolute;
+	left: -1%;
 	top: 106%;
 }
 .svg-relative {
@@ -186,8 +189,9 @@ transform: translateY(-50%)
 .swiper-button-prev-8 {
 	cursor: pointer;
 	position: absolute;
+
 	top: 109%;
-	left: 38%;
+	left: 33%;
 	transform: translateX(-50%) rotate(180deg);
 
 }
@@ -203,6 +207,92 @@ transform: translateY(-50%)
 
 position: absolute;
 	top: 109%;
-	right: 37.5%;
+	right: 35%;
 	transform: translateX(50%);
+}
+.mobile-content-box {
+	display: none;
+}
+
+@media screen and (max-width: 869px) {
+	.infrastructure__tab-bar {
+		display: none;
+	}
+	.scroll-content-box {
+		display: none;
+	}
+	.swiper-slide {
+
+		img {
+			// @include adaptiveValue("width", 800, 330);
+			// @include adaptiveValue("height", 600, 230);
+			width: 100%;
+		height: 80%;
+			border-radius: 10px;
+		}
+	}
+	.swiper-container {
+		// @include adaptiveValue("max-width", 800, 400);
+		// @include adaptiveValue("max-height", 650, 250);
+		max-width: 100%;
+		max-height: 80%;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+
+	}
+
+.swiper-button-prev-1,
+.swiper-button-prev-2,
+.swiper-button-prev-3,
+.swiper-button-prev-4,
+.swiper-button-prev-5,
+.swiper-button-prev-6,
+.swiper-button-prev-7,
+.swiper-button-prev-8 {
+	cursor: pointer;
+	position: absolute;
+
+	top: 115%;
+	left: 33%;
+	transform: translateX(-50%) rotate(180deg);
+
+}
+.swiper-button-next-1,
+.swiper-button-next-2,
+.swiper-button-next-3,
+.swiper-button-next-4,
+.swiper-button-next-5,
+.swiper-button-next-6,
+.swiper-button-next-7,
+.swiper-button-next-8 {
+	cursor: pointer;
+
+position: absolute;
+	top: 115%;
+	right: 35%;
+	transform: translateX(50%);
+}
+.mobile-content-box {
+	display: block;
+}
+.swiper-pagination {
+	position: absolute;
+	left: -1%;
+	top: 112%;
+}
+}
+@media screen and (max-width: 600px) {
+	.swiper-pagination {
+		position: absolute;
+		left: -1%;
+		top: 110%;
+	}
+}
+@media screen and (max-width: 390px) {
+	.swiper-pagination {
+		position: absolute;
+		left: -1%;
+		top: 108%;
+	}
 }
