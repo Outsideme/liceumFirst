@@ -102,7 +102,7 @@
 .mto-mini-accor {
 	max-height: 0px;
 	max-height: 1700px;
-	transition-duration: 1s;
+	transition: transform 1s ease;
 }
 
 .mto-table__box {
@@ -280,7 +280,7 @@
 .box-content-accor-mto {}
 
 .mto-accor {
-	transition: all .5s ease;
+	transition: max-height .6s ease-in-out;
 
 }
 

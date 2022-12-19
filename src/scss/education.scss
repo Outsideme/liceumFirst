@@ -35,7 +35,7 @@
 
 	.box-chart {
 		@include adaptiveValue('margin-bottom', 24, 16);
-		transition-duration: .2s;
+		transition: transform .2s ease;
 		line-height: math.div(20, 14);
 
 
@@ -51,7 +51,7 @@
 	.chart {
 		@include adaptiveValue('font-size', 18, 14);
 		position: relative;
-		transition-duration: .2s;
+		transition: transform .2s ease-in-out;
 
 	}
 }
@@ -213,7 +213,7 @@
 	font-weight: 700;
 	width: 100%;
 	border-radius: 20px;
-	transition-duration: .5s;
+	transition: max-height .5s ease, border-radius .73s ease;
 
 
 
@@ -231,7 +231,7 @@
 
 
 #arrow-education {
-	transition: all 0.4s ease;
+	transition: transform 0.4s ease;
 
 }
 .arrow-education-white {
@@ -283,14 +283,14 @@
 .education-accor {
 	overflow: hidden;
 	max-height: 0px;
-	transition: all .4s ease;
+	transition: max-height .4s ease;
 
 
 }
 
 .education-accor-active {
 	max-height: 1700px;
-	transition-duration: .7s;
+	transition: max-height .7s ease-in-out;
 
 }
 
@@ -332,7 +332,7 @@
 
 		h2 {
 			font-weight: 400;
-			transition-duration: .2s;
+			transition: transform .2s ease-in-out;
 			@include adaptiveValue('font-size', 18, 14);
 			@include adaptiveValue('margin-bottom', 24, 14);
 
@@ -341,7 +341,7 @@
 			}
 
 			a {
-				transition-duration: .2s;
+				transition: transform .2s ease-in-out;
 
 			}
 
@@ -358,7 +358,7 @@
 
 .education-accor {
 
-	transition: all .3s;
+	transition: max-height .6s ease-in-out;
 
 
 	&:not(:last-child) {
@@ -862,7 +862,7 @@
 	right: 8px;
 	top: 40%;
 	// transform: translateY(-50%);
-	transition-duration: .4s;
+	transition: transform .4s ease;
 	z-index: 7;
 }
 
@@ -907,7 +907,7 @@
 	border-radius: 0 0 10px 10px;
 	background-color: #fff;
 	max-height: 0px;
-	transition-duration: .5s;
+	transition: transform .5s ease;
 	z-index: 4;
 
 
@@ -955,7 +955,7 @@
 }
 
 .quarter-active {
-	transition-duration: 1s;
+	transition: transform 1s ease;
 
 	max-height: 400px;
 	transform: translateY(0px);
@@ -978,7 +978,7 @@
 .btn-education-radio {
 	border-radius: 10px 10px 0px 0px;
 	background-color: #fff;
-	// transition: all 0s ease;
+	// transition: all 2s ease;
 
 }
 

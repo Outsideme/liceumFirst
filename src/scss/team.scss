@@ -110,7 +110,7 @@
 .card-team {
 
 	border-radius: 10px;
-	transition-duration: .3s;
+	transition: transform .3s ease-in-out;
 
 	&:hover {
 		transform: scale(104%);

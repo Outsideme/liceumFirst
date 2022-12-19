@@ -1,14 +1,31 @@
 //====================================================================================================
 
-.header {}
+.header {
+	z-index: 100;
 
+}
 
+.scroll200 {
+	transform: translateY(-20px);
+	opacity: 0;
+}
+.header-top-fixed {
+	transform: translateY(0px);
+	opacity: 1;
+	transition: transform .5s ease, opacity .5s ease;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	// transition-duration: 5s;
+
+}
 
 .header__top-line {
 	max-height: rem(32);
 	background-color: #fff;
 	overflow-y: hidden;
-	// transition-duration: .2s;
+	transition: max-height .25s ease;
 
 }
 
@@ -19,7 +36,7 @@
 }
 
 #search {
-	transition-duration: .1s;
+	transition: transform .1s ease;
 
 	&:hover {
 		transform: scale(110%);
@@ -28,7 +45,7 @@
 }
 
 #eye {
-	transition-duration: .1s;
+	transition: transform .1s ease;
 
 	&:hover {
 		transform: scale(110%);
@@ -37,7 +54,7 @@
 }
 
 #user {
-	transition-duration: .1 s;
+	transition: transform ease .1 s;
 
 	&:hover {
 		transform: scale(110%);
@@ -49,7 +66,7 @@
 .search-btn {
 	right: 112px;
 	position: absolute;
-	transition: all .45s cubic-bezier(.44, 1.26, .16, 1.04);
+	transition: transform .45s cubic-bezier(.44, 1.26, .16, 1.04);
 }
 
 
@@ -257,7 +274,7 @@
 	background-color: transparent;
 	width: 32px;
 	height: 24px;
-	@include adaptiveValue('margin-top', 30, 12);
+	@include adaptiveValue('margin-top', 26, 19);
 	position: relative;
 	display: none;
 }
@@ -272,7 +289,7 @@
 	left: 0;
 	top: 50%;
 	transform: translateY(-50%);
-	transition: opacity .3s;
+	transition: opacity .3s ease;
 
 }
 
@@ -503,7 +520,7 @@
 
 .mobile-page-menu {
 	overflow-y: scroll;
-	transition: all .3s ease;
+	transition: transform .3s ease-in-out;
 	visibility: hidden;
 	opacity: 0;
 	transform: scaleX(70%);
@@ -538,7 +555,7 @@
 
 .menu-link {
 
-	transition-duration: .1s;
+	transition: transform .1s ease;
 	padding-top: rem(8);
 	padding-bottom: rem(8);
 	width: 100%;
@@ -720,7 +737,7 @@
 	visibility: visible;
 	opacity: 1;
 	z-index: 10;
-	transition-duration: .3s;
+	transition: transform .3s ease;
 	transform: scaleY(100%);
 
 }
@@ -729,7 +746,7 @@
 .menu-hidden.showHide {
 	visibility: visible;
 	opacity: 1;
-	transition-duration: .3s;
+	transition: transform .3s ease;
 	transform: scaleY(100%);
 
 }
@@ -738,7 +755,7 @@
 
 	// overflow: hidden;
 	white-space: normal;
-	transition-duration: all .3s;
+	transition: transform .3s ease;
 	visibility: hidden;
 	opacity: 0;
 	transform: translateY(-500px);
@@ -773,7 +790,7 @@ li[data-arrow] {
 #arrowMainMenu {
 	position: absolute;
 	@include adaptiveValue('right', 35, 25);
-	transition: all 0.32s cubic-bezier(.84, 1.96, .46, .68);
+	transition: transform 0.32s cubic-bezier(.84, 1.96, .46, .68);
 	width: 6px;
 	height: 11px;
 	top: 45%;
@@ -824,7 +841,7 @@ li[data-arrow] {
 #arrow {
 	margin-left: rem(8);
 	transform: rotate(90deg);
-	transition: .3s;
+	transition: transfotm .3s ease;
 
 	// path {
 	// 	stroke: #fff;
@@ -899,19 +916,19 @@ li[data-arrow] {
 	visibility: visible;
 	opacity: 1;
 	max-height: 500px;
-	transition: .4s;
+	transition: transform .4s ease;
 	transform: scaleY(100%);
 
 }
 
 #arrow.open-accor {
 	transform: rotate(-90deg);
-	transition: all .3s;
+	transition: transform .3s ease;
 
 }
 
 .accor-content {
-	transition: all .3s;
+	transition: max-height .1s ease;
 	transform: scaleY(70%);
 	overflow: hidden;
 	visibility: hidden;
@@ -1239,7 +1256,8 @@ li[data-arrow] {
 
 //==================================//==================================//==================================//==================================
 .top-line-active {
-	// transition-duration: .8s;
+	transition: max-height .8s ease;
+
 	max-height: 700px;
 }
 
@@ -1247,7 +1265,7 @@ li[data-arrow] {
 	position: relative;
 	min-height: rem(29);
 	min-width: rem(28);
-	transition-duration: 1s;
+	transition: transform 1s ease;
 	overflow: hidden;
 
 	&:before {
@@ -1262,7 +1280,7 @@ li[data-arrow] {
 		background-color: #fff;
 		transform: rotate(45deg) scaleY(0%);
 		z-index: 5;
-		transition-duration: .5s;
+		transition: transform .5s ease;
 	}
 
 	&:after {
@@ -1277,7 +1295,7 @@ li[data-arrow] {
 		transform: rotate(45deg) scale(0%);
 		z-index: 5;
 
-		transition-duration: .5s;
+		transition: transform .5s ease;
 	}
 
 
@@ -1285,13 +1303,13 @@ li[data-arrow] {
 
 #eye {
 	position: relative;
-	transition-duration: .3s;
+	transition: transform .3s ease;
 
 
 }
 
 .eyeActive {
-	transition-duration: .3s;
+	transition: transform .3s ease;
 
 	&:before,
 	&:after {
@@ -1301,6 +1319,12 @@ li[data-arrow] {
 
 }
 
+// .header-fixed-out {
+// 	position: fixed;
+// 	left: 0;
+// 	top: -200px;
+// 	right: 0;
+// }
 
 //background:  no-repeat 0 100%
 //background-image: linear-gradient(to right, #000 20%, #000 80%)

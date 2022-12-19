@@ -16,14 +16,14 @@
 		@include adaptiveValue('font-size', 18, 14);
 		margin-bottom: rem(24);
 		line-height: 140%;
-		transition-duration: .3s;
+		transition: transform .3s ease-in-out;
 
 		&:hover {
 			transform: translateX(5px);
 		}
 
 		a {
-			transition-duration: .3s;
+			transition: transform .3s ease-in-out;
 
 		}
 

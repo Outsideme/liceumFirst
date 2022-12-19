@@ -13,7 +13,7 @@
 }
 
 .item-list-li {
-	transition-duration: .1s;
+	transition: transform .1s ease-in-out;
 
 	&:hover {
 		transform: translateX(5px);
@@ -26,7 +26,7 @@
 }
 
 .item-list-a {
-	transition-duration: .1s;
+	transition: transform .1s ease-in-out;
 
 
 }
@@ -105,7 +105,7 @@
 #ok-footer {
 	@include adaptiveValue('width', 45, 35);
 	@include adaptiveValue('height', 45, 35);
-	transition-duration: .2s;
+	transition: transform .2s ease-in-out;
 
 	path {
 		animation-name: animSVG;
@@ -114,12 +114,12 @@
 
 	&:hover {
 		transform: scale(103%);
-		transition-duration: .1s;
+		transition: transform .1s ease-in-out;
 
 		path {
 			fill: #fff;
 			stroke: #fff;
-			transition-duration: .2s;
+			transition: transform .2s ease-in-out;
 		}
 	}
 }
@@ -152,7 +152,7 @@
 }
 
 .aside__contacts {
-	transition-duration: .3s;
+	transition: transform .3s ease-in-out;
 }
 
 .aside__contacts h2 {
@@ -168,11 +168,11 @@
 
 
 
-	transition-duration: .1s;
+	transition: transform .1s ease-in-out;
 
 	a:hover {
 		transform: scale(103%);
-		transition-duration: .1s;
+		transition: transform .1s ease-in-out;
 
 
 	}
@@ -209,7 +209,7 @@
 	border-radius: 10px;
 	font-size: 12px;
 	font-weight: 700;
-	transition: .05s;
+	transition: transform .05s ease-in-out;
 	box-shadow: 0px 0px 3px rgba(255, 255, 255, .5);
 
 
@@ -246,25 +246,25 @@
 	font-weight: 400;
 	text-align: right;
 	color: $mainTif;
-	transition-duration: .3s;
+	transition: transform .3s ease-in-out;
 
 	h2 {
-		transition-duration: .3s;
+		transition: transform .2s ease-in-out;
 	}
 
 	h2:hover {
 		transform: translateX(-5px);
-		transition-duration: .3s;
+		transition: transform .2s ease-in-out;
 
 	}
 
 	a {
-		transition-duration: .3s;
+	transition: transform .3s ease-in-out;
 	}
 
 	a:hover {
 		color: #fff;
-		transition-duration: .3s;
+		transition: transform .3s ease-in-out;
 
 	}
 
