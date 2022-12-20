@@ -224,12 +224,12 @@ body {
 @import "infrastructure";
 .little-font {
  h1, h2, h3, h4, h5, h6, ul, li, a, span, div{
-	font-size: 11px !important;
+	font-size: 9px !important;
 }
 }
 .large-font {
  h1, h2, h3, h4, h5, h6, ul, li, a, span, div{
-	@include adaptiveValue("font-size", 24, 10);
+	@include adaptiveValue("font-size", 24, 18);
 	// letter-spacing: 2.7px;
 	.organization-svg {
 		display: none;
@@ -315,7 +315,7 @@ body {
 .biggest-distance {
 	h1, h2, h3, h4, h5, h6, ul, li, a, span, div {
 		letter-spacing: 5.4px;
-		@include adaptiveValue("letter-spacing", 5.4, 1.5);
+		@include adaptiveValue("letter-spacing", 5.4, 4.7);
 		.organization-svg {
 			display: none;
 		}

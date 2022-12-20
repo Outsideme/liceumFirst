@@ -206,11 +206,15 @@
 
 //======================================//======================================//======================================//======================================//======================================//======================================//======================================
 .btn-education-accor {
-	@include adaptiveValue('height', 90, 70);
+	@include adaptiveValue('min-height', 90, 70);
 	@include adaptiveValue('font-size', 24, 14);
+	padding: 8px;
 	position: relative;
 	background-color: #fff;
 	font-weight: 700;
+	// max-height: auto;
+	// overflow-y: auto;
+
 	width: 100%;
 	border-radius: 20px;
 	transition: max-height .5s ease, border-radius .73s ease;
@@ -289,7 +293,7 @@
 }
 
 .education-accor-active {
-	max-height: 1700px;
+	max-height: 3000px;
 	transition: max-height .7s ease-in-out;
 
 }
@@ -391,8 +395,9 @@
 
 
 .prog-table {
+	overflow-x: auto;
 	border: 1px solid $borderTif;
-	border-radius: 20px;
+	border-radius: 10px;
 	background-color: #fff;
 	@include adaptiveValue('padding', 16, 8);
 	@include adaptiveValue('margin-top', 40, 8);
@@ -740,9 +745,10 @@
 }
 
 .quarter-mobile {
+	overflow-x: auto;
 	display: none;
 	border: 1px solid $borderTif;
-	border-radius: 20px;
+	border-radius: 10px;
 	@include adaptiveValue('padding', 16, 16);
 	background-color: #fff;
 	@include adaptiveValue('margin-bottom', 40, 24);
@@ -772,6 +778,7 @@
 .quarter-mobile-box__title-classes {
 	@include adaptiveValue('padding-bottom', 16, 8);
 	@include adaptiveValue('padding-top', 16, 12);
+	@include adaptiveValue('padding-right', 16, 12);
 	font-weight: 700;
 	border-bottom: 1px solid $borderTif;
 
@@ -782,6 +789,7 @@
 	grid-row: 1/2;
 	grid-column: 2/3;
 	@include adaptiveValue('padding-bottom', 16, 8);
+	@include adaptiveValue('padding-right', 16, 8);
 	border-bottom: 1px solid $borderTif;
 	position: relative;
 
@@ -879,9 +887,11 @@
 }
 
 .button-select {
-	@include adaptiveValue('width', 260, 170);
+	@include adaptiveValue('min-width', 260, 170);
 	@include adaptiveValue('font-size', 14, 12);
+	white-space: nowrap;
 	padding-left: 16px;
+	padding-right: 32px;
 	border-radius: 10px 10px 10px 10px;
 	border: 1px solid #C9C8D3;
 	background-color: #fff;

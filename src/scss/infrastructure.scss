@@ -26,6 +26,7 @@
 			top: 7px;
 		}
 	}
+
 .cate-leap__box {
 	overflow: hidden;
 	transition-duration: .5s;
@@ -45,6 +46,7 @@
 
 }
 .cate-btn-active {
+
 	background-color: #fff;
 	color: $mainText;
 	border-radius: 10px 10px 0 0 ;
@@ -87,14 +89,19 @@
 		stroke: $mainTif;
 	}
 }
+.cate-leap-opacity {
+	transition: transform .3s ease, opacity .3s ease;
+	transform: translateY(-50px);
+	opacity: 0;
+}
 .cateLeapFix {
-	z-index: 200;
+	z-index: 100;
 	transform: translateY(0px);
 	opacity: 1;
-	transition: transform .5s ease, opacity .5s ease;
+	transition: transform .3s ease, opacity .3s ease;
 	position: fixed;
 	left: 15px;
-	top: 100px;
+	top: 110px;
 	right: 15px;
 }
 
@@ -407,6 +414,8 @@ position: absolute;
 }
 .infra-titleNew {
 
-		margin-bottom: 66px;
-
 }
+// .scroll200 {
+// 	transform: translateY(-20px);
+// 	opacity: 0;
+// }

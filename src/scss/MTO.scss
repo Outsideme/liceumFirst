@@ -47,10 +47,12 @@
 	@include adaptiveValue('padding-bottom', 24, 12);
 	@include adaptiveValue('margin-left', 24, 16);
 	@include adaptiveValue('padding-left', 16, 16);
+	overflow-x: auto;
 	border: 1px solid $borderTif;
 	border-radius: 10px;
 
 	&__box {
+
 		h3 {
 			@include adaptiveValue('font-size', 18, 12);
 
@@ -100,7 +102,7 @@
 }
 
 .mto-mini-accor {
-	max-height: 0px;
+	// max-height: 0px;
 	max-height: 1700px;
 	transition: transform 1s ease;
 }
@@ -277,7 +279,10 @@
 	}
 }
 
-.box-content-accor-mto {}
+.box-content-accor-mto {
+	// border: 1px solid red !important;
+	// max-height: 5000px;
+}
 
 .mto-accor {
 	transition: max-height .6s ease-in-out;
