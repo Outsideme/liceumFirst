@@ -24,6 +24,7 @@
 			position: absolute;
 			left: 20px;
 			top: 7px;
+			width: 100%;
 		}
 	}
 
@@ -81,10 +82,12 @@
 	border-top: 0px solid #fff;
 }
 #arrow-infra-leap {
+	// z-index: 50;
 	transition: transform .3s ease-in-out;
 	position: absolute;
-	@include adaptiveValue("right", -245, -100);
-	top: 30%;
+	// @include adaptiveValue("right", -160, -16);
+	right: 32px;
+	top: 40%;
 	path {
 		stroke: $mainTif;
 	}
@@ -101,7 +104,7 @@
 	transition: transform .3s ease, opacity .3s ease;
 	position: fixed;
 	left: 15px;
-	top: 110px;
+	top: 125px;
 	right: 15px;
 }
 
@@ -224,8 +227,8 @@ transform: translateY(-50%)
 
 	&__title {
 		@include adaptiveValue("padding-bottom", 16, 16);
-		color: $mainTif;
 		@include adaptiveValue("font-size", 18, 14);
+		color: $mainTif;
 		font-weight: 700;
 
 	}
@@ -323,6 +326,26 @@ position: absolute;
 .mobile-content-box {
 	display: none;
 }
+.swiper-slide {
+
+	img {
+		// @include adaptiveValue("width", 800, 330);
+		// @include adaptiveValue("height", 600, 230);
+		width: 100%;
+		height: 80%;
+		border-radius: 10px;
+	}
+}
+.swiper-container {
+	// @include adaptiveValue("max-width", 800, 400);
+	// @include adaptiveValue("max-height", 650, 250);
+	max-width: 100%;
+	max-height: 80%;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+
+}
 
 @media screen and (max-width: 869px) {
 	.infrastructure__tab-bar {
@@ -331,26 +354,26 @@ position: absolute;
 	.scroll-content-box {
 		display: none;
 	}
-	.swiper-slide {
+	// .swiper-slide {
 
-		img {
-			// @include adaptiveValue("width", 800, 330);
-			// @include adaptiveValue("height", 600, 230);
-			width: 100%;
-		height: 80%;
-			border-radius: 10px;
-		}
-	}
-	.swiper-container {
-		// @include adaptiveValue("max-width", 800, 400);
-		// @include adaptiveValue("max-height", 650, 250);
-		max-width: 100%;
-		max-height: 80%;
-		text-align: center;
-		position: relative;
-		overflow: hidden;
+	// 	img {
+	// 		// @include adaptiveValue("width", 800, 330);
+	// 		// @include adaptiveValue("height", 600, 230);
+	// 		width: 100%;
+	// 		height: 80%;
+	// 		border-radius: 10px;
+	// 	}
+	// }
+	// .swiper-container {
+	// 	// @include adaptiveValue("max-width", 800, 400);
+	// 	// @include adaptiveValue("max-height", 650, 250);
+	// 	max-width: 100%;
+	// 	max-height: 80%;
+	// 	text-align: center;
+	// 	position: relative;
+	// 	overflow: hidden;
 
-	}
+	// }
 
 .swiper-button-prev-1,
 .swiper-button-prev-2,
@@ -364,7 +387,7 @@ position: absolute;
 	position: absolute;
 
 	top: 115%;
-	left: 33%;
+	left: 28%;
 	transform: translateX(-50%) rotate(180deg);
 
 }
@@ -380,7 +403,7 @@ position: absolute;
 
 position: absolute;
 	top: 115%;
-	right: 35%;
+	right: 30%;
 	transform: translateX(50%);
 }
 .mobile-content-box {
@@ -415,7 +438,69 @@ position: absolute;
 .infra-titleNew {
 
 }
+
+.black-title {
+	@include adaptiveValue("font-size", 18, 14);
+	font-weight: 700;
+	margin-bottom: rem(32);
+}
+
+
 // .scroll200 {
 // 	transform: translateY(-20px);
 // 	opacity: 0;
 // }
+.swiper-wrapper-psy {
+	// width: 300px;
+	// height: 400px;
+	// display: flex;
+	// justify-content: center;
+	margin-left: 10%;
+
+}
+.cards-box{
+	text-align: left;
+	padding: 42px 24px 30px 24px;
+	width: 400px;
+	min-height: 400px;
+	border-radius: 20px;
+	@include adaptiveValue("font-size", 18, 14);
+
+}
+.card-psy-title {
+	text-align: center;
+	font-weight: 700;
+}
+.cards-box-1 {
+	background-color: #C9ECED;
+}
+.cards-box-2 {
+	background-color: #FFE5D6;
+}
+.cards-box-3 {
+	background-color: #FAE6FF;
+	// width: 200px;
+	// height: 400px;
+}
+.slide-psy {
+
+	overflow-x: visible;
+	// width: 200px;
+	// height: 400px;
+
+}
+.swiper-slide-shadow {
+	display: none;
+}
+.card-box-mob {
+	// @include adaptiveValue("width", 700, 100);
+	width: 75%;
+
+}
+
+@media screen and (max-width: 869px) {
+	.infrastructure__list {
+		display: none;
+	}
+
+}

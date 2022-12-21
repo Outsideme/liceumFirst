@@ -373,3 +373,8 @@ body {
 	border-radius: 30px;
 	border: 3px solid $borderTif;
   }
+* {
+	scroll-behavior: smooth;
+	scroll-margin-top: 180px;
+
+}

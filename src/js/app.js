@@ -634,10 +634,9 @@ eyeBtn.addEventListener("click", (e) => {
   topLine.classList.toggle("top-line-active");
   eyeBtn.classList.toggle("eyeActive");
 });
-// window.addEventListener("scroll", (e) => {
-//   topLine.classList.remove("top-line-active");
-//   eyeBtn.classList.remove("eyeActive");
-// });
+window.addEventListener("scroll", (e) => {
+  menuObj.burgerClose();
+});
 
 const menuItem = document.querySelectorAll(".menu-item");
 const organizationSubs = document.querySelectorAll(".organization-subs");
@@ -2002,6 +2001,11 @@ const fontsLarge = document.querySelector(".fonts-change__large");
 const letterDistancMiddle = document.querySelector(".letter-distance__middle");
 const letterFistanceLarge = document.querySelector(".letter-distance__large");
 const letterDistanceLittle = document.querySelector(".letter-distance__little");
+const infraMobileContentBox = document.querySelector(".mobile-content-box");
+const infraScrollContentBox = document.querySelector(".scroll-content-box");
+const infraTabBar = document.querySelector(".infrastructure__tab-bar");
+const cateLeap = document.querySelector(".cate-leap");
+const cateLeapTitle = document.querySelector(".cate-leap__title");
 
 const fontsCharger = {
   permLittleFonts: () => {
@@ -2010,6 +2014,8 @@ const fontsCharger = {
     fontsMiddle.classList.remove("impaired-item-active");
     fontsLarge.classList.remove("impaired-item-active");
     fontsLittle.classList.add("impaired-item-active");
+    cateLeapTitle.style.top = "12px";
+
     menuItem.forEach((e) => {
       e.classList.add("little-font");
       heightHours();
@@ -2022,6 +2028,7 @@ const fontsCharger = {
     fontsLarge.classList.remove("impaired-item-active");
     fontsLittle.classList.remove("impaired-item-active");
     fontsMiddle.classList.add("impaired-item-active");
+    cateLeapTitle.style.top = "7px";
     heightHours();
   },
   permLargeFonts: () => {
@@ -2031,6 +2038,11 @@ const fontsCharger = {
     fontsLittle.classList.remove("impaired-item-active");
     fontsMiddle.classList.remove("impaired-item-active");
     fontsLarge.classList.add("impaired-item-active");
+    infraMobileContentBox.style.display = "block";
+    infraScrollContentBox.style.display = "none";
+    infraTabBar.style.display = "none";
+    cateLeapTitle.style.top = "1.5px";
+
     heightHours();
   },
   normalDistance: () => {
@@ -2040,6 +2052,7 @@ const fontsCharger = {
     letterDistancMiddle.classList.remove("impaired-item-active");
     letterFistanceLarge.classList.remove("impaired-item-active");
     letterDistanceLittle.classList.add("impaired-item-active");
+
     heightHours();
   },
   bigDistance: () => {
@@ -2048,6 +2061,9 @@ const fontsCharger = {
     letterDistancMiddle.classList.add("impaired-item-active");
     letterFistanceLarge.classList.remove("impaired-item-active");
     letterDistanceLittle.classList.remove("impaired-item-active");
+    infraMobileContentBox.style.display = "block";
+    infraScrollContentBox.style.display = "none";
+    infraTabBar.style.display = "none";
     heightHours();
   },
   biggestDistance: () => {
@@ -2057,6 +2073,12 @@ const fontsCharger = {
     letterDistancMiddle.classList.remove("impaired-item-active");
     letterFistanceLarge.classList.add("impaired-item-active");
     letterDistanceLittle.classList.remove("impaired-item-active");
+    // cateLeapObj.addOutClass();
+    //   cateLeapObj.titleMargin();
+    infraMobileContentBox.style.display = "block";
+    infraScrollContentBox.style.display = "none";
+    infraTabBar.style.display = "none";
+
     heightHours();
   },
 };
@@ -2091,6 +2113,10 @@ document
       )
     );
     normalToggle();
+    infraScrollContentBox.style.display = "block";
+    infraTabBar.style.display = "block";
+    infraMobileContentBox.style.display = "none";
+
     fontsCharger.normalDistance();
     fontsCharger.permMiddleFonts();
     imgChanger.showImg();
@@ -2112,13 +2138,14 @@ if (sessionStorage.getItem(4) === "bigDistance") {
   fontsCharger.biggestDistance();
 }
 //=============================================//=============================================//============================================>>
-import { Swiper, Navigation, Pagination } from "swiper";
-// import Swiper and modules styles
-import "swiper/css";
+import { Swiper, Navigation, Pagination, EffectCards } from "swiper";
+
+import "swiper/css/bundle";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 Swiper.use([Navigation]);
 Swiper.use([Pagination]);
+Swiper.use([EffectCards]);
 // init Swiper:
 new Swiper(".swiper-container-1", {
   lazy: true,
@@ -2452,6 +2479,18 @@ new Swiper(".swiper-container-mob-7", {
     el: ".swiper-scrollbar",
   },
 });
+
+new Swiper(".swiper-container-10", {
+  effect: "cards",
+  // loop: true,
+  grabCursor: true,
+});
+
+// And if we need scrollbar
+// scrollbar: {
+//   el: ".swiper-scrollbar",
+// },
+// });
 if (document.querySelector(".infrastructure__li-1")) {
   document
     .querySelector(".infrastructure__li-1")
@@ -2460,126 +2499,201 @@ if (document.querySelector(".infrastructure__li-1")) {
         .querySelector(".scroll-content-box")
         .scroll({ top: 0, behavior: "smooth" });
     });
+}
+if (document.querySelector(".infrastructure__li-2")) {
   document
     .querySelector(".infrastructure__li-2")
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 684, behavior: "smooth" });
+        .scroll({ top: 890, behavior: "smooth" });
     });
+}
+if (document.querySelector(".infrastructure__li-3")) {
   document
     .querySelector(".infrastructure__li-3")
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 1477, behavior: "smooth" });
+        .scroll({ top: 1675, behavior: "smooth" });
     });
+}
+if (document.querySelector(".infrastructure__li-4")) {
   document
     .querySelector(".infrastructure__li-4")
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 2175, behavior: "smooth" });
+        .scroll({ top: 2360, behavior: "smooth" });
     });
+}
+
+if (document.querySelector(".infrastructure__li-5")) {
   document
     .querySelector(".infrastructure__li-5")
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 2940, behavior: "smooth" });
+        .scroll({ top: 3090, behavior: "smooth" });
     });
+}
+if (document.querySelector(".infrastructure__li-6")) {
   document
     .querySelector(".infrastructure__li-6")
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 3797, behavior: "smooth" });
+        .scroll({ top: 3975, behavior: "smooth" });
     });
+}
+if (document.querySelector(".infrastructure__li-7")) {
   document
     .querySelector(".infrastructure__li-7")
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 4563, behavior: "smooth" });
+        .scroll({ top: 4800, behavior: "smooth" });
     });
+}
+if (document.querySelector(".infrastructure__li-8")) {
   document
     .querySelector(".infrastructure__li-8")
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 5688, behavior: "smooth" });
-    });
-  document.querySelector(".infrastructure__li-1").classList.add("li-active");
-  document
-    .querySelector(".scroll-content-box")
-    .addEventListener("scroll", function () {
-      if (this.scrollTop <= 683 || this.scrollTop === 0) {
-        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-          elem.classList.remove("li-active");
-        });
-        document
-          .querySelector(".infrastructure__li-1")
-          .classList.add("li-active");
-      }
-      if (this.scrollTop >= 683 && this.scrollTop <= 1463) {
-        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-          elem.classList.remove("li-active");
-        });
-        document
-          .querySelector(".infrastructure__li-2")
-          .classList.add("li-active");
-      }
-      if (this.scrollTop >= 1463 && this.scrollTop <= 2145) {
-        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-          elem.classList.remove("li-active");
-        });
-        document
-          .querySelector(".infrastructure__li-3")
-          .classList.add("li-active");
-      }
-      if (this.scrollTop >= 2145 && this.scrollTop <= 2925) {
-        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-          elem.classList.remove("li-active");
-        });
-        document
-          .querySelector(".infrastructure__li-4")
-          .classList.add("li-active");
-      }
-      if (this.scrollTop >= 2925 && this.scrollTop <= 3780) {
-        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-          elem.classList.remove("li-active");
-        });
-        document
-          .querySelector(".infrastructure__li-5")
-          .classList.add("li-active");
-      }
-      if (this.scrollTop >= 3780 && this.scrollTop <= 4537) {
-        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-          elem.classList.remove("li-active");
-        });
-        document
-          .querySelector(".infrastructure__li-6")
-          .classList.add("li-active");
-      }
-      if (this.scrollTop >= 4537 && this.scrollTop <= 5671) {
-        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-          elem.classList.remove("li-active");
-        });
-        document
-          .querySelector(".infrastructure__li-7")
-          .classList.add("li-active");
-      }
-
-      if (this.scrollTop >= 5671) {
-        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-          elem.classList.remove("li-active");
-        });
-        document
-          .querySelector(".infrastructure__li-8")
-          .classList.add("li-active");
-      }
+        .scroll({ top: 5909, behavior: "smooth" });
     });
 }
+
+document.querySelector(".infrastructure__li-1").classList.add("li-active");
+document
+  .querySelector(".scroll-content-box")
+  .addEventListener("scroll", function () {
+    if (this.scrollTop <= 683 || this.scrollTop === 0) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-1")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 683 && this.scrollTop <= 1463) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-2")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 1463 && this.scrollTop <= 2145) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-3")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 2145 && this.scrollTop <= 2925) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-4")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 2925 && this.scrollTop <= 3780) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-5")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 3780 && this.scrollTop <= 4537) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-6")
+        .classList.add("li-active");
+    }
+    if (this.scrollTop >= 4537 && this.scrollTop <= 5671) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-7")
+        .classList.add("li-active");
+    }
+
+    if (this.scrollTop >= 5671) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document
+        .querySelector(".infrastructure__li-8")
+        .classList.add("li-active");
+    }
+  });
+
+//=====================/==================/==================
+if (document.querySelector(".infrastructure__li-1")) {
+  document.querySelector(".li-1-psy").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 0, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".infrastructure__li-2")) {
+  document.querySelector(".li-2-psy").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 1400, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".infrastructure__li-3")) {
+  document.querySelector(".li-3-psy").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 1875, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".infrastructure__li-4")) {
+  document.querySelector(".li-4-psy").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 2600, behavior: "smooth" });
+  });
+}
+document
+  .querySelector(".scroll-content-box-psy")
+  .addEventListener("scroll", function () {
+    if (this.scrollTop <= 1300 || this.scrollTop === 0) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document.querySelector(".li-1-psy").classList.add("li-active");
+    }
+    if (this.scrollTop >= 1300 && this.scrollTop <= 1900) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document.querySelector(".li-2-psy").classList.add("li-active");
+    }
+    if (this.scrollTop >= 1800 && this.scrollTop <= 2200) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document.querySelector(".li-3-psy").classList.add("li-active");
+    }
+    if (this.scrollTop >= 2200) {
+      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+        elem.classList.remove("li-active");
+      });
+      document.querySelector(".li-4-psy").classList.add("li-active");
+    }
+  });
+console.log(window.scrollTop);
 // window.addEventListener("scroll", function (e) {
 //   console.log();
 //   if (this.scrollY) {
@@ -2603,7 +2717,7 @@ function headerFix() {
 
     if (dY < 0) {
       header.classList.add("header-top-fixed");
-      wrapper.style.paddingTop = "113px";
+      wrapper.style.paddingTop = "135px";
 
       if (cateLeapFix !== null) {
         cateLeapObj.removeOutClass();
@@ -2665,7 +2779,6 @@ const cateLeapObj = {
 
 headerFix();
 const cateLeapBox = document.querySelector(".cate-leap__box");
-const cateLeap = document.querySelector(".cate-leap");
 
 if (cateLeap !== null) {
   cateLeap.addEventListener("click", (e) => {
@@ -2693,82 +2806,6 @@ if (cateLeap !== null) {
 
 // );
 
-const infraMob1 =
-  document.querySelector(".infra-mob-1").getBoundingClientRect().top +
-  window.pageYOffset;
-
-const infraMob2 =
-  document.querySelector(".infra-mob-2").getBoundingClientRect().top +
-  window.pageYOffset;
-const infraMob3 =
-  document.querySelector(".infra-mob-3").getBoundingClientRect().top +
-  window.pageYOffset;
-const infraMob4 =
-  document.querySelector(".infra-mob-4").getBoundingClientRect().top +
-  window.pageYOffset;
-const infraMob5 =
-  document.querySelector(".infra-mob-5").getBoundingClientRect().top +
-  window.pageYOffset;
-const infraMob6 =
-  document.querySelector(".infra-mob-6").getBoundingClientRect().top +
-  window.pageYOffset;
-const infraMob7 =
-  document.querySelector(".infra-mob-7").getBoundingClientRect().top +
-  window.pageYOffset;
-const infraMob8 =
-  document.querySelector(".infra-mob-8").getBoundingClientRect().top +
-  window.pageYOffset;
-console.log(infraMob8);
-
-console.log(document.querySelector("#infra-mob-7").getBoundingClientRect());
-
-function we() {
-  document.querySelector(".cat-leap-a-1").addEventListener("click", (e) => {
-    setTimeout(function () {
-      window.scrollTo({ top: infraMob1, behavior: "smooth" });
-    }, 0);
-  });
-
-  document.querySelector(".cat-leap-a-2").addEventListener("click", (e) => {
-    setTimeout(function () {
-      window.scrollBy({ top: infraMob2, behavior: "smooth" });
-    }, 0);
-  });
-  document.querySelector(".cat-leap-a-3").addEventListener("click", (e) => {
-    setTimeout(function () {
-      window.scrollBy({ top: infraMob3, behavior: "smooth" });
-    }, 0);
-  });
-  document.querySelector(".cat-leap-a-4").addEventListener("click", (e) => {
-    setTimeout(function () {
-      window.scrollBy({ top: infraMob4, behavior: "smooth" });
-    }, 0);
-  });
-  document.querySelector(".cat-leap-a-5").addEventListener("click", (e) => {
-    setTimeout(function () {
-      window.scrollBy({ top: infraMob5, behavior: "smooth" });
-    }, 0);
-  });
-  document.querySelector(".cat-leap-a-6").addEventListener("click", (e) => {
-    setTimeout(function () {
-      window.scrollBy({ top: infraMob6, behavior: "smooth" });
-    }, 0);
-  });
-  document.querySelector(".cat-leap-a-7").addEventListener("click", (e) => {
-    setTimeout(function () {
-      window.scrollBy({ top: infraMob7, behavior: "smooth" });
-    }, 0);
-  });
-  document.querySelector(".cat-leap-a-8").addEventListener("click", (e) => {
-    setTimeout(function () {
-      window.scrollTo({ top: infraMob8, behavior: "smooth" });
-    }, 0);
-  });
-}
-if (cateLeap !== null) {
-  we();
-}
-console.log(window.scrollY);
 // console.log(document.querySelector(".labs-infra").offsetHeight);
 /*
 (i) Код попадает в итоговый файл,
