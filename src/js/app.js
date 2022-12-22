@@ -2564,136 +2564,137 @@ if (document.querySelector(".infrastructure__li-8")) {
         .scroll({ top: 5909, behavior: "smooth" });
     });
 }
+if (document.querySelector(".infrastructure__li-1") !== null) {
+  document.querySelector(".infrastructure__li-1").classList.add("li-active");
+  document
+    .querySelector(".scroll-content-box")
+    .addEventListener("scroll", function () {
+      if (this.scrollTop <= 683 || this.scrollTop === 0) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document
+          .querySelector(".infrastructure__li-1")
+          .classList.add("li-active");
+      }
+      if (this.scrollTop >= 683 && this.scrollTop <= 1463) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document
+          .querySelector(".infrastructure__li-2")
+          .classList.add("li-active");
+      }
+      if (this.scrollTop >= 1463 && this.scrollTop <= 2145) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document
+          .querySelector(".infrastructure__li-3")
+          .classList.add("li-active");
+      }
+      if (this.scrollTop >= 2145 && this.scrollTop <= 2925) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document
+          .querySelector(".infrastructure__li-4")
+          .classList.add("li-active");
+      }
+      if (this.scrollTop >= 2925 && this.scrollTop <= 3780) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document
+          .querySelector(".infrastructure__li-5")
+          .classList.add("li-active");
+      }
+      if (this.scrollTop >= 3780 && this.scrollTop <= 4537) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document
+          .querySelector(".infrastructure__li-6")
+          .classList.add("li-active");
+      }
+      if (this.scrollTop >= 4537 && this.scrollTop <= 5671) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document
+          .querySelector(".infrastructure__li-7")
+          .classList.add("li-active");
+      }
 
-document.querySelector(".infrastructure__li-1").classList.add("li-active");
-document
-  .querySelector(".scroll-content-box")
-  .addEventListener("scroll", function () {
-    if (this.scrollTop <= 683 || this.scrollTop === 0) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document
-        .querySelector(".infrastructure__li-1")
-        .classList.add("li-active");
-    }
-    if (this.scrollTop >= 683 && this.scrollTop <= 1463) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document
-        .querySelector(".infrastructure__li-2")
-        .classList.add("li-active");
-    }
-    if (this.scrollTop >= 1463 && this.scrollTop <= 2145) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document
-        .querySelector(".infrastructure__li-3")
-        .classList.add("li-active");
-    }
-    if (this.scrollTop >= 2145 && this.scrollTop <= 2925) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document
-        .querySelector(".infrastructure__li-4")
-        .classList.add("li-active");
-    }
-    if (this.scrollTop >= 2925 && this.scrollTop <= 3780) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document
-        .querySelector(".infrastructure__li-5")
-        .classList.add("li-active");
-    }
-    if (this.scrollTop >= 3780 && this.scrollTop <= 4537) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document
-        .querySelector(".infrastructure__li-6")
-        .classList.add("li-active");
-    }
-    if (this.scrollTop >= 4537 && this.scrollTop <= 5671) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document
-        .querySelector(".infrastructure__li-7")
-        .classList.add("li-active");
-    }
-
-    if (this.scrollTop >= 5671) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document
-        .querySelector(".infrastructure__li-8")
-        .classList.add("li-active");
-    }
-  });
-
+      if (this.scrollTop >= 5671) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document
+          .querySelector(".infrastructure__li-8")
+          .classList.add("li-active");
+      }
+    });
+}
 //=====================/==================/==================
-if (document.querySelector(".infrastructure__li-1")) {
+if (document.querySelector(".li-1-psy")) {
   document.querySelector(".li-1-psy").addEventListener("click", (e) => {
     document
       .querySelector(".scroll-content-box")
       .scroll({ top: 0, behavior: "smooth" });
   });
 }
-if (document.querySelector(".infrastructure__li-2")) {
+if (document.querySelector(".li-2-psy")) {
   document.querySelector(".li-2-psy").addEventListener("click", (e) => {
     document
       .querySelector(".scroll-content-box")
       .scroll({ top: 1400, behavior: "smooth" });
   });
 }
-if (document.querySelector(".infrastructure__li-3")) {
+if (document.querySelector(".li-3-psy")) {
   document.querySelector(".li-3-psy").addEventListener("click", (e) => {
     document
       .querySelector(".scroll-content-box")
       .scroll({ top: 1875, behavior: "smooth" });
   });
 }
-if (document.querySelector(".infrastructure__li-4")) {
+if (document.querySelector(".li-4-psy")) {
   document.querySelector(".li-4-psy").addEventListener("click", (e) => {
     document
       .querySelector(".scroll-content-box")
       .scroll({ top: 2600, behavior: "smooth" });
   });
 }
-document
-  .querySelector(".scroll-content-box-psy")
-  .addEventListener("scroll", function () {
-    if (this.scrollTop <= 1300 || this.scrollTop === 0) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document.querySelector(".li-1-psy").classList.add("li-active");
-    }
-    if (this.scrollTop >= 1300 && this.scrollTop <= 1900) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document.querySelector(".li-2-psy").classList.add("li-active");
-    }
-    if (this.scrollTop >= 1800 && this.scrollTop <= 2200) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document.querySelector(".li-3-psy").classList.add("li-active");
-    }
-    if (this.scrollTop >= 2200) {
-      document.querySelectorAll(".infrastructure__li").forEach((elem) => {
-        elem.classList.remove("li-active");
-      });
-      document.querySelector(".li-4-psy").classList.add("li-active");
-    }
-  });
-console.log(window.scrollTop);
+if (document.querySelector(".scroll-content-box-psy") !== null) {
+  document
+    .querySelector(".scroll-content-box-psy")
+    .addEventListener("scroll", function () {
+      if (this.scrollTop <= 1300 || this.scrollTop === 0) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".li-1-psy").classList.add("li-active");
+      }
+      if (this.scrollTop >= 1300 && this.scrollTop <= 1900) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".li-2-psy").classList.add("li-active");
+      }
+      if (this.scrollTop >= 1800 && this.scrollTop <= 2200) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".li-3-psy").classList.add("li-active");
+      }
+      if (this.scrollTop >= 2200) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".li-4-psy").classList.add("li-active");
+      }
+    });
+}
 // window.addEventListener("scroll", function (e) {
 //   console.log();
 //   if (this.scrollY) {
@@ -2793,6 +2794,156 @@ if (cateLeap !== null) {
     }
   });
 }
+
+function openCloseFilter() {
+  if (document.querySelectorAll(".filter-spoller") !== null) {
+    document.querySelectorAll(".filter-spoller").forEach((e) => {
+      e.addEventListener("click", (eve) => {
+        if (
+          !eve.currentTarget.children[1].classList.contains(
+            "filter-spoller-active"
+          )
+        ) {
+          const filterBtns = document.querySelectorAll(".filter-spoller");
+          for (let i = 0; i < filterBtns.length; i++) {
+            const element = filterBtns[i];
+            if (element !== undefined) {
+              element.classList.remove("filter-spoller-btn-active");
+              // element.children[1].classList.remove("filter-spoller-active");
+              for (let i = 0; i < element.children.length; i++) {
+                const asd = element.children[i];
+                asd.classList.remove("filter-spoller-active");
+              }
+            }
+          }
+          eve.currentTarget.children[1].classList.add("filter-spoller-active");
+          eve.currentTarget.classList.add("filter-spoller-btn-active");
+        } else {
+          eve.currentTarget.children[1].classList.remove(
+            "filter-spoller-active"
+          );
+          eve.currentTarget.classList.remove("filter-spoller-btn-active");
+        }
+      });
+    });
+
+    // console.log(filterSpollers);
+  }
+}
+// eve.currentTarget.children[1].classList.remove("filter-spoller-active");
+// eve.currentTarget.classList.remove("filter-spoller-btn-active");
+openCloseFilter();
+
+// document
+//   .querySelector(".filter-spoller-a-1-subject")
+//   .addEventListener("click", (e) => {
+//     filterStage.refreshSubject(
+//       chemistry,
+//       biology,
+//       informatics,
+//       physics,
+//       ruLang,
+//       math
+//     );
+//     filterStage.deleteSubject(chemistry, biology, informatics, physics, ruLang);
+//   });
+// document
+//   .querySelector(".filter-spoller-a-2-subject")
+//   .addEventListener("click", (e) => {
+//     console.log("work");
+//     filterStage.refreshSubject(
+//       chemistry,
+//       biology,
+//       informatics,
+//       physics,
+//       ruLang,
+//       math
+//     );
+//     filterStage.deleteSubject(chemistry, biology, informatics, physics, math);
+//   });
+// document
+//   .querySelector(".filter-spoller-a-3-subject")
+//   .addEventListener("click", (e) => {
+//     console.log("work");
+//     filterStage.refreshSubject(
+//       chemistry,
+//       biology,
+//       informatics,
+//       physics,
+//       ruLang,
+//       math
+//     );
+//     filterStage.deleteSubject(chemistry, biology, informatics, ruLang, math);
+//   });
+// document
+//   .querySelector(".filter-spoller-a-4-subject")
+//   .addEventListener("click", (e) => {
+//     console.log("work");
+//     filterStage.refreshSubject(
+//       chemistry,
+//       biology,
+//       informatics,
+//       physics,
+//       ruLang,
+//       math
+//     );
+//     filterStage.deleteSubject(physics, biology, informatics, ruLang, math);
+//   });
+// document
+//   .querySelector(".filter-spoller-a-5-subject")
+//   .addEventListener("click", (e) => {
+//     console.log("work");
+//     filterStage.refreshSubject(
+//       chemistry,
+//       biology,
+//       informatics,
+//       physics,
+//       ruLang,
+//       math
+//     );
+//     filterStage.deleteSubject(physics, chemistry, informatics, ruLang, math);
+//   });
+// document
+//   .querySelector(".filter-spoller-a-6-subject")
+//   .addEventListener("click", (e) => {
+//     console.log("work");
+//     filterStage.refreshSubject(
+//       chemistry,
+//       biology,
+//       informatics,
+//       physics,
+//       ruLang,
+//       math
+//     );
+//     filterStage.deleteSubject(physics, biology, chemistry, ruLang, math);
+//   });
+
+// const accors = document.querySelectorAll(".accor");
+// const content = document.querySelectorAll(".accor-content");
+// accors.forEach((el) => {
+//   el.addEventListener("click", (e) => {
+//     const accorIcons = document.querySelectorAll(".accor-icon");
+//     const self = e.currentTarget.children[1].classList;
+//     const rotateArrow =
+//       e.currentTarget.children[0].children[1].children[0].classList;
+//     accorIcons.forEach((icon) => {
+//       icon.children[0].classList.remove("open-accor");
+//     });
+//     if (!e.currentTarget.children[1].classList.contains("open-accor")) {
+//       content.forEach((it) => {
+//         return it.classList.remove("open-accor");
+//       });
+//       self.add("open-accor");
+//       rotateArrow.add("open-accor");
+//     } else if (e.currentTarget.children[1].classList.contains("open-accor")) {
+//       rotateArrow.remove("open-accor");
+//       self.remove("open-accor");
+//     }
+//   });
+// });
+// }
+// document.insertAdjacent("afterbegin", q);
+
 // cat-leap-li-1
 
 // document.querySelector(".cat-leap-li-1").addEventListener(
