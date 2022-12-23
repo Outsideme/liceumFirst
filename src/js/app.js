@@ -2834,130 +2834,14 @@ function openCloseFilter() {
 // eve.currentTarget.classList.remove("filter-spoller-btn-active");
 openCloseFilter();
 
-// document
-//   .querySelector(".filter-spoller-a-1-subject")
-//   .addEventListener("click", (e) => {
-//     filterStage.refreshSubject(
-//       chemistry,
-//       biology,
-//       informatics,
-//       physics,
-//       ruLang,
-//       math
-//     );
-//     filterStage.deleteSubject(chemistry, biology, informatics, physics, ruLang);
-//   });
-// document
-//   .querySelector(".filter-spoller-a-2-subject")
-//   .addEventListener("click", (e) => {
-//     console.log("work");
-//     filterStage.refreshSubject(
-//       chemistry,
-//       biology,
-//       informatics,
-//       physics,
-//       ruLang,
-//       math
-//     );
-//     filterStage.deleteSubject(chemistry, biology, informatics, physics, math);
-//   });
-// document
-//   .querySelector(".filter-spoller-a-3-subject")
-//   .addEventListener("click", (e) => {
-//     console.log("work");
-//     filterStage.refreshSubject(
-//       chemistry,
-//       biology,
-//       informatics,
-//       physics,
-//       ruLang,
-//       math
-//     );
-//     filterStage.deleteSubject(chemistry, biology, informatics, ruLang, math);
-//   });
-// document
-//   .querySelector(".filter-spoller-a-4-subject")
-//   .addEventListener("click", (e) => {
-//     console.log("work");
-//     filterStage.refreshSubject(
-//       chemistry,
-//       biology,
-//       informatics,
-//       physics,
-//       ruLang,
-//       math
-//     );
-//     filterStage.deleteSubject(physics, biology, informatics, ruLang, math);
-//   });
-// document
-//   .querySelector(".filter-spoller-a-5-subject")
-//   .addEventListener("click", (e) => {
-//     console.log("work");
-//     filterStage.refreshSubject(
-//       chemistry,
-//       biology,
-//       informatics,
-//       physics,
-//       ruLang,
-//       math
-//     );
-//     filterStage.deleteSubject(physics, chemistry, informatics, ruLang, math);
-//   });
-// document
-//   .querySelector(".filter-spoller-a-6-subject")
-//   .addEventListener("click", (e) => {
-//     console.log("work");
-//     filterStage.refreshSubject(
-//       chemistry,
-//       biology,
-//       informatics,
-//       physics,
-//       ruLang,
-//       math
-//     );
-//     filterStage.deleteSubject(physics, biology, chemistry, ruLang, math);
-//   });
+const [...exTasksLi] = document.querySelectorAll(".exTasksLi");
+console.log(
+  exTasksLi.forEach((e) => {
+    e.style.display = "block";
+    console.log(e.attributes);
+  })
+);
 
-// const accors = document.querySelectorAll(".accor");
-// const content = document.querySelectorAll(".accor-content");
-// accors.forEach((el) => {
-//   el.addEventListener("click", (e) => {
-//     const accorIcons = document.querySelectorAll(".accor-icon");
-//     const self = e.currentTarget.children[1].classList;
-//     const rotateArrow =
-//       e.currentTarget.children[0].children[1].children[0].classList;
-//     accorIcons.forEach((icon) => {
-//       icon.children[0].classList.remove("open-accor");
-//     });
-//     if (!e.currentTarget.children[1].classList.contains("open-accor")) {
-//       content.forEach((it) => {
-//         return it.classList.remove("open-accor");
-//       });
-//       self.add("open-accor");
-//       rotateArrow.add("open-accor");
-//     } else if (e.currentTarget.children[1].classList.contains("open-accor")) {
-//       rotateArrow.remove("open-accor");
-//       self.remove("open-accor");
-//     }
-//   });
-// });
-// }
-// document.insertAdjacent("afterbegin", q);
-
-// cat-leap-li-1
-
-// document.querySelector(".cat-leap-li-1").addEventListener(
-//   "click", e => {
-//     document.scroll({
-//       scroll({
-//         top: 500,
-//       })
-//     })
-//   }
-
-// );
-
-// console.log(document.querySelector(".labs-infra").offsetHeight);
 /*
 (i) Код попадает в итоговый файл,
 только когда вызвана функция,
@@ -3152,4 +3036,4 @@ import * as flsScroll from "./files/scroll/scroll.js";
 // ========================================================================================================================================================================================================================================================
 /* Подключаем файлы со своим кодом */
 import "./files/script.js";
-//============================================================================================================================================================================================================================================
+//============================================================================================================================================================================================================================================()

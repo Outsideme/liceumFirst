@@ -124,6 +124,7 @@
 	path{
 		stroke: $pointText;
 	}
+
 }
 .filter-spoller {
 
@@ -163,7 +164,7 @@
 	right: -1px;
 	left: -1px;
 	color: $mainText;
-	@include adaptiveValue("font-size", 18, 14);
+	@include adaptiveValue("font-size", 16, 14);
 	font-weight: 400;
 	background-color: #fff;
 	border-radius: 10px;
@@ -172,6 +173,13 @@
 	opacity: 0;
 	transition: max-height .3s ease-in-out, opacity .2s ease, transform .3s ease;
 
+	li {
+		&:hover {
+			font-weight: 700;
+			background-color: $bgTif;
+			color: $mainTif;
+		}
+	}
 
 }
 .filter-spoller-btn-active {
