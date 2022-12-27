@@ -2809,7 +2809,6 @@ function openCloseFilter() {
             const element = filterBtns[i];
             if (element !== undefined) {
               element.classList.remove("filter-spoller-btn-active");
-              // element.children[1].classList.remove("filter-spoller-active");
               for (let i = 0; i < element.children.length; i++) {
                 const asd = element.children[i];
                 asd.classList.remove("filter-spoller-active");
@@ -2827,20 +2826,70 @@ function openCloseFilter() {
       });
     });
 
-    // console.log(filterSpollers);
   }
 }
-// eve.currentTarget.children[1].classList.remove("filter-spoller-active");
-// eve.currentTarget.classList.remove("filter-spoller-btn-active");
 openCloseFilter();
 
-const [...exTasksLi] = document.querySelectorAll(".exTasksLi");
-console.log(
-  exTasksLi.forEach((e) => {
-    e.style.display = "block";
-    console.log(e.attributes);
-  })
-);
+let filterLiCollection = [...document.querySelectorAll(".exTasksLi")];
+
+const filterThis = (num) => {
+  filterLiCollection.forEach((e) => {
+    if (
+      num == "math" ||
+      num == "chemistry" ||
+      num == "biology" ||
+      num == "informatics" ||
+      num == "physics" ||
+      num == "ruLang"
+    ) {
+      let ewq = filterLiCollection.filter(
+        (filter) => filter.dataset.subject !== num
+      );
+      filterLiCollection.forEach((el) => el.classList.remove("subject-none"));
+
+      let subjTitle = document.querySelector(".title-subject");
+      num == "math" ? (subjTitle.innerHTML = `Математика`) : false;
+      num == "chemistry" ? (subjTitle.innerHTML = `Химия`) : false;
+      num == "biology" ? (subjTitle.innerHTML = `Биология`) : false;
+      num == "informatics"
+        ? (subjTitle.innerHTML = `Информатика`)
+        : false;
+      num == "physics" ? (subjTitle.innerHTML = `Физика`) : false;
+      num == "ruLang"
+        ? (subjTitle.innerHTML = `Русский язык`)
+        : false;
+
+      ewq.forEach((el) => el.classList.add("subject-none"));
+    }
+  });
+  if (num == "7" || num == "8" || num == "9" || num == "10") {
+    filterLiCollection.forEach((el) => el.classList.remove("class-none"));
+    let ewq = filterLiCollection.filter(
+      (filter) => filter.dataset.class !== num
+    );
+    document.querySelector(".title-class").innerHTML = `${num} класс`;
+    ewq.forEach((el) => el.classList.add("class-none"));
+  }
+};
+
+document.querySelectorAll(".filter-spoller-a-all").forEach((e) => {
+  e.addEventListener("click", (eve) => {
+    let partClass = e.classList[0].split("-")[3];
+    partClass == "7" ? filterThis("7") : false;
+    partClass == "8" ? filterThis("8") : false;
+    partClass == "9" ? filterThis("9") : false;
+    partClass == "10" ? filterThis("10") : false;
+    partClass == "math" ? filterThis("math") : false;
+    partClass == "chemistry" ? filterThis("chemistry") : false;
+    partClass == "biology" ? filterThis("biology") : false;
+    partClass == "informatics" ? filterThis("informatics") : false;
+    partClass == "physics" ? filterThis("physics") : false;
+    partClass == "ruLang" ? filterThis("ruLang") : false;
+  }),
+    false;
+});
+
+//============================/===================/====================>
 
 /*
 (i) Код попадает в итоговый файл,
