@@ -2797,13 +2797,18 @@ if (cateLeap !== null) {
 
 function openCloseFilter() {
   if (document.querySelectorAll(".filter-spoller") !== null) {
-    document.querySelectorAll(".filter-spoller").forEach((e) => {
-      e.addEventListener("click", (eve) => {
+    document.querySelectorAll(".filter-spoller").forEach((el) => {
+      el.addEventListener("click", (eve) => {
         if (
           !eve.currentTarget.children[1].classList.contains(
             "filter-spoller-active"
           )
         ) {
+          document
+            .querySelectorAll("#arrow-filter-spoller")
+            .forEach((e) => (e.style.transform = `rotate(0deg)`));
+
+          el.children[0].children[1].style.transform = `rotate(-180deg)`;
           const filterBtns = document.querySelectorAll(".filter-spoller");
           for (let i = 0; i < filterBtns.length; i++) {
             const element = filterBtns[i];
@@ -2818,6 +2823,8 @@ function openCloseFilter() {
           eve.currentTarget.children[1].classList.add("filter-spoller-active");
           eve.currentTarget.classList.add("filter-spoller-btn-active");
         } else {
+          el.children[0].children[1].style.transform = `rotate(0deg)`;
+
           eve.currentTarget.children[1].classList.remove(
             "filter-spoller-active"
           );
@@ -2825,70 +2832,84 @@ function openCloseFilter() {
         }
       });
     });
-
   }
 }
 openCloseFilter();
 
-let filterLiCollection = [...document.querySelectorAll(".exTasksLi")];
-
-const filterThis = (num) => {
-  filterLiCollection.forEach((e) => {
-    if (
-      num == "math" ||
-      num == "chemistry" ||
-      num == "biology" ||
-      num == "informatics" ||
-      num == "physics" ||
-      num == "ruLang"
-    ) {
-      let ewq = filterLiCollection.filter(
-        (filter) => filter.dataset.subject !== num
-      );
-      filterLiCollection.forEach((el) => el.classList.remove("subject-none"));
-
-      let subjTitle = document.querySelector(".title-subject");
-      num == "math" ? (subjTitle.innerHTML = `Математика`) : false;
-      num == "chemistry" ? (subjTitle.innerHTML = `Химия`) : false;
-      num == "biology" ? (subjTitle.innerHTML = `Биология`) : false;
-      num == "informatics"
-        ? (subjTitle.innerHTML = `Информатика`)
-        : false;
-      num == "physics" ? (subjTitle.innerHTML = `Физика`) : false;
-      num == "ruLang"
-        ? (subjTitle.innerHTML = `Русский язык`)
-        : false;
-
-      ewq.forEach((el) => el.classList.add("subject-none"));
-    }
-  });
-  if (num == "7" || num == "8" || num == "9" || num == "10") {
-    filterLiCollection.forEach((el) => el.classList.remove("class-none"));
-    let ewq = filterLiCollection.filter(
-      (filter) => filter.dataset.class !== num
-    );
-    document.querySelector(".title-class").innerHTML = `${num} класс`;
-    ewq.forEach((el) => el.classList.add("class-none"));
-  }
-};
-
 document.querySelectorAll(".filter-spoller-a-all").forEach((e) => {
   e.addEventListener("click", (eve) => {
+    const arrParts = [
+      "7",
+      "8",
+      "9",
+      "10",
+      "math",
+      "chemistry",
+      "biology",
+      "informatics",
+      "physics",
+      "ruLang",
+    ];
     let partClass = e.classList[0].split("-")[3];
-    partClass == "7" ? filterThis("7") : false;
-    partClass == "8" ? filterThis("8") : false;
-    partClass == "9" ? filterThis("9") : false;
-    partClass == "10" ? filterThis("10") : false;
-    partClass == "math" ? filterThis("math") : false;
-    partClass == "chemistry" ? filterThis("chemistry") : false;
-    partClass == "biology" ? filterThis("biology") : false;
-    partClass == "informatics" ? filterThis("informatics") : false;
-    partClass == "physics" ? filterThis("physics") : false;
-    partClass == "ruLang" ? filterThis("ruLang") : false;
+    arrParts.includes(partClass) ? displayFaculty(partClass) : false;
   }),
     false;
 });
 
+let filterLiCollection = [...document.querySelectorAll(".exTasksLi")];
+/**
+Функция отображает документы для скачивания по классам и предметам
+*@param {string|number} faculty - предмет|класс
+*@return {void}sds
+*/
+const displayFaculty = (faculty) => {
+  filterLiCollection.forEach((e) => {
+    const arrSubjects = [
+      "math",
+      "chemistry",
+      "biology",
+      "informatics",
+      "physics",
+      "ruLang",
+    ];
+    if (arrSubjects.includes(faculty)) {
+      let ewq = filterLiCollection.filter(
+        (filter) => filter.dataset.subject !== faculty
+      );
+      filterLiCollection.forEach((el) => el.classList.remove("subject-none"));
+
+      let subjTitle = document.querySelector(".title-subject");
+      faculty == "math" ? (subjTitle.innerHTML = `Математика`) : false;
+      faculty == "chemistry" ? (subjTitle.innerHTML = `Химия`) : false;
+      faculty == "biology" ? (subjTitle.innerHTML = `Биология`) : false;
+      faculty == "informatics" ? (subjTitle.innerHTML = `Информатика`) : false;
+      faculty == "physics" ? (subjTitle.innerHTML = `Физика`) : false;
+      faculty == "ruLang" ? (subjTitle.innerHTML = `Русский язык`) : false;
+
+      ewq.forEach((el) => el.classList.add("subject-none"));
+    }
+  });
+  const arrClasses = ["7", "8", "9", "10"];
+  if (arrClasses.includes(faculty)) {
+    filterLiCollection.forEach((el) => el.classList.remove("class-none"));
+    let ewq = filterLiCollection.filter(
+      (filter) => filter.dataset.class !== faculty
+    );
+    document.querySelector(".title-class").innerHTML = `${faculty} класс`;
+    ewq.forEach((el) => el.classList.add("class-none"));
+  }
+};
+if (document.querySelector(".reset-display-faculty")) {
+  document
+    .querySelector(".reset-display-faculty")
+    .addEventListener("click", (e) => {
+      filterLiCollection.forEach((e) => {
+        document.querySelector(".title-subject").innerHTML = `Выберите предмет`;
+        document.querySelector(".title-class").innerHTML = `Выберите класс`;
+        e.classList.remove("subject-none", "class-none");
+      });
+    });
+}
 //============================/===================/====================>
 
 /*

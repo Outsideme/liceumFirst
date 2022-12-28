@@ -116,7 +116,7 @@
 #arrow-filter-spoller {
 	transition: transform .3s ease-in-out;
 	position: absolute;
-	right: 32px;
+	right: 12px;
 	top: 40%;
 	path {
 		stroke: $mainTif;
@@ -139,7 +139,7 @@
 	padding-bottom: 8px;
 	padding-left: 18px;
 	margin-bottom: rem(8);
-	margin-right: rem(8);
+	margin-right: rem(6);
 	font-weight: 700;
 	text-align: left;
 	@include adaptiveValue("width", 220, 220);
@@ -149,7 +149,8 @@
 			position: absolute;
 			left: 20px;
 			top: 7px;
-			width: 100%;
+			width: 90%;
+			padding-right: 10%;
 
 		}
 	}
@@ -242,4 +243,15 @@
 .class-none,
 .subject-none {
 	display: none;
+}
+.reset-display-faculty {
+	position: relative;
+	top: 5px;
+	background-color: $phraseTif;
+	font-size: 14px;
+	border: 0px solid #000;
+	padding-top: 16px;
+	padding: 10px 24px;
+	text-align: center;
+	border-radius: 10px;
 }
