@@ -1186,6 +1186,9 @@ const elementsStyle = {
   resetBackground: (elem) => {
     elem.style.backgroundColor = `${normalColors.bg}`;
   },
+  resetBackgroundWhite: (elem) => {
+    elem.style.backgroundColor = `${normalColors.white}`;
+  },
 };
 
 //====================================================>
@@ -1297,6 +1300,21 @@ const bodySections = {
 const tgOkVk = document.querySelectorAll(".tgOkVk");
 const pageColorChange = document.querySelectorAll(".page-color-change");
 const pageSocial = document.querySelectorAll(".page-social");
+const infraContentBox = document.querySelector(".scroll-content-box ");
+const infraTab = document.querySelector(".infrastructure__tab-bar ");
+const swiperArrows = document.querySelectorAll(".swiper-arrows");
+const infraTabLiActive = document.querySelectorAll(".li-active");
+const cateLeapBtnColor = document.querySelectorAll(".cate-leap");
+const cateLeapContent = document.querySelectorAll(".cate-leap__box");
+const cateLeapLi = document.querySelectorAll(".cat-leap-li");
+const arrowInfraLeap = document.querySelectorAll("#arrow-infra-leap");
+const swiperSlide = document.querySelectorAll(".cards-box");
+const resetDisplayFaculty = document.querySelector(".reset-display-faculty");
+const filterSpoller = document.querySelectorAll(".filter-spoller");
+const filterSpollerBox = document.querySelectorAll(".filter-spoller__box");
+const filterSpollerLi = document.querySelectorAll(".filter-spoller-li");
+const scrollContentTitle = document.querySelectorAll(".scroll-content__title");
+
 pageSocial.forEach((elem) => {
   elem.classList.add("page-social-normal");
 });
@@ -1329,10 +1347,51 @@ function themeToggle() {
   teachersPosition.forEach((elem) => {
     elementsStyle.color(elem);
   });
+  if (swiperSlide !== null) {
+    swiperSlide.forEach((elem) => elementsStyle.background(elem));
+    swiperSlide.forEach((elem) => elementsStyle.border(elem));
+    // elementsStyle.background(swiperSlide);
+  }
   teachersRaising.forEach((elem) => {
     elementsStyle.borderBottom(elem);
   });
-
+  if (infraContentBox !== null) {
+    elementsStyle.border(infraContentBox);
+    elementsStyle.background(infraContentBox);
+    elementsStyle.border(infraTab);
+    elementsStyle.background(infraTab);
+    cateLeapBtnColor.forEach((elem) => elementsStyle.background(elem));
+    cateLeapContent.forEach((elem) => elementsStyle.background(elem));
+    // cateLeapContent.forEach((elem) => elementsStyle.borderBottom(elem));
+    cateLeapContent.forEach((elem) => elementsStyle.border(elem));
+    cateLeapBtnColor.forEach((elem) => elementsStyle.border(elem));
+    cateLeapBtnColor.forEach((elem) => elementsStyle.color(elem));
+    swiperArrows.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
+    infraTabLiActive.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
+    cateLeapLi.forEach((elem) => elementsStyle.borderBottom(elem));
+    cateLeapLi.forEach((elem) => elementsStyle.borderTop(elem));
+  }
+  if (scrollContentTitle !== null) {
+    scrollContentTitle.forEach((elem) => elementsStyle.color(elem));
+  }
+  if (resetDisplayFaculty !== null) {
+    elementsStyle.border(resetDisplayFaculty);
+    elementsStyle.background(resetDisplayFaculty);
+    filterSpoller.forEach((elem) => {
+      elementsStyle.border(elem);
+      elementsStyle.background(elem);
+      elementsStyle.color(elem);
+    });
+    filterSpollerBox.forEach((elem) => {
+      elementsStyle.background(elem);
+      elementsStyle.border(elem);
+    });
+    filterSpollerLi.forEach((elem) => {
+      // elementsStyle.background(elem);
+      elementsStyle.borderBottom(elem);
+      elementsStyle.borderTop(elem);
+    });
+  }
   footerButtons.forEach((elem) => {
     elementsStyle.background(elem);
     elementsStyle.border(elem);
@@ -1340,6 +1399,7 @@ function themeToggle() {
   mtoTable.forEach((elem) => {
     elementsStyle.border(elem);
   });
+
   pageColorChange.forEach((elem) => {
     elementsStyle.color(elem);
   });
@@ -1532,6 +1592,53 @@ function normalToggle() {
   //=========================//=========================
   if (mainDescription !== null) {
     bodySections.resetMainDesc();
+  }
+  if (infraContentBox !== null) {
+    elementsStyle.resetBorder(infraContentBox);
+    elementsStyle.resetBackgroundWhite(infraContentBox);
+    elementsStyle.resetBorder(infraTab);
+    elementsStyle.resetBackgroundWhite(infraTab);
+    cateLeapBtnColor.forEach((elem) => (elem.style.backgroundColor = ""));
+    cateLeapContent.forEach((elem) => elementsStyle.resetBackgroundWhite(elem));
+    cateLeapContent.forEach((elem) => (elem.style.border = ``));
+    cateLeapBtnColor.forEach((elem) => (elem.style.border = ``));
+    cateLeapBtnColor.forEach((elem) => (elem.style.color = ``));
+    cateLeapLi.forEach((elem) => (elem.style.borderTop = ``));
+    cateLeapLi.forEach((elem) => (elem.style.borderBottom = ``));
+    swiperArrows.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
+    infraTabLiActive.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
+  }
+  if (scrollContentTitle !== null) {
+    scrollContentTitle.forEach((elem) => (elem.style.color = ``));
+  }
+  if (swiperSlide !== null) {
+    swiperSlide.forEach((elem) => (elem.style.backgroundColor = ""));
+    swiperSlide.forEach((elem) => (elem.style.border = ""));
+    // elementsStyle.background(swiperSlide);
+  }
+  if (resetDisplayFaculty !== null) {
+    // elementsStyle.border(resetDisplayFaculty);
+    resetDisplayFaculty.style.border = "";
+    elementsStyle.background(resetDisplayFaculty);
+    resetDisplayFaculty.style.backgroundColor = "";
+
+    filterSpoller.forEach((elem) => {
+      elem.style.color = "";
+      elem.style.border = "";
+      elem.style.backgroundColor = "";
+    });
+    filterSpollerBox.forEach((elem) => {
+      elem.style.border = "";
+      elem.style.backgroundColor = "";
+    });
+    filterSpollerLi.forEach((elem) => {
+      // elementsStyle.background(elem);
+      elem.style.borderTop = "";
+      elem.style.borderBottom = "";
+
+      // elementsStyle.borderBottom(elem);
+      // elementsStyle.borderTop(elem);
+    });
   }
   //=========================//=========================
   if (mainTableBox !== null) {
@@ -2028,7 +2135,9 @@ const fontsCharger = {
     fontsLarge.classList.remove("impaired-item-active");
     fontsLittle.classList.remove("impaired-item-active");
     fontsMiddle.classList.add("impaired-item-active");
-    cateLeapTitle.style.top = "7px";
+    if (cateLeapTitle !== null) {
+      cateLeapTitle.style.top = "7px";
+    }
     heightHours();
   },
   permLargeFonts: () => {
@@ -2038,11 +2147,12 @@ const fontsCharger = {
     fontsLittle.classList.remove("impaired-item-active");
     fontsMiddle.classList.remove("impaired-item-active");
     fontsLarge.classList.add("impaired-item-active");
-    infraMobileContentBox.style.display = "block";
-    infraScrollContentBox.style.display = "none";
-    infraTabBar.style.display = "none";
-    cateLeapTitle.style.top = "1.5px";
-
+    if (infraMobileContentBox !== null) {
+      infraMobileContentBox.style.display = "block";
+      infraScrollContentBox.style.display = "none";
+      infraTabBar.style.display = "none";
+      cateLeapTitle.style.top = "1.5px";
+    }
     heightHours();
   },
   normalDistance: () => {
@@ -2075,10 +2185,11 @@ const fontsCharger = {
     letterDistanceLittle.classList.remove("impaired-item-active");
     // cateLeapObj.addOutClass();
     //   cateLeapObj.titleMargin();
-    infraMobileContentBox.style.display = "block";
-    infraScrollContentBox.style.display = "none";
-    infraTabBar.style.display = "none";
-
+    if (infraMobileContentBox !== null) {
+      infraMobileContentBox.style.display = "block";
+      infraScrollContentBox.style.display = "none";
+      infraTabBar.style.display = "none";
+    }
     heightHours();
   },
 };
@@ -2113,10 +2224,11 @@ document
       )
     );
     normalToggle();
-    infraScrollContentBox.style.display = "block";
-    infraTabBar.style.display = "block";
-    infraMobileContentBox.style.display = "none";
-
+    if (infraScrollContentBox) {
+      infraScrollContentBox.style.display = "";
+      infraTabBar.style.display = "";
+      infraMobileContentBox.style.display = "";
+    }
     fontsCharger.normalDistance();
     fontsCharger.permMiddleFonts();
     imgChanger.showImg();
@@ -2910,6 +3022,42 @@ if (document.querySelector(".reset-display-faculty")) {
       });
     });
 }
+const pathNameArr = [
+  "main-info",
+  "structure",
+  "documents",
+  "education",
+  "education-standarts",
+  "team",
+  "MTO",
+  "paid",
+  "financial-activities",
+  "translate-students",
+  "available",
+  "international",
+];
+const showOrg = () => {
+  document.querySelector(".crumbs__title-last").style.display = "block";
+};
+const hideOrg = () => {
+  document.querySelector(".crumbs__title-last").style.display = "none";
+};
+let crumbsChanger = () => {
+  document.querySelector(
+    ".crumbs__title-current-text-content"
+  ).innerHTML = `${document.title}`;
+  const pathName = [...location.pathname];
+  pathName.shift();
+  for (let i = 0; i < 5; i++) {
+    pathName.pop()[i];
+  }
+  let resultPathName = pathName.join("");
+  pathNameArr.includes(resultPathName) ? showOrg() : hideOrg();
+  console.log(pathName.join(""));
+  console.log(pathNameArr[1] == pathName.join(""));
+};
+crumbsChanger();
+// console.log();
 //============================/===================/====================>
 
 /*

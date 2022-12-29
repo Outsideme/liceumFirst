@@ -36,6 +36,7 @@
 
 	&__title-root {
 		@include adaptiveValue('margin-right', 30, 12);
+		margin-top: 0px;
 
 
 	}
@@ -67,4 +68,12 @@
 	.bread-arrow-wrap {
 		display: inline;
 	}
+}
+.crumbs__title-current-text-content {
+	font-size: rem(12);
+	color: $mainTif;
+	height: 100%;
+	margin-top: 3px;
+// vertical-align: middle;
+	// line-height: 100%;
 }

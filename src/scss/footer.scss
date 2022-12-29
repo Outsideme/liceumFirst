@@ -8,7 +8,7 @@
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat(2, 1fr) .5fr;
 		@include adaptiveValue('gap', 30, 15);
-		@include adaptiveValue('margin-top', 36, 36)
+		@include adaptiveValue('padding-top', 36, 36)
 	}
 }
 

@@ -69,11 +69,17 @@
 		stroke: transparent;
 		fill: #A9E44D;
 	}
+	circle {
+		fill: #A9E44D;
+	}
 }
 
 .doc-color-vanilla {
 	path {
 		stroke: transparent;
+		fill: #4D4B43;
+	}
+	circle {
 		fill: #4D4B43;
 	}
 }
@@ -83,6 +89,9 @@
 		stroke: transparent;
 		fill: #25282B;
 	}
+	circle {
+		fill: #25282B;
+	}
 }
 
 .doc-color-white {
@@ -90,11 +99,17 @@
 		stroke: transparent;
 		fill: #000;
 	}
+	circle {
+		fill: #000;
+	}
 }
 
 .doc-color-black {
 	path {
 		stroke: transparent;
+		fill: #fff;
+	}
+	circle {
 		fill: #fff;
 	}
 }
