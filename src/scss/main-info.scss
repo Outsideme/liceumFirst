@@ -57,6 +57,7 @@
 	display: grid;
 	grid-template-columns: 1fr .5fr;
 	grid-template-rows: repeat(2, 1fr);
+	overflow-y: auto;
 	@include adaptiveValue('padding-left', 16, 12);
 	@include adaptiveValue('padding-right', 16, 12);
 

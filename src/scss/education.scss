@@ -149,6 +149,7 @@
 	@include adaptiveValue('font-size', 18, 12);
 	// word-wrap: break-word;
 	width: 100%;
+	line-height: 140%;
 
 	span {
 		font-weight: 700;

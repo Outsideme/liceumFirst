@@ -109,8 +109,14 @@
 
 	path {
 		animation-name: animSVG;
+		stroke: transparent;
+		// fill: $mainTif;
+
 	}
 
+
+}
+.svg-footer-hover {
 
 	&:hover {
 		transform: scale(103%);
@@ -118,12 +124,11 @@
 
 		path {
 			fill: #fff;
-			stroke: #fff;
+			// stroke: #fff;
 			transition: transform .2s ease-in-out;
 		}
 	}
 }
-
 .svg-footer-color {
 	path {
 		stroke: #00B2B5;

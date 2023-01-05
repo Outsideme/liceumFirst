@@ -379,3 +379,12 @@ body {
 	scroll-margin-top: 180px;
 
 }
+
+@media screen and (max-width: 800px) {
+	.crumbs__title-last {
+		display: block;
+	}
+	.crumbs__title-current{
+		display: block;
+	}
+}

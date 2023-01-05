@@ -126,6 +126,32 @@
 	}
 
 }
+.tasks-color-brown {
+	path {
+		stroke: #A9E44D !important;
+	}
+}
+.tasks-color-vanilla {
+	path {
+		stroke: #4D4B43 !important;
+	}
+}
+.tasks-color-blue {
+	path {
+		stroke: #25282B !important;
+	}
+}
+.tasks-color-white {
+	path {
+		stroke: #000000 !important;
+	}
+}
+.tasks-color-black {
+	path {
+		stroke: #ffffff !important;
+	}
+}
+
 .filter-spoller {
 
 	position: relative;
@@ -134,23 +160,24 @@
 	border: 1px solid $pointText;
 	border-radius: 10px;
 	transition: border-radius .3s ease;
-	line-height: 140%;
-	padding-top: 8px;
-	padding-bottom: 8px;
+	line-height: 100%;
+	padding-top: rem(8);
+	padding-bottom: rem(8);
 	padding-left: 18px;
 	margin-bottom: rem(8);
 	margin-right: rem(6);
 	font-weight: 700;
 	text-align: left;
-	@include adaptiveValue("width", 220, 220);
+	@include adaptiveValue("width", 240, 220);
 	height: 40px;
 
 		&__title {
 			position: absolute;
 			left: 20px;
-			top: 7px;
+			top: 9px;
 			width: 90%;
 			padding-right: 10%;
+			// padding-bottom: 10%;
 
 		}
 	}
@@ -170,6 +197,7 @@
 	background-color: #fff;
 	border-radius: 10px;
 	border: 1px solid $pointText;
+
 	max-height: 0;
 	opacity: 0;
 	transition: max-height .3s ease-in-out, opacity .2s ease, transform .3s ease;
@@ -191,7 +219,6 @@
 	border-bottom: 0px solid #000;
 }
 .filter-spoller {
-
 
 	&__content {
 		border-top: 1px solid #d9d9d9;

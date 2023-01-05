@@ -636,6 +636,8 @@ eyeBtn.addEventListener("click", (e) => {
 });
 window.addEventListener("scroll", (e) => {
   menuObj.burgerClose();
+  topLine.classList.remove("top-line-active");
+  eyeBtn.classList.remove("eyeActive");
 });
 
 const menuItem = document.querySelectorAll(".menu-item");
@@ -737,6 +739,7 @@ const mainInfoPseudoLeft = document.querySelectorAll(
 let themesNames = [];
 const hoverAdd = ["hover-add", "hover-add-color-"];
 const docColor = ["doc-color-"];
+const tasksColor = ["tasks-color-"];
 const pageColor = ["page-color-"];
 const logoArr = ["logo-color-"];
 const mtoCountPseudo = ["mto-count-pdeudo-before", "mto-count-pdeudo-before-"];
@@ -1069,6 +1072,25 @@ const elementsReAdd = {
     );
     elem.classList.add(`${docColor[0] + themesNames[0]}`);
   },
+  tasksSvgArrow: (elem) => {
+    elem.classList.remove(
+      `${tasksColor[0] + themesNames[1]}`,
+      `${tasksColor[0] + themesNames[2]}`,
+      `${tasksColor[0] + themesNames[3]}`,
+      `${tasksColor[0] + themesNames[4]}`
+    );
+    console.log(elem);
+    elem.classList.add(`${tasksColor[0] + themesNames[0]}`);
+  },
+  resetTasksSvgArrow: (elem) => {
+    elem.classList.remove(
+      `${tasksColor[0] + themesNames[1]}`,
+      `${tasksColor[0] + themesNames[2]}`,
+      `${tasksColor[0] + themesNames[3]}`,
+      `${tasksColor[0] + themesNames[4]}`,
+      `${tasksColor[0] + themesNames[0]}`
+    );
+  },
 
   resetDocSvgEduReAdd: (elem) => {
     elem.classList.remove(
@@ -1314,6 +1336,15 @@ const filterSpoller = document.querySelectorAll(".filter-spoller");
 const filterSpollerBox = document.querySelectorAll(".filter-spoller__box");
 const filterSpollerLi = document.querySelectorAll(".filter-spoller-li");
 const scrollContentTitle = document.querySelectorAll(".scroll-content__title");
+const filterSpollerContent = document.querySelectorAll(
+  ".filter-spoller__content"
+);
+
+const svgFooterHover = document.querySelectorAll(".svg-footer-color");
+const currentCrumbs = document.querySelector(
+  ".crumbs__title-current-text-content "
+);
+const exTasksArrows = document.querySelectorAll(".arrow-filter-spoller");
 
 pageSocial.forEach((elem) => {
   elem.classList.add("page-social-normal");
@@ -1332,10 +1363,16 @@ function themeToggle() {
   if (mainDescription !== null) {
     bodySections.mainDesc();
   }
-
+  // elementsReAdd.tasksSvgArrow(exTasksArrows);
+  // console.log(exTasksArrows);
+  exTasksArrows.forEach((elem) => {
+    elementsReAdd.tasksSvgArrow(elem);
+    // console.log(elem);
+  });
   if (mainTableBox !== null) {
     bodySections.mainTableBox();
   }
+
   teachersMainPhrase.forEach((elem) => {
     elementsStyle.background(elem);
     elementsStyle.border(elem);
@@ -1347,6 +1384,8 @@ function themeToggle() {
   teachersPosition.forEach((elem) => {
     elementsStyle.color(elem);
   });
+  elementsStyle.color(currentCrumbs);
+  svgFooterHover.forEach((e) => e.classList.remove("svg-footer-hover"));
   if (swiperSlide !== null) {
     swiperSlide.forEach((elem) => elementsStyle.background(elem));
     swiperSlide.forEach((elem) => elementsStyle.border(elem));
@@ -1367,6 +1406,7 @@ function themeToggle() {
     cateLeapBtnColor.forEach((elem) => elementsStyle.border(elem));
     cateLeapBtnColor.forEach((elem) => elementsStyle.color(elem));
     swiperArrows.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
+
     infraTabLiActive.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
     cateLeapLi.forEach((elem) => elementsStyle.borderBottom(elem));
     cateLeapLi.forEach((elem) => elementsStyle.borderTop(elem));
@@ -1385,11 +1425,16 @@ function themeToggle() {
     filterSpollerBox.forEach((elem) => {
       elementsStyle.background(elem);
       elementsStyle.border(elem);
+      elementsStyle.borderBottom(elem);
+      elem.style.borderBottom = "0px solid #fff";
     });
     filterSpollerLi.forEach((elem) => {
-      // elementsStyle.background(elem);
       elementsStyle.borderBottom(elem);
+    });
+
+    filterSpollerContent.forEach((elem) => {
       elementsStyle.borderTop(elem);
+      elem.style.borderTop = "0px solid #fff";
     });
   }
   footerButtons.forEach((elem) => {
@@ -1608,14 +1653,21 @@ function normalToggle() {
     swiperArrows.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
     infraTabLiActive.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
   }
+  svgFooterHover.forEach((e) => e.classList.add("svg-footer-hover"));
+
   if (scrollContentTitle !== null) {
     scrollContentTitle.forEach((elem) => (elem.style.color = ``));
   }
+  currentCrumbs.style.color = "";
   if (swiperSlide !== null) {
     swiperSlide.forEach((elem) => (elem.style.backgroundColor = ""));
     swiperSlide.forEach((elem) => (elem.style.border = ""));
     // elementsStyle.background(swiperSlide);
   }
+  exTasksArrows.forEach((elem) => {
+    elementsReAdd.resetTasksSvgArrow(elem);
+    // console.log(elem);
+  });
   if (resetDisplayFaculty !== null) {
     // elementsStyle.border(resetDisplayFaculty);
     resetDisplayFaculty.style.border = "";
@@ -1833,7 +1885,7 @@ function normalToggle() {
   });
   //=========================
   menuHidden.forEach((elem) => {
-    elementsStyle.resetBackground(elem);
+    elem.style.backgroundColor = "#fff";
     elementsStyle.resetColor(elem);
     elementsStyle.resetBorder(elem);
   });
@@ -2113,6 +2165,7 @@ const infraScrollContentBox = document.querySelector(".scroll-content-box");
 const infraTabBar = document.querySelector(".infrastructure__tab-bar");
 const cateLeap = document.querySelector(".cate-leap");
 const cateLeapTitle = document.querySelector(".cate-leap__title");
+const filterSpollerTitle = document.querySelectorAll(".filter-spoller__title");
 
 const fontsCharger = {
   permLittleFonts: () => {
@@ -2121,8 +2174,10 @@ const fontsCharger = {
     fontsMiddle.classList.remove("impaired-item-active");
     fontsLarge.classList.remove("impaired-item-active");
     fontsLittle.classList.add("impaired-item-active");
-    cateLeapTitle.style.top = "12px";
-
+    filterSpollerTitle.forEach((elem) => (elem.style.top = "13px"));
+    if (cateLeapTitle !== null) {
+      cateLeapTitle.style.top = "12px";
+    }
     menuItem.forEach((e) => {
       e.classList.add("little-font");
       heightHours();
@@ -2135,6 +2190,8 @@ const fontsCharger = {
     fontsLarge.classList.remove("impaired-item-active");
     fontsLittle.classList.remove("impaired-item-active");
     fontsMiddle.classList.add("impaired-item-active");
+    filterSpollerTitle.forEach((elem) => (elem.style.top = ""));
+
     if (cateLeapTitle !== null) {
       cateLeapTitle.style.top = "7px";
     }
@@ -2147,6 +2204,7 @@ const fontsCharger = {
     fontsLittle.classList.remove("impaired-item-active");
     fontsMiddle.classList.remove("impaired-item-active");
     fontsLarge.classList.add("impaired-item-active");
+    filterSpollerTitle.forEach((elem) => (elem.style.top = "4px"));
     if (infraMobileContentBox !== null) {
       infraMobileContentBox.style.display = "block";
       infraScrollContentBox.style.display = "none";
@@ -2229,6 +2287,7 @@ document
       infraTabBar.style.display = "";
       infraMobileContentBox.style.display = "";
     }
+
     fontsCharger.normalDistance();
     fontsCharger.permMiddleFonts();
     imgChanger.showImg();
@@ -3022,13 +3081,15 @@ if (document.querySelector(".reset-display-faculty")) {
       });
     });
 }
+const teamCrumbs = document.querySelector(".crumbs__title-last-teacher");
+teamCrumbs.style.display = "none";
 const pathNameArr = [
   "main-info",
   "structure",
   "documents",
   "education",
   "education-standarts",
-  "team",
+  // "team",
   "MTO",
   "paid",
   "financial-activities",
@@ -3043,18 +3104,21 @@ const hideOrg = () => {
   document.querySelector(".crumbs__title-last").style.display = "none";
 };
 let crumbsChanger = () => {
-  document.querySelector(
-    ".crumbs__title-current-text-content"
-  ).innerHTML = `${document.title}`;
+  currentCrumbs.innerHTML = `<svg id="arrow-bread" width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9.6001L5 5.6001L1 1.6001"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  ${document.title}`;
   const pathName = [...location.pathname];
   pathName.shift();
   for (let i = 0; i < 5; i++) {
     pathName.pop()[i];
   }
+  let teacherResult = pathName.slice(0, 7).join("");
+  teacherResult == "teacher" ? (teamCrumbs.style.display = "block") : false;
+  console.log(teacherResult);
   let resultPathName = pathName.join("");
   pathNameArr.includes(resultPathName) ? showOrg() : hideOrg();
-  console.log(pathName.join(""));
-  console.log(pathNameArr[1] == pathName.join(""));
+  resultPathName == "index" ? (currentCrumbs.style.display = "none") : false;
 };
 crumbsChanger();
 // console.log();
