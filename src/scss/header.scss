@@ -109,6 +109,7 @@
 
 .header__container {
 	position: relative;
+	overflow: auto;
 }
 
 .top-line__rows {
@@ -1060,6 +1061,7 @@ li[data-arrow] {
 	background-color: $mainBg;
 	font-weight: 700;
 
+
 	h3 {
 		text-align: center;
 		margin-bottom: rem(8);
@@ -1069,6 +1071,7 @@ li[data-arrow] {
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
+
 	}
 
 
@@ -1104,6 +1107,7 @@ li[data-arrow] {
 .impaired-bar-keeper {
 	display: flex;
 	justify-content: space-evenly;
+
 }
 @media screen and (max-width: 768px) {
 

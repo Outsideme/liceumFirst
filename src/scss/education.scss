@@ -209,6 +209,7 @@
 .btn-education-accor {
 	@include adaptiveValue('min-height', 90, 70);
 	@include adaptiveValue('font-size', 24, 14);
+
 	padding: 8px;
 	position: relative;
 	background-color: #fff;
@@ -290,6 +291,7 @@
 	max-height: 0px;
 	transition: max-height .4s ease;
 
+	word-wrap: break-word;
 
 }
 

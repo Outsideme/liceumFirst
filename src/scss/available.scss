@@ -45,24 +45,12 @@
 		position: relative;
 		line-height: 140%;
 
-		&:before {
-			content: '';
-			position: absolute;
-			@include adaptiveValue('width', 6, 3);
-			@include adaptiveValue('height', 6, 3);
-			@include adaptiveValue('left', -14, -7);
-			@include adaptiveValue('top', 10, 7.5);
-			top: 10px;
-			border-radius: 50%;
-			background-color: $mainText;
 
-
-		}
 	}
 }
 
 .available-accor-height {
-	max-height: 1000px;
+	max-height: 1300px;
 }
 
 .available-accor {

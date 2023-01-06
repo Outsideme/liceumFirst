@@ -10,7 +10,8 @@
 
 .structure__rows {
 
-
+	@include adaptiveValue("padding-left", 0, 5);
+	@include adaptiveValue("padding-right", 0, 5);
 
 	h1 {
 		@include adaptiveValue('font-size', 40, 26);
@@ -33,18 +34,7 @@
 			@include adaptiveValue('margin-left', 40, 8);
 			position: relative;
 
-			&:before {
-				content: '';
-				position: absolute;
-				width: 6px;
-				height: 6px;
-				background-color: $mainText;
-				border-radius: 50%;
-				left: -20px;
-				top: 50%;
-				transform: translateY(-50%);
 
-			}
 		}
 
 
@@ -73,7 +63,102 @@
 	}
 
 }
+.before-li-point-active {
+	&:before {
+		content: '';
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		background-color: $mainText;
+		border-radius: 50%;
+		// left: -20px;
+		// top: 10px;
+		@include adaptiveValue("left", -20, -12);
+		@include adaptiveValue("top", 13, 9);
+		transform: translateY(-50%);
 
+	}
+}
+.before-li-point-active-white {
+	&:before {
+		content: '';
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		background-color: #000;
+		border-radius: 50%;
+		// left: -20px;
+		// top: 10px;
+		@include adaptiveValue("left", -20, -12);
+		@include adaptiveValue("top", 11, 9);
+		transform: translateY(-50%);
+
+	}
+}
+.before-li-point-active-black {
+	&:before {
+		content: '';
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		background-color: #fff;
+		border-radius: 50%;
+		// left: -20px;
+		// top: 10px;
+		@include adaptiveValue("left", -20, -12);
+		@include adaptiveValue("top", 11, 9);
+		transform: translateY(-50%);
+
+	}
+}
+.before-li-point-active-vanilla {
+	&:before {
+		content: '';
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		background-color: #4D4B43;
+		border-radius: 50%;
+		// left: -20px;
+		// top: 10px;
+		@include adaptiveValue("left", -20, -12);
+		@include adaptiveValue("top", 11, 9);
+		transform: translateY(-50%);
+
+	}
+}
+.before-li-point-active-blue {
+	&:before {
+		content: '';
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		background-color: #25282B;
+		border-radius: 50%;
+		// left: -20px;
+		// top: 10px;
+		@include adaptiveValue("left", -20, -12);
+		@include adaptiveValue("top", 11, 9);
+		transform: translateY(-50%);
+
+	}
+}
+.before-li-point-active-brown {
+	&:before {
+		content: '';
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		background-color: #A9E44D;
+		border-radius: 50%;
+		// left: -20px;
+		// top: 10px;
+		@include adaptiveValue("left", -20, -12);
+		@include adaptiveValue("top", 11, 9);
+		transform: translateY(-50%);
+
+	}
+}
 h2[data-structureLiceum] {
 	@include adaptiveValue('margin-top', 40, 24)
 }
@@ -104,13 +189,13 @@ br[data-structureCrumbs] {
 
 
 .division-card__title-1 {
-	border-right: 1px solid $borderTif;
+	// border-right: 1px solid $borderTif;
 	grid-column: 1/2;
 	grid-row: 1/2;
 }
 
 .division-card__title-2 {
-	border-right: 1px solid $borderTif;
+	// border-right: 1px solid $borderTif;
 	grid-column: 2/3;
 	grid-row: 1/2;
 }
@@ -123,13 +208,13 @@ br[data-structureCrumbs] {
 
 
 .division-card__body-1 {
-	border-right: 1px solid $borderTif;
+	// border-right: 1px solid $borderTif;
 	grid-column: 1/2;
 	grid-row: 2/3;
 }
 
 .division-card__body-2 {
-	border-right: 1px solid $borderTif;
+	// border-right: 1px solid $borderTif;
 	grid-column: 2/3;
 	grid-row: 2/3;
 }
@@ -145,11 +230,28 @@ br[data-structureCrumbs] {
 
 	&:not(:last-child) {
 
-		border-right: 1px solid $borderTif;
+		// border-right: 1px solid $borderTif;
 	}
 
 }
-
+// .structure-border-right {
+// 	border-right: 1px solid $borderTif;
+// }
+.structure-border-right-black {
+	border-right: 1px solid #fff;
+}
+.structure-border-right-white {
+	border-right: 1px solid #000;
+}
+.structure-border-right-brown {
+	border-right: 1px solid #A9E44D;
+}
+.structure-border-right-blue {
+	border-right: 1px solid #25282B;
+}
+.structure-border-right-vanilla {
+	border-right: 1px solid #4D4B43;
+}
 .division-card__body {
 	@include adaptiveValue('padding-bottom', 64, 16);
 	padding-right: 10px;
@@ -162,7 +264,9 @@ br[data-structureCrumbs] {
 
 
 }
-
+.structure__division {
+	overflow-y: auto;
+}
 @media screen and (max-width: 605px) {
 	.structure__division {
 		display: grid;
@@ -218,7 +322,7 @@ br[data-structureCrumbs] {
 		margin-bottom: rem(14);
 
 		&:not(:last-child) {
-			border-bottom: 1px solid $borderTif;
+			// border-bottom: 1px solid $borderTif;
 			border-right: 0px solid rgba(0, 0, 0, 0);
 		}
 
@@ -239,4 +343,7 @@ br[data-structureCrumbs] {
 		grid-column: 1/2;
 		grid-row: 11/12;
 	}
+
+
+
 }

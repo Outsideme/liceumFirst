@@ -753,6 +753,10 @@ const quarterPseudo = [
 ];
 const arrowEdu = ["arrow-education-"];
 const organizationSvg = ["organization-svg", "organization-svg-"];
+const beforeLiPointColor = [
+  "before-li-point-active",
+  "before-li-point-active-",
+];
 const progTopHoursPseudo = [
   "prog-top-hours-pseudo-before",
   "prog-top-hours-pseudo-before-",
@@ -913,6 +917,26 @@ const elementsReAdd = {
       `${organizationSvg[1] + themesNames[4]}`
     );
     elem.classList.add(`${organizationSvg[1] + themesNames[0]}`);
+  },
+  beforeLiPointColorReAdd: (elem) => {
+    elem.classList.remove(
+      `${beforeLiPointColor[0]}`,
+      `${beforeLiPointColor[1] + themesNames[1]}`,
+      `${beforeLiPointColor[1] + themesNames[2]}`,
+      `${beforeLiPointColor[1] + themesNames[3]}`,
+      `${beforeLiPointColor[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${beforeLiPointColor[1] + themesNames[0]}`);
+  },
+  resetBeforeLiPointColorReAdd: (elem) => {
+    elem.classList.remove(
+      `${beforeLiPointColor[0]}`,
+      `${beforeLiPointColor[1] + themesNames[1]}`,
+      `${beforeLiPointColor[1] + themesNames[2]}`,
+      `${beforeLiPointColor[1] + themesNames[3]}`,
+      `${beforeLiPointColor[1] + themesNames[4]}`,
+      `${beforeLiPointColor[1] + themesNames[0]}`
+    );
   },
   resetOrganizationSvgReAdd: (elem) => {
     elem.classList.remove(
@@ -1339,16 +1363,54 @@ const scrollContentTitle = document.querySelectorAll(".scroll-content__title");
 const filterSpollerContent = document.querySelectorAll(
   ".filter-spoller__content"
 );
-
+const contactsLinks = document.querySelectorAll(".contacts-links");
+if (window.innerWidth > 605) {
+  document
+    .querySelectorAll(".structure-border")
+    .forEach((elem) => (elem.style.borderRight = "1px solid #6CD3D3"));
+  document
+    .querySelectorAll(".structure-border-bottom")
+    .forEach((elem) => (elem.style.borderBottom = "0px solid #fff"));
+} else {
+  document
+    .querySelectorAll(".structure-border")
+    .forEach((elem) => (elem.style.borderRight = "0px solid #fff"));
+  document
+    .querySelectorAll(".structure-border-bottom")
+    .forEach((elem) => (elem.style.borderBottom = "1px solid #6CD3D3"));
+}
+window.addEventListener("resize", (ev) => {
+  console.log(window.innerWidth);
+  if (window.innerWidth > 605) {
+    document
+      .querySelectorAll(".structure-border")
+      .forEach((elem) => (elem.style.borderRight = "1px solid #6CD3D3"));
+    document
+      .querySelectorAll(".structure-border-bottom")
+      .forEach((elem) => (elem.style.borderBottom = "0px solid #fff"));
+  } else {
+    document
+      .querySelectorAll(".structure-border")
+      .forEach((elem) => (elem.style.borderRight = "0px solid #fff"));
+    document
+      .querySelectorAll(".structure-border-bottom")
+      .forEach((elem) => (elem.style.borderBottom = "1px solid #6CD3D3"));
+  }
+});
 const svgFooterHover = document.querySelectorAll(".svg-footer-color");
 const currentCrumbs = document.querySelector(
   ".crumbs__title-current-text-content "
 );
 const exTasksArrows = document.querySelectorAll(".arrow-filter-spoller");
+const beforeLiPoint = document.querySelectorAll(".before-li-point");
+const minjustSpan = document.querySelectorAll(".minjust-span");
+const spanBorder = document.querySelector(".span-border");
 
+beforeLiPoint.forEach((e) => e.classList.add("before-li-point-active"));
 pageSocial.forEach((elem) => {
   elem.classList.add("page-social-normal");
 });
+
 function themeToggle() {
   elementBody.body();
   elementBody.header();
@@ -1377,6 +1439,9 @@ function themeToggle() {
     elementsStyle.background(elem);
     elementsStyle.border(elem);
   });
+  contactsLinks.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
 
   teachersPoint.forEach((elem) => {
     elementsStyle.color(elem);
@@ -1384,6 +1449,15 @@ function themeToggle() {
   teachersPosition.forEach((elem) => {
     elementsStyle.color(elem);
   });
+  beforeLiPoint.forEach((elem) => {
+    elementsReAdd.beforeLiPointColorReAdd(elem);
+  });
+  minjustSpan.forEach((elem) => {
+    elementsStyle.borderBottom(elem);
+  });
+  if (spanBorder !== null) {
+    spanBorder.style.borderBottom = `1px dashed ${localStorage.getItem("2")}`;
+  }
   elementsStyle.color(currentCrumbs);
   svgFooterHover.forEach((e) => e.classList.remove("svg-footer-hover"));
   if (swiperSlide !== null) {
@@ -1414,9 +1488,10 @@ function themeToggle() {
   if (scrollContentTitle !== null) {
     scrollContentTitle.forEach((elem) => elementsStyle.color(elem));
   }
-  if (resetDisplayFaculty !== null) {
-    elementsStyle.border(resetDisplayFaculty);
-    elementsStyle.background(resetDisplayFaculty);
+
+  if (filterSpoller !== null) {
+    // elementsStyle.border(resetDisplayFaculty);
+    // elementsStyle.background(resetDisplayFaculty);
     filterSpoller.forEach((elem) => {
       elementsStyle.border(elem);
       elementsStyle.background(elem);
@@ -1528,7 +1603,40 @@ function themeToggle() {
   educationTitles.forEach((elem) => {
     elementsStyle.borderBottom(elem);
   });
-  structureBorderRight.forEach((elem) => elementsStyle.borderRight(elem));
+  // structureBorderRight.forEach((elem) => elementsStyle.borderRight(elem));
+  if (window.innerWidth > 605) {
+    document
+      .querySelectorAll(".structure-border")
+      .forEach((elem) => elementsStyle.borderRight(elem));
+    document
+      .querySelectorAll(".structure-border-bottom")
+      .forEach((elem) => (elem.style.borderBottom = "0px solid #fff"));
+  } else {
+    document
+      .querySelectorAll(".structure-border")
+      .forEach((elem) => (elem.style.borderRight = "0px solid #fff"));
+    document
+      .querySelectorAll(".structure-border-bottom")
+      .forEach((elem) => elementsStyle.borderBottom(elem));
+  }
+  window.addEventListener("resize", (ev) => {
+    console.log(window.innerWidth);
+    if (window.innerWidth > 605) {
+      document
+        .querySelectorAll(".structure-border")
+        .forEach((elem) => elementsStyle.borderRight(elem));
+      document
+        .querySelectorAll(".structure-border-bottom")
+        .forEach((elem) => (elem.style.borderBottom = "0px solid #fff"));
+    } else {
+      document
+        .querySelectorAll(".structure-border")
+        .forEach((elem) => (elem.style.borderRight = "0px solid #fff"));
+      document
+        .querySelectorAll(".structure-border-bottom")
+        .forEach((elem) => elementsStyle.borderBottom(elem));
+    }
+  });
   progBoxTitle.forEach((elem) => {
     elementsStyle.borderBottom(elem);
   });
@@ -1589,6 +1697,7 @@ function themeToggle() {
   menuItem.forEach((elem) => elementsReAdd.menuItemReAdd(elem), false);
   menuLink.forEach((elem) => elementsReAdd.menuLinkReAdd(elem), false);
   docSvgEdu.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem), false);
+
   docSvg.forEach((elem) => elementsReAdd.docSvgReAdd(elem), false);
   tgOkVk.forEach((elem) => elementsReAdd.pageColorReAdd(elem), false);
   pageSocial.forEach((elem) => elementsReAdd.docSvgReAdd(elem), false);
@@ -1668,11 +1777,15 @@ function normalToggle() {
     elementsReAdd.resetTasksSvgArrow(elem);
     // console.log(elem);
   });
-  if (resetDisplayFaculty !== null) {
+  minjustSpan.forEach((elem) => {
+    elem.style.borderBottom = "";
+  });
+  if (spanBorder !== null) {
+    spanBorder.style.borderBottom = ``;
+  }
+
+  if (filterSpoller !== null) {
     // elementsStyle.border(resetDisplayFaculty);
-    resetDisplayFaculty.style.border = "";
-    elementsStyle.background(resetDisplayFaculty);
-    resetDisplayFaculty.style.backgroundColor = "";
 
     filterSpoller.forEach((elem) => {
       elem.style.color = "";
@@ -2103,8 +2216,8 @@ const imgChanger = {
     imparedImagesShow.classList.remove("impaired-item-active");
     cardTeam.forEach((elem) => {
       elem.style.padding = "8px";
-      elem.style.borderLeft = "1px solid #25282B";
-      elem.style.borderRight = "1px solid #25282B";
+      elem.style.borderLeft = `1px solid ${localStorage.getItem("0")}`;
+      elem.style.borderRight = `1px solid ${localStorage.getItem("0")}`;
       sessionStorage.setItem(1, "noimg");
     });
     if (leadersMainDescription !== null) {
@@ -2134,12 +2247,6 @@ const imgChanger = {
     imparedImagesShow.classList.add("impaired-item-active");
     body.classList.remove("hide-imgs");
     body.classList.remove("gray-imgs");
-    cardTeam.forEach((elem) => {
-      elem.style.padding = "0px";
-      elem.style.borderLeft = "0px solid #25282B";
-      elem.style.borderRight = "0px solid #25282B";
-      sessionStorage.setItem(1, " ");
-    });
   },
 };
 
@@ -2166,7 +2273,7 @@ const infraTabBar = document.querySelector(".infrastructure__tab-bar");
 const cateLeap = document.querySelector(".cate-leap");
 const cateLeapTitle = document.querySelector(".cate-leap__title");
 const filterSpollerTitle = document.querySelectorAll(".filter-spoller__title");
-
+const contactsSvg = document.querySelectorAll(".contacts-svg");
 const fontsCharger = {
   permLittleFonts: () => {
     sessionStorage.setItem(3, "littlefonts");
@@ -2191,7 +2298,10 @@ const fontsCharger = {
     fontsLittle.classList.remove("impaired-item-active");
     fontsMiddle.classList.add("impaired-item-active");
     filterSpollerTitle.forEach((elem) => (elem.style.top = ""));
-
+    if (document.querySelector(".leaders__main-description") !== null) {
+      document.querySelector(".leaders__main-description").style.minHeight = "";
+      document.querySelector(".main-description").style.paddingBottom = "";
+    }
     if (cateLeapTitle !== null) {
       cateLeapTitle.style.top = "7px";
     }
@@ -2205,6 +2315,19 @@ const fontsCharger = {
     fontsMiddle.classList.remove("impaired-item-active");
     fontsLarge.classList.add("impaired-item-active");
     filterSpollerTitle.forEach((elem) => (elem.style.top = "4px"));
+    if (document.querySelectorAll(".contacts-br") !== null) {
+      document
+        .querySelectorAll(".contacts-br")
+        .forEach((e) => (e.style.display = "block"));
+    }
+    if (document.querySelectorAll(".font-large") !== null) {
+      document.querySelectorAll(".font-large").forEach((e) => {
+        e.style.display = "block";
+      });
+    }
+    if (document.querySelector(".main-description") !== null) {
+      document.querySelector(".main-description").style.paddingBottom = "200px";
+    }
     if (infraMobileContentBox !== null) {
       infraMobileContentBox.style.display = "block";
       infraScrollContentBox.style.display = "none";
@@ -2229,9 +2352,11 @@ const fontsCharger = {
     letterDistancMiddle.classList.add("impaired-item-active");
     letterFistanceLarge.classList.remove("impaired-item-active");
     letterDistanceLittle.classList.remove("impaired-item-active");
-    infraMobileContentBox.style.display = "block";
-    infraScrollContentBox.style.display = "none";
-    infraTabBar.style.display = "none";
+    if (infraMobileContentBox !== null) {
+      infraMobileContentBox.style.display = "block";
+      infraScrollContentBox.style.display = "none";
+      infraTabBar.style.display = "none";
+    }
     heightHours();
   },
   biggestDistance: () => {
@@ -2281,6 +2406,17 @@ document
         "impaired-item-active-brown"
       )
     );
+    beforeLiPoint.forEach((elem) =>
+      elementsReAdd.resetBeforeLiPointColorReAdd(elem)
+    );
+    beforeLiPoint.forEach((elem) =>
+      elem.classList.add("before-li-point-active")
+    );
+
+    if (document.querySelector(".leaders__main-description") !== null) {
+      document.querySelector(".leaders__main-description").style.minHeight = "";
+      document.querySelector(".main-description").style.paddingBottom = "";
+    }
     normalToggle();
     if (infraScrollContentBox) {
       infraScrollContentBox.style.display = "";
@@ -2493,7 +2629,6 @@ new Swiper(".swiper-container-8", {
     el: ".swiper-scrollbar",
   },
 });
-
 //=============//===========================================================//==========================>> Мобильные свайперы
 
 new Swiper(".swiper-container-mob-1", {
@@ -3081,8 +3216,10 @@ if (document.querySelector(".reset-display-faculty")) {
       });
     });
 }
+
 const teamCrumbs = document.querySelector(".crumbs__title-last-teacher");
-teamCrumbs.style.display = "none";
+// teamCrumbs.style.display = "none";
+// document.querySelectorAll(".crumbs__title-last").style.display = "none";
 const pathNameArr = [
   "main-info",
   "structure",
@@ -3115,7 +3252,6 @@ let crumbsChanger = () => {
   }
   let teacherResult = pathName.slice(0, 7).join("");
   teacherResult == "teacher" ? (teamCrumbs.style.display = "block") : false;
-  console.log(teacherResult);
   let resultPathName = pathName.join("");
   pathNameArr.includes(resultPathName) ? showOrg() : hideOrg();
   resultPathName == "index" ? (currentCrumbs.style.display = "none") : false;

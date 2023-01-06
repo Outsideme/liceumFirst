@@ -5,7 +5,7 @@
 
 
 .MTO__rows {
-
+	word-wrap: break-word;
 	h1 {
 
 		@include adaptiveValue('font-size', 40, 26);
@@ -42,6 +42,7 @@
 
 
 .mto-table {
+
 	@include adaptiveValue('padding-top', 20, 8);
 	@include adaptiveValue('padding-right', 28, 16);
 	@include adaptiveValue('padding-bottom', 24, 12);
@@ -227,17 +228,17 @@
 		li {
 			position: relative;
 
-			&:before {
-				content: '';
-				position: absolute;
-				@include adaptiveValue('width', 6, 3);
-				@include adaptiveValue('height', 6, 3);
-				background-color: $mainText;
-				@include adaptiveValue('left', -16, -8);
-				@include adaptiveValue('top', 12, 7);
-				border-radius: 50%;
+			// &:before {
+			// 	content: '';
+			// 	position: absolute;
+			// 	@include adaptiveValue('width', 6, 3);
+			// 	@include adaptiveValue('height', 6, 3);
+			// 	background-color: $mainText;
+			// 	@include adaptiveValue('left', -16, -8);
+			// 	@include adaptiveValue('top', 12, 7);
+			// 	border-radius: 50%;
 
-			}
+			// }
 
 			line-height: 160%;
 		}
@@ -285,8 +286,12 @@
 }
 
 .mto-accor {
+
 	transition: max-height .6s ease-in-out;
 
 }
 
 .mto-table {}
+.font-large {
+	display: none;
+}

@@ -56,18 +56,19 @@
 
 		line-height: 140%;
 
-		&:after {
-			content: "";
-			@include adaptiveValue('width', 6, 3);
-			@include adaptiveValue('height', 6, 3);
-			@include adaptiveValue('left', -16, -8);
-			@include adaptiveValue('top', 10, 9);
-			position: absolute;
+		// &:before {
+		// 	content: "";
+		// 	@include adaptiveValue('width', 6, 3);
+		// 	@include adaptiveValue('height', 6, 3);
+		// 	@include adaptiveValue('left', -16, -8);
+		// 	// @include adaptiveValue('top', 10, 9);
+		// 	top: 10px;
+		// 	position: absolute;
 
-			background-color: $mainText;
-			border-radius: 50%;
+		// 	background-color: $mainText;
+		// 	border-radius: 50%;
 
-		}
+		// }
 	}
 }
 
@@ -133,12 +134,14 @@
 	@include adaptiveValue('width', 24, 16);
 	@include adaptiveValue('height', 24, 16);
 	@include adaptiveValue('left', -32, -26);
+	@include adaptiveValue('top', 7, 10);
 
 }
 
 #contacts-mail {
 	@include adaptiveValue('width', 24, 16);
 	@include adaptiveValue('left', -32, -26);
+	@include adaptiveValue('top', 7, 10);
 
 }
 
@@ -146,6 +149,7 @@
 	@include adaptiveValue('width', 18, 10);
 	@include adaptiveValue('height', 24, 16);
 	@include adaptiveValue('left', -29, -23);
+	@include adaptiveValue('top', 7, 10);
 
 }
 
