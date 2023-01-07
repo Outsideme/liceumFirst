@@ -26,7 +26,7 @@
 			position: absolute;
 			left: 20px;
 			top: 7px;
-			width: 100%;
+			width: 90%;
 		}
 	}
 
@@ -43,7 +43,7 @@
 	font-weight: 400;
 	background-color: #fff;
 	border-radius: 10px;
-	// border: 1px solid $mainTif;
+	border: 1px solid $mainTif;
 	max-height: 0;
 	opacity: 0;
 
@@ -59,7 +59,7 @@
 
 
 	&__content {
-		// border-top: 1px solid #d9d9d9;
+		border-top: 1px solid #d9d9d9;
 	}
 
 	&__list {
@@ -88,7 +88,7 @@
 	transition: transform .3s ease-in-out;
 	position: absolute;
 	// @include adaptiveValue("right", -160, -16);
-	right: 32px;
+	right: 0px;
 	top: 40%;
 	path {
 		stroke: $mainTif;
@@ -139,12 +139,15 @@ h5 {
 	@include adaptiveValue("padding-right", 56, 25);
 	@include adaptiveValue("padding-bottom", 86, 64);
 	@include adaptiveValue("padding-left", 56, 25);
-	overflow-x: hidden;
 	grid-column: 2/4;
 	background-color: #ffffff;
 	border-radius: 10px;
 	height: rem(650);
 	overflow-y: scroll;
+
+}
+.qwe {
+
 }
 .infrastructure {
 
@@ -159,7 +162,7 @@ h5 {
 		grid-column: 1/2;
 		background-color: #fff;
 		border-radius: 10px;
-
+		overflow: hidden
 	}
 
 	&__list {
@@ -211,6 +214,151 @@ h5 {
 		path {
 			fill: transparent;
 			stroke: $mainTif;
+		}
+	}
+}
+.li-active-white {
+	&:before {
+		content: '';
+		position: absolute;
+		background-color: black;
+		height: 100%;
+		width: 3px;
+		border-radius: 20%;
+		top: 0;
+		@include adaptiveValue("left", -105, -65);
+	}
+	a{
+		color: black;
+	}
+	svg {
+		path {
+			fill: black;
+		}
+		rect {
+			stroke: black;
+		}
+	}
+	.infra-svg-sport {
+		path {
+			fill: transparent;
+			stroke: black;
+		}
+	}
+}
+.li-active-black {
+	&:before {
+		content: '';
+		position: absolute;
+		background-color: white;
+		height: 100%;
+		width: 3px;
+		border-radius: 20%;
+		top: 0;
+		@include adaptiveValue("left", -105, -65);
+	}
+	a{
+		color: white;
+	}
+	svg {
+		path {
+			fill: white;
+		}
+		rect {
+			stroke: white;
+		}
+	}
+	.infra-svg-sport {
+		path {
+			fill: transparent;
+			stroke: white;
+		}
+	}
+}
+.li-active-blue {
+	&:before {
+		content: '';
+		position: absolute;
+		background-color: #25282B;
+		height: 100%;
+		width: 3px;
+		border-radius: 20%;
+		top: 0;
+		@include adaptiveValue("left", -105, -65);
+	}
+	a{
+		color: #25282B;
+	}
+	svg {
+		path {
+			fill: #25282B;
+		}
+		rect {
+			stroke: #25282B;
+		}
+	}
+	.infra-svg-sport {
+		path {
+			fill: transparent;
+			stroke: #25282B;
+		}
+	}
+}
+.li-active-vanilla {
+	&:before {
+		content: '';
+		position: absolute;
+		background-color: #4D4B43;
+		height: 100%;
+		width: 3px;
+		border-radius: 20%;
+		top: 0;
+		@include adaptiveValue("left", -105, -65);
+	}
+	a{
+		color: #4D4B43;
+	}
+	svg {
+		path {
+			fill: #4D4B43;
+		}
+		rect {
+			stroke: #4D4B43;
+		}
+	}
+	.infra-svg-sport {
+		path {
+			fill: transparent;
+			stroke: #4D4B43;
+		}
+	}
+}
+.li-active-brown {
+	&:before {
+		content: '';
+		position: absolute;
+		background-color: #A9E44D;
+		height: 100%;
+		width: 3px;
+		border-radius: 20%;
+		top: 0;
+		@include adaptiveValue("left", -105, -65);
+	}
+	a{
+		color: #A9E44D;
+	}
+	svg {
+		path {
+			fill: #A9E44D;
+		}
+		rect {
+			stroke: #A9E44D;
+		}
+	}
+	.infra-svg-sport {
+		path {
+			fill: transparent;
+			stroke: #A9E44D;
 		}
 	}
 }
@@ -506,3 +654,40 @@ position: absolute;
 	}
 
 }
+.arrow-infra-leap-color-white {
+	path {
+		stroke: #000 !important;
+	}
+}
+.arrow-infra-leap-color-black {
+	path {
+		stroke: #fff !important;
+	}
+}
+.arrow-infra-leap-color-blue {
+	path {
+		stroke: #25282B !important;
+	}
+}
+.arrow-infra-leap-color-vanilla {
+	path {
+		stroke: #4D4B43 !important;
+	}
+}
+.arrow-infra-leap-color-vanilla {
+	path {
+		stroke: #A9E44D !important;
+	}
+}
+.arrow-infra-leap-color {
+	right: 16px;
+}
+// #arrow-infra-leap {
+// 	right: 16px;
+
+// 	path {
+
+
+// 		stroke: yellow;
+// 	}
+// }

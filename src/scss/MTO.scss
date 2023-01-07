@@ -212,7 +212,7 @@
 
 
 .mto-table-library__box {
-	@include adaptiveValue('padding-top', 0, 0);
+	@include adaptiveValue('padding-top', 10, 0);
 	@include adaptiveValue('padding-left', 28, 16);
 	@include adaptiveValue('padding-bottom', 6, 6);
 	padding-top: rem(0);

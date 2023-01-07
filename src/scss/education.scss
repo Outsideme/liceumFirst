@@ -242,27 +242,27 @@
 }
 .arrow-education-white {
 	path {
-		stroke: #000000
+		stroke: #000000 !important;
 	}
 }
 .arrow-education-black {
 	path {
-		stroke: #ffffff
+		stroke: #ffffff !important;
 	}
 }
 .arrow-education-blue {
 	path {
-		stroke: #25282B
+		stroke: #25282B !important;
 	}
 }
 .arrow-education-vanilla {
 	path {
-		stroke: #4D4B43
+		stroke: #4D4B43 !important;
 	}
 }
 .arrow-education-brown {
 	path {
-		stroke: #A9E44D
+		stroke: #A9E44D !important;
 	}
 }
 
@@ -748,7 +748,7 @@
 }
 
 .quarter-mobile {
-	overflow-x: auto;
+	// overflow-x: auto;
 	display: none;
 	border: 1px solid $borderTif;
 	border-radius: 10px;
@@ -872,6 +872,9 @@
 	position: absolute;
 	right: 8px;
 	top: 40%;
+	path {
+		stroke: #C9C8D3;
+	}
 	// transform: translateY(-50%);
 	transition: transform .4s ease;
 	z-index: 7;
@@ -920,7 +923,7 @@
 	border-radius: 0 0 10px 10px;
 	background-color: #fff;
 	max-height: 0px;
-	transition: transform .5s ease;
+	transition: all .1s ease;
 	z-index: 4;
 
 
@@ -929,6 +932,7 @@
 	-webkit-box-shadow: 0px 27px 35px -24px rgba(34, 60, 80, 0.2);
 	-moz-box-shadow: 0px 27px 35px -24px rgba(34, 60, 80, 0.2);
 	box-shadow: 0px 27px 35px -24px rgba(34, 60, 80, 0.2);
+	// transition: all 1s ease;
 
 }
 
@@ -937,7 +941,7 @@
 
 
 	ul {
-		@include adaptiveValue('padding-top', 16, 6);
+		@include adaptiveValue('margin-top', 38, 6);
 
 		@include adaptiveValue('font-size', 14, 12);
 
@@ -946,7 +950,8 @@
 			cursor: pointer;
 			@include adaptiveValue('padding-left', 16, 12);
 
-			@include adaptiveValue('padding-bottom', 8, 6);
+			@include adaptiveValue('padding-bottom', 8, 8);
+			@include adaptiveValue('padding-top', 8, 8);
 
 			&:not(:last-child) {
 				border-bottom: 1px solid #C9C8D3;
@@ -954,7 +959,12 @@
 
 
 
-			@include adaptiveValue('padding-top', 8, 6);
+			// @include adaptiveValue('margin-top', 12, 12);
+			// @include adaptiveValue('padding-top', 12, 12);
+			// &::first-child{
+			// 	@include adaptiveValue('padding-top', 28, 12);
+
+			// }
 		}
 	}
 
@@ -968,7 +978,7 @@
 }
 
 .quarter-active {
-	transition: transform 1s ease;
+	transition: all .5s ease;
 
 	max-height: 400px;
 	transform: translateY(0px);
@@ -1053,4 +1063,7 @@
 		position: absolute;
 		background-color: #000000;
 	}
+}
+.quarter-mobile-content {
+	// padding-top: 50px;
 }

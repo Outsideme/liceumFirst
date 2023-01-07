@@ -362,9 +362,10 @@ const dateObj = {
 const showTableInQuarter = () => {
   if (tableIf.length > 0) {
     if (
-      dateObj.currentDate >= dateObj.startFirstQuarter &&
-      dateObj.currentDate <= dateObj.endFirstQuarter
+      new Date() >= dateObj.startFirstQuarter &&
+      new Date() <= dateObj.endFirstQuarter
     ) {
+      console.log("work?");
       outputJun.innerHTML = arrInfoFirstSecond.one;
       outputSin.innerHTML = arrInfoFirstSecond.sinOne;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle;
@@ -376,11 +377,11 @@ const showTableInQuarter = () => {
       btnSelectTwo.children[0].innerHTML = arrInfoFirstSecond.oneTitleSecond;
 
       //==============================//==============================//==============================//==============================//==============================//==============================
-    }
-    if (
-      dateObj.currentDate >= dateObj.startSecondQuarter &&
-      dateObj.currentDate <= dateObj.endSecondQuarter
+    } else if (
+      new Date() >= dateObj.startSecondQuarter &&
+      new Date() <= dateObj.endSecondQuarter
     ) {
+      console.log("work?");
       outputJun.innerHTML = arrInfoFirstSecond.two;
       outputSin.innerHTML = arrInfoFirstSecond.sinTwo;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle;
@@ -396,11 +397,12 @@ const showTableInQuarter = () => {
       outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst;
       btnSelectThree.children[0].innerHTML =
         arrInfoFirstSecond.seasonFirstTitle;
-    }
-    if (
-      dateObj.currentDate >= dateObj.startThirdQuarter &&
-      dateObj.currentDate <= dateObj.endThirdQuarter
+    } else if (
+      new Date() >= dateObj.startThirdQuarter &&
+      new Date() <= dateObj.endThirdQuarter
     ) {
+      console.log("work?");
+
       outputJun.innerHTML = arrInfoFirstSecond.three;
       outputSin.innerHTML = arrInfoFirstSecond.sinThree;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle;
@@ -418,11 +420,12 @@ const showTableInQuarter = () => {
       outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonThird;
       btnSelectThree.children[0].innerHTML =
         arrInfoFirstSecond.seasonThirdTitle;
-    }
-    if (
-      dateObj.currentDate >= dateObj.startFourthQuarter &&
-      dateObj.currentDate <= dateObj.endFourthQuarter
+    } else if (
+      new Date() >= dateObj.startFourthQuarter &&
+      new Date() <= dateObj.endFourthQuarter
     ) {
+      console.log("work?");
+
       outputJun.innerHTML = arrInfoFirstSecond.four;
       outputSin.innerHTML = arrInfoFirstSecond.sinFour;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle;
@@ -753,6 +756,7 @@ const quarterPseudo = [
 ];
 const arrowEdu = ["arrow-education-"];
 const organizationSvg = ["organization-svg", "organization-svg-"];
+const infraLiActive = ["li-active", "li-active-"];
 const beforeLiPointColor = [
   "before-li-point-active",
   "before-li-point-active-",
@@ -917,6 +921,25 @@ const elementsReAdd = {
       `${organizationSvg[1] + themesNames[4]}`
     );
     elem.classList.add(`${organizationSvg[1] + themesNames[0]}`);
+  },
+  infraLiActiveReAdd: (elem) => {
+    elem.classList.remove(
+      `${infraLiActive[1] + themesNames[1]}`,
+      `${infraLiActive[1] + themesNames[2]}`,
+      `${infraLiActive[1] + themesNames[3]}`,
+      `${infraLiActive[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${infraLiActive[1] + themesNames[0]}`);
+  },
+  resetInfraLiActiveReAdd: (elem) => {
+    elem.classList.remove(
+      `${organizationSvg[1] + themesNames[0]}`,
+      `${infraLiActive[1] + themesNames[1]}`,
+      `${infraLiActive[1] + themesNames[2]}`,
+      `${infraLiActive[1] + themesNames[3]}`,
+      `${infraLiActive[1] + themesNames[4]}`
+    );
+    elem.classList.add(`${infraLiActive[0]}`);
   },
   beforeLiPointColorReAdd: (elem) => {
     elem.classList.remove(
@@ -1103,7 +1126,6 @@ const elementsReAdd = {
       `${tasksColor[0] + themesNames[3]}`,
       `${tasksColor[0] + themesNames[4]}`
     );
-    console.log(elem);
     elem.classList.add(`${tasksColor[0] + themesNames[0]}`);
   },
   resetTasksSvgArrow: (elem) => {
@@ -1360,6 +1382,7 @@ const filterSpoller = document.querySelectorAll(".filter-spoller");
 const filterSpollerBox = document.querySelectorAll(".filter-spoller__box");
 const filterSpollerLi = document.querySelectorAll(".filter-spoller-li");
 const scrollContentTitle = document.querySelectorAll(".scroll-content__title");
+const arrowEduSelect = document.querySelectorAll(".arrow-edu-select");
 const filterSpollerContent = document.querySelectorAll(
   ".filter-spoller__content"
 );
@@ -1380,7 +1403,6 @@ if (window.innerWidth > 605) {
     .forEach((elem) => (elem.style.borderBottom = "1px solid #6CD3D3"));
 }
 window.addEventListener("resize", (ev) => {
-  console.log(window.innerWidth);
   if (window.innerWidth > 605) {
     document
       .querySelectorAll(".structure-border")
@@ -1405,7 +1427,10 @@ const exTasksArrows = document.querySelectorAll(".arrow-filter-spoller");
 const beforeLiPoint = document.querySelectorAll(".before-li-point");
 const minjustSpan = document.querySelectorAll(".minjust-span");
 const spanBorder = document.querySelector(".span-border");
-
+const arrowInfraLeapColor = document.querySelectorAll(
+  ".arrow-infra-leap-color"
+);
+const liInfraActive = document.querySelectorAll(".li-active");
 beforeLiPoint.forEach((e) => e.classList.add("before-li-point-active"));
 pageSocial.forEach((elem) => {
   elem.classList.add("page-social-normal");
@@ -1426,8 +1451,11 @@ function themeToggle() {
     bodySections.mainDesc();
   }
   // elementsReAdd.tasksSvgArrow(exTasksArrows);
-  // console.log(exTasksArrows);
   exTasksArrows.forEach((elem) => {
+    elementsReAdd.tasksSvgArrow(elem);
+    // console.log(elem);
+  });
+  arrowInfraLeapColor.forEach((elem) => {
     elementsReAdd.tasksSvgArrow(elem);
     // console.log(elem);
   });
@@ -1480,10 +1508,11 @@ function themeToggle() {
     cateLeapBtnColor.forEach((elem) => elementsStyle.border(elem));
     cateLeapBtnColor.forEach((elem) => elementsStyle.color(elem));
     swiperArrows.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
-
+    liInfraActive.forEach((elem) => elementsReAdd.infraLiActiveReAdd(elem));
     infraTabLiActive.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
-    cateLeapLi.forEach((elem) => elementsStyle.borderBottom(elem));
-    cateLeapLi.forEach((elem) => elementsStyle.borderTop(elem));
+
+    // cateLeapLi.forEach((elem) => elementsStyle.borderBottom(elem));
+    // cateLeapLi.forEach((elem) => elementsStyle.borderTop(elem));
   }
   if (scrollContentTitle !== null) {
     scrollContentTitle.forEach((elem) => elementsStyle.color(elem));
@@ -1561,6 +1590,7 @@ function themeToggle() {
     });
   }
   arrowEducation.forEach((elem) => elementsReAdd.arrowEducation(elem));
+  arrowEduSelect.forEach((elem) => elementsReAdd.arrowEducation(elem));
   progBottomList.forEach((elem) => {
     elementsStyle.borderLeft(elem);
     elementsStyle.borderTop(elem);
@@ -1620,7 +1650,6 @@ function themeToggle() {
       .forEach((elem) => elementsStyle.borderBottom(elem));
   }
   window.addEventListener("resize", (ev) => {
-    console.log(window.innerWidth);
     if (window.innerWidth > 605) {
       document
         .querySelectorAll(".structure-border")
@@ -1777,6 +1806,12 @@ function normalToggle() {
     elementsReAdd.resetTasksSvgArrow(elem);
     // console.log(elem);
   });
+  arrowInfraLeapColor.forEach((elem) => {
+    elementsReAdd.resetTasksSvgArrow(elem);
+    // console.log(elem);
+  });
+  arrowEduSelect.forEach((elem) => elementsReAdd.resetArrowEducation(elem));
+
   minjustSpan.forEach((elem) => {
     elem.style.borderBottom = "";
   });
@@ -2060,6 +2095,7 @@ function normalToggle() {
   );
   //=========================
   organizationSvgsColor.forEach((elem) => elementsReAdd.resetDocSvgReAdd(elem));
+
   //=========================
   progTopHours.forEach(
     (elem) => elementsReAdd.resetProgTopHoursReAdd(elem),
@@ -2821,7 +2857,7 @@ if (document.querySelector(".infrastructure__li-3")) {
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 1675, behavior: "smooth" });
+        .scroll({ top: 1620, behavior: "smooth" });
     });
 }
 if (document.querySelector(".infrastructure__li-4")) {
@@ -2830,7 +2866,7 @@ if (document.querySelector(".infrastructure__li-4")) {
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 2360, behavior: "smooth" });
+        .scroll({ top: 2305, behavior: "smooth" });
     });
 }
 
@@ -2840,7 +2876,7 @@ if (document.querySelector(".infrastructure__li-5")) {
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 3090, behavior: "smooth" });
+        .scroll({ top: 3030, behavior: "smooth" });
     });
 }
 if (document.querySelector(".infrastructure__li-6")) {
@@ -2849,7 +2885,7 @@ if (document.querySelector(".infrastructure__li-6")) {
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 3975, behavior: "smooth" });
+        .scroll({ top: 3920, behavior: "smooth" });
     });
 }
 if (document.querySelector(".infrastructure__li-7")) {
@@ -2858,7 +2894,7 @@ if (document.querySelector(".infrastructure__li-7")) {
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 4800, behavior: "smooth" });
+        .scroll({ top: 4745, behavior: "smooth" });
     });
 }
 if (document.querySelector(".infrastructure__li-8")) {
@@ -2867,7 +2903,7 @@ if (document.querySelector(".infrastructure__li-8")) {
     .addEventListener("click", (e) => {
       document
         .querySelector(".scroll-content-box")
-        .scroll({ top: 5909, behavior: "smooth" });
+        .scroll({ top: 5850, behavior: "smooth" });
     });
 }
 if (document.querySelector(".infrastructure__li-1") !== null) {
@@ -3257,7 +3293,6 @@ let crumbsChanger = () => {
   resultPathName == "index" ? (currentCrumbs.style.display = "none") : false;
 };
 crumbsChanger();
-// console.log();
 //============================/===================/====================>
 
 /*

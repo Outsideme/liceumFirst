@@ -244,17 +244,17 @@
 	border-radius: 0 0 10px 10px;
 	border-top: 0px solid #fff;
 }
-#arrow-infra-leap {
-	// z-index: 50;
-	transition: transform .3s ease-in-out;
-	position: absolute;
-	// @include adaptiveValue("right", -160, -16);
-	right: 32px;
-	top: 40%;
-	path {
-		stroke: $mainTif;
-	}
-}
+// #arrow-infra-leap {
+// 	// z-index: 50;
+// 	transition: transform .3s ease-in-out;
+// 	position: absolute;
+// 	// @include adaptiveValue("right", -160, -16);
+// 	right: 32px;
+// 	top: 40%;
+// 	path {
+// 		stroke: $mainTif;
+// 	}
+// }
 .filter-spoller-opacity {
 	transition: transform .3s ease, opacity .3s ease;
 	transform: translateY(-50px);
