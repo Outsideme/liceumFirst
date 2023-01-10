@@ -275,6 +275,7 @@
 
 .box-content-accor {
 	margin-top: -20px;
+
 	overflow: hidden;
 	@include adaptiveValue('padding-bottom', 18, 14);
 	@include adaptiveValue('padding-top', 24, 24);
@@ -333,6 +334,7 @@
 }
 
 .documents-list {
+	padding-top: 15px;
 
 	li {
 

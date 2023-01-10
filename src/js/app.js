@@ -6,6 +6,9 @@ const mobilePageMenu = document.querySelectorAll(".mobile-page-menu");
 const accorTitle = document.querySelectorAll(".accor-title");
 const cateLeapFix = document.querySelector(".cate-leap");
 const wrapper = document.querySelector(".wrapper");
+const catLeapLi = document.querySelectorAll(".cat-leap-li");
+// const cateLeapContent = document.querySelector(".cate-leap__content");
+
 // burger.classList.add("burger-test-vanilla");
 
 // const burgerTest = document.querySelector(".burger-test");
@@ -43,7 +46,7 @@ const menuObj = {
     if (document.documentElement.clientWidth > 768) {
       menuObj.burgerClose();
     }
-    // menuObj.headerResize();
+    menuObj.headerResize();
   },
   openMainMenu: function () {
     const menu = document.querySelectorAll(".menu-item");
@@ -79,9 +82,9 @@ function mobileAccor() {
         icon.children[0].classList.remove("open-accor");
       });
       if (!e.currentTarget.children[1].classList.contains("open-accor")) {
-        content.forEach((it) => {
-          return it.classList.remove("open-accor");
-        });
+        // content.forEach((it) => {
+        //   return it.classList.remove("open-accor");
+        // });
         self.add("open-accor");
         rotateArrow.add("open-accor");
       } else if (e.currentTarget.children[1].classList.contains("open-accor")) {
@@ -335,17 +338,16 @@ const arrInfoFirstSecond = {
   sinSeasonFourth: "ГИА",
   seasonFourthTitle: "Летние",
 };
-
 const dateObj = {
   currentDate: new Date(),
   startFirstQuarter: new Date("2022-09-01"),
   endFirstQuarter: new Date("2022-10-26"),
-  startSecondQuarter: new Date("2022-11-07"),
+  startSecondQuarter: new Date("2022-10-07"),
   endSecondQuarter: new Date("2022-12-24"),
-  startThirdQuarter: new Date("2022-01-09"),
-  endThirdQuarter: new Date("2022-03-04"),
-  startFourthQuarter: new Date("2022-03-13"),
-  endFourthQuarter: new Date("2022-05-27"),
+  startThirdQuarter: new Date("2022-12-24"),
+  endThirdQuarter: new Date("2023-03-04"),
+  startFourthQuarter: new Date("2023-03-04"),
+  endFourthQuarter: new Date("2023-05-27"),
 
   teachersExpYears2023: new Date(2023, 9, 1, 0, 0),
   teachersExpYears2024: new Date(2024, 9, 1, 0, 0),
@@ -378,8 +380,8 @@ const showTableInQuarter = () => {
 
       //==============================//==============================//==============================//==============================//==============================//==============================
     } else if (
-      new Date() >= dateObj.startSecondQuarter &&
-      new Date() <= dateObj.endSecondQuarter
+      dateObj.currentDate >= dateObj.startSecondQuarter &&
+      dateObj.currentDate <= dateObj.endSecondQuarter
     ) {
       console.log("work?");
       outputJun.innerHTML = arrInfoFirstSecond.two;
@@ -397,9 +399,11 @@ const showTableInQuarter = () => {
       outputSinThird.innerHTML = arrInfoFirstSecond.sinSeasonFirst;
       btnSelectThree.children[0].innerHTML =
         arrInfoFirstSecond.seasonFirstTitle;
-    } else if (
-      new Date() >= dateObj.startThirdQuarter &&
-      new Date() <= dateObj.endThirdQuarter
+    }
+    console.log(dateObj.currentDate <= dateObj.endThirdQuarter);
+    if (
+      dateObj.currentDate >= dateObj.startThirdQuarter &&
+      dateObj.currentDate <= dateObj.endThirdQuarter
     ) {
       console.log("work?");
 
@@ -1374,6 +1378,7 @@ const swiperArrows = document.querySelectorAll(".swiper-arrows");
 const infraTabLiActive = document.querySelectorAll(".li-active");
 const cateLeapBtnColor = document.querySelectorAll(".cate-leap");
 const cateLeapContent = document.querySelectorAll(".cate-leap__box");
+const cateLeapContentContent = document.querySelector(".cate-leap-content");
 const cateLeapLi = document.querySelectorAll(".cat-leap-li");
 const arrowInfraLeap = document.querySelectorAll("#arrow-infra-leap");
 const swiperSlide = document.querySelectorAll(".cards-box");
@@ -1467,6 +1472,16 @@ function themeToggle() {
     elementsStyle.background(elem);
     elementsStyle.border(elem);
   });
+  if (resetDisplayFaculty !== null) {
+    elementsStyle.background(resetDisplayFaculty);
+    elementsStyle.border(resetDisplayFaculty);
+  }
+  if (catLeapLi !== null) {
+    catLeapLi.forEach((elem) => {
+      // elem.style.borderTop = "0px solid #000";
+      elementsStyle.borderBottom(elem);
+    });
+  }
   contactsLinks.forEach((elem) => {
     elementsStyle.borderBottom(elem);
   });
@@ -1503,6 +1518,9 @@ function themeToggle() {
     elementsStyle.background(infraTab);
     cateLeapBtnColor.forEach((elem) => elementsStyle.background(elem));
     cateLeapContent.forEach((elem) => elementsStyle.background(elem));
+    document.querySelector(".cate-leap__content").style.borderTop =
+      "0px solid #000";
+    // elementsStyle.borderTop(cateLeapContentContent);
     // cateLeapContent.forEach((elem) => elementsStyle.borderBottom(elem));
     cateLeapContent.forEach((elem) => elementsStyle.border(elem));
     cateLeapBtnColor.forEach((elem) => elementsStyle.border(elem));
@@ -1790,11 +1808,16 @@ function normalToggle() {
     cateLeapLi.forEach((elem) => (elem.style.borderBottom = ``));
     swiperArrows.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
     infraTabLiActive.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
+    document.querySelector(".cate-leap__content").style.borderTop = "";
   }
   svgFooterHover.forEach((e) => e.classList.add("svg-footer-hover"));
 
   if (scrollContentTitle !== null) {
     scrollContentTitle.forEach((elem) => (elem.style.color = ``));
+  }
+  if (resetDisplayFaculty !== null) {
+    resetDisplayFaculty.style.border = "";
+    resetDisplayFaculty.style.backgroundColor = "";
   }
   currentCrumbs.style.color = "";
   if (swiperSlide !== null) {
@@ -1838,6 +1861,9 @@ function normalToggle() {
 
       // elementsStyle.borderBottom(elem);
       // elementsStyle.borderTop(elem);
+    });
+    filterSpollerContent.forEach((elem) => {
+      elem.style.borderTop = "";
     });
   }
   //=========================//=========================
@@ -3282,7 +3308,15 @@ let crumbsChanger = () => {
   </svg>
   ${document.title}`;
   const pathName = [...location.pathname];
+  console.log();
+
   pathName.shift();
+  pathName.join("") == "index" || pathName == undefined
+    ? (currentCrumbs.style.display = "none")
+    : false;
+  // console.log(pathName);
+  pathName.length <= 0 ? (currentCrumbs.style.display = "none") : false;
+
   for (let i = 0; i < 5; i++) {
     pathName.pop()[i];
   }
