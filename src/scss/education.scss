@@ -950,10 +950,10 @@
 		li {
 
 			cursor: pointer;
-			@include adaptiveValue('padding-left', 16, 12);
+			// @include adaptiveValue('padding-left', 16, 12);
 
-			@include adaptiveValue('padding-bottom', 8, 8);
-			@include adaptiveValue('padding-top', 8, 8);
+			// @include adaptiveValue('padding-bottom', 8, 8);
+			// @include adaptiveValue('padding-top', 8, 8);
 
 			&:not(:last-child) {
 				border-bottom: 1px solid #C9C8D3;
@@ -1068,4 +1068,14 @@
 }
 .quarter-mobile-content {
 	// padding-top: 50px;
+	padding-top : 0;
+}
+.li-select {
+	// border: 1px solid red;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	@include adaptiveValue('padding-left', 16, 12);
+	@include adaptiveValue('padding-bottom', 8, 8);
+	@include adaptiveValue('padding-top', 8, 8);
 }

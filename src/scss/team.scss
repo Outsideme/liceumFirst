@@ -153,6 +153,7 @@
 .card-team__position {
 	line-height: math.div(22, 16);
 	margin-bottom: rem(16);
+	@include adaptiveValue("font-size", 16, 14);
 	color: $textGrey;
 	font-weight: 700;
 

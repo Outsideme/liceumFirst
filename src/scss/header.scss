@@ -563,16 +563,28 @@
 }
 
 .menu-link {
-
+	position: relative;
 	transition: transform .1s ease;
-	padding-top: rem(8);
-	padding-bottom: rem(8);
+	// padding-top: rem(8);
+	// padding-bottom: rem(8);
 	width: 100%;
-	padding-left: rem(16);
-	padding-right: rem(16);
+	// padding-left: rem(16);
+	// padding-right: rem(16);
+	&:hover {
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 2px;
+			border-radius: 25%;
+			background-color: $mainTif;
+		}
+	}
 
 &:last-child {
-	padding-bottom: rem(12);
+	// padding-bottom: rem(12);
 
 }
 }
@@ -594,9 +606,11 @@
 		}
 
 		.link-a {
+			// border: 1px solid red;
+		// border-bottom: 1px solid rgba(0, 0, 0, .4);
 
-			border-bottom: 1px solid rgba(0, 0, 0, .4);
 		}
+
 	}
 }
 
@@ -698,48 +712,60 @@
 .link-a {
 	font-weight: 400;
 	font-size: rem(12);
+	display: inline-block;
+	// border: 1px solid #000;
+	padding-top: 4px;
+	// padding-bottom: 4px;
+	height: 100%;
+	width: 100%;
+	padding-top: rem(8);
+	padding-left: rem(16);
+	padding-right: rem(16);
+	padding-bottom: rem(8);
+
+	// border: 1px solid #000;
 	color: #25282B;
 }
 
-.link-second {
+// .link-second {
 
 
-	padding-top: rem(8);
-	padding-bottom: rem(8);
-	width: 100%;
-	padding-left: rem(16);
-	padding-right: rem(16);
-	transition: background-size .3s ease;
+// 	padding-top: rem(8);
+// 	padding-bottom: rem(8);
+// 	width: 100%;
+// 	padding-left: rem(16);
+// 	padding-right: rem(16);
+// 	transition: background-size .3s ease;
 
-	&:hover {
-		background-color: $bgTif;
+// 	&:hover {
+// 		background-color: $bgTif;
 
-		&:first-child {
-			border-radius: 10px 10px 0 0;
-		}
+// 		&:first-child {
+// 			border-radius: 10px 10px 0 0;
+// 		}
 
-		&:last-child {
-			border-radius: 0 0 10px 10px;
+// 		&:last-child {
+// 			border-radius: 0 0 10px 10px;
 
-		}
+// 		}
 
-		box-shadow: inset 1.5px 1.5px 4px rgba(7, 124, 120, 0.25);
+// 		box-shadow: inset 1.5px 1.5px 4px rgba(7, 124, 120, 0.25);
 
-		a {
-			border-bottom: 1px solid rgba(0, 0, 0, .4);
-		}
+// 		a {
+// 			border-bottom: 1px solid rgba(0, 0, 0, .4);
+// 		}
 
 
-	}
+// 	}
 
-	a {
+// 	a {
 
-		font-weight: 400;
-		font-size: rem(12);
-		color: #25282B;
+// 		font-weight: 400;
+// 		font-size: rem(12);
+// 		color: #25282B;
 
-	}
-}
+// 	}
+// }
 
 
 
@@ -757,6 +783,7 @@
 
 .menu-hidden.showHide {
 	visibility: visible;
+	overflow: hidden;
 	opacity: 1;
 	transition: transform .3s ease;
 	transform: scaleY(100%);
@@ -855,8 +882,11 @@ li[data-arrow] {
 #arrow {
 	margin-left: rem(8);
 	transform: rotate(90deg);
-	transition: transfotm .3s ease;
-
+	transition: transform .3s ease;
+	width: 20px;
+	height: 20px;
+	// margin-top: 5px;
+	// top: 55px;
 	// path {
 	// 	stroke: #fff;
 
@@ -887,7 +917,7 @@ li[data-arrow] {
 		padding-bottom: 0;
 	}
 
-	padding-bottom: rem(12);
+	padding-bottom: rem(24);
 	overflow: hidden;
 	font-size: rem(14);
 	font-weight: 700;
@@ -897,29 +927,37 @@ li[data-arrow] {
 		padding-bottom: rem(8);
 	}
 }
-
+.accor-title {
+	// font-size: 24px;
+	@include adaptiveValue("font-size", 24, 20);
+}
 
 .menu-link-mob {
 
 	a {
+		display: inline-block;
+		padding-bottom: rem(12);
+		padding-top: rem(12);
+		width: 100%;
 		&:hover {
 			font-weight: 700;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.4)
 		}
 
-		font-size: rem(12);
+		font-size: rem(16);
 		font-weight: 400;
+		// border-bottom: 1px solid white;
 	}
 
-	margin-top: rem(8);
-	margin-left: rem(20);
+	// margin-top: rem(4);
+	padding-left: rem(20);
 
 	&:first-child {
-		margin-top: rem(16);
+		// margin-top: rem(16);
 	}
 
 	&:not(:last-child) {
-		margin-bottom: rem(4);
+		// margin-bottom: rem(12);
 
 	}
 }
@@ -927,11 +965,12 @@ li[data-arrow] {
 
 
 .accor-content.open-accor {
+	transform: translateX(0px);
 	visibility: visible;
 	opacity: 1;
 	max-height: 500px;
 	transition: transform .4s ease;
-	transform: scaleY(100%);
+	// transform: scaleY(100%);
 
 }
 
@@ -942,11 +981,12 @@ li[data-arrow] {
 }
 
 .accor-content {
-	transition: max-height .1s ease;
-	transform: scaleY(70%);
+	transition: max-height .1s ease, translateX .4s ease;
+	transform: translateX(-10px);
+	// font-size: 50px;
 	overflow: hidden;
-	visibility: hidden;
-	opacity: 0;
+	// visibility: hidden;
+	// opacity: 0;
 	max-height: 0;
 }
 
@@ -957,7 +997,7 @@ li[data-arrow] {
 	flex-direction: column;
 	gap: rem(16);
 	margin-bottom: rem(16);
-	font-size: rem(12);
+	font-size: rem(14);
 	font-weight: 400;
 	color: #fff;
 }
@@ -1042,7 +1082,7 @@ li[data-arrow] {
 }
 .map-links {
 	color: $mainColor;
-	font-size: rem(12);
+	font-size: rem(14);
 	font-weight: 400;
 	display: flex;
 	flex-direction: column;
