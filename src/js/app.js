@@ -34,7 +34,6 @@ const menuObj = {
     eyeBtn.classList.remove("eyeActive");
   },
   headerResize: function () {
-    console.log(header.offsetHeight);
     const headerHeight = header.offsetHeight;
     mobileNav.style.top = `${headerHeight - 1}px`;
     if (document.querySelector(".cate-leap__title") !== null) {
@@ -102,6 +101,8 @@ mobileAccor();
 
 const container = document.querySelector(".header__container");
 const search = document.querySelector(".search-btn");
+const searchButton = document.querySelector(".search-button");
+const crossSearch = document.querySelector(".cross-search");
 
 const topLineObj = {
   searchTranslate: function () {
@@ -113,6 +114,8 @@ const topLineObj = {
   showTopInput: function () {
     search.style.transform = `translateX(-${search.offsetLeft - 15}px)`;
     input.classList.add("inputActive");
+    crossSearch.classList.add("inputActive");
+    searchButton.classList.add("inputActive");
     setTimeout(() => {
       input.focus();
     }, 500);
@@ -121,18 +124,26 @@ const topLineObj = {
     setTimeout(() => {
       (input.value = ""), 0;
     });
+
     search.style.removeProperty("transform");
+    crossSearch.classList.remove("inputActive");
+    searchButton.classList.remove("inputActive");
     input.classList.remove("inputActive");
   },
   closeSearch: function () {
     search.style.removeProperty("transform");
+    crossSearch.classList.remove("inputActive");
+    searchButton.classList.remove("inputActive");
     input.classList.remove("inputActive");
     setTimeout(() => {
       (input.value = ""), 300;
     });
   },
 };
-
+crossSearch.addEventListener("click", (e) => {
+  input.value = "";
+  e.preventDefault();
+});
 const left = () => {
   window.addEventListener("resize", topLineObj.searchTranslate, false);
 };
@@ -148,9 +159,10 @@ function searchTranslate() {
     }
   });
 }
-
+// !e.target.closest(".searchButton") ||
+// !e.target.closest(".crossSearch")
 window.addEventListener("click", (e) => {
-  if (!e.target.closest(".search-btn") && e.target !== input) {
+  if (!e.target.closest(".header") && e.target !== input) {
     topLineObj.closeSearch();
   }
 });
@@ -368,7 +380,6 @@ const showTableInQuarter = () => {
       new Date() >= dateObj.startFirstQuarter &&
       new Date() <= dateObj.endFirstQuarter
     ) {
-      console.log("work?");
       outputJun.innerHTML = arrInfoFirstSecond.one;
       outputSin.innerHTML = arrInfoFirstSecond.sinOne;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.oneTitle;
@@ -384,7 +395,6 @@ const showTableInQuarter = () => {
       dateObj.currentDate >= dateObj.startSecondQuarter &&
       dateObj.currentDate <= dateObj.endSecondQuarter
     ) {
-      console.log("work?");
       outputJun.innerHTML = arrInfoFirstSecond.two;
       outputSin.innerHTML = arrInfoFirstSecond.sinTwo;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.twoTitle;
@@ -401,13 +411,10 @@ const showTableInQuarter = () => {
       btnSelectThree.children[0].innerHTML =
         arrInfoFirstSecond.seasonFirstTitle;
     }
-    console.log(dateObj.currentDate <= dateObj.endThirdQuarter);
     if (
       dateObj.currentDate >= dateObj.startThirdQuarter &&
       dateObj.currentDate <= dateObj.endThirdQuarter
     ) {
-      console.log("work?");
-
       outputJun.innerHTML = arrInfoFirstSecond.three;
       outputSin.innerHTML = arrInfoFirstSecond.sinThree;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.threeTitle;
@@ -429,8 +436,6 @@ const showTableInQuarter = () => {
       new Date() >= dateObj.startFourthQuarter &&
       new Date() <= dateObj.endFourthQuarter
     ) {
-      console.log("work?");
-
       outputJun.innerHTML = arrInfoFirstSecond.four;
       outputSin.innerHTML = arrInfoFirstSecond.sinFour;
       btnSelectOne.children[0].innerHTML = arrInfoFirstSecond.fourTitle;
@@ -723,6 +728,7 @@ const mainInfoLinks = document.querySelectorAll(".main-info-link");
 const orgSubsBorderLeft = document.querySelectorAll(".orgSubsBorderLeft");
 const orgSubsBorderTop = document.querySelectorAll(".orgSubsBorderTop");
 const arrowEducation = document.querySelectorAll("#arrow-education");
+const catLeapA = document.querySelectorAll(".cat-leap-a");
 const quarterAllOutputJun = document.querySelectorAll(
   ".quarter-mobile-box__classes-output-jun"
 );
@@ -737,6 +743,10 @@ const structureBorderRight = document.querySelectorAll(
 );
 menuLink.forEach((elem) => {
   elem.classList.add("hover-add");
+});
+catLeapA.forEach((elem) => {
+  elem.classList.add("hover-add");
+  elem.classList.add("cat-leap-a-bg-hover");
 });
 const educationTablesRow1 = document.querySelectorAll(
   ".education-tables__row-1"
@@ -870,6 +880,10 @@ const elementsReAdd = {
   orgItemsReAdd: (elem) => {
     elem.style.backgroundColor = localStorage.getItem("1");
     elem.style.border = `1px solid ${localStorage.getItem("2")}`;
+  },
+  resetOrgItemsReAdd: (elem) => {
+    elem.style.backgroundColor = "#DDF0F2";
+    elem.style.border = `0px solid #ffffff`;
   },
   resetOrgItemsReAdd: (elem) => {
     elem.style.backgroundColor = "#DDF0F2";
@@ -1389,6 +1403,8 @@ const filterSpollerBox = document.querySelectorAll(".filter-spoller__box");
 const filterSpollerLi = document.querySelectorAll(".filter-spoller-li");
 const scrollContentTitle = document.querySelectorAll(".scroll-content__title");
 const arrowEduSelect = document.querySelectorAll(".arrow-edu-select");
+const spanVatLeap = document.querySelectorAll(".span-cat-leap");
+
 const filterSpollerContent = document.querySelectorAll(
   ".filter-spoller__content"
 );
@@ -1459,11 +1475,9 @@ function themeToggle() {
   // elementsReAdd.tasksSvgArrow(exTasksArrows);
   exTasksArrows.forEach((elem) => {
     elementsReAdd.tasksSvgArrow(elem);
-    // console.log(elem);
   });
   arrowInfraLeapColor.forEach((elem) => {
     elementsReAdd.tasksSvgArrow(elem);
-    // console.log(elem);
   });
   if (mainTableBox !== null) {
     bodySections.mainTableBox();
@@ -1517,6 +1531,16 @@ function themeToggle() {
     elementsStyle.background(infraContentBox);
     elementsStyle.border(infraTab);
     elementsStyle.background(infraTab);
+
+    swiperArrows.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
+    liInfraActive.forEach((elem) => elementsReAdd.infraLiActiveReAdd(elem));
+    infraTabLiActive.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
+
+    // cateLeapLi.forEach((elem) => elementsStyle.borderBottom(elem));
+    // cateLeapLi.forEach((elem) => elementsStyle.borderTop(elem));
+  }
+  if (cateLeapBtnColor !== null) {
+    spanVatLeap.forEach((elem) => elementsStyle.color(elem));
     cateLeapBtnColor.forEach((elem) => elementsStyle.background(elem));
     cateLeapContent.forEach((elem) => elementsStyle.background(elem));
     if (document.querySelector(".cate-leap__content") !== null) {
@@ -1528,12 +1552,6 @@ function themeToggle() {
     cateLeapContent.forEach((elem) => elementsStyle.border(elem));
     cateLeapBtnColor.forEach((elem) => elementsStyle.border(elem));
     cateLeapBtnColor.forEach((elem) => elementsStyle.color(elem));
-    swiperArrows.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
-    liInfraActive.forEach((elem) => elementsReAdd.infraLiActiveReAdd(elem));
-    infraTabLiActive.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem));
-
-    // cateLeapLi.forEach((elem) => elementsStyle.borderBottom(elem));
-    // cateLeapLi.forEach((elem) => elementsStyle.borderTop(elem));
   }
   if (scrollContentTitle !== null) {
     scrollContentTitle.forEach((elem) => elementsStyle.color(elem));
@@ -1746,6 +1764,7 @@ function themeToggle() {
   orgItems.forEach((elem) => elementsReAdd.orgItemsReAdd(elem), false);
   menuItem.forEach((elem) => elementsReAdd.menuItemReAdd(elem), false);
   menuLink.forEach((elem) => elementsReAdd.menuLinkReAdd(elem), false);
+  catLeapA.forEach((elem) => elementsReAdd.menuLinkReAdd(elem), false);
   docSvgEdu.forEach((elem) => elementsReAdd.docSvgEduReAdd(elem), false);
 
   docSvg.forEach((elem) => elementsReAdd.docSvgReAdd(elem), false);
@@ -1802,6 +1821,15 @@ function normalToggle() {
     elementsStyle.resetBackgroundWhite(infraContentBox);
     elementsStyle.resetBorder(infraTab);
     elementsStyle.resetBackgroundWhite(infraTab);
+
+    swiperArrows.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
+    infraTabLiActive.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
+    if (document.querySelector(".cate-leap__content") !== null) {
+      document.querySelector(".cate-leap__content").style.borderTop = "";
+    }
+  }
+  if (cateLeapBtnColor !== null) {
+    spanVatLeap.forEach((elem) => (elem.style.color = ""));
     cateLeapBtnColor.forEach((elem) => (elem.style.backgroundColor = ""));
     cateLeapContent.forEach((elem) => elementsStyle.resetBackgroundWhite(elem));
     cateLeapContent.forEach((elem) => (elem.style.border = ``));
@@ -1809,11 +1837,6 @@ function normalToggle() {
     cateLeapBtnColor.forEach((elem) => (elem.style.color = ``));
     cateLeapLi.forEach((elem) => (elem.style.borderTop = ``));
     cateLeapLi.forEach((elem) => (elem.style.borderBottom = ``));
-    swiperArrows.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
-    infraTabLiActive.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem));
-    if (document.querySelector(".cate-leap__content") !== null) {
-      document.querySelector(".cate-leap__content").style.borderTop = "";
-    }
   }
   svgFooterHover.forEach((e) => e.classList.add("svg-footer-hover"));
 
@@ -1832,11 +1855,9 @@ function normalToggle() {
   }
   exTasksArrows.forEach((elem) => {
     elementsReAdd.resetTasksSvgArrow(elem);
-    // console.log(elem);
   });
   arrowInfraLeapColor.forEach((elem) => {
     elementsReAdd.resetTasksSvgArrow(elem);
-    // console.log(elem);
   });
   arrowEduSelect.forEach((elem) => elementsReAdd.resetArrowEducation(elem));
 
@@ -3068,9 +3089,17 @@ if (document.querySelector(".scroll-content-box-psy") !== null) {
       }
     });
 }
+const MenuLiHover = 'elem.classList.add("menu-links-hover")';
+document
+  .querySelectorAll(".menu-link")
+  .forEach((elem) => elem.classList.add("menu-links-hover"));
+document
+  .querySelectorAll(".cat-leap-a")
+  .forEach((elem) => elem.classList.add("menu-links-hover"));
+document
+  .querySelectorAll(".span-cat-leap")
+  .forEach((elem) => elem.classList.add("mine-link-static-right"));
 
-// console.log(document.querySelector("#team-1").getBoundingClientRect());
-// console.log(document.querySelector("#team-2").getBoundingClientRect());
 // if (document.querySelector(".team__leaders") !== null) {
 //   if (document.querySelector("#team-1")) {
 //     document.querySelector(".cat-leap-a-1").addEventListener("click", (e) => {
@@ -3140,7 +3169,6 @@ if (document.querySelector(".scroll-content-box-psy") !== null) {
 //   }
 // }
 // window.addEventListener("scroll", function (e) {
-//   console.log();
 //   if (this.scrollY) {
 //     header.classList.add("header-fixed-top");
 //   }
@@ -3150,9 +3178,6 @@ if (document.querySelector(".scroll-content-box-psy") !== null) {
 // });
 // const cateLeapFix = document.querySelector(".cate-leap");
 let oldScrollY = 0;
-// console.log(window.innerHeight);
-console.log(document.documentElement.scrollTop);
-console.log(document.documentElement.scrollHeight);
 
 function headerFix() {
   window.addEventListener("scroll", function () {
@@ -3161,7 +3186,6 @@ function headerFix() {
       document.documentElement.scrollHeight - 1500
     ) {
       // cateLeapObj.removeOutClass();
-      return console.log("woooork!");
     }
     let scrolled = window.scrollY || document.documentElement.scrollTop;
     if (scrolled > 300) {
@@ -3395,13 +3419,11 @@ let crumbsChanger = () => {
   </svg>
   ${document.title}`;
   const pathName = [...location.pathname];
-  console.log();
 
   pathName.shift();
   pathName.join("") == "index" || pathName == undefined
     ? (currentCrumbs.style.display = "none")
     : false;
-  // console.log(pathName);
   pathName.length <= 0 ? (currentCrumbs.style.display = "none") : false;
 
   for (let i = 0; i < 5; i++) {
@@ -3414,6 +3436,7 @@ let crumbsChanger = () => {
   resultPathName == "index" ? (currentCrumbs.style.display = "none") : false;
 };
 crumbsChanger();
+
 //============================/===================/====================>
 
 /*
