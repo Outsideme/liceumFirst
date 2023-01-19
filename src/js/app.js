@@ -1816,6 +1816,7 @@ function normalToggle() {
   if (mainDescription !== null) {
     bodySections.resetMainDesc();
   }
+
   if (infraContentBox !== null) {
     elementsStyle.resetBorder(infraContentBox);
     elementsStyle.resetBackgroundWhite(infraContentBox);
@@ -2112,6 +2113,8 @@ function normalToggle() {
   menuItem.forEach((elem) => elementsReAdd.resetMenuItemReAdd(elem), false);
   //=========================
   menuLink.forEach((elem) => elementsReAdd.resetMenuLinkReAdd(elem), false);
+  catLeapA.forEach((elem) => elementsReAdd.resetMenuLinkReAdd(elem), false);
+
   //=========================
   docSvgEdu.forEach((elem) => elementsReAdd.resetDocSvgEduReAdd(elem), false);
   //=========================

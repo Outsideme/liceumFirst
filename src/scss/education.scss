@@ -958,7 +958,7 @@
 
 	ul {
 		@include adaptiveValue('margin-top', 38, 6);
-		margin-bottom: 38px;
+		// margin-bottom: 38px;
 
 		@include adaptiveValue('font-size', 14, 12);
 
