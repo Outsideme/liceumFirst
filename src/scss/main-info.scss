@@ -13,14 +13,16 @@
 		@include adaptiveValue('font-size', 40, 26);
 		@include adaptiveValue('padding-top', 104, 64);
 		@include adaptiveValue('margin-bottom', 40, 24);
+		margin-bottom: rem(40);
 		font-weight: 700;
 		line-height: 120%;
 	}
 
 	h2 {
 
-		@include adaptiveValue('font-size', 18, 14);
-		@include adaptiveValue('margin-bottom', 16, 12);
+		// @include adaptiveValue('font-size', 18, 14);
+		// @include adaptiveValue('margin-bottom', 16, 12);
+		margin-bottom: rem(16);
 		line-height: math.div(25, 18);
 
 
@@ -33,7 +35,8 @@
 	}
 
 	.mode-title {
-		@include adaptiveValue('margin-top', 40, 24)
+		// @include adaptiveValue('margin-top', 40, 24);
+		margin-top: rem(40);
 	}
 }
 .main-info-link {
@@ -197,4 +200,17 @@
 		width: 100%;
 
 	}
+	.main-info__rows {
+
+
+
+		h1 {
+			margin-bottom: rem(24);
+
+		h2 {
+
+			margin-bottom: rem(12);
+
+		}
 }
+	}}

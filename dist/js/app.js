@@ -5697,7 +5697,7 @@
     let oldScrollY = 0;
     function headerFix() {
         window.addEventListener("scroll", (function() {
-            if (document.documentElement.scrollTop > document.documentElement.scrollHeight - 1500) ;
+            if (document.documentElement.scrollTop > document.documentElement.scrollHeight - 1500) return;
             let scrolled = window.scrollY || document.documentElement.scrollTop;
             if (scrolled > 300) {
                 header.classList.add("scroll200");

@@ -179,8 +179,10 @@
 	h1 {
 
 		@include adaptiveValue('font-size', 40, 26);
-		@include adaptiveValue('margin-top', 48, 48);
-		@include adaptiveValue('margin-bottom', 40, 24);
+		// @include adaptiveValue('margin-top', 48, 48);
+		// @include adaptiveValue('margin-bottom', 40, 24);
+		margin-top: 48px;
+		margin-bottom: 40px;
 		font-weight: 700;
 		line-height: 120%;
 	}
@@ -190,10 +192,14 @@ h5 {
 
 }
 .scroll-content-box {
-	@include adaptiveValue("padding-top", 43, 32);
-	@include adaptiveValue("padding-right", 56, 25);
-	@include adaptiveValue("padding-bottom", 86, 64);
-	@include adaptiveValue("padding-left", 56, 25);
+	// @include adaptiveValue("padding-top", 43, 32);
+	// @include adaptiveValue("padding-right", 56, 25);
+	// @include adaptiveValue("padding-bottom", 86, 64);
+	// @include adaptiveValue("padding-left", 56, 25);
+	padding-top: 43px;
+	padding-right: 56px;
+	padding-bottom: 86px;
+	padding-left: 56px;
 	grid-column: 2/4;
 	background-color: #ffffff;
 	border-radius: 10px;
@@ -224,9 +230,12 @@ h5 {
 	}
 
 	&__li {
-		@include adaptiveValue("padding-bottom", 24, 16);
-		@include adaptiveValue("padding-top", 24, 16);
-		@include adaptiveValue("margin-left", 105, 65);
+		// @include adaptiveValue("padding-bottom", 24, 16);
+		// @include adaptiveValue("padding-top", 24, 16);
+		// @include adaptiveValue("margin-left", 105, 65);
+		padding-bottom: 24px;
+		padding-top: 24px;
+		margin-left: 105px;
 		position: relative;
 	}
 
@@ -431,7 +440,8 @@ transform: translateY(-50%)
 	}
 
 	&__title {
-		@include adaptiveValue("padding-bottom", 16, 16);
+		// @include adaptiveValue("padding-bottom", 16, 16);
+		padding-bottom: 16px;
 		@include adaptiveValue("font-size", 18, 14);
 		color: $mainTif;
 		font-weight: 700;
@@ -439,7 +449,8 @@ transform: translateY(-50%)
 	}
 
 	&__text {
-		@include adaptiveValue("margin-bottom", 28, 28);
+		// @include adaptiveValue("margin-bottom", 28, 28);
+		margin-bottom: 28px;
 		@include adaptiveValue("font-size", 18, 14);
 
 

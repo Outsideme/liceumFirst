@@ -218,7 +218,8 @@
 	padding-top: rem(0);
 
 	h3 {
-		@include adaptiveValue('margin-bottom', 8, 6);
+		// @include adaptiveValue('margin-bottom', 8, 6);
+		margin-bottom: 8px;
 		line-height: 140%;
 	}
 
@@ -247,7 +248,8 @@
 	.mto-subtitle-library {
 		margin-bottom: 0;
 		padding-left: 0;
-		@include adaptiveValue('margin-bottom', 8, 6);
+		// @include adaptiveValue('margin-bottom', 8, 6);
+		margin-bottom: 8px;
 	}
 
 	h3 {
@@ -263,6 +265,7 @@
 
 .mto-food-subtitle {
 	@include adaptiveValue('margin-bottom', 32, 16);
+	margin-bottom: 32px;
 	line-height: 140%;
 }
 
@@ -294,4 +297,10 @@
 .mto-table {}
 .font-large {
 	display: none;
+}
+@media screen and (max-width: 768px) {
+	.mto-food-subtitle {
+		margin-bottom: 16px;
+	}
+
 }

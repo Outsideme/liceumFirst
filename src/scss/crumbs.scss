@@ -3,7 +3,8 @@
 		stroke: $textGrey;
 	}
 
-	@include adaptiveValue('margin-right', 30, 12);
+	// @include adaptiveValue('margin-right', 30, 12);
+	margin-right: 30px;
 
 }
 
@@ -31,11 +32,15 @@
 
 	&__title-last {
 
-		@include adaptiveValue('margin-right', 30, 12);
+		// @include adaptiveValue('margin-right', 30, 12);
+			margin-right: 30px;
+
 	}
 
 	&__title-root {
-		@include adaptiveValue('margin-right', 30, 12);
+		// @include adaptiveValue('margin-right', 30, 12);
+			margin-right: 30px;
+
 		margin-top: 0px;
 
 
@@ -68,6 +73,29 @@
 	.bread-arrow-wrap {
 		display: inline;
 	}
+	#arrow-bread {
+
+
+		margin-right: 12px;
+
+	}
+
+	.crumbs {
+
+
+		&__title-last {
+
+				margin-right: 12px;
+
+		}
+
+		&__title-root {
+				margin-right: 12px;
+
+
+
+		}
+}
 }
 .crumbs__title-current-text-content {
 	font-size: rem(12);

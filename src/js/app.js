@@ -3186,6 +3186,7 @@ function headerFix() {
       document.documentElement.scrollHeight - 1500
     ) {
       // cateLeapObj.removeOutClass();
+      return;
     }
     let scrolled = window.scrollY || document.documentElement.scrollTop;
     if (scrolled > 300) {

@@ -81,13 +81,16 @@
 }
 
 .contacts-box__contacts {
-	@include adaptiveValue('margin-bottom', 109, 20);
+	// @include adaptiveValue('margin-bottom', 109, 20);
+	margin-bottom: 109px;
 
 	ul {
-		@include adaptiveValue('margin-left', 36, 28);
+		// @include adaptiveValue('margin-left', 36, 28);
+		margin-left: 36px;
 
 		li {
-			@include adaptiveValue('margin-bottom', 16, 8);
+			// @include adaptiveValue('margin-bottom', 16, 8);
+			margin-bottom: 16px;
 			line-height: 140%;
 
 			position: relative;
@@ -111,6 +114,7 @@
 		line-height: 140%;
 
 		@include adaptiveValue('margin-bottom', 8, 8);
+		margin-bottom: 8px;
 	}
 
 	h3 {
@@ -118,6 +122,7 @@
 
 
 		@include adaptiveValue('margin-bottom', 16, 8);
+		margin-bottom: 16px;
 
 		span {
 			font-weight: 700;
@@ -191,6 +196,7 @@
 	}
 
 	.contacts-box__contacts {
-		@include adaptiveValue('margin-bottom', 109, 0);
+		// @include adaptiveValue('margin-bottom', 109, 0);
+		margin-bottom: 109px;
 	}
 }

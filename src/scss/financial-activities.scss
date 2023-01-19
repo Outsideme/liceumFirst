@@ -8,12 +8,14 @@ body {}
 	h1 {
 
 		@include adaptiveValue('font-size', 40, 26);
-		@include adaptiveValue('margin-bottom', 40, 24);
+		// @include adaptiveValue('margin-bottom', 40, 24);
+		margin-bottom: 40px;
 		font-weight: 700;
 		line-height: 120%;
 	}
 
-	@include adaptiveValue('margin-bottom', 400, 200);
+	// @include adaptiveValue('margin-bottom', 400, 200);
+	margin-bottom: rem(400);
 
 	h2 {
 		@include adaptiveValue('font-size', 18, 14);
@@ -27,6 +29,18 @@ body {}
 	border-bottom: 1px solid #000;
 }
 
+
+
+@media screen and (max-width: 776px) {
+	.paid__rows {
+		h1 {
+
+			margin-bottom: 24px;
+		}
+
+		margin-bottom: rem(200);
+	}
+}
 @media (orientation: landscape) and (max-height: 500px) {
 	.paid__rows {
 		margin-bottom: 150px;

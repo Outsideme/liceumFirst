@@ -7,7 +7,9 @@
 
 	ul {
 
-		@include adaptiveValue('margin-bottom', 420, 180);
+		// @include adaptiveValue('margin-bottom', 420, 180);
+		margin-bottom: 420px;
+		// margin-bottom: 180px;
 	}
 
 	#doc {
@@ -18,16 +20,50 @@
 	h1 {
 
 		@include adaptiveValue('font-size', 40, 26);
-		@include adaptiveValue('margin-top', 104, 64);
-		@include adaptiveValue('margin-bottom', 40, 24);
+		// @include adaptiveValue('margin-top', 104, 64);
+		// @include adaptiveValue('margin-bottom', 40, 24);
+		margin-top: rem(104);
+		margin-bottom: 40px;
 		font-weight: 700;
 		line-height: 120%;
 	}
 
 	h2 {
 		@include adaptiveValue('font-size', 18, 14);
-		@include adaptiveValue('margin-bottom', 30, 30);
+		// @include adaptiveValue('margin-bottom', 30, 30);
+		margin-bottom: 30px;
 		line-height: 140%;
 
 	}
+}
+@media screen and (max-width: 786px){
+	.education-standarts__rows {
+
+		ul {
+
+			margin-bottom: 260px;
+		}
+	}}
+@media screen and (max-width: 576px){
+	.education-standarts__rows {
+
+		ul {
+
+			// @include adaptiveValue('margin-bottom', 420, 180);
+			// margin-bottom: 420px;
+			margin-bottom: 180px;
+		}
+
+
+
+		h1 {
+
+			// @include adaptiveValue('font-size', 40, 26);
+			// @include adaptiveValue('margin-top', 104, 64);
+			// @include adaptiveValue('margin-bottom', 40, 24);
+			margin-top: rem(64);
+			margin-bottom: rem(24);
+
+		}
+}
 }

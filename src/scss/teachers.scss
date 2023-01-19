@@ -1,6 +1,8 @@
 .teachers-main__section {
 	@include adaptiveValue('margin-top', 80, 64);
 	@include adaptiveValue('margin-bottom', 80, 64);
+	margin-top: rem(80);
+	margin-bottom: rem(80);
 	display: grid;
 	grid-template-columns: 1fr .7fr 1fr;
 	grid-auto-rows: .2fr 1fr;
@@ -15,7 +17,8 @@
 
 .teachers-main__name {
 	@include adaptiveValue('font-size', 40, 26);
-	@include adaptiveValue('margin-bottom', 24, 24);
+	// @include adaptiveValue('margin-bottom', 24, 24);
+	margin-bottom: rem(24);
 	line-height: 120%;
 	font-weight: 700;
 
@@ -23,7 +26,8 @@
 
 .teachers-main__position {
 	@include adaptiveValue('font-size', 20, 16);
-	@include adaptiveValue('margin-bottom', 40, 40);
+	// @include adaptiveValue('margin-bottom', 40, 40);
+	margin-bottom: rem(40);
 	color: $mainTif;
 	line-height: 120%;
 	font-weight: 700;
@@ -82,6 +86,7 @@
 
 	.teachers-main__phrase {
 		@include adaptiveValue('margin-top', 24, 24);
+		margin-top: rem(24);
 		grid-column: 1/4;
 		grid-row: 2/3;
 	}
@@ -163,7 +168,8 @@
 
 .teachers-point {
 	@include adaptiveValue('font-size', 18, 14);
-	@include adaptiveValue('margin-right', 25, 25);
+	// @include adaptiveValue('margin-right', 25, 25);
+	margin-right: rem(25);
 	margin-bottom: rem(8);
 	font-weight: 700;
 	line-height: 140%;
@@ -355,4 +361,10 @@
 .padding-top {
 	margin-right: 0;
 	padding-top: rem(24);
+}
+@media screen and (max-width: 768px) {
+	.teachers-main__section {
+		margin-top: rem(64);
+		margin-bottom: rem(64);
+	}
 }

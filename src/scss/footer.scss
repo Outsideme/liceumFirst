@@ -141,7 +141,8 @@
 .item-title {
 	@include adaptiveValue('gap', 30, 5);
 	@include adaptiveValue('font-size', 18, 16);
-	@include adaptiveValue('margin-bottom', 8, 6);
+	// @include adaptiveValue('margin-bottom', 8, 6);
+	margin-bottom: 8px;
 	font-weight: 700;
 	line-height: 140%;
 }
@@ -169,7 +170,8 @@
 }
 
 .aside__contacts h2 {
-	@include adaptiveValue('margin-bottom', 36, 30);
+	// @include adaptiveValue('margin-bottom', 36, 30);
+	margin-bottom: 36px;
 	position: relative;
 
 	a {
@@ -193,7 +195,8 @@
 
 .social-icons-footer a {
 	&:not(:last-child) {
-		@include adaptiveValue('margin-right', 16, 14)
+		// @include adaptiveValue('margin-right', 16, 14);
+		margin-right: 16px;
 	}
 
 }
@@ -203,7 +206,8 @@
 
 	h2 {
 		@include adaptiveValue('font-size', 14, 12);
-		@include adaptiveValue('margin-bottom', 16, 14);
+		// @include adaptiveValue('margin-bottom', 16, 14);
+		margin-bottom: 16px;
 		font-weight: 700;
 	}
 
@@ -298,7 +302,7 @@
 			grid-template-columns: repeat(3, 1fr);
 			grid-template-rows: repeat(2, 1fr) .5fr;
 			@include adaptiveValue('gap', 30, 15);
-			@include adaptiveValue('margin-top', 36, 36);
+			margin-top: rem(36);
 			margin-bottom: rem(16);
 		}
 	}

@@ -9,21 +9,24 @@
 	h1 {
 
 		@include adaptiveValue('font-size', 40, 26);
-		@include adaptiveValue('margin-bottom', 40, 24);
+		// @include adaptiveValue('margin-bottom', 40, 24);
+		margin-bottom: 40px;
 		font-weight: 700;
 		line-height: 120%;
 	}
 
 	h2 {
 		@include adaptiveValue('font-size', 32, 22);
-		@include adaptiveValue('margin-bottom', 40, 40);
+		// @include adaptiveValue('margin-bottom', 40, 40);
+		margin-bottom: 40px;
 		font-weight: 700;
 		line-height: 120%;
 	}
 
 	h2[data-miniH2] {
 		@include adaptiveValue('font-size', 24, 20);
-		@include adaptiveValue('margin-bottom', 24, 20);
+		// @include adaptiveValue('margin-bottom', 24, 20);
+		margin-bottom: 24px;
 
 	}
 
@@ -34,7 +37,8 @@
 
 
 	.box-chart {
-		@include adaptiveValue('margin-bottom', 24, 16);
+		// @include adaptiveValue('margin-bottom', 24, 16);
+		margin-bottom: 24px;
 		transition: transform .2s ease;
 		line-height: math.div(20, 14);
 
@@ -44,7 +48,8 @@
 	.box-holder-chart {}
 
 	.box-chart2 {
-		@include adaptiveValue('margin-bottom', 30, 24);
+		// @include adaptiveValue('margin-bottom', 30, 24);
+		margin-bottom: 30px;
 
 	}
 
@@ -55,6 +60,7 @@
 
 	}
 }
+
 
 .education-tables__table {
 	background-color: rgba(255, 255, 255, .5);
@@ -140,7 +146,8 @@
 }
 
 .first-tables {
-	@include adaptiveValue('margin-bottom', 104, 64);
+	// @include adaptiveValue('margin-bottom', 104, 64);
+	margin-bottom: 104px;
 
 }
 
@@ -170,18 +177,20 @@
 
 .table-quarter,
 .table-period {
-	@include adaptiveValue('margin-bottom', 40, 40);
+	// @include adaptiveValue('margin-bottom', 40, 40);
+	margin-bottom: 40px;
 
 }
 
 .table-prog {
-	@include adaptiveValue('margin-bottom', 8, 8);
+	// @include adaptiveValue('margin-bottom', 8, 8);
+	margin-bottom: 8px;
 
 }
 
 .aside-comment {
-	@include adaptiveValue('margin-bottom', 32, 24);
-
+	// @include adaptiveValue('margin-bottom', 32, 24);
+	margin-bottom: 32px;
 }
 
 .education-download {
@@ -267,7 +276,8 @@
 }
 
 .education-list-accor {
-	@include adaptiveValue('margin-left', 31, 24);
+	// @include adaptiveValue('margin-left', 31, 24);
+	margin-left: 31px;
 
 
 }
@@ -330,6 +340,7 @@
 
 .doc-education-list {
 	@include adaptiveValue('margin-left', 26, 18);
+	margin-left: 26px;
 
 }
 
@@ -344,6 +355,7 @@
 			transition: transform .2s ease-in-out;
 			@include adaptiveValue('font-size', 18, 14);
 			@include adaptiveValue('margin-bottom', 24, 14);
+			margin-bottom: 24px;
 
 			&:hover {
 				transform: translateX(10px);
@@ -406,6 +418,7 @@
 	background-color: #fff;
 	@include adaptiveValue('padding', 16, 8);
 	@include adaptiveValue('margin-top', 40, 8);
+	margin-top: 40px;
 	@include adaptiveValue('font-size', 18, 12);
 	line-height: 140%;
 }
@@ -757,6 +770,7 @@
 	@include adaptiveValue('padding', 16, 16);
 	background-color: #fff;
 	@include adaptiveValue('margin-bottom', 40, 24);
+	margin-bottom: 40px;
 	@include adaptiveValue('font-size', 18, 12);
 }
 
@@ -944,6 +958,7 @@
 
 	ul {
 		@include adaptiveValue('margin-top', 38, 6);
+		margin-bottom: 38px;
 
 		@include adaptiveValue('font-size', 14, 12);
 
@@ -996,6 +1011,7 @@
 
 .edu-graph-li {
 	@include adaptiveValue('margin-left', 12, 8);
+	margin-left: 12px;
 
 }
 
@@ -1078,4 +1094,77 @@
 	@include adaptiveValue('padding-left', 16, 12);
 	@include adaptiveValue('padding-bottom', 8, 8);
 	@include adaptiveValue('padding-top', 8, 8);
+}
+@media screen and (max-width: 576px){
+
+.education-list-accor {
+	// @include adaptiveValue('margin-left', 31, 24);
+	margin-left: 24px;
+
+
+}
+
+	.aside-comment {
+		// @include adaptiveValue('margin-bottom', 32, 24);
+		margin-bottom: 24px;
+	}
+	.first-tables {
+		// @include adaptiveValue('margin-bottom', 104, 64);
+		margin-bottom: 64px;
+
+	}
+	.education__rows {
+		h1 {
+
+			margin-bottom: 24px;
+		}
+
+
+		h2[data-miniH2] {
+			margin-bottom: 20px;
+
+		}
+
+
+
+		.box-chart {
+			margin-bottom: 16px;
+
+
+		}
+
+		.box-holder-chart {}
+
+		.box-chart2 {
+			margin-bottom: 24px;
+
+		}
+
+	}
+
+
+	.doc-education-list {
+		// @include adaptiveValue('margin-left', 26, 18);
+		margin-left: 18px;
+
+	}
+
+	.documents-list {
+
+		li {
+
+
+			h2 {
+				margin-bottom: 14px;
+
+
+			}
+		}
+	}
+
+	.prog-table {
+
+		margin-top: 8px;
+	}
+
 }

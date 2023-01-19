@@ -286,6 +286,7 @@
 
 .hunter-section {
 	@include adaptiveValue('margin-top', 48, 64);
+	margin-top: 48px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -298,9 +299,16 @@
 
 .hunter-section__title {
 	@include adaptiveValue('font-size', 18, 14);
-	@include adaptiveValue('margin-top', 33, 18);
-	@include adaptiveValue('margin-bottom', 33, 18);
-	@include adaptiveValue('margin-left', 64, 32);
+	// margin-top: 33px;
+	// margin-bottom: 33px;
+	// margin-left: 64px;
+	// @include adaptiveValue('margin-top', 33, 18);
+	margin-top: 33px;
+	margin-bottom: 33px;
+	margin-left: 64px;
+	margin-right: 24px;
+	// @include adaptiveValue('margin-bottom', 33, 18);
+	// @include adaptiveValue('margin-left', 64, 32);
 	width: 50%;
 }
 
@@ -308,7 +316,9 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	@include adaptiveValue('margin-right', 64, 32);
+	// @include adaptiveValue('margin-right', 64, 32);
+
+	margin-right: 64px;
 	@include adaptiveValue('height', 57, 52);
 	@include adaptiveValue('width', 248, 207);
 	@include adaptiveValue('font-size', 18, 14);
@@ -319,6 +329,13 @@
 }
 
 @media screen and (max-width: 768px) {
+	.hunter-section__title {
+		margin-top: 18px;
+		margin-bottom: 18px;
+		margin-left: 32px;
+		margin-right: 24px;
+	}
+
 	.hunter-section {
 		flex-direction: column;
 		@include adaptiveValue('padding-left', 20, 20);
@@ -336,7 +353,8 @@
 
 
 	.hunter-section__link {
-		@include adaptiveValue('margin-bottom', 28, 28);
+		// @include adaptiveValue('margin-bottom', 28, 28);
+		margin-bottom: 28px;
 		margin-right: 0px;
 
 

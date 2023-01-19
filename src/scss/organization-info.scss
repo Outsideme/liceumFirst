@@ -1,5 +1,6 @@
 .organization {
 	@include adaptiveValue('padding-top', 104, 64);
+
 	@include adaptiveValue('padding-bottom', 104, 64);
 
 	&__main-title-box {
@@ -8,7 +9,8 @@
 		}
 
 		width: 100%;
-		@include adaptiveValue('margin-bottom', 16, 0);
+		// @include adaptiveValue('margin-bottom', 16, 0);
+		margin-bottom: 16px;
 		grid-column: 1/4;
 	}
 }
@@ -115,9 +117,12 @@
 
 	h2 {
 		@include adaptiveValue('font-size', 16, 14);
-		@include adaptiveValue('margin-top', 24, 16);
-		@include adaptiveValue('margin-left', 24, 16);
-		@include adaptiveValue('margin-right', 24, 16);
+		// @include adaptiveValue('margin-top', 24, 16);
+		// @include adaptiveValue('margin-left', 24, 16);
+		// @include adaptiveValue('margin-right', 24, 16);
+		margin-top: 24px;
+		margin-left: 24px;
+		margin-right: 24px;
 		font-weight: 700;
 	}
 
@@ -140,8 +145,10 @@
 
 
 .org-item__links {
-	@include adaptiveValue('margin-left', 24, 16);
-	@include adaptiveValue('margin-bottom', 24, 16);
+	// @include adaptiveValue('margin-left', 24, 16);
+	// @include adaptiveValue('margin-bottom', 24, 16);
+	margin-left: 24px;
+	margin-bottom: 24px;
 
 }
 
@@ -174,8 +181,10 @@
 	.org-item {
 		&__links-middle-screen {
 			display: block;
-			@include adaptiveValue('margin-left', 24, 16);
-			@include adaptiveValue('margin-bottom', 24, 16);
+			// @include adaptiveValue('margin-left', 24, 16);
+			// @include adaptiveValue('margin-bottom', 24, 16);
+			margin-left: 24px;
+			margin-bottom: 16px;
 
 
 		}
@@ -207,7 +216,8 @@
 	.organization {
 
 		&__main-title-box {
-			@include adaptiveValue('margin-bottom', 16, 8);
+			// @include adaptiveValue('margin-bottom', 16, 8);
+			margin-bottom: 16px;
 			grid-column: 1/3;
 		}
 	}
