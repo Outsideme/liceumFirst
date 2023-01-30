@@ -2883,11 +2883,6 @@ new Swiper(".swiper-container-10", {
   grabCursor: true,
 });
 
-// And if we need scrollbar
-// scrollbar: {
-//   el: ".swiper-scrollbar",
-// },
-// });
 if (document.querySelector(".infrastructure__li-1")) {
   document
     .querySelector(".infrastructure__li-1")
@@ -2961,7 +2956,10 @@ if (document.querySelector(".infrastructure__li-8")) {
         .scroll({ top: 5850, behavior: "smooth" });
     });
 }
-if (document.querySelector(".infrastructure__li-1") !== null) {
+if (
+  document.querySelector(".infrastructure__li-1") !== null &&
+  document.querySelector(".infrastructure__li-1").style.display !== "none"
+) {
   document.querySelector(".infrastructure__li-1").classList.add("li-active");
   document
     .querySelector(".scroll-content-box")
@@ -3045,53 +3043,277 @@ if (document.querySelector(".li-2-psy")) {
   document.querySelector(".li-2-psy").addEventListener("click", (e) => {
     document
       .querySelector(".scroll-content-box")
-      .scroll({ top: 1400, behavior: "smooth" });
+      .scroll({ top: 1475, behavior: "smooth" });
   });
 }
 if (document.querySelector(".li-3-psy")) {
   document.querySelector(".li-3-psy").addEventListener("click", (e) => {
     document
       .querySelector(".scroll-content-box")
-      .scroll({ top: 1875, behavior: "smooth" });
+      .scroll({ top: 2435, behavior: "smooth" });
   });
 }
 if (document.querySelector(".li-4-psy")) {
   document.querySelector(".li-4-psy").addEventListener("click", (e) => {
     document
       .querySelector(".scroll-content-box")
-      .scroll({ top: 2600, behavior: "smooth" });
+      .scroll({ top: 2895, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".li-5-psy")) {
+  document.querySelector(".li-5-psy").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 3395, behavior: "smooth" });
   });
 }
 if (document.querySelector(".scroll-content-box-psy") !== null) {
   document
     .querySelector(".scroll-content-box-psy")
     .addEventListener("scroll", function () {
-      if (this.scrollTop <= 1300 || this.scrollTop === 0) {
+      if (this.scrollTop <= 1440 || this.scrollTop === 0) {
         document.querySelectorAll(".infrastructure__li").forEach((elem) => {
           elem.classList.remove("li-active");
         });
         document.querySelector(".li-1-psy").classList.add("li-active");
       }
-      if (this.scrollTop >= 1300 && this.scrollTop <= 1900) {
+      if (this.scrollTop >= 1440 && this.scrollTop <= 2435) {
         document.querySelectorAll(".infrastructure__li").forEach((elem) => {
           elem.classList.remove("li-active");
         });
         document.querySelector(".li-2-psy").classList.add("li-active");
       }
-      if (this.scrollTop >= 1800 && this.scrollTop <= 2200) {
+      if (this.scrollTop >= 2435 && this.scrollTop <= 2895) {
         document.querySelectorAll(".infrastructure__li").forEach((elem) => {
           elem.classList.remove("li-active");
         });
         document.querySelector(".li-3-psy").classList.add("li-active");
       }
-      if (this.scrollTop >= 2200) {
+      if (this.scrollTop >= 2895 && this.scrollTop <= 3395) {
         document.querySelectorAll(".infrastructure__li").forEach((elem) => {
           elem.classList.remove("li-active");
         });
         document.querySelector(".li-4-psy").classList.add("li-active");
       }
+      if (this.scrollTop >= 3395) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".li-5-psy").classList.add("li-active");
+      }
     });
 }
+
+//===============================================>
+//                     SPORT.html
+
+if (document.querySelector(".sport__li-1")) {
+  document.querySelector(".sport__li-1").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 0, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".sport__li-2")) {
+  document.querySelector(".sport__li-2").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 980, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".sport__li-3")) {
+  document.querySelector(".sport__li-3").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 1890, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".sport__li-4")) {
+  document.querySelector(".sport__li-4").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 2830, behavior: "smooth" });
+  });
+}
+
+if (document.querySelector(".sport__li-5")) {
+  document.querySelector(".sport__li-5").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 3705, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".sport__li-6")) {
+  document.querySelector(".sport__li-6").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 4635, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".sport__li-7")) {
+  document.querySelector(".sport__li-7").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 5695, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".sport__li-8")) {
+  document.querySelector(".sport__li-8").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 6500, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".sport__li-1") !== null) {
+  document.querySelector(".sport__li-1").classList.add("li-active");
+  document
+    .querySelector(".scroll-content-box")
+    .addEventListener("scroll", function () {
+      if (this.scrollTop <= 980 || this.scrollTop === 0) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".sport__li-1").classList.add("li-active");
+      }
+      if (this.scrollTop >= 980 && this.scrollTop <= 1890) {
+        document.querySelectorAll(".sport__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".sport__li-2").classList.add("li-active");
+      }
+      if (this.scrollTop >= 1890 && this.scrollTop <= 2830) {
+        document.querySelectorAll(".sport__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".sport__li-3").classList.add("li-active");
+      }
+      if (this.scrollTop >= 2830 && this.scrollTop <= 3705) {
+        document.querySelectorAll(".sport__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".sport__li-4").classList.add("li-active");
+      }
+      if (this.scrollTop >= 3705 && this.scrollTop <= 4635) {
+        document.querySelectorAll(".sport__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".sport__li-5").classList.add("li-active");
+      }
+      if (this.scrollTop >= 4635 && this.scrollTop <= 5695) {
+        document.querySelectorAll(".sport__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".sport__li-6").classList.add("li-active");
+      }
+      if (this.scrollTop >= 5695 && this.scrollTop <= 6000) {
+        document.querySelectorAll(".sport__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".sport__li-7").classList.add("li-active");
+      }
+
+      if (this.scrollTop >= 6000) {
+        document.querySelectorAll(".sport__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".sport__li-8").classList.add("li-active");
+      }
+    });
+}
+//=============================================>
+//===============================================>
+//                     SPORT.html
+
+if (document.querySelector(".art__li-1")) {
+  document.querySelector(".art__li-1").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 0, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".art__li-2")) {
+  document.querySelector(".art__li-2").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 965, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".art__li-3")) {
+  document.querySelector(".art__li-3").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 1970, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".art__li-4")) {
+  document.querySelector(".art__li-4").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 2540, behavior: "smooth" });
+  });
+}
+
+if (document.querySelector(".art__li-5")) {
+  document.querySelector(".art__li-5").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 3005, behavior: "smooth" });
+  });
+}
+if (document.querySelector(".art__li-6")) {
+  document.querySelector(".art__li-6").addEventListener("click", (e) => {
+    document
+      .querySelector(".scroll-content-box")
+      .scroll({ top: 3500, behavior: "smooth" });
+  });
+}
+
+if (document.querySelector(".art__li-1") !== null) {
+  document.querySelector(".art__li-1").classList.add("li-active");
+  document
+    .querySelector(".scroll-content-box")
+    .addEventListener("scroll", function () {
+      if (this.scrollTop <= 965 || this.scrollTop === 0) {
+        document.querySelectorAll(".infrastructure__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".art__li-1").classList.add("li-active");
+      }
+      if (this.scrollTop >= 965 && this.scrollTop <= 1970) {
+        document.querySelectorAll(".art__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".art__li-2").classList.add("li-active");
+      }
+      if (this.scrollTop >= 1970 && this.scrollTop <= 2540) {
+        document.querySelectorAll(".art__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".art__li-3").classList.add("li-active");
+      }
+      if (this.scrollTop >= 2540 && this.scrollTop <= 3005) {
+        document.querySelectorAll(".art__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".art__li-4").classList.add("li-active");
+      }
+      if (this.scrollTop >= 3005 && this.scrollTop <= 3300) {
+        document.querySelectorAll(".art__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".art__li-5").classList.add("li-active");
+      }
+
+      if (this.scrollTop >= 3300) {
+        document.querySelectorAll(".art__li").forEach((elem) => {
+          elem.classList.remove("li-active");
+        });
+        document.querySelector(".art__li-6").classList.add("li-active");
+      }
+    });
+}
+//=============================================>
+
 const MenuLiHover = 'elem.classList.add("menu-links-hover")';
 document
   .querySelectorAll(".menu-link")
@@ -3188,7 +3410,6 @@ function headerFix() {
       document.documentElement.scrollTop >
       document.documentElement.scrollHeight - 1500
     ) {
-      // cateLeapObj.removeOutClass();
       return;
     }
     let scrolled = window.scrollY || document.documentElement.scrollTop;
@@ -3201,7 +3422,7 @@ function headerFix() {
 
     if (dY < 0) {
       header.classList.add("header-top-fixed");
-      wrapper.style.paddingTop = "135px";
+      wrapper.style.paddingTop = "205px";
 
       if (document.querySelector(".cate-leap__title") !== null) {
         cateLeapObj.removeOutClass();
@@ -3209,14 +3430,13 @@ function headerFix() {
       }
     } else {
       wrapper.style.paddingTop = "0px";
-
       header.classList.remove("header-top-fixed");
       header.classList.add("scroll200");
       cateLeapObj.removeCateFix();
     }
-    if (scrolled < 50) {
-      wrapper.style.paddingTop = "0px";
 
+    if (scrolled < 850) {
+      wrapper.style.paddingTop = "0px";
       cateLeapObj.removeCateFix();
       cateLeapObj.removeOutClass();
       cateLeapObj.removeTitleMargin();
@@ -3417,29 +3637,24 @@ const showOrg = () => {
 const hideOrg = () => {
   document.querySelector(".crumbs__title-last").style.display = "none";
 };
-let crumbsChanger = () => {
+const showTeam = () => {
+  document.querySelector(".crumbs__title-last-teacher").style.display = "block";
+};
+const hideTeam = () => {
+  document.querySelector(".crumbs__title-last-teacher").style.display = "none";
+};
+
+(function crumbsEnge() {
+  const pathName = location.pathName;
+  let teachCrumbs = /teachers/.test(pathName);
+  teachCrumbs ? showTeam() : hideTeam();
+  let orgCrumbs = /info\/./i.test(pathName);
+  orgCrumbs ? showOrg() : hideOrg();
   currentCrumbs.innerHTML = `<svg id="arrow-bread" width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M1 9.6001L5 5.6001L1 1.6001"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   ${document.title}`;
-  const pathName = [...location.pathname];
-
-  pathName.shift();
-  pathName.join("") == "index" || pathName == undefined
-    ? (currentCrumbs.style.display = "none")
-    : false;
-  pathName.length <= 0 ? (currentCrumbs.style.display = "none") : false;
-
-  for (let i = 0; i < 5; i++) {
-    pathName.pop()[i];
-  }
-  let teacherResult = pathName.slice(0, 7).join("");
-  teacherResult == "teacher" ? (teamCrumbs.style.display = "block") : false;
-  let resultPathName = pathName.join("");
-  pathNameArr.includes(resultPathName) ? showOrg() : hideOrg();
-  resultPathName == "index" ? (currentCrumbs.style.display = "none") : false;
-};
-crumbsChanger();
+})();
 
 //============================/===================/====================>
 

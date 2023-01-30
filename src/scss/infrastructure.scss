@@ -564,6 +564,7 @@ position: absolute;
 }
 
 @media screen and (max-width: 869px) {
+
 	.infrastructure__tab-bar {
 		display: none;
 	}
@@ -631,6 +632,7 @@ position: absolute;
 	top: 112%;
 }
 }
+.mobile-content-box{}
 @media screen and (max-width: 600px) {
 	.swiper-pagination {
 		position: absolute;
@@ -757,3 +759,12 @@ position: absolute;
 // 		stroke: yellow;
 // 	}
 // }
+// .teachers-point-prop ul span{
+// 	margin-bottom: rem(16);
+// }
+.span-pd-16 {
+	padding-top: 16px;
+}
+.art-row {
+	margin-bottom: rem(205);
+}
