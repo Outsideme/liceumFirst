@@ -1,0 +1,232 @@
+.news-details {}
+
+.news-details__container {
+	margin-top: 104px;
+	padding-bottom: 104px;
+	h3{
+		a{
+			padding-left: 40px;
+			position: relative;
+			svg{
+				position: absolute;
+				left: 0;
+				top: -10%;
+				// transform: translateY(-50%);
+			}
+		}
+		margin-bottom: 40px;
+	}
+	h1 {
+
+		@include adaptiveValue('font-size', 40, 26);
+		// @include adaptiveValue('margin-top', 104, 64);
+		// @include adaptiveValue('margin-bottom', 40, 24);
+		// margin-top: 104px;
+		margin-bottom: 16px;
+		font-weight: 700;
+		line-height: 120%;
+	}
+	h2 {
+		@include adaptiveValue("font-size", 18, 16);
+		color: $pointText;
+		margin-bottom: 40px;
+
+	}
+	h5 {
+		margin-bottom: 16px;
+		line-height: 140%;
+	}
+}
+.news-details__rows {
+	@include adaptiveValue("font-size", 18, 16);
+	max-width: 90%;
+	// background-color: red;
+}
+
+.slider {
+	// padding: 32px;
+	color: #fff;
+  }
+  .slider .swiper-container {
+	width: 100%;
+	height: 100%;
+  }
+  .slider__flex {
+	display: flex;
+	align-items: flex-start;
+  }
+  .slider__col {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 150px;
+	margin-top: 60px;
+	margin-left: 32px;
+  }
+  .slider__prev,
+  .slider__next {
+	cursor: pointer;
+	color: $pointText;
+	text-align: center;
+	font-size: 14px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  }
+  .slider__prev{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: -60px;
+  }
+  .slider__next{
+	position: absolute;
+	bottom: 15px;
+	right: 50%;
+	transform: translateX(50%);
+	align-items: end;
+	svg{
+		transform: rotate(180deg);
+	}
+  }
+  .slider__prev:focus,
+  .slider__next:focus {
+	outline: none;
+  }
+  .slider__thumbs {
+	height: calc(445px - 96px);
+  }
+  .slider__thumbs .slider__image {
+	transition: 0.25s;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	opacity: 0.5;
+  }
+  .slider__thumbs .slider__image:hover {
+	opacity: 1;
+  }
+  .slider__thumbs .swiper-slide-thumb-active .slider__image {
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+	opacity: 1;
+  }
+  .slider__images {
+
+	height: 500px;
+	min-height: 500px;
+	// margin-bottom: 40px;
+
+  }
+  .slider__images .slider__image img {
+	transition: 3s;
+  }
+  .slider__images .slider__image:hover img {
+	transform: scale(1.1);
+  }
+  .slider__image {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	overflow: hidden;
+  }
+  .slider__image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+  }
+  @media (max-width: 767.98px) {
+	.slider__flex {
+	  flex-direction: column-reverse;
+	}
+	.slider__col {
+	  flex-direction: row;
+	  align-items: center;
+	  margin-right: 0;
+	  margin-top: 24px;
+	  width: 100%;
+	}
+	.slider__images {
+	  width: 100%;
+	}
+	.slider__thumbs {
+	  height: 100px;
+	  width: calc(100% - 96px);
+	  margin: 0 16px;
+	}
+	.slider__prev,
+	.slider__next {
+	  height: auto;
+	  width: 32px;
+	}
+  }
+.slider__images{
+	border-radius: 0!important;
+}
+.news-details__text-keeper {
+	margin-bottom: 40px;
+	margin-top: rem(-64);
+}
+.share {
+	h6 {
+		margin-right: 16px;
+		color: $mainTif;
+		font-weight: 700;
+		@include adaptiveValue("font-size", 24, 20);
+
+
+	}
+	display: flex;
+	align-items: center;
+	// border: 1px solid #000;
+}
+@media screen and (max-width: 768px){
+	.news-details__rows {
+		max-width: 100%;
+		// background-color: red;
+	}
+	.slider__col {
+		margin-left: 32px;
+	}
+	.slider__prev{
+		top: 30px;
+		left: -15px;
+		svg{
+			transform: rotate(-90deg);
+		}
+	}
+	.slider__next{
+		position: absolute;
+		// bottom: 0;
+		bottom: 50%;
+		// @include adaptiveValue("left", 9, );
+		right: 35px;
+		transform: translatey(50%);
+		// align-items: end;
+		svg{
+			transform: rotate(90deg);
+		}
+	  }
+}
+.news-icons{
+
+svg{
+		&:hover {
+			transform: scale(103%);
+			transition: transform .1s ease-in-out;
+
+			path {
+				fill: black;
+				// stroke: #fff;
+				transition: transform .2s ease-in-out;
+			}
+		}
+	}
+}
+//===============================================>
