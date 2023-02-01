@@ -2543,6 +2543,7 @@ import {
   EffectCards,
   Thumbs,
   Lazy,
+  Autoplay,
 } from "swiper";
 import "swiper/css/bundle";
 import "swiper/css/navigation";
@@ -2552,6 +2553,7 @@ Swiper.use([Lazy]);
 Swiper.use([Navigation]);
 Swiper.use([Pagination]);
 Swiper.use([EffectCards]);
+Swiper.use([Autoplay]);
 // init Swiper:
 new Swiper(".swiper-container-1", {
   lazy: true,
@@ -2562,8 +2564,33 @@ new Swiper(".swiper-container-1", {
     nextEl: ".swiper-button-next-1",
     prevEl: ".swiper-button-prev-1",
   },
+
   pagination: {
     el: ".swiper-pagination-1",
+    type: "fraction",
+    formatFractionCurrent: function (number) {
+      return number;
+    },
+  },
+
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+new Swiper(".slider-index-wrapper", {
+  autoplay: {
+    delay: 4000,
+  },
+  lazy: true,
+  // loop: true,
+  spaceBetween: 50,
+  centeredSlidesBounds: true,
+  navigation: {
+    nextEl: ".index-swiper-button-next",
+    prevEl: ".index-swiper-button-prev",
+  },
+  pagination: {
+    el: ".index-swiper-pagination",
     type: "fraction",
     formatFractionCurrent: function (number) {
       return number;
@@ -3664,6 +3691,7 @@ const hideTeam = () => {
 
 (function crumbsEnge() {
   const pathName = location.pathName;
+
   let teachCrumbs = /teachers/.test(pathName);
   teachCrumbs ? showTeam() : hideTeam();
   let orgCrumbs = /info\/./i.test(pathName);
@@ -3925,4 +3953,4 @@ import * as flsScroll from "./files/scroll/scroll.js";
 // ========================================================================================================================================================================================================================================================
 /* Подключаем файлы со своим кодом */
 import "./files/script.js";
-//============================================================================================================================================================================================================================================()
+//============================================================================================================================================================================================================================================(
