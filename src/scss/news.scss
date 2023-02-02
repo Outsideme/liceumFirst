@@ -125,6 +125,9 @@
 	.news-card-big {
 		max-width: 100%;
 	}
+	.index-news-card-mini {
+		width: 100%;
+	}
 
 	}
 @media screen and (max-width: 782px){
@@ -143,6 +146,8 @@
 		}
 
 	}
+
+
 	.news-card-mini {
 		max-width: 100%;
 		// justify-content: center;
@@ -159,6 +164,12 @@
 			width: 100%;
 
 		}
+		// .index-news-card-mini {
+		// 	width: 100%;
+		// }
+		// .index-news-card-big {
+		// 	width: 100%;
+		// }
 	}
 	.news-card-big {
 	background-color: red;

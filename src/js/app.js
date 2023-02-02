@@ -2554,6 +2554,7 @@ Swiper.use([Navigation]);
 Swiper.use([Pagination]);
 Swiper.use([EffectCards]);
 Swiper.use([Autoplay]);
+// Swiper.use([SlidesPerView]);
 // init Swiper:
 new Swiper(".swiper-container-1", {
   lazy: true,
@@ -2917,16 +2918,31 @@ new Swiper(".swiper-container-10", {
   // loop: true,
   grabCursor: true,
 });
-// document.querySelectorAll(".swiper-slide-news").forEach((elem) => {
-//   setTimeout(() => {
-//     if (elem.classList.contains("swiper-slide-active")) {
-//       elem.classList.add("qqqwww");
-//       console.log(elem);
-//     } else if (!elem.classList.contains("swiper-slide-active")) {
-//       elem.classList.remove("qqqwww");
-//     }
-//   }, 0);
-// });
+new Swiper(".swiper-index-profiles", {
+  // slidesPerView: 4,
+  spaceBetween: 30,
+  grabCursor: true,
+  breakpoints: {
+    // when window width is >= 640px
+    320: {
+      width: 320,
+      slidesPerView: 1.1,
+    },
+    640: {
+      width: 640,
+      slidesPerView: 1.9,
+    },
+    // when window width is >= 768px
+    767: {
+      width: 768,
+      slidesPerView: 2.5,
+    },
+    1024: {
+      width: 1024,
+      slidesPerView: 3.6,
+    },
+  },
+});
 
 if (document.querySelector(".infrastructure__li-1")) {
   document
