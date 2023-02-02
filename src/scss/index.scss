@@ -411,21 +411,29 @@ right: 44%;
 	width: calc((100%/3) - 30px);
 	display: flex;
 	align-items: center;
-	justify-content: end;
+	justify-content: space-between;
 	position: relative;
 	background-color: white;
 	border-radius: 20px;
+	gap: 36px;
 	h4{
-		position: absolute;
-		left: 16px;
+		// position: absolute;
+		// left: 16px;
+		margin-left: 16px;
+		// margin-right: 16px;
 		@include adaptiveValue("font-size", 48, 32);
 		font-weight: 700;
+		width: 15%;
+		text-align: center;
 		// margin-left: 16px;
-		margin-right: 16px;
+		// margin-right: 16px;
 	}
 	h5{
-		margin-left: 104px;
-		padding: 20px 40px 20px 0;
+		width: 80%;
+		text-align: left;
+		// margin-left: 16px;
+		// margin-left: 104px;s
+		padding: 20px 15px 20px 0;
 		@include adaptiveValue("font-size", 18, 16);
 	}
 }
@@ -563,9 +571,11 @@ right: 44%;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 37px;
-	h1 {
-		@include adaptiveValue("font-size", 32, 16);
+	h5 {
+		@include adaptiveValue("font-size", 32, 24);
+		white-space: nowrap;
 		font-weight: 700;
+
 	}
 	a{
 		position: relative;
@@ -595,7 +605,29 @@ right: 44%;
 // .swiper-container-index-porfiles {
 // 	overflow: visible;
 // }
+.swiper-index-profiles-slide {
+&:nth-child(1) {
+	h3 {
+		color: #43BBD6;
+	}
+}
+&:nth-child(2) {
+	h3 {
+		color: #BD81CD;
+	}
+}
+&:nth-child(3) {
+	h3 {
+		color: #67B96F;
+	}
+}
+&:nth-child(4) {
+	h3 {
+		color: #F28D77;
+	}
+}}
 .swiper-index-profiles-slide__text-keeper {
+
 	min-height: 395px;
 	padding: 129px 8px 26px 8px;
 	h3{
@@ -669,7 +701,7 @@ line-height: 140%;
 }
 .index-profiles-headline-bottom {
 	// display: block;
-	padding-bottom: 28px;
+	padding-bottom: 84px;
 	visibility: hidden;
 	width: 100%;
 	justify-content: center;
@@ -681,9 +713,12 @@ line-height: 140%;
 @media screen and (max-width: 758px) {
 	.index-news-headline {
 		margin-top: 84px;
+		font-weight: 700;
+		@include adaptiveValue("font-size", 32, 24);
 	}
 	.index-news-headline-bottom {
 		margin-top: rem(0);
+		margin-bottom: rem(64);
 	}
 	.index-profiles-headline-bottom {
 	visibility: visible;
