@@ -69,6 +69,7 @@
 	border: 1px solid $borderTif;
 	@include adaptiveValue('padding', 16, 12);
 	border-radius: 20px;
+	box-shadow: 4px 4px 10px rgba(128,182,209,0.1)
 }
 
 .education-tables__titles,
@@ -229,17 +230,10 @@
 	width: 100%;
 	border-radius: 20px;
 	transition: max-height .5s ease, border-radius .73s ease;
+	box-shadow: 0px -15px 10px -15px rgba(128,182,209,0.2), -15px 0px 10px -15px rgba(128,182,209,0.2), 15px 0px 10px -15px rgba(128,182,209,0.2);
 
 
 
-	svg {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		@include adaptiveValue('right', 36, 20);
-
-		right: 0;
-	}
 
 
 }
@@ -247,6 +241,13 @@
 
 #arrow-education {
 	transition: transform 0.4s ease;
+
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		@include adaptiveValue('right', 36, 20);
+
+		right: 0;
 
 }
 .arrow-education-white {
@@ -421,6 +422,7 @@
 	margin-top: 40px;
 	@include adaptiveValue('font-size', 18, 12);
 	line-height: 140%;
+	box-shadow: 4px 4px 10px rgba(128,182,209,0.1)
 }
 
 .prog-table-box {
