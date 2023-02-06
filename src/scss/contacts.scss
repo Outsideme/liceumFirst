@@ -138,23 +138,23 @@
 #contacts-phone {
 	@include adaptiveValue('width', 24, 16);
 	@include adaptiveValue('height', 24, 16);
-	@include adaptiveValue('left', -32, -26);
-	@include adaptiveValue('top', 7, 10);
+	@include adaptiveValue('left', -42, -26);
+	@include adaptiveValue('top', 3, 10);
 
 }
 
 #contacts-mail {
 	@include adaptiveValue('width', 24, 16);
-	@include adaptiveValue('left', -32, -26);
-	@include adaptiveValue('top', 7, 10);
+	@include adaptiveValue('left', -42, -26);
+	@include adaptiveValue('top', 3, 10);
 
 }
 
 #contacts-marker {
 	@include adaptiveValue('width', 18, 10);
 	@include adaptiveValue('height', 24, 16);
-	@include adaptiveValue('left', -29, -23);
-	@include adaptiveValue('top', 7, 10);
+	@include adaptiveValue('left', -39, -23);
+	@include adaptiveValue('top', 3, 10);
 
 }
 

@@ -220,6 +220,33 @@ function btnAccorEducationOpen() {
     }
   }
 }
+document.querySelectorAll(".five-steps-accor__btn").forEach((e) => {
+  e.addEventListener("click", btnAccorEducationOpenFiveSteps, false);
+});
+function btnAccorEducationOpenFiveSteps() {
+  const accor = this.nextElementSibling;
+  const content = this.nextElementSibling.children[0];
+  if (content) {
+    if (!accor.classList.contains("education-accor-active")) {
+      accor.classList.add("education-accor-active");
+      content.classList.add("educationContentAccor");
+      this.classList.add("btn-education-radio");
+      console.log(this);
+      this.children[1].children[2].style.transform = "rotate(-180deg)";
+      // console.log(this.children[1].children[2]);
+    } else {
+      accor.classList.remove("education-accor-active");
+      content.classList.remove("educationContentAccor");
+
+      setTimeout(() => {
+        this.children[1].children[2].style.transform = "rotate(0deg)";
+      }, 210);
+      setTimeout(() => {
+        this.classList.remove("btn-education-radio");
+      }, 310);
+    }
+  }
+}
 
 window.addEventListener("load", (e) => {
   heightHours();
